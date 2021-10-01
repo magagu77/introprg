@@ -1,0 +1,4 @@
+'01':
+  stdout:
+  - Hello World!
+_mainclass: HolaMon

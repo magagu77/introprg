@@ -1,0 +1,9 @@
+'01':
+  argsin: '1'
+  stdout:
+  - El doble de 1 és 2
+'02':
+  argsin: '5'
+  stdout:
+  - El doble de 5 és 10
+_mainclass: Duplica

@@ -1,0 +1,17 @@
+'01':
+  stdin:
+  - 'Renat'
+  - 'Taner'
+  stdout:
+  - 'Com et dius?'
+  - 'I quin és el teu primer cognom?'
+  - 'Ei Renat, tinc una amiga que també és Taner.'
+'02':
+  stdin:
+  - 'Fullet'
+  - 'Tortuga'
+  stdout:
+  - 'Com et dius?'
+  - 'I quin és el teu primer cognom?'
+  - 'Ei Fullet, tinc una amiga que també és Tortuga.'
+_mainclass: NomICognom

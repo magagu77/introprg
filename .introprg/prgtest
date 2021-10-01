@@ -1,0 +1,5 @@
+#! /bin/bash
+scriptdir=$(dirname "$0")
+pythonpath=$(realpath "$scriptdir")
+python3 "$pythonpath/prgtest.py" $@
+exit "$?"
