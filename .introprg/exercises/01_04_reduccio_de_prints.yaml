@@ -1,0 +1,25 @@
+'01':
+  argsin: '1'
+  stdin:
+  - ''
+  stdout:
+  - El número pensat és 1
+  - Quan el multipliques per 3 obtens 3
+  - Quan li sumes 6 arriba a 9
+  - Un cop dividit per 3 queda 3
+  - Finalment, en restar-li el valor inicial, queda 2
+  - A que el resultat és 2?
+  - ''
+'02':
+  argsin: '2'
+  stdin:
+  - ''
+  stdout:
+  - El número pensat és 2
+  - Quan el multipliques per 3 obtens 6
+  - Quan li sumes 6 arriba a 12
+  - Un cop dividit per 3 queda 4
+  - Finalment, en restar-li el valor inicial, queda 2
+  - A que el resultat és 2?
+  - ''
+_mainclass: EndevinaNombre
