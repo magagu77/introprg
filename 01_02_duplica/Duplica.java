@@ -14,8 +14,7 @@ class Duplica {
     
     //Calcula el doble
     nombreDuplicat = nombreADuplicar * 2 ;
-    System.out.println ("El doble de " + nombreADuplicar);
-    System.out.println ("és " + nombreDuplicat);
+    System.out.println ("El doble de " + nombreADuplicar +" és " + nombreDuplicat);
     }
 }
 
