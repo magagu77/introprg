@@ -21,17 +21,17 @@
 
             // Suma-li 6
             numero = numero + 6;
-            System.out.println(". Quan li sumes 6 arriba a " + numero);
+            System.out.println("Quan li sumes 6 arriba a " + numero);
 
             // divideix-ho tot per 3
             numero = numero / 3;
-            System.out.println(". Un cop dividit per 3 queda " + numero);
+            System.out.println("Un cop dividit per 3 queda " + numero);
 
             // resta-li el número pensat
             numero = numero - numeroPensat;
-            System.out.println(". Finalment, en restar-li el valor inicial, queda " + numero);
+            System.out.println("Finalment, en restar-li el valor inicial, queda " + numero);
 
             // compara el resultat
-            System.out.println(". A que el resultat és 2?");
+            System.out.println("A que el resultat és 2?");
         }
     }
