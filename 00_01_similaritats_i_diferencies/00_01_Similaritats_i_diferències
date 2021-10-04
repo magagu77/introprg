@@ -1,0 +1,23 @@
+Marc Garcia Guerrero
+04-10-2021
+
+Ejercicio Exercici 00_01_Similaritats_i_diferències
+
+Pregunta 1. Què fa el programa?
+Calcula l'área d'un cercle
+
+Pregunta 2. Elements comuns
+Tots tenen variables y prints
+
+Pregunta 3. Entrada/sortida
+En pseudocodi, l’entrada l’obté amb llegeix radi i el resultat el mostra amb escriu "L'àrea és ", àrea"
+En C,   float radi, area;
+En python, linia = input("Introduïu el radi: ")
+En java, float radi = Float.parseFloat(linia); 
+En kotlin, val radi = linia.toFloat()
+
+Pregunta 4. Variables
+unes altres variables son radi i linea
+
+Pregunta 5. Preferència
+Python, es la mes comode per treballar i desenvolupar
