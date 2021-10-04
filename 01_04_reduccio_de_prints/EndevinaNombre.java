@@ -12,24 +12,24 @@
             int numeroPensat = Integer.parseInt(args[0]), numero;   // definir las 2 variables
 
             // pensa un número
-            System.out.print("El número pensat és " + numeroPensat);
+            System.out.println("El número pensat és " + numeroPensat);
 
 
             // Multiplica'l per 3
             numero = numeroPensat * 3;
-            System.out.print("Quan el multipliques per 3 obtens " + numero);
+            System.out.println("Quan el multipliques per 3 obtens " + numero);
 
             // Suma-li 6
             numero = numero + 6;
-            System.out.print(". Quan li sumes 6 arriba a " + numero);
+            System.out.println(". Quan li sumes 6 arriba a " + numero);
 
             // divideix-ho tot per 3
             numero = numero / 3;
-            System.out.print(". Un cop dividit per 3 queda " + numero);
+            System.out.println(". Un cop dividit per 3 queda " + numero);
 
             // resta-li el número pensat
             numero = numero - numeroPensat;
-            System.out.print(". Finalment, en restar-li el valor inicial, queda " + numero);
+            System.out.println(". Finalment, en restar-li el valor inicial, queda " + numero);
 
             // compara el resultat
             System.out.println(". A que el resultat és 2?");
