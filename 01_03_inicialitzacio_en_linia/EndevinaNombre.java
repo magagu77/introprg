@@ -9,11 +9,9 @@
 
         public static void main(String[] args) {
 
-            int numeroPensat;   // guardarà el número pensat
-            int numero;         // guardarà els càlculs intermitjos
-
+            int numeroPensat =Integer.parseInt(args[0]), numero;   // guardarà el número pensat
+            
             // pensa un número
-            numeroPensat = Integer.parseInt(args[0]);
             System.out.print("El número pensat és ");
             System.out.println(numeroPensat);
 
@@ -41,4 +39,3 @@
             System.out.println("A que el resultat és 2?");
         }
     }
-
