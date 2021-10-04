@@ -1,0 +1,13 @@
+mkdir /nombre de carpeta/
+cd /numbre de carpeta/
+cat /nombre del archivo/  #Lee el archivo
+gedit fitxer & /abre un archivo en segundo plano/
+ls /hace una lista de cosas en la carpeta en la que se ejecute/
+rm archivo /borra un archivo/
+git init /permite iniciar un repositorio git/
+git clone  /permite copiar un repositorio de git existente en una carpeta real/
+git status /muestra el estado del repositorio y ver los cambios que se han realizado/
+git add /añade un archivo a git /
+git commit /añade un comentario a un archivo/
+git push /sube los cambios a un repositorio de git/
+git pull /descarga los cambios en un repositorio de git/
