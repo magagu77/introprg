@@ -1,0 +1,23 @@
+_mainclass: CalculadoraBasica
+'01':
+  stdin:
+    - 3
+    - 5
+  stdout:
+    - 'Primer operand:'
+    - 'Segon operand:'
+    - 3 + 5 = 8
+    - 3 - 5 = -2
+    - 3 * 5 = 15
+    - 3 / 5 = 0
+'02':
+  stdin:
+    - 10
+    - 2
+  stdout:
+    - 'Primer operand:'
+    - 'Segon operand:'
+    - 10 + 2 = 12
+    - 10 - 2 = 8
+    - 10 * 2 = 20
+    - 10 / 2 = 5

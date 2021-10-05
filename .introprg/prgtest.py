@@ -363,7 +363,7 @@ class Prgtest:
 
         # Prepare stdin
         if stdin is not None:
-            stdin = '\n'.join(stdin)
+            stdin = '\n'.join(str(item) for item in stdin)
 
         # run the exercise
         command_list = ['java', self.get_main()]
