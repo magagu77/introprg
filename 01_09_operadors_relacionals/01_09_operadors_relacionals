@@ -1,0 +1,39 @@
+····································
+la teva edat és superior als 18 anys
+edat > 18 ;
+
+·······················
+tens menys de 5 germans
+hermanos < 5 ;
+
+·······························
+la suma de 2 més 5 és igual a 7
+suma2y5 == 7 ;
+
+···································
+la suma de 2 més 5 és diferent de 7
+suma2y5 != 7 ;
+
+·······························
+l’any que ve seràs major d’edat
+añoSiguienteMayor18 = true;
+
+········································
+l’any passat encara no eres major d’edat
+añoSiguienteMayor18 = false;
+
+····································
+tens com a molt 35 companys a classe
+compañerosClase <= 35;
+
+·····································
+tens tants companys a classe com anys
+edad == compañerosClase;
+
+························
+el Renat té quatre potes
+piernasRenat == 4;
+
+·······················
+estem a més de 28 graus
+temperatura > 28;
