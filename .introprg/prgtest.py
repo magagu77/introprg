@@ -324,8 +324,18 @@ class Prgtest:
         for testid, testspecs in self.specs.items():
             if testid.startswith('_'):
                 continue
-            output = self.run_target(stdin=testspecs.get('stdin'), argsin=testspecs.get('argsin'))
+            output = self.run_target(
+                stdin=Prgtest.normalize_entry_spec(testspecs.get('stdin')),
+                argsin=Prgtest.normalize_entry_spec(testspecs.get('argsin')))
             self.compare_results(testid, output)
+
+    @staticmethod
+    def normalize_entry_spec(entry):
+        """ normalizes an entry spec (i.e. the value of stdin, argsin, etc.)
+            The value of an entry spec can be a single string or a list of strings. 
+            After normalization, the result will be always a list. Even if empty.
+            In case entry is None, it returns None """
+        return entry if entry is None or isinstance(entry, list) else [entry]
 
 
     def run_target(self, stdin=None, argsin=None):
@@ -362,13 +372,16 @@ class Prgtest:
         os.chdir(self.target_path)
 
         # Prepare stdin
-        if stdin is not None:
-            stdin = '\n'.join(str(item) for item in stdin)
+        stdin = '' if stdin is None else '\n'.join(str(item) for item in stdin)
 
-        # run the exercise
+        # Prepare command
         command_list = ['java', self.get_main()]
+
+        # Add args if any
         if argsin is not None:
             command_list.extend(argsin)
+
+        # run the exercise
         try:
             result = subprocess.run(command_list,
                                     capture_output=True,
@@ -391,7 +404,7 @@ class Prgtest:
             """ compares output with expected output as defined in specs """
             ignore_blank_lines = self.specs.get('_ignore_blank_lines', True)
             testspecs = self.specs[testid]
-            expected = testspecs.get('stdout')
+            expected = Prgtest.normalize_entry_spec(testspecs.get('stdout'))
             if expected is None:
                 return None
             result = Prgtest.compare_lines(expected, found,
