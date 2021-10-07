@@ -1,0 +1,14 @@
+······························································
+la Clara és major d’edat o bé la Clara és més jove que el Marc
+ A = clara >= 18
+ B = clara < marc
+ 
+ B || A
+ 
+ 
+ A            B            ||
+ 
+ True         True         True
+ True         False        True
+ False        True         True
+ False        False        False
