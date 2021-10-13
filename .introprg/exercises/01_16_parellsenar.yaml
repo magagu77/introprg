@@ -1,0 +1,7 @@
+'01':
+  argsin: '11'
+  stdout: El número 11 és senar
+'02':
+  argsin: '22'
+  stdout: El número 22 és parell
+_mainclass: ParellSenar

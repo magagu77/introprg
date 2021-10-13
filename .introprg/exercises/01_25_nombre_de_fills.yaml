@@ -1,0 +1,57 @@
+'1':
+  stdin:
+  - '-1'
+  - ''
+  stdout:
+  - Quants fills tens?
+  - No pots tenir menys de 0 fills!
+  - ''
+'2':
+  stdin:
+  - '0'
+  - ''
+  stdout:
+  - Quants fills tens?
+  - Tot el que t'has estalviat en bolquers!
+  - ''
+'3':
+  stdin:
+  - '1'
+  - ''
+  stdout:
+  - Quants fills tens?
+  - Compte de no mimar-lo massa!
+  - ''
+'4':
+  stdin:
+  - '2'
+  - ''
+  stdout:
+  - Quants fills tens?
+  - No t'avorreixes a casa, eh?
+  - ''
+'5':
+  stdin:
+  - '4'
+  - ''
+  stdout:
+  - Quants fills tens?
+  - No t'avorreixes a casa, eh?
+  - ''
+'6':
+  stdin:
+  - '5'
+  - ''
+  stdout:
+  - Quants fills tens?
+  - Tu sí fas país!
+  - ''
+'7':
+  stdin:
+  - '6'
+  - ''
+  stdout:
+  - Quants fills tens?
+  - Tu sí fas país!
+  - ''
+_mainclass: Fills

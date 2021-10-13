@@ -1,0 +1,25 @@
+'01':
+  stdin:
+  - '1'
+  - '2'
+  stdout:
+  - Primer?
+  - Segon?
+  - 1 i 2
+'02':
+  stdin:
+  - '22'
+  - '11'
+  stdout:
+  - Primer?
+  - Segon?
+  - 11 i 22
+'03':
+  stdin:
+  - '33'
+  - '33'
+  stdout:
+  - Primer?
+  - Segon?
+  - 33 i 33
+_mainclass: DosEnOrdre
