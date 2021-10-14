@@ -13,13 +13,6 @@ public class DosEnOrdre {
           }
           else {
           System.out.println(segon + " i " + primer); }      
- 
 
-        /* █████ compara el primer i el segon, i amb una instrucció
-                 condicional amb if i else mostra el missatge
-                 corresponent.
-                 Pista: un dels missatges podria ser escrit amb:
-                 System.out.println(primer + " i " + segon);
-        */
     }
 }
