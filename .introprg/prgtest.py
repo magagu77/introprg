@@ -400,18 +400,41 @@ class Prgtest:
 
     def compare_results(self, testid, found):
         """ compares the output found when running target on testif with the expected one """
-        def compare_output():
+
+        def prepare_output(output):
+            """ prepares the output: - it has translations applied if any """
+            translatespecs = self.specs.get('_tr')
+            if translatespecs is None:
+                return output
+            if len(translatespecs) != 2:    # illdefined specs
+                raise AttributeError(f"illdefined _tr for exercise {self.target_path}")
+            if not translatespecs[0]:
+                raise AttributeError(f"illdefined _tr for exercise {self.target_path}")
+            if len(translatespecs[0]) != len(translatespecs[1]):
+                raise AttributeError(f"illdefined _tr for exercise {self.target_path}")
+            for i, chsrc in enumerate(translatespecs[0]):
+                chdst = translatespecs[1]
+                new_lines = []
+                for line in output:
+                    new_lines.append(line.replace(chsrc, chdst))
+                output = new_lines
+            return output
+            
+        def compare_output(output):
             """ compares output with expected output as defined in specs """
             ignore_blank_lines = self.specs.get('_ignore_blank_lines', True)
-            testspecs = self.specs[testid]
-            expected = Prgtest.normalize_entry_spec(testspecs.get('stdout'))
+            expected = self.specs[testid].get('stdout')
             if expected is None:
                 return None
-            result = Prgtest.compare_lines(expected, found,
+            output = prepare_output(output)
+            result = Prgtest.compare_lines(expected, output,
                                            ignore_blank_lines = ignore_blank_lines)
             return None if result is None else (testid, result)
 
-        result = compare_output()
+        # normalize expected output
+        testspecs = self.specs[testid]
+        testspecs['stdout'] = Prgtest.normalize_entry_spec(testspecs.get('stdout'))
+        result = compare_output(found)
         if result is None:
             text = colorize_string(" PASSA ",
                                    forecolor=get_color("FG_PASS_TEST"),
@@ -780,3 +803,4 @@ if __name__ == '__main__':
             print_error_and_exit("S'ha produït un error intern de prgtest. Comenta-li al teu docent")
         else:
             traceback.print_exc()
+            print_error_and_exit("Internal error")

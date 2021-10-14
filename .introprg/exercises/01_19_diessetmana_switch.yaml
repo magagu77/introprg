@@ -1,0 +1,28 @@
+'01':
+  argsin: '0'
+  stdout: Error
+'02':
+  argsin: '1'
+  stdout: Dilluns
+'03':
+  argsin: '2'
+  stdout: Dimarts
+'04':
+  argsin: '3'
+  stdout: Dimecres
+'05':
+  argsin: '4'
+  stdout: Dijous
+'06':
+  argsin: '5'
+  stdout: Divendres
+'07':
+  argsin: '6'
+  stdout: Dissabte
+'08':
+  argsin: '7'
+  stdout: Diumenge
+'09':
+  argsin: '8'
+  stdout: Error
+_mainclass: DiaSetmana

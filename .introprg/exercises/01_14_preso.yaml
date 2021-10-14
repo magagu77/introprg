@@ -1,0 +1,27 @@
+'01':
+  stdin:
+  - Manel
+  - '17'
+  stdout:
+  - Com us dieu?
+  - Quants anys teniu?
+  - Aneu amb compte Manel
+'02':
+  stdin:
+  - Anna
+  - '19'
+  stdout:
+  - Com us dieu?
+  - Quants anys teniu?
+  - Vos ja podeu anar a la presó!
+  - Aneu amb compte Anna
+'03':
+  stdin:
+  - Vicente
+  - '18'
+  stdout:
+  - Com us dieu?
+  - Quants anys teniu?
+  - Vos ja podeu anar a la presó!
+  - Aneu amb compte Vicente
+_mainclass: Preso
