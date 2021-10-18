@@ -16,7 +16,7 @@ public class DiaSetmana {
                     break;
             case 5: diaSetmanaString = "Divendres";
                     break;
-            case 6: diaSetmanaString = "Dissabtes";
+            case 6: diaSetmanaString = "Dissabte";
                     break;
             case 7: diaSetmanaString = "Diumenge";
                     break;
