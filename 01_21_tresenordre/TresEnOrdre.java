@@ -5,7 +5,7 @@ public class TresEnOrdre {
         
         System.out.println("Primer?");
         int primer = Integer.parseInt(Entrada.readLine());
-        System.out.println("Segón?");
+        System.out.println("Segon?");
         int segon = Integer.parseInt(Entrada.readLine());
         System.out.println("Tercer?");
         int tercer = Integer.parseInt(Entrada.readLine());
