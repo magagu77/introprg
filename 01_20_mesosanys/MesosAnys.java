@@ -14,6 +14,9 @@ public class MesosAnys {
           else if (mes == 12) {
               System.out.println("Anterior " + (mes - 1) + "/" + any + " i posterior 1/" + (any + 1));
           }
+          else if (mes == 1) {
+              System.out.println("Anterior 12/" + (any - 1) + " i posterior " + (mes + 1) + "/" + any);
+          }   
     }
 }
      
