@@ -8,7 +8,7 @@ public class MesosAnys {
         System.out.println("Any?");
         int any = Integer.parseInt(Entrada.readLine());
         
-        if (mes < 12 ) {
+        if (mes < 12  && mes > 1) {
             System.out.println("Anterior " + (mes - 1) + "/" + any + " i posterior " + (mes + 1) + "/" + any);
         }
           else if (mes == 12) {
