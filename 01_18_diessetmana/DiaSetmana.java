@@ -21,7 +21,7 @@ public class DiaSetmana {
                System.out.println("Divendres"); 
             }
             else if (diaSetmana == 6){
-                System.out.println("Disabte");
+                System.out.println("Dissabte");
             }
             else if (diaSetmana == 7){
                 System.out.println("Diumenge"); 
