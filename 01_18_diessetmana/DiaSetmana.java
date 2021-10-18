@@ -1,6 +1,6 @@
     //Desenvolupa un programa que demani per entrada estàndard un número enter entre el 1 i el 7 i respongui segons la taula://
     
-public class DiesSetmana {
+public class DiaSetmana {
 
     public static void main(String[] args) {
         int diaSetmana = Integer.parseInt(args[0]);
