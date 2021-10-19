@@ -11,7 +11,7 @@ public class Semafor {
         } else if (color.equals("vermell")) {
             System.out.println("espera");
         } else {
-            System.out.println("ves a l’oculista");
+            System.out.println("ves a l'oculista");
         }
     }
 }
