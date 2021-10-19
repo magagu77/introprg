@@ -15,7 +15,7 @@ public class CalculadoraSenzilla {
             System.out.println(operand1 + " + " + operand2 + " = " + resultat);
         } else if (operador == '-') {
               double resultat = operand1 - operand2;
-              System.out.println(operand1 + " + " + operand2 + " = " + resultat);
+              System.out.println(operand1 + " - " + operand2 + " = " + resultat);
         } else if (operador == '*') {
               double resultat = operand1 * operand2;
               System.out.println(operand1 + " * " + operand2 + " = " + resultat);
