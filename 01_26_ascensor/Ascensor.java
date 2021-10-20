@@ -1,3 +1,5 @@
+// Ejercicio ascensor asignando valores a strings para conseguir resultados
+
 public class Ascensor {
   public static void main (String[] args) {
       
