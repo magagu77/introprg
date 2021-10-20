@@ -335,7 +335,11 @@ class Prgtest:
             The value of an entry spec can be a single string or a list of strings. 
             After normalization, the result will be always a list. Even if empty.
             In case entry is None, it returns None """
-        return entry if entry is None or isinstance(entry, list) else [entry]
+        if entry is None:
+            return None
+        if isinstance(entry, list):
+            return [value if value else '\n' for value in entry]
+        return [entry]
 
 
     def run_target(self, stdin=None, argsin=None):
@@ -453,7 +457,9 @@ class Prgtest:
         print_err(Prgtest.MSG_EXERCISE_WITH_UNNEXPECTED_OUTPUT % testid)
         print_err(compose_title("Execució del programa"))
         print_err("L'execució ha estat la següent:\n")
-        colorized_args = colorize_string(argsin, forecolor=get_color('FG_JAVAC_ARGS'), backcolor=get_color('BG_JAVAC_ARGS'))
+        colorized_args = colorize_string(argsin,
+                                         forecolor=get_color('FG_JAVAC_ARGS'),
+                                         backcolor=get_color('BG_JAVAC_ARGS'))
         print_err(f"$ java {self.get_main()} {colorized_args}")
         if 'stdin' in self.specs[testid]:
             print_err(compose_title("Entrada estàndard"))

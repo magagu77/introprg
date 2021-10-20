@@ -2,150 +2,120 @@
   stdin:
   - planta baixa
   - pujar un
-  - ''
   stdout:
   - pis?
   - botó?
   - primer pis
-  - ''
 '02':
   stdin:
   - planta baixa
   - pujar dos
-  - ''
   stdout:
   - pis?
   - botó?
   - segon pis
-  - ''
 '03':
   stdin:
   - primer pis
   - baixar un
-  - ''
   stdout:
   - pis?
   - botó?
   - planta baixa
-  - ''
 '04':
   stdin:
   - primer pis
   - pujar un
-  - ''
   stdout:
   - pis?
   - botó?
   - segon pis
-  - ''
 '05':
   stdin:
   - segon pis
   - baixar un
-  - ''
   stdout:
   - pis?
   - botó?
   - primer pis
-  - ''
 '06':
   stdin:
   - segon pis
   - baixar dos
-  - ''
   stdout:
   - pis?
   - botó?
   - planta baixa
-  - ''
 '07':
   stdin:
   - planta baixa
   - baixar un
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 08:
   stdin:
   - planta baixa
   - baixar dos
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 09:
   stdin:
   - primer pis
   - pujar dos
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 '10':
   stdin:
   - primer pis
   - baixar dos
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 '11':
   stdin:
   - segon pis
   - pujar un
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 '12':
   stdin:
   - segon pis
   - pujar dos
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 '13':
   stdin:
   - sotan
   - pujar dos
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 '14':
   stdin:
   - segon pis
   - pujar tres
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 '15':
   stdin:
   - golfes
   - pujar tres
-  - ''
   stdout:
   - pis?
   - botó?
   - error
-  - ''
 _mainclass: Ascensor
