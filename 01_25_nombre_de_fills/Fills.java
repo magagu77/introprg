@@ -15,7 +15,7 @@ public class Fills {
       } else if (numeroFills > 1 && numeroFills < 5) {
             System.out.println("No t'avorreixes a casa, eh?");
       } else if (numeroFills > 4) {
-            System.out.println("Tu sí que fas país!");
+            System.out.println("Tu sí fas país!");
       }
     }
 }
