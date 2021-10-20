@@ -1,32 +1,25 @@
-'1':
+'01':
   stdin:
   - '102'
   - '150'
-  - ''
   stdout:
   - Preu?
   - Paga?
   - Sobren 48€
-  - ''
-'2':
+'02':
   stdin:
   - '102'
   - '100'
-  - ''
-  - ''
   stdout:
   - Preu?
   - Paga?
   - Falten 2€
-  - ''
-'3':
+'03':
   stdin:
   - '100'
   - '100'
-  - ''
   stdout:
   - Preu?
   - Paga?
   - No sobra ni falta res
-  - ''
 _mainclass: Pagament

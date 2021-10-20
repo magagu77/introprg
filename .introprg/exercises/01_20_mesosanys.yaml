@@ -1,31 +1,25 @@
-'1':
+'01':
   stdin:
   - '10'
   - '2003'
-  - ''
   stdout:
   - Mes?
   - Any?
   - Anterior 9/2003 i posterior 11/2003
-  - ''
-'2':
+'02':
   stdin:
   - '12'
   - '2019'
-  - ''
   stdout:
   - Mes?
   - Any?
   - Anterior 11/2019 i posterior 1/2020
-  - ''
-'3':
+'03':
   stdin:
   - '1'
   - '2019'
-  - ''
   stdout:
   - Mes?
   - Any?
   - Anterior 12/2018 i posterior 2/2019
-  - ''
 _mainclass: MesosAnys

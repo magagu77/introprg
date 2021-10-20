@@ -1,33 +1,25 @@
-'1':
+'01':
   stdin:
   - vermell
-  - ''
   stdout:
   - Color?
   - espera
-  - ''
-'2':
+'02':
   stdin:
   - groc
-  - ''
   stdout:
   - Color?
   - corre!
-  - ''
-'3':
+'03':
   stdin:
   - verd
-  - ''
   stdout:
   - Color?
   - passa
-  - ''
-'4':
+'04':
   stdin:
   - magenta
-  - ''
   stdout:
   - Color?
   - ves a l'oculista
-  - ''
 _mainclass: Semafor
