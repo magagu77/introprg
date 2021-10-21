@@ -1,4 +1,4 @@
-//Semafor colors strings
+//Semafor colors strings else if
 
 public class Semafor {
     public static void main(String[] args) {
