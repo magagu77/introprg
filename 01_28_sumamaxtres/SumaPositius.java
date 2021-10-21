@@ -20,7 +20,6 @@ public class SumaPositius {
         System.out.println("Introdueix el segon valor");
         valor = Integer.parseInt(Entrada.readLine());
         if (valor <= 0) {
-            suma = suma + valor;
             System.out.println("La suma és " + suma);
         }
 
