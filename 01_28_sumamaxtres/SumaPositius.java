@@ -21,6 +21,7 @@ public class SumaPositius {
         valor = Integer.parseInt(Entrada.readLine());
         if (valor <= 0) {
             suma = suma + valor;
+            System.out.println("La suma és " + suma);
         }
 
             //Es mostren el resultats despres de intentar la segona suma ja que el valor ha de ser major o igual a 0      
