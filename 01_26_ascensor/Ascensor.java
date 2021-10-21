@@ -10,6 +10,7 @@ public class Ascensor {
       int planta = 0;
       int resultat = 0;
       
+      //Preguntar piso inicial y asignar un valor a cada variable (planta)
       if (pis.equals("planta baixa")) { 
           planta = 0;
       } else if(pis.equals("primer pis")) { 
@@ -21,6 +22,7 @@ public class Ascensor {
             planta = 50;
       }
       
+      //Cuantos pisos se quieren subir y calcular una variable (resultat) 
       if (boto.equals("pujar un")) {
           resultat = planta + 1;
       } else if (boto.equals("pujar dos")) {
@@ -34,6 +36,7 @@ public class Ascensor {
             resultat = 50;
       }
       
+      //En funcion de la variable resultat se asigna una respuesta
       if (resultat == 0) {
           System.out.println("planta baixa");
       } else if (resultat == 1) {
