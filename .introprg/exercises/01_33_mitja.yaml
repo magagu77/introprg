@@ -1,0 +1,49 @@
+'01':
+  stdin:
+  - '-1'
+  stdout:
+  - Introdueix una nota
+  - Cap nota vàlida introduïda
+'02':
+  stdin:
+  - '101'
+  stdout:
+  - Introdueix una nota
+  - Cap nota vàlida introduïda
+'03':
+  stdin:
+  - '0'
+  - '101'
+  stdout:
+  - Introdueix una nota
+  - Introdueix una nota
+  - La mitja de les notes vàlides és 0
+'04':
+  stdin:
+  - '5'
+  - '90'
+  - '73'
+  - '123'
+  stdout:
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - La mitja de les notes vàlides és 56
+'05':
+  stdin:
+  - '77'
+  - '88'
+  - '33'
+  - '44'
+  - '99'
+  - '-10'
+  stdout:
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - La mitja de les notes vàlides és 68
+_mainclass: NotaMitja

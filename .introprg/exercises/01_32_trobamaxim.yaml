@@ -1,0 +1,42 @@
+'01':
+  stdin:
+  - '-1'
+  stdout:
+  - Introdueix un valor
+  - El màxim és 0
+'02':
+  stdin:
+  - '12'
+  - '10'
+  - '24'
+  - '-1'
+  stdout:
+  - Introdueix un valor
+  - Introdueix un valor
+  - Introdueix un valor
+  - Introdueix un valor
+  - El màxim és 24
+'03':
+  stdin:
+  - '32'
+  - '10'
+  - '24'
+  - '-1'
+  stdout:
+  - Introdueix un valor
+  - Introdueix un valor
+  - Introdueix un valor
+  - Introdueix un valor
+  - El màxim és 32
+'04':
+  stdin:
+  - '12'
+  - '10'
+  - '-1'
+  - '24'
+  stdout:
+  - Introdueix un valor
+  - Introdueix un valor
+  - Introdueix un valor
+  - El màxim és 12
+_mainclass: TrobaMaxim

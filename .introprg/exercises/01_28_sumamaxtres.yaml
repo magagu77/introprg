@@ -1,0 +1,35 @@
+'01':
+  stdin:
+  - 1
+  - 2
+  - 3
+  stdout:
+  - Introdueix el primer valor
+  - Introdueix el segon valor
+  - Introdueix el tercer valor
+  - La suma és 6
+'02':
+  stdin:
+  - 20
+  - 30
+  - -1
+  stdout:
+  - Introdueix el primer valor
+  - Introdueix el segon valor
+  - Introdueix el tercer valor
+  - La suma és 50
+'03':
+  stdin:
+  - -1
+  stdout:
+  - Introdueix el primer valor
+  - La suma és 0
+'04':
+  stdin:
+  - 80
+  - -1
+  stdout:
+  - Introdueix el primer valor
+  - Introdueix el segon valor
+  - La suma és 80
+_mainclass: SumaPositius
