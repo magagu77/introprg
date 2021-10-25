@@ -7,15 +7,16 @@ public class SumaPositius {
         // demanem valors
 
         // declarem la variable que contindrà els valors llegits
-        int valor;
+        int valor = 0;
 
         // processem el primer valor
         System.out.println("Introdueix el primer valor");
         valor = Integer.parseInt(Entrada.readLine());
         if (valor >= 0) {
             suma = suma + valor;
+        } else {
+            System.out.println("La suma és " + suma);
         }
-
         // processem el segon valor
         System.out.println("Introdueix el segon valor");
         valor = Integer.parseInt(Entrada.readLine());
