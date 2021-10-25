@@ -6,9 +6,9 @@ public class ComptaParells {
         System.out.println("Introdueix un valor");
         int valor = Integer.parseInt(Entrada.readLine());
         int numerosParells = 0;
-        if (valor % 2 == 0) {
+        /*if (valor % 2 == 0) {
             numerosParells = numerosParells + 1;
-        }
+        } */
         
         while (valor >= 0 ) {
             System.out.println("Introdueix un valor");
