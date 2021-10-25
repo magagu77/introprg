@@ -3,6 +3,8 @@
 public class Ascensor {
   public static void main (String[] args) {
       
+      /*
+      
       System.out.println("pis?");
       String pis = Entrada.readLine();
       System.out.println("botó?");
@@ -46,5 +48,33 @@ public class Ascensor {
       }   else  {
             System.out.println("error");
       }
+    
+    */
+    
+    
+    
+    System.out.println("pis?");
+    String planta =  Entrada.readLine();
+    System.out.println ("botó?");
+    String boto = Entrada.readLine();
+    
+    if (planta.equals("planta baixa") && boto.equals("pujar 1")) {
+        System.out.println("primer pis");
+    } else if (planta.equals ("planta baixa") && boto.equals("pujar 2")) {
+          System.out.println("segon pis");
+    } else if ( planta.equals("primer pis") && boto.equals("pujar 1")) {
+          System.out.println("segon pis");
+    } else if ( planta.equals("primer pis") && boto.equals("baixar 1")) {
+          System.out.println("planta baixa");
+    } else if ( planta.equals("segon pis") && boto.equals("baixar 1")) {
+          System.out.println("primer pis");
+    } else if ( planta.equals("segon pis") && boto.equals("baixar 2")) {
+          System.out.println("planta baixa"); 
+    } else {
+          System.out.println("error");
+    }
+    
+    
+    
     }
 }
