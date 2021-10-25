@@ -1,0 +1,28 @@
+'01':
+  stdin:
+  - hola
+  - què tal?
+  - ''
+  - ''
+  stdout:
+  - 'El lloro espera paraula:'
+  - 'El lloro repeteix: hola'
+  - 'El lloro espera paraula:'
+  - 'El lloro repeteix: què tal?'
+  - 'El lloro espera paraula:'
+  - Adéu
+'02':
+  stdin:
+  - ''
+  - ''
+  stdout:
+  - 'El lloro espera paraula:'
+  - Adéu
+'03':
+  stdin:
+  - '           '
+  - ''
+  stdout:
+  - 'El lloro espera paraula:'
+  - Adéu
+_mainclass: Lloro

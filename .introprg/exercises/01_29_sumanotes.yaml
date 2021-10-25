@@ -1,0 +1,53 @@
+'01':
+  stdin:
+  - '-1'
+  stdout:
+  - Introdueix una nota
+  - La suma de les notes vàlides és 0
+'02':
+  stdin:
+  - '101'
+  stdout:
+  - Introdueix una nota
+  - La suma de les notes vàlides és 0
+'03':
+  stdin:
+  - '0'
+  - '101'
+  stdout:
+  - Introdueix una nota
+  - Introdueix una nota
+  - La suma de les notes vàlides és 0
+'04':
+  stdin:
+  - '0'
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '-10'
+  stdout:
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - La suma de les notes vàlides és 10
+'04':
+  stdin:
+  - '10'
+  - '21'
+  - '32'
+  - '43'
+  - '54'
+  - '-10'
+  stdout:
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - Introdueix una nota
+  - La suma de les notes vàlides és 160
+_mainclass: SumaNotes
