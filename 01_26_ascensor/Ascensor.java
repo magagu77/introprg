@@ -58,17 +58,17 @@ public class Ascensor {
     System.out.println ("botó?");
     String boto = Entrada.readLine();
     
-    if (planta.equals("planta baixa") && boto.equals("pujar 1")) {
+    if (planta.equals("planta baixa") && boto.equals("pujar un")) {
         System.out.println("primer pis");
-    } else if (planta.equals ("planta baixa") && boto.equals("pujar 2")) {
+    } else if (planta.equals ("planta baixa") && boto.equals("pujar dos")) {
           System.out.println("segon pis");
-    } else if ( planta.equals("primer pis") && boto.equals("pujar 1")) {
+    } else if ( planta.equals("primer pis") && boto.equals("pujar un")) {
           System.out.println("segon pis");
-    } else if ( planta.equals("primer pis") && boto.equals("baixar 1")) {
+    } else if ( planta.equals("primer pis") && boto.equals("baixar un")) {
           System.out.println("planta baixa");
-    } else if ( planta.equals("segon pis") && boto.equals("baixar 1")) {
+    } else if ( planta.equals("segon pis") && boto.equals("baixar un")) {
           System.out.println("primer pis");
-    } else if ( planta.equals("segon pis") && boto.equals("baixar 2")) {
+    } else if ( planta.equals("segon pis") && boto.equals("baixar dos")) {
           System.out.println("planta baixa"); 
     } else {
           System.out.println("error");
