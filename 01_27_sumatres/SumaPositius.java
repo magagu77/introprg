@@ -1,3 +1,6 @@
+//Sumar fins a positius
+
+
 public class SumaPositius {
     public static void main(String[] args) {
 
