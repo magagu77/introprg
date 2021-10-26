@@ -16,11 +16,10 @@ public class NotaMitja {
                 sumaTotal = sumaTotal + nota;
             } 
         }
-        if (sumaTotal < 0) {
-           System.out.println("Cap nota vàlida introduïda"); 
-        } else {
+        if (numeroNotes > 0) {
             mitjana = sumaTotal / numeroNotes;
-            System.out.println("La mitja de les notes vàlides és " + mitjana) ;          
-          }
-    }     
-} 
+            System.out.println("La mitja de les notes vàlides és " + mitjana) ;
+        } else {
+          System.out.println("Cap nota vàlida introduïda");
+    }     }
+}           
