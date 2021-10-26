@@ -12,7 +12,7 @@ public class TrobaMaxim {
                maxim = numero;
             }
         }
-        System.out.println("El màxim és " + tmp);
+        System.out.println("El màxim és " + maxim);
     }
 }    
       
