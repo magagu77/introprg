@@ -1,4 +1,6 @@
-//Programa de sumar notas
+//Programa de sumar notas dentro de los valores correctos
+
+
 public class SumaNotes {
     public static void main (String[] args) {
             
