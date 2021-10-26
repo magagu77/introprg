@@ -1,3 +1,5 @@
+//Sumar com a molt 3 nombres positius
+
 public class SumaPositius {
     public static void main(String[] args) {
 
