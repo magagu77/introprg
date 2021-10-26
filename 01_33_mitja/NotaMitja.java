@@ -16,7 +16,7 @@ public class NotaMitja {
                 sumaTotal = sumaTotal + nota;
             } 
         }
-        if (nota < 0) {
+        if (sumaTotal < 0) {
            System.out.println("Cap nota vàlida introduïda"); 
         } else {
             mitjana = sumaTotal / numeroNotes;
