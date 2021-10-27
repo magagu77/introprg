@@ -1,4 +1,4 @@
-//Endevina pero aquesta versió es tancaa amb intro
+//Endevina pero aquesta versió es tanca amb intro
 
 public class Endevina {
     public static void main(String[] args) {
@@ -7,7 +7,7 @@ public class Endevina {
         int numero = 0;
         String nombre = "a";
         
-        while (!(nombre.isEmpty()) || !(numero == numeroPredefinit)) {
+        do  {
             System.out.println("Nombre?");
             nombre = Entrada.readLine();
             if (!(nombre.isEmpty())) { 
@@ -20,7 +20,7 @@ public class Endevina {
                       System.out.println("Massa gran");
                 }
             }
-        }
+        } while (!(nombre.isEmpty()) || !(numero == numeroPredefinit));
         if (nombre.isEmpty()) {
             System.out.println("Cancel·lat!");
         } else if (numero == numeroPredefinit) {
