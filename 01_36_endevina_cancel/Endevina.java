@@ -20,7 +20,7 @@ public class Endevina {
                       System.out.println("Massa gran");
                 }
             }
-        } while (numero == numeroPredefinit | !(nombre.isEmpty())  );
+        } while (numero == numeroPredefinit || (nombre.isEmpty())  );
         if (nombre.isEmpty()) {
             System.out.println("Cancel·lat!");
         } else if (numero == numeroPredefinit) {
