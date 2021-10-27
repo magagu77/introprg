@@ -9,9 +9,9 @@ public class Endevina {
         while (!(nombre == nombrePredefinit)) {
             System.out.println("Introdueix un nombre entre el 1 i el 100");
             nombre = Integer.parseInt(Entrada.readLine());
-                if (nombre < nombrePredefinit && !(nombre == 0)) {
+                if (nombre < nombrePredefinit && !(nombre > 0)) {
                     System.out.println("És més gran que " + nombre);
-                } else if (nombre > nombrePredefinit && !(nombre == 100)) {
+                } else if (nombre > nombrePredefinit && nombre <= 100) {
                       System.out.println("És més petit que " + nombre);
                 } else if (nombre <= 0 ) {
                       System.out.println("Com a mínim 1");
