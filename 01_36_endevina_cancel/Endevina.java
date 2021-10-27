@@ -14,12 +14,8 @@ public class Endevina {
                 nombre = Integer.parseInt(numero);
             }
             
-                if  (nombre <= 0) {
-                    System.out.println("Com a mínim 1");
-                    
-                } else if (nombre > 100) {
-                      System.out.println("Com a màxim 100");
-                      
+                if  (nombre <= 0 || nombre > 100)  {
+                    System.out.println("Fora de rang");
                 } else if (nombre > nombrePredefinit ) {
                       System.out.println("Massa gran");
                 } else if (nombre < nombrePredefinit) {
