@@ -5,10 +5,14 @@ public class Endevina {
         
         int nombre = 0;
         int nombrePredefinit = 42;
+        String numero = "a";
         
-        while (nombre.isEmpty || !(nombre == numeroPredefinit)) {
+        while (numero.isEmpty() || !(nombre == nombrePredefinit)) {
             System.out.println("Introdueix un nombre entre el 1 i el 100");
-            nombre = Integer.parseInt(Entrada.readLine());
+            numero = Entrada.readLine();
+            if (!(numero.isEmpty())) {
+                nombre = Integer.parseInt(numero);
+            }
             
                 if  (nombre <= 0) {
                     System.out.println("Com a mínim 1");
@@ -22,9 +26,10 @@ public class Endevina {
                       System.out.println("Massa petit") ;  
                 } 
         }  
-        if (nombre = nombre predefinit) {
+        if (nombre == nombrePredefinit) {
             System.out.println("Has encertat!");
-        } else if (nombre.isEmpty()) {
-              System.out.println("Cancel·lat!")
+        } else if (numero.isEmpty()) {
+              System.out.println("Cancel·lat!");
+        }
     }
 } 
