@@ -8,7 +8,7 @@ public class Endevina {
         String numero = "a";
         
         while (numero.isEmpty() || !(nombre == nombrePredefinit)) {
-            System.out.println("Introdueix un nombre entre el 1 i el 100");
+            System.out.println("Nombre");
             numero = Entrada.readLine();
             if (!(numero.isEmpty())) {
                 nombre = Integer.parseInt(numero);
