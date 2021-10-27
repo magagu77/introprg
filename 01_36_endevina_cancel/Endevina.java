@@ -27,7 +27,7 @@ public class Endevina {
                 } 
         }  
         if (nombre == nombrePredefinit) {
-            System.out.println("Has encertat!");
+            System.out.println("Encertat!");
         } else if (numero.isEmpty()) {
               System.out.println("Cancel·lat!");
         }
