@@ -11,7 +11,7 @@ public class Endevina {
             nombre = Integer.parseInt(Entrada.readLine());
                 if (nombre < nombrePredefinit && !(nombre == 0)) {
                     System.out.println("És més gran que " + nombre);
-                } else if (nombre > nombrePredefinit) {
+                } else if (nombre > nombrePredefinit && !(nombre == 0)) {
                       System.out.println("És més petit que " + nombre);
                 } else if (nombre <= 0 ) {
                       System.out.println("Com a mínim 1");
