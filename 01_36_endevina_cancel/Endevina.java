@@ -4,7 +4,7 @@ public class Endevina {
     public static void main(String[] args) {
           
         int nombrePredefinit = 42;
-        String numero = "a";
+        String numero = "0";
         int nombre = Integer.parseInt(numero);
         
         while (numero.isEmpty() || !(nombre == nombrePredefinit)) {
