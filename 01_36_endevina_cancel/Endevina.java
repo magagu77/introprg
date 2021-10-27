@@ -20,9 +20,9 @@ public class Endevina {
                 } else if (nombre > 100) {
                       System.out.println("Com a màxim 100");
                       
-                } else if (nombre < nombrePredefinit ) {
+                } else if (nombre > nombrePredefinit ) {
                       System.out.println("Massa gran");
-                } else if (nombre > nombrePredefinit) {
+                } else if (nombre < nombrePredefinit) {
                       System.out.println("Massa petit") ;  
                 } 
         }  
