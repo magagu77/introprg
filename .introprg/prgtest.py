@@ -40,13 +40,27 @@ class Prgtest:
     MSG_EXERCISE_NEVER_ENDS = "El teu exercici tarda massa en finalitzar"
     MSG_EXERCISE_NEVER_ENDS_TIP = "Executa'l manualment amb les entrades especificades"
     MSG_COMPILATION_ERROR = "S'ha trobat errors compilant %s"
+    MSG_EXERCISE_BREAKS = "El teu exercici finalitza inesperadament"
+    MSG_EXERCISE_BREAKS_TIP = ("Executa l'exercici fora de prgtest amb l'entrada indicada i "
+                               "revisa les línies remarcades a la sortida d'error")
+
+    MSG_TEXT_PASSED_TEST = "PASSA"
+    MSG_TEXT_FAILED_TEST = "FALLA"
+    MSG_TITLE_PROGRAM_EXECUTION = "Execució del programa"
+    MSG_TITLE_STANDARD_INPUT = "Entrada estàndard"
+    MSG_TITLE_EXPECTED_OUTPUT = "Sortida esperada";
+    MSG_TITLE_STANDARD_OUTPUT = "Sortida trobada";
+    MSG_TITLE_STANDARD_ERROR = "Sortida d'error trobada";
+    MSG_TITLE_DISCREPANCY = "Discrepància";
 
     def __init__(self):
         self.params = Prgtest.process_params()
         self.working_dir = None     # path to the dir containing the student's repo
         self.target_path = None     # path to the dir containing the target exercise
         self.specs = dict()         # specs fot testing the target exercise
-        self.timeout = False        # indicates if the execution did not finish
+        self.stdout = None          # std output from the target program
+        self.stderr = None          # std err from the target program
+        self.returncode = None         # returncode from the target program
 
     @property
     def target_exercise(self):
@@ -282,15 +296,15 @@ class Prgtest:
         if unstaged:
             items = " ".join(unstaged)
             print_error_and_exit("Cal afegir fitxers a git",
-                                          tip=("Considera una de les següents possibilitats:\n"
-                                               f"$ git add {items}\n"
-                                               "o\n"
-                                               "$ git add --all"))
+                                 tip=("Considera una de les següents possibilitats:\n"
+                                      f"$ git add {items}\n"
+                                      "o\n"
+                                      "$ git add --all"))
         # check uncommitted files
         if repo.is_dirty():
             print_error_and_exit("Cal registrar els canvis a git",
-                                          tip=("Considera:\n"
-                                               '$ git commit -am "»descripció dels canvis realitzats»'))
+                                 tip=("Considera:\n"
+                                      '$ git commit -am "»descripció dels canvis realitzats»'))
 
 
     def check_compiled(self):
@@ -303,47 +317,50 @@ class Prgtest:
             compiledfile = srcfile.parent / f"{srcfile.stem}.class"
             if not compiledfile.is_file():
                 print_error_and_exit(f"El fitxer {srcfile.relative_to(self.target_path)} no està compilat",
-                                              tip=("Considera una de les següents possibilitats:\n"
-                                                   f"$ javac {srcfile.relative_to(self.target_path)}\n"
-                                                   "o\n"
-                                                   "$ javac *.java"))
+                                     tip=("Considera una de les següents possibilitats:\n"
+                                          f"$ javac {srcfile.relative_to(self.target_path)}\n"
+                                          "o\n"
+                                          "$ javac *.java"))
             # check dates
             if srcfile.stat().st_mtime > compiledfile.stat().st_mtime:
-                print_error_and_exit(f"El fitxer {srcfile.relative_to(self.target_path)} ha estat modificat després de compilar",
-                                              tip=("Considera una de les següents possibilitats:\n"
-                                                   f"$ javac {srcfile.relative_to(self.target_path)}\n"
-                                                   "o\n"
-                                                   "$ javac *.java"))
+                print_error_and_exit(f"El fitxer {srcfile.relative_to(self.target_path)} "
+                                     "ha estat modificat després de compilar",
+                                     tip=("Considera una de les següents possibilitats:\n"
+                                          f"$ javac {srcfile.relative_to(self.target_path)}\n"
+                                          "o\n"
+                                          "$ javac *.java"))
+
 
     def get_timeout(self):
         """ returns the timeout for the execution of the target program """
         return self.specs.get('_timeout', Prgtest.DEFAULT_TIMEOUT)
+
 
     def perform_tests(self):
         """ performs the tests specified on specs for target """
         for testid, testspecs in self.specs.items():
             if testid.startswith('_'):
                 continue
-            output = self.run_target(
+            self.run_target(
                 stdin=Prgtest.normalize_entry_spec(testspecs.get('stdin')),
                 argsin=Prgtest.normalize_entry_spec(testspecs.get('argsin')))
-            self.compare_results(testid, output)
+            self.compare_results(testid)
+
 
     @staticmethod
     def normalize_entry_spec(entry):
         """ normalizes an entry spec (i.e. the value of stdin, argsin, etc.)
-            The value of an entry spec can be a single string or a list of strings. 
+            The value of an entry spec can be a single string or a list of strings.
             After normalization, the result will be always a list. Even if empty.
             In case entry is None, it returns None """
-        if entry is None:
-            return None
-        if isinstance(entry, list):
-            return [value if value else '\n' for value in entry]
+        if entry is None or isinstance(entry, list):
+            return entry
         return [entry]
 
 
     def run_target(self, stdin=None, argsin=None):
-        """ runs the target with the specified stdin and returns the stdout if no errors """
+        """ runs the target with the specified stdin and sets self.stdout, self.stderr and self.returncode """
+
         def compile_target(env):
             """ try to compile targe on teacher test with the given environment """
             if Prgtest.protected():
@@ -376,10 +393,16 @@ class Prgtest:
         os.chdir(self.target_path)
 
         # Prepare stdin
-        stdin = '' if stdin is None else '\n'.join(str(item) for item in stdin)
+        stdin = '' if stdin is None else '\n'.join(str(item) for item in stdin) + '\n'
 
         # Prepare command
-        command_list = ['java', self.get_main()]
+        if 'INTROPRG_JAVAPOLICYFILE' in os.environ:
+            command_list = ['java',
+                            '-Djava.security.manager',
+                            f"-Djava.security.policy={os.environ['INTROPRG_JAVAPOLICYFILE']}",
+                            self.get_main()]
+        else:
+            command_list = ['java', self.get_main()]
 
         # Add args if any
         if argsin is not None:
@@ -392,17 +415,18 @@ class Prgtest:
                                     timeout=self.get_timeout(),
                                     env=env,
                                     input=stdin, encoding='utf-8',)
+            self.stdout = result.stdout.splitlines()
+            self.stderr = result.stderr.splitlines()
+            self.returncode = result.returncode
         except subprocess.TimeoutExpired:
-            self.timeout = True
-            return '∞'
+            self.stdout = self.stderr = []
+            self.returncode = 124
+
+        # back to folder
         os.chdir(cwd)
-        if result.returncode != 0:
-            print_error_and_exit(f"Errors executant {self.get_main_program()}",
-                                 tip=result.stderr)
-        return result.stdout.splitlines()
 
 
-    def compare_results(self, testid, found):
+    def compare_results(self, testid):
         """ compares the output found when running target on testif with the expected one """
 
         def prepare_output(output):
@@ -423,7 +447,7 @@ class Prgtest:
                     new_lines.append(line.replace(chsrc, chdst))
                 output = new_lines
             return output
-            
+
         def compare_output(output):
             """ compares output with expected output as defined in specs """
             ignore_blank_lines = self.specs.get('_ignore_blank_lines', True)
@@ -433,59 +457,114 @@ class Prgtest:
             output = prepare_output(output)
             result = Prgtest.compare_lines(expected, output,
                                            ignore_blank_lines = ignore_blank_lines)
-            return None if result is None else (testid, result)
+            return result
 
-        # normalize expected output
-        testspecs = self.specs[testid]
-        testspecs['stdout'] = Prgtest.normalize_entry_spec(testspecs.get('stdout'))
-        result = compare_output(found)
-        if result is None:
-            text = colorize_string(" PASSA ",
-                                   forecolor=get_color("FG_PASS_TEST"),
-                                   backcolor=get_color("BG_PASS_TEST"))
-            print(f"Test {testid}: {text}")
-            return
+        if self.returncode == 0:
+            self.normalize_expected_output(testid)
+            result = compare_output(self.stdout)
+            if result is None:
+                self.show_test_passed(testid)
+                return
 
-        print_err(f"Test {testid}: " + colorize_string(" FALLA ",
-                                                       forecolor=get_color("FG_FAIL_TEST"),
-                                                       backcolor=get_color("BG_FAIL_TEST")))
-        # show discrepancy
-        testid, (nr_expected, nr_found) = result
+        self.show_test_failed(testid)
+        self.show_program_execution(testid)
+        self.show_provided_stdin(testid)
+
+        if self.returncode == 0:
+            nr_expected, nr_found = result
+            self.show_discrepancy(testid, nr_expected, nr_found)
+            #print_err(Prgtest.MSG_EXERCISE_WITH_UNNEXPECTED_OUTPUT % testid)
+        elif self.returncode == 124:    # timeout
+            print_error_and_exit(Prgtest.MSG_EXERCISE_NEVER_ENDS,
+                      tip=Prgtest.MSG_EXERCISE_NEVER_ENDS_TIP)
+        else:
+            self.show_found_stderr()
+            print_error_and_exit(Prgtest.MSG_EXERCISE_BREAKS,
+                      tip=Prgtest.MSG_EXERCISE_BREAKS_TIP)
+        sys.exit(1)
+
+
+    def show_test_passed(self, testid):
+        """ shows the test has passed """
+        text = colorize_string(f" {Prgtest.MSG_TEXT_PASSED_TEST} ",
+                               forecolor=get_color("FG_PASS_TEST"),
+                               backcolor=get_color("BG_PASS_TEST"))
+        print(f"Test {testid}: {text}")
+
+
+    def show_test_failed(self, testid):
+        """ shows the test has failed """
+        text = colorize_string(f" {Prgtest.MSG_TEXT_FAILED_TEST} ",
+                               forecolor=get_color("FG_FAIL_TEST"),
+                               backcolor=get_color("BG_FAIL_TEST"))
+        print(f"Test {testid}: {text}")
+
+
+    def show_discrepancy(self, testid, nr_expected, nr_found):
+        """ shows discrepancy between expected and found """
+        self.show_expected_output(testid, nr_expected)
+        self.show_found_output(nr_found)
+        self.show_difference(testid, nr_expected, nr_found)
+
+
+    def show_program_execution(self, testid):
+        """ shows the command line call to the target program including arguments """
         argsin = self.specs[testid].get('argsin', '')
         if argsin is not None:
             argsin = ' '.join(argsin)
-        print_err(Prgtest.MSG_EXERCISE_WITH_UNNEXPECTED_OUTPUT % testid)
-        print_err(compose_title("Execució del programa"))
+        print_err(compose_title(Prgtest.MSG_TITLE_PROGRAM_EXECUTION))
         print_err("L'execució ha estat la següent:\n")
+        colorized_command = colorize_string(f'java {self.get_main()}',
+                                         forecolor=get_color('FG_JAVAC_CMD'),
+                                         backcolor=get_color('BG_JAVAC_ARGS'))
         colorized_args = colorize_string(argsin,
                                          forecolor=get_color('FG_JAVAC_ARGS'),
                                          backcolor=get_color('BG_JAVAC_ARGS'))
-        print_err(f"$ java {self.get_main()} {colorized_args}")
+        print_err(f"$ {colorized_command} {colorized_args}")
+
+
+    def show_provided_stdin(self, testid):
+        """ shows the contents entered by stdin to the target program (if any) """
         if 'stdin' in self.specs[testid]:
-            print_err(compose_title("Entrada estàndard"))
+            print_err(compose_title(Prgtest.MSG_TITLE_STANDARD_INPUT))
             print_err("Se li ha passat el següent codi per entrada estàndard\n")
             print_err(compose_enumerated_text(self.specs[testid]['stdin']))
             print_err()
+
+
+    def show_expected_output(self, testid, nr_expected):
+        """ shows the contents expected from the target program execution on stdout """
         if 'stdout' in self.specs[testid]:
-            print_err(compose_title("Sortida esperada"))
+            print_err(compose_title(Prgtest.MSG_TITLE_EXPECTED_OUTPUT))
             print_err("S'esperava la següent sortida del programa:\n")
             print_err(compose_enumerated_text(self.specs[testid]['stdout'],
                                               TextType.EXPECTED, highlight_line=nr_expected))
-        print_err(compose_title("Sortida trobada"))
-        if self.timeout:
-            print_error_and_exit(Prgtest.MSG_EXERCISE_NEVER_ENDS,
-                                 tip=Prgtest.MSG_EXERCISE_NEVER_ENDS_TIP)
 
+
+    def show_found_output(self, nr_found):
+        """ shows the contents self.stdout from the target program execution on stdout """
+        print_err(compose_title(Prgtest.MSG_TITLE_STANDARD_OUTPUT))
         print_err("La sortida que ha generat el programa ha estat:")
-        print_err(compose_enumerated_text(found,
+        print_err(compose_enumerated_text(self.stdout ,
                                           text_type=TextType.FOUND, highlight_line=nr_found))
 
-        print_err(compose_title("Discrepància"))
+
+    def show_found_stderr(self):
+        """ shows the contents self.stderr from the target program execution on stderr """
+        print_err(compose_title(Prgtest.MSG_TITLE_STANDARD_ERROR))
+        print_err("La sortida d'error que ha generat el programa ha estat:")
+        print_err(compose_enumerated_text(self.stderr,
+                                          highlight_function=lambda line: not 'at java.' in line))
+
+
+    def show_difference(self, testid, nr_expected, nr_found):
+        """ shows the difference between expected and sef.stdout """
+        print_err(compose_title(Prgtest.MSG_TITLE_DISCREPANCY))
         if nr_expected >= len(self.specs[testid].get('stdout', [])):
             print_err(Prgtest.MSG_EXERCISE_WITH_MORE_LINES_THAN_EXPECTED)
             print_err(compose_enumerated_line(nr_found,
-                found[nr_found], text_type=TextType.FOUND))
-        elif nr_found >= len(found):
+                self.stdout[nr_found], text_type=TextType.FOUND))
+        elif nr_found >= len(self.stdout):
             print_err(Prgtest.MSG_EXERCISE_WITH_LESS_LINES_THAN_EXPECTED)
             print_err(compose_enumerated_line(nr_expected,
                                               self.specs[testid]['stdout'][nr_expected],
@@ -496,10 +575,16 @@ class Prgtest:
                                               self.specs[testid]['stdout'][nr_expected],
                                               text_type=TextType.EXPECTED,
                                               delimited=True))
-            print_err(compose_enumerated_line(nr_found, found[nr_found],
+            print_err(compose_enumerated_line(nr_found, self.stdout[nr_found],
                                               text_type=TextType.FOUND,
                                               delimited=True))
-        sys.exit(1)
+
+
+    def normalize_expected_output(self, testid):
+        """ normalizes the expected output as defined in the specs to be
+            compared to the actual output """
+        testspecs = self.specs[testid]
+        testspecs['stdout'] = Prgtest.normalize_entry_spec(testspecs.get('stdout'))
 
 
     def check_nontestable(self):
@@ -526,6 +611,8 @@ class Prgtest:
               where the first discrepancy is found (line_expected, line_found).
               Note: the two lines can be different because of ignore_blank_lines """
         nr_expected = nr_found = 0
+        if found is None:
+            found = ''
         while nr_expected < len(expected) and nr_found < len(found):
             line_expected = expected[nr_expected]
             line_found = found[nr_found]
@@ -629,6 +716,8 @@ color_schemata = {
         "BG_FAIL_TEST": Background.RED,
         "FG_JAVAC_ARGS": Foreground.CYAN,
         "BG_JAVAC_ARGS": Background.RESET,
+        "FG_JAVAC_CMD": Foreground.MAGENTA,
+        "BG_JAVAC_CMD": Background.RESET,
         "FG_WARNING": Foreground.RED,
         "BG_WARNING": Background.RESET,
         "FG_ERROR": Foreground.RED,
@@ -651,6 +740,8 @@ color_schemata = {
         "BG_FAIL_TEST": Background.RED,
         "FG_JAVAC_ARGS": Foreground.YELLOW,
         "BG_JAVAC_ARGS": Background.RESET,
+        "FG_JAVAC_CMD": Foreground.WHITE,
+        "BG_JAVAC_CMD": Background.RESET,
         "FG_WARNING": Foreground.YELLOW,
         "BG_WARNING": Background.RESET,
         "FG_ERROR": Foreground.RED,
@@ -688,16 +779,24 @@ class TextType(enum.Enum):
     FOUND = enum.auto()
 
 
-def compose_enumerated_text(lines, text_type=TextType.GENERAL, highlight_line=-1):
+def compose_enumerated_text(lines,
+                            text_type=TextType.GENERAL,
+                            highlight_line=-1,
+                            highlight_function=None):
     """ composes the lines enumerated """
     width = len(str(len(lines) + 1))
     return "\n".join(compose_enumerated_line(n, line,
-                                             text_type = text_type,
-                                             highlighted=(n==highlight_line))
+                                             text_type=text_type,
+                                             highlighted=(n==highlight_line),
+                                             highlight_function=highlight_function)
                      for n, line in enumerate(lines))
 
 
-def compose_enumerated_line(linenr, line, width=0, text_type=TextType.GENERAL, highlighted=False, delimited=False):
+def compose_enumerated_line(linenr, line, width=0,
+                            text_type=TextType.GENERAL,
+                            delimited=False,
+                            highlighted=False,
+                            highlight_function=None):
     """ composes the line prepending the linenr """
     if text_type == TextType.EXPECTED:
         forecolor = get_color("FG_EXPECTED_CODE")
@@ -708,8 +807,10 @@ def compose_enumerated_line(linenr, line, width=0, text_type=TextType.GENERAL, h
     else:
         forecolor = get_color("FG_GENERAL_CODE")
         backcolor = get_color("BG_GENERAL_CODE")
-    if highlighted:
-        spaces = colorize_string('!', forecolor=get_color("FG_DIFF_MARK"), backcolor=get_color("BG_DIFF_MARK")) + '  '
+    if highlighted or (highlight_function is not None and highlight_function(line)):
+        spaces = colorize_string('!',
+                                 forecolor=get_color("FG_DIFF_MARK"),
+                                 backcolor=get_color("BG_DIFF_MARK")) + '  '
     else:
         spaces = '   '
     if delimited:
@@ -737,17 +838,19 @@ def print_error_and_exit(msg: str, tip: str = None,
     """ prints the message and stops execution with error code
         if tip is set, it shows it in a different line.
         if plain_color, it does not try to colorize"""
-    error_mark = 'ERROR: '
+    error_mark = 'ERROR:'
+    tab=" " * (len(error_mark) + 1)
     if not plain_color:
         error_mark = colorize_string(error_mark,
                                      forecolor=get_color('FG_ERROR'),
                                      backcolor=get_color('BG_ERROR'))
 
+    print_err()
     print_err(f"{error_mark} {msg}")
     if tip is not None:
         print_err()
         for line in tip.splitlines():
-            print_err("       " + line)
+            print_err(tab + line)
     print_err()
     sys.exit(1)
 
@@ -757,7 +860,8 @@ def print_warning_and_continue(msg: str, tip: str = None,
     """ prints the message to the stderr and continues with execution.
         if tip is set, it shows it in a different line.
         if plain_color, it does not try to colorize"""
-    warning_mark = 'WARNING: '
+    warning_mark = 'WARNING:'
+    tab=" " * (len(warning_mark) + 1)
     if not plain_color:
         warning_mark = colorize_string(warning_mark,
                                          forecolor=get_color('FG_WARNING'),
@@ -766,7 +870,7 @@ def print_warning_and_continue(msg: str, tip: str = None,
     if tip is not None:
         print_err()
         for line in tip.splitlines():
-            print_err("       " + line)
+            print_err(tab + line)
     print_err()
 
 
