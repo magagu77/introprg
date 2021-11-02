@@ -7,8 +7,7 @@ public class EntersIniciFi {
         int valorFinal = 0;
         int salt = 0;
         int valorCalculat = 0;
-        boolean resultat = false;
-        while (resultat == false) {
+        while (valorCalculat < valorFinal) {
             if (inici == 0 && valorFinal == 0) {
             System.out.println("Valor inicial?");
             inici = Integer.parseInt(Entrada.readLine());
@@ -23,9 +22,8 @@ public class EntersIniciFi {
             }
             valorCalculat = valorCalculat + salt;
             System.out.println(valorCalculat);
-            if (valorCalculat >= valorFinal) {
-                resultat = true;
-            }
+
+            
         }
     }
 }                   
