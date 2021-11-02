@@ -1,0 +1,33 @@
+'01':
+  stdin:
+  - '5'
+  - '7'
+  stdout:
+  - inici?
+  - final?
+  - '18'
+'02':
+  stdin:
+  - '7'
+  - '5'
+  stdout:
+  - inici?
+  - final?
+  - '18'
+'03':
+  stdin:
+  - '10'
+  - '20'
+  stdout:
+  - inici?
+  - final?
+  - '165'
+'04':
+  stdin:
+  - '33'
+  - '33'
+  stdout:
+  - inici?
+  - final?
+  - '33'
+_mainclass: SumaInterval

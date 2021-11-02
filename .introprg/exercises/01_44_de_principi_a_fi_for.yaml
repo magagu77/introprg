@@ -1,0 +1,33 @@
+'01':
+  stdin:
+  - '9'
+  - '16'
+  - '3'
+  stdout:
+  - Valor inicial?
+  - Valor final?
+  - Salt?
+  - '9'
+  - '12'
+  - '15'
+'02':
+  stdin:
+  - '1'
+  - '1'
+  - '1'
+  stdout:
+  - Valor inicial?
+  - Valor final?
+  - Salt?
+  - '1'
+'03':
+  stdin:
+  - '10'
+  - '11'
+  - '10'
+  stdout:
+  - Valor inicial?
+  - Valor final?
+  - Salt?
+  - '10'
+_mainclass: EntersIniciFi

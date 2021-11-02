@@ -1,0 +1,67 @@
+'01':
+  stdin:
+  - Anna
+  - '5'
+  - '2012'
+  stdout:
+  - nom?
+  - edat?
+  - any actual?
+  - El 2007 va néixer
+  - El 2008 tenia 1 any
+  - El 2009 tenia 2 anys
+  - El 2010 tenia 3 anys
+  - El 2011 tenia 4 anys
+  - Adéu Anna
+'02':
+  stdin:
+  - Anna
+  - '1'
+  - '2012'
+  stdout:
+  - nom?
+  - edat?
+  - any actual?
+  - El 2011 va néixer
+  - Adéu Anna
+'03':
+  stdin:
+  - Anna
+  - '0'
+  - '2012'
+  stdout:
+  - nom?
+  - edat?
+  - any actual?
+  - Adéu Anna
+'04':
+  stdin:
+  - Anna
+  - '-3'
+  - '2012'
+  stdout:
+  - nom?
+  - edat?
+  - any actual?
+  - Entrada errònia
+'05':
+  stdin:
+  - ''
+  - '5'
+  - '2012'
+  stdout:
+  - nom?
+  - edat?
+  - any actual?
+  - Entrada errònia
+'06':
+  stdin:
+  - Anna
+  - '5'
+  - '1970'
+  stdout:
+  - nom?
+  - edat?
+  - any actual?
+  - Entrada errònia
+_mainclass: HistoricEdats
