@@ -4,11 +4,11 @@ public class EntersIniciFi {
     public static void main(String[] args) {
     
         int inici = 0;
-        int valorFinal = 0;
+        int valorFinal = 500;
         int salt = 0;
-        int valorCalculat = 0;
+        int valorCalculat = 0 ;
         while (valorCalculat < valorFinal) {
-            if (inici == 0 && valorFinal == 0) {
+            if (inici == 0 ) {
             System.out.println("Valor inicial?");
             inici = Integer.parseInt(Entrada.readLine());
             System.out.println("Valor final?");
