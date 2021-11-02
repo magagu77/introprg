@@ -5,7 +5,7 @@ public class DeuPrimers {
     
         int numero = 1;
         
-        while (numero == 11) {
+        while (numero <= 10) {
             System.out.println(numero);
             numero = numero + 1;       
 
