@@ -4,10 +4,10 @@ public class EntersIniciFi {
     public static void main(String[] args) {
     
         int inici = 0;
-        int valorFinal = 500;
+        int valorFinal = 0;
         int salt = 0;
         int valorCalculat = 0 ;
-        while (valorCalculat < valorFinal) {
+        while (valorCalculat <= valorFinal) {
             if (inici == 0 ) {
             System.out.println("Valor inicial?");
             inici = Integer.parseInt(Entrada.readLine());
@@ -16,12 +16,10 @@ public class EntersIniciFi {
             System.out.println("Salt?");
             salt = Integer.parseInt(Entrada.readLine());
             }
-            if (valorCalculat == 0) {
-                valorCalculat = inici;
+            if ((valorCalculat + salt) != valorFinal) {
                 System.out.println(valorCalculat);
-            }
-            valorCalculat = valorCalculat + salt;
-            System.out.println(valorCalculat);
+                valorCalculat = valorCalculat + salt;
+            }    
 
             
         }
