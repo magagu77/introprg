@@ -1,0 +1,47 @@
+'01':
+  stdin:
+  - '5'
+  - '7'
+  stdout:
+  - inici?
+  - final?
+  - '5'
+  - '6'
+  - '7'
+'02':
+  stdin:
+  - '7'
+  - '5'
+  stdout:
+  - inici?
+  - final?
+  - '7'
+  - '6'
+  - '5'
+'03':
+  stdin:
+  - '10'
+  - '20'
+  stdout:
+  - inici?
+  - final?
+  - '10'
+  - '11'
+  - '12'
+  - '13'
+  - '14'
+  - '15'
+  - '16'
+  - '17'
+  - '18'
+  - '19'
+  - '20'
+'04':
+  stdin:
+  - '33'
+  - '33'
+  stdout:
+  - inici?
+  - final?
+  - '33'
+_mainclass: MostraInterval

@@ -4,14 +4,14 @@
 """
 import os
 import sys
-import subprocess
 import enum
+import datetime
 import traceback
+import subprocess
 from pathlib import Path
 from argparse import ArgumentParser
 import git
 import yaml
-import datetime
 
 class Prgtest:
     """ this class encapsulates the prgtest functionality """
@@ -32,7 +32,6 @@ class Prgtest:
     SPECS_FILENAME = "specs.yaml"
 
     MSG_EXERCISE_WITHOUT_TEST = "Aquest exercici no disposa de proves automàtiques"
-    MSG_EXERCISE_WITH_UNNEXPECTED_OUTPUT = f"S'ha trobat un error en executar la prova %s"
     MSG_EXERCISE_WITH_MORE_LINES_THAN_EXPECTED = "No s'esperava la línia:"
     MSG_EXERCISE_WITH_LESS_LINES_THAN_EXPECTED = "A la sortida del programa li falta:"
     MSG_EXERCISE_WITH_DIFFERENT_LINES = "Les següents línies difereixen"
@@ -473,7 +472,6 @@ class Prgtest:
         if self.returncode == 0:
             nr_expected, nr_found = result
             self.show_discrepancy(testid, nr_expected, nr_found)
-            #print_err(Prgtest.MSG_EXERCISE_WITH_UNNEXPECTED_OUTPUT % testid)
         elif self.returncode == 124:    # timeout
             print_error_and_exit(Prgtest.MSG_EXERCISE_NEVER_ENDS,
                       tip=Prgtest.MSG_EXERCISE_NEVER_ENDS_TIP)
