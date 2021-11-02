@@ -9,12 +9,14 @@ public class EntersIniciFi {
         int valorCalculat = 0;
         boolean resultat = false;
         while (resultat == false) {
+            if (inici == 0 && valorFinal == 0) {
             System.out.println("Valor inicial?");
             inici = Integer.parseInt(Entrada.readLine());
             System.out.println("Valor final?");
             valorFinal = Integer.parseInt(Entrada.readLine());
             System.out.println("Salt?");
             salt = Integer.parseInt(Entrada.readLine());
+            }
             if (valorCalculat == 0) {
                 valorCalculat = inici;
                 System.out.println(valorCalculat);
