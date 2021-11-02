@@ -16,7 +16,7 @@ public class EntersIniciFi {
             System.out.println("Salt?");
             salt = Integer.parseInt(Entrada.readLine());
             }
-            if ((valorCalculat + salt) != valorFinal) {
+            if ((valorCalculat + salt) < valorFinal) {
                 valorCalculat = inici;
                 System.out.println(valorCalculat);
                 valorCalculat = valorCalculat + salt;
