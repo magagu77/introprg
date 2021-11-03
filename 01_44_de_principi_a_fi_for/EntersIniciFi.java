@@ -6,14 +6,13 @@ public class EntersIniciFi {
 		System.out.println("Valor inicial?");
 		int inici = Integer.parseInt(Entrada.readLine());
 		System.out.println("Valor final?");
-		int fi = Integer.parseInt(Entrada.readLine());
+		int valorFinal = Integer.parseInt(Entrada.readLine());
 		System.out.println("Salt?");
 		int salt = Integer.parseInt(Entrada.readLine());
-
 		for (int valorCalculat = inici;
-			 valorCalculat <= fi;
-			 System.out.println(valorCalculat)) {
-			 valorCalculat =+ salt;
-		}	
-	}
+		     valorCalculat <= valorFinal;
+		     valorCalculat = valorCalculat + salt) {
+		     System.out.println(valorCalculat);
+        }
+	}	 		
 }
