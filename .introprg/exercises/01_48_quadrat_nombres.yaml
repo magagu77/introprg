@@ -1,0 +1,80 @@
+'00':
+  stdin:
+  - '0'
+  stdout:
+  - Valor final?
+  - Valor inadequat
+'01':
+  stdin:
+  - '1'
+  stdout:
+  - Valor final?
+  - ' 1'
+'02':
+  stdin:
+  - '2'
+  stdout:
+  - Valor final?
+  - ' 1 2'
+  - ' 1 2'
+'03':
+  stdin:
+  - '3'
+  stdout:
+  - Valor final?
+  - ' 1 2 3'
+  - ' 1 2 3'
+  - ' 1 2 3'
+'04':
+  stdin:
+  - '4'
+  stdout:
+  - Valor final?
+  - ' 1 2 3 4'
+  - ' 1 2 3 4'
+  - ' 1 2 3 4'
+  - ' 1 2 3 4'
+'05':
+  stdin:
+  - '5'
+  stdout:
+  - Valor final?
+  - ' 1 2 3 4 5'
+  - ' 1 2 3 4 5'
+  - ' 1 2 3 4 5'
+  - ' 1 2 3 4 5'
+  - ' 1 2 3 4 5'
+08:
+  stdin:
+  - '8'
+  stdout:
+  - Valor final?
+  - ' 1 2 3 4 5 6 7 8'
+  - ' 1 2 3 4 5 6 7 8'
+  - ' 1 2 3 4 5 6 7 8'
+  - ' 1 2 3 4 5 6 7 8'
+  - ' 1 2 3 4 5 6 7 8'
+  - ' 1 2 3 4 5 6 7 8'
+  - ' 1 2 3 4 5 6 7 8'
+  - ' 1 2 3 4 5 6 7 8'
+09:
+  stdin:
+  - '9'
+  stdout:
+  - Valor final?
+  - ' 1 2 3 4 5 6 7 8 9'
+  - ' 1 2 3 4 5 6 7 8 9'
+  - ' 1 2 3 4 5 6 7 8 9'
+  - ' 1 2 3 4 5 6 7 8 9'
+  - ' 1 2 3 4 5 6 7 8 9'
+  - ' 1 2 3 4 5 6 7 8 9'
+  - ' 1 2 3 4 5 6 7 8 9'
+  - ' 1 2 3 4 5 6 7 8 9'
+  - ' 1 2 3 4 5 6 7 8 9'
+'10':
+  stdin:
+  - '10'
+  stdout:
+  - Valor final?
+  - Valor inadequat
+_mainclass: QuadratNombres
