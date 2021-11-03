@@ -17,6 +17,11 @@ public class SumaInterval {
              interval >= fi;
              interval = interval - 1) {
              suma = suma + interval; 
+        }     
+        for (int interval = inici;
+             interval == fi;
+             interval = interval) {
+             suma = interval;     
         }
         System.out.println(suma);
     }
