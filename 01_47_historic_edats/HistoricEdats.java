@@ -21,11 +21,11 @@ public class HistoricEdats {
                  anyEdat = anyActual - edat + contadorEdat;
                  if (contadorEdat == 0) {   
                     System.out.println("El " + anyEdat + " va néixer");
-                 } else if (contadorEdat > 0) {
-                 System.out.println("El " + anyEdat + " tenia " + contadorEdat + " anys");
                  } else if (contadorEdat == 1) {
                  System.out.println("El " + anyEdat + " tenia " + contadorEdat + " any");
-                 } 
+                 } else if (contadorEdat > 0) {
+                 System.out.println("El " + anyEdat + " tenia " + contadorEdat + " anys");
+                 }  
             }
         }           
     }             
