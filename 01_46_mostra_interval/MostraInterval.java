@@ -18,5 +18,8 @@ public class MostraInterval {
              interval = interval - 1) {
              System.out.println(interval);
         }
+        if (inici == fi) {
+            System.out.println(inici);
+        }
     }
 }             
