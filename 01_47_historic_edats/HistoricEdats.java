@@ -14,7 +14,7 @@ public class HistoricEdats {
             System.out.println("Entrada errònia");
         } else if (edat == 0) {
             System.out.println("Adéu " + nom);    
-        } else if (edat < 0) {
+        } else if (edat < 0 || anyActual < 1971) {
             System.out.println("Entrada errònia");
         } else {        
             for (int contadorEdat = 0;
