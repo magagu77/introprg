@@ -13,7 +13,7 @@ public class HistoricEdats {
         if (nom.isBlank()) {
             System.out.println("Entrada errònia");
         } else if (edat <= 0) {
-            System.out.println("Adéu " + nom);
+            System.out.println("Entrada errònia");
         } else {        
             for (int contadorEdat = 0;
                  contadorEdat <= edat;
