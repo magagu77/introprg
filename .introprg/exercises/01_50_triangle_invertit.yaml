@@ -1,0 +1,50 @@
+'01':
+  stdin:
+  - '0'
+  stdout:
+  - Nombre?
+'02':
+  stdin:
+  - '1'
+  stdout:
+  - Nombre?
+  - '1'
+'03':
+  stdin:
+  - '3'
+  stdout:
+  - Nombre?
+  - 1, 2, 3
+  - 1, 2
+  - '1'
+'04':
+  stdin:
+  - '4'
+  stdout:
+  - Nombre?
+  - 1, 2, 3, 4
+  - 1, 2, 3
+  - 1, 2
+  - '1'
+'05':
+  stdin:
+  - '5'
+  stdout:
+  - Nombre?
+  - 1, 2, 3, 4, 5
+  - 1, 2, 3, 4
+  - 1, 2, 3
+  - 1, 2
+  - '1'
+'06':
+  stdin:
+  - '6'
+  stdout:
+  - Nombre?
+  - 1, 2, 3, 4, 5, 6
+  - 1, 2, 3, 4, 5
+  - 1, 2, 3, 4
+  - 1, 2, 3
+  - 1, 2
+  - '1'
+_mainclass: TriangleInvertit
