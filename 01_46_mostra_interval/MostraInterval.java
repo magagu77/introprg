@@ -12,12 +12,12 @@ public class MostraInterval {
              interval <= fi;
              interval = interval + 1) {
              System.out.println(interval);
-                for (interval = inici;
+        }
+        for (int interval = inici;
              interval >= fi;
              interval = interval - 1) {
              System.out.println(interval);
-        }}
-
+        }
         
     }
 }             
