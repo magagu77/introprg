@@ -9,12 +9,12 @@ public class MostraInterval {
         int fi = Integer.parseInt(Entrada.readLine());
         
         for (int interval = inici;
-             interval <= fi;
+             interval < fi;
              interval = interval + 1) {
              System.out.println(interval);
         }
         for (int interval = inici;
-             interval >= fi;
+             interval > fi;
              interval = interval - 1) {
              System.out.println(interval);
         }
