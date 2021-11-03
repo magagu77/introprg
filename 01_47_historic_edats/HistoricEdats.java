@@ -1,6 +1,6 @@
 //El problema te pide el año en que estas, tu nombre y cuantos años tienes, y de ahí te dice cuantos años tenias en un año en concreto
 
-public class HistoricsEdad {
+public class HistoricEdats {
     public static void main(String[] args) {
         
         System.out.println("nom?");
