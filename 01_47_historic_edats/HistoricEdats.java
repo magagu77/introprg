@@ -22,7 +22,7 @@ public class HistoricEdats {
                  if (contadorEdat == 0) {   
                     System.out.println("El " + anyEdat + " va néixer");
                  } else if (contadorEdat > 0) {
-                 System.out.println("El " + anyEdat + " tenia " + contadorEdat + "anys");
+                 System.out.println("El " + anyEdat + " tenia " + contadorEdat + " anys");
                  } 
             }
         }           
