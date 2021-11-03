@@ -9,12 +9,12 @@ public class SumaInterval {
         int fi = Integer.parseInt(Entrada.readLine());
         int suma = 0;
         for (int interval = inici;
-             interval < fi;
+             interval <= fi;
              interval = interval + 1) {
              suma = suma + interval; 
         }
         for (int interval = inici;
-             interval > fi;
+             interval >= fi;
              interval = interval - 1) {
              suma = suma + interval; 
         }
