@@ -9,7 +9,7 @@ public class QuadratNombres {
         if (numeroLoops <= 9 && numeroLoops >= 1) {
             for (int fila = 1; fila <= numeroLoops; fila++) {
                 for (int columna = 1; columna <= numeroLoops; columna++) {
-                    System.out.println(" " + columna);
+                    System.out.print(" " + columna);
                 }
                 System.out.println();
             }
