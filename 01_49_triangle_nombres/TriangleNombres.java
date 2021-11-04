@@ -8,7 +8,7 @@
 public class TriangleNombres {
     public static void main(String[] args) {
         
-        System.out.println("Nombre");
+        System.out.println("Nombre?");
         int numeroLoops = Integer.parseInt(Entrada.readLine());
             for (int fila = 1; fila <= numeroLoops; fila++) {
                 for (int columna = fila; columna > 0; columna--) { 
