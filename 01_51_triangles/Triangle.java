@@ -16,7 +16,7 @@ public class Triangle {
 	
 	System.out.println("quants?");
 	int numeroLoops = Integer.parseInt(Entrada.readLine());
-	for (int repeticions = 0; repeticions <= numeroLoops; repeticions++)
+	for (int repeticions = 1; repeticions <= numeroLoops; repeticions++)
 		for (int fila = 0; fila <= 9; fila++){
 			for (int columna = 0; columna <= 18; columna++){
 				if (columna <= 9) {
