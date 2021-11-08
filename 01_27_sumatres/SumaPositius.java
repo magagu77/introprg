@@ -1,4 +1,4 @@
-//Sumar fins a positius
+//Sumar fins a tres numeros positius y el programa es cancela si síntrodueix un valor <= 0
 
 
 public class SumaPositius {
