@@ -1,4 +1,4 @@
-//Endevina pero aquesta versió es tanca amb intro
+//el mateix programa que l'exercici anterior pero aquesta versió es tanca amb intro (fet amb un do while)
 
 public class Endevina {
     public static void main(String[] args) {

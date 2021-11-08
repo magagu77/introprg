@@ -1,4 +1,4 @@
-//Mitjana notes while
+//Mitjana notes amb un while, i el programa es para quan hi ha un valor fora de rang
 
 public class NotaMitja {
     public static void main(String[] args) {
