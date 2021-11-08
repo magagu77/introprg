@@ -13,7 +13,7 @@ public class TaulaMultiplicar {
 			for (int i = valor1; i <= valor2; i++) {
 				for (int multiplica = valor3; multiplica <= valor4; multiplica++) {
 					resultat = i * multiplica;
-					System.out.println(i + " X " + multiplica + " = " + resultat); 
+					System.out.println(i + " x " + multiplica + " = " + resultat); 
 				}
 			}
 		}	
