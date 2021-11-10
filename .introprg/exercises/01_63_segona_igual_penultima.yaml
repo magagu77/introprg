@@ -1,0 +1,25 @@
+'01':
+  stdin:
+  - albla
+  - albal
+  - '1221'
+  - ''
+  stdout:
+  - Ves introduïnt texts (finalitza amb enter sol)
+  - Segona igual a penúltima
+  - Segona diferent de penúltima
+  - Segona igual a penúltima
+  - Adéu
+'02':
+  stdin:
+  - Leo
+  - AA
+  - A
+  - ''
+  stdout:
+  - Ves introduïnt texts (finalitza amb enter sol)
+  - Segona igual a penúltima
+  - Segona igual a penúltima
+  - Segona diferent de penúltima
+  - Adéu
+_mainclass: SegonaIgualPenultima

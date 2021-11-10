@@ -1,0 +1,45 @@
+_mainclass: ManipulaString
+'01':
+  stdin:
+  - Renat
+  stdout:
+  - Paraula?
+  - La longitud és 5
+  - La segona lletra és 'e'
+  - La darrera lletra és 't'
+  - La penúltima lletra és 'a'
+  - La paraula en majúscules és "RENAT"
+  - La composició de quatre primeres és "Rena"
+  - La composició de quatre és "tRen"
+  - La composició de quatre corregint majúscules és "Tren"
+'02':
+  stdin:
+  - Java
+  stdout:
+  - Paraula?
+  - La longitud és 4
+  - La segona lletra és 'a'
+  - La darrera lletra és 'a'
+  - La penúltima lletra és 'v'
+  - La paraula en majúscules és "JAVA"
+  - La composició de quatre primeres és "Java"
+  - La composició de quatre és "aJav"
+  - La composició de quatre corregint majúscules és "Ajav"
+'03':
+  stdin:
+  - Oio
+  stdout:
+  - Paraula?
+  - La longitud és 3
+  - La segona lletra és 'i'
+  - La darrera lletra és 'o'
+  - La penúltima lletra és 'i'
+  - La paraula en majúscules és "OIO"
+'03':
+  stdin:
+  - x
+  stdout:
+  - Paraula?
+  - La longitud és 1
+  - La darrera lletra és 'x'
+  - La paraula en majúscules és "X"

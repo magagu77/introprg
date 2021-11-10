@@ -1,0 +1,119 @@
+'01':
+  stdin:
+  - '123'
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - Adéu
+  - ''
+'02':
+  stdin:
+  - '123'
+  - '-321'
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - És enter
+  - Adéu
+  - ''
+'03':
+  stdin:
+  - '123'
+  - '+333'
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - És enter
+  - Adéu
+  - ''
+'04':
+  stdin:
+  - '123'
+  - '  321'
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - És enter
+  - Adéu
+  - ''
+'05':
+  stdin:
+  - '123'
+  - '  -321'
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - És enter
+  - Adéu
+  - ''
+'06':
+  stdin:
+  - '123'
+  - '  +333'
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - És enter
+  - Adéu
+  - ''
+'07':
+  stdin:
+  - '123'
+  - '  321 '
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - És enter
+  - Adéu
+  - ''
+08:
+  stdin:
+  - '123'
+  - '  -321 '
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - És enter
+  - Adéu
+  - ''
+09:
+  stdin:
+  - '123'
+  - '  +333 '
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - És enter
+  - Adéu
+  - ''
+'10':
+  stdin:
+  - '123'
+  - quatre
+  - ''
+  - ''
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - És enter
+  - No és enter
+  - Adéu
+  - ''
+_mainclass: EsEnter

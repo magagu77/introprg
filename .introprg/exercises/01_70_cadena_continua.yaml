@@ -1,0 +1,73 @@
+'01':
+  stdin:
+  - ''
+  - ''
+  stdout:
+  - Text?
+  - error
+  - ''
+'02':
+  stdin:
+  - kuruma
+  - '0'
+  stdout:
+  - Text?
+  - Nombre?
+  - ''
+'03':
+  stdin:
+  - kuruma
+  - '1'
+  stdout:
+  - Text?
+  - Nombre?
+  - k
+'04':
+  stdin:
+  - kuruma
+  - '2'
+  stdout:
+  - Text?
+  - Nombre?
+  - ku
+'05':
+  stdin:
+  - kuruma
+  - '6'
+  stdout:
+  - Text?
+  - Nombre?
+  - kuruma
+'06':
+  stdin:
+  - kuruma
+  - '7'
+  stdout:
+  - Text?
+  - Nombre?
+  - kurumak
+'07':
+  stdin:
+  - kuruma
+  - '12'
+  stdout:
+  - Text?
+  - Nombre?
+  - kurumakuruma
+08:
+  stdin:
+  - kuruma
+  - '13'
+  stdout:
+  - Text?
+  - Nombre?
+  - kurumakurumak
+09:
+  stdin:
+  - kuruma
+  - '25'
+  stdout:
+  - Text?
+  - Nombre?
+  - kurumakurumakurumakurumak
+_mainclass: CadenaContinua

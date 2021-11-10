@@ -1,0 +1,90 @@
+'01':
+  stdin:
+  - ''
+  stdout:
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - Adéu
+'02':
+  stdin:
+  - amiga
+  - amigue
+  - amigui
+  - amigo
+  - amigu
+  - amigA
+  - amiguE
+  - amiguI
+  - amigO
+  - amigU
+  - ''
+  stdout:
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - Adéu
+'03':
+  stdin:
+  - amiga!
+  - amiga.
+  - amiga?
+  - ''
+  stdout:
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - Adéu
+'04':
+  stdin:
+  - amic
+  - ordinador
+  - elefant
+  - wonderful
+  - estruç
+  - fuß
+  - ''
+  stdout:
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: amic'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: ordinador'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: elefant'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: wonderful'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: estruç'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: fuß'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - Adéu
+'05':
+  stdin:
+  - amic
+  - Mazinguer-Z
+  - color
+  - color!
+  - amiga
+  - Afrodita-A
+  - ''
+  stdout:
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: amic'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: Mazinguer-Z'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - 'El lloro diu: color'
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - El lloro pregunta paraula que finalitzi per lletra no vocal
+  - Adéu
+_mainclass: LloroAcabaLletra

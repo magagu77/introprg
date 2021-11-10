@@ -1,0 +1,348 @@
+'01':
+  stdin:
+  - Java rocks!
+  - '5'
+  - '7'
+  - ''
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - r
+  - o
+  - c
+  - ''
+'02':
+  stdin:
+  - Rocks Java
+  - '8'
+  - '6'
+  - ''
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - v
+  - a
+  - J
+  - ''
+'03':
+  stdin:
+  - Java rocks!
+  - '-5'
+  - '9'
+  - ''
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - J
+  - a
+  - v
+  - a
+  - ' '
+  - r
+  - o
+  - c
+  - k
+  - s
+  - ''
+'04':
+  stdin:
+  - Java mola!
+  - '15'
+  - '5'
+  - ''
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - '!'
+  - a
+  - l
+  - o
+  - m
+  - ''
+'05':
+  stdin:
+  - hola
+  - '-2'
+  - '-1'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - ''
+'06':
+  stdin:
+  - hola
+  - '-2'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+'07':
+  stdin:
+  - hola
+  - '-2'
+  - '2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+  - o
+  - l
+08:
+  stdin:
+  - hola
+  - '-2'
+  - '3'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+  - o
+  - l
+  - a
+09:
+  stdin:
+  - hola
+  - '-2'
+  - '5'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+  - o
+  - l
+  - a
+'10':
+  stdin:
+  - hola
+  - '0'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+'11':
+  stdin:
+  - hola
+  - '0'
+  - '2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+  - o
+  - l
+'12':
+  stdin:
+  - hola
+  - '0'
+  - '3'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+  - o
+  - l
+  - a
+'13':
+  stdin:
+  - hola
+  - '0'
+  - '5'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+  - o
+  - l
+  - a
+'14':
+  stdin:
+  - hola
+  - '1'
+  - '2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - o
+  - l
+'15':
+  stdin:
+  - hola
+  - '1'
+  - '3'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - o
+  - l
+  - a
+'16':
+  stdin:
+  - hola
+  - '1'
+  - '5'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - o
+  - l
+  - a
+'17':
+  stdin:
+  - hola
+  - '-1'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - ''
+'18':
+  stdin:
+  - hola
+  - '0'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+'19':
+  stdin:
+  - hola
+  - '2'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - l
+  - o
+  - h
+'20':
+  stdin:
+  - hola
+  - '3'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - a
+  - l
+  - o
+  - h
+'21':
+  stdin:
+  - hola
+  - '5'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - a
+  - l
+  - o
+  - h
+'22':
+  stdin:
+  - hola
+  - '0'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+'23':
+  stdin:
+  - hola
+  - '2'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - l
+  - o
+  - h
+'24':
+  stdin:
+  - hola
+  - '3'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - a
+  - l
+  - o
+  - h
+'25':
+  stdin:
+  - hola
+  - '5'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - a
+  - l
+  - o
+  - h
+'26':
+  stdin:
+  - hola
+  - '2'
+  - '1'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - l
+  - o
+'27':
+  stdin:
+  - hola
+  - '3'
+  - '1'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - a
+  - l
+  - o
+'28':
+  stdin:
+  - hola
+  - '5'
+  - '1'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - a
+  - l
+  - o
+_mainclass: MostraInterval

@@ -1,0 +1,63 @@
+'01':
+  stdin:
+  - ''
+  stdout:
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - Adéu
+'02':
+  stdin:
+  - amic
+  - Amic
+  - eli
+  - Lelo
+  - ''
+  stdout:
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: amic'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: eli'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - Adéu
+'03':
+  stdin:
+  - a
+  - e
+  - i
+  - o
+  - u
+  - ''
+  stdout:
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: a'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: e'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: i'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: o'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: u'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - Adéu
+'04':
+  stdin:
+  - a
+  - b
+  - i
+  - c
+  - u
+  - ''
+  stdout:
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: a'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: i'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - 'El lloro diu: u'
+  - El lloro pregunta paraula que comenci amb vocal en minúscules
+  - Adéu
+_mainclass: LloroVocalMinuscules
