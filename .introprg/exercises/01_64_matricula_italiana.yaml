@@ -1,0 +1,181 @@
+'01':
+  stdin:
+  - DD029YJ
+  stdout:
+  - Introduïu una matrícula
+  - És una matrícula italiana vàlida
+'02':
+  stdin:
+  - D
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'03':
+  stdin:
+  - DD029YJK
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'04':
+  stdin:
+  - AAY00AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'05':
+  stdin:
+  - AA0S0AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'06':
+  stdin:
+  - AA00ZAA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'07':
+  stdin:
+  - oA000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+08:
+  stdin:
+  - As000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+09:
+  stdin:
+  - AA000kA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'10':
+  stdin:
+  - AA000At
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'11':
+  stdin:
+  - IA000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'12':
+  stdin:
+  - OA000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'13':
+  stdin:
+  - QA000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'14':
+  stdin:
+  - UA000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'15':
+  stdin:
+  - ÑA000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'16':
+  stdin:
+  - AI000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'17':
+  stdin:
+  - AO000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'18':
+  stdin:
+  - AQ000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'19':
+  stdin:
+  - AU000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'20':
+  stdin:
+  - AÑ000AA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'21':
+  stdin:
+  - AA000IA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'22':
+  stdin:
+  - AA000OA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'23':
+  stdin:
+  - AA000QA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'24':
+  stdin:
+  - AA000UA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'25':
+  stdin:
+  - AA000ÑA
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'26':
+  stdin:
+  - AA000AI
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'27':
+  stdin:
+  - AA000AO
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'28':
+  stdin:
+  - AA000AQ
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'29':
+  stdin:
+  - AA000AU
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+'30':
+  stdin:
+  - AA000AÑ
+  stdout:
+  - Introduïu una matrícula
+  - No és una matrícula italiana vàlida
+_mainclass: MatriculaValida

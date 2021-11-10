@@ -1,0 +1,60 @@
+'01':
+  stdin:
+  - a
+  - ''
+  stdout:
+  - Caràcter?
+  - 'Character.getName(''a''): LATIN SMALL LETTER A'
+  - 'Character.isDigit(''a''): false'
+  - 'Character.isJavaIdentifierStart(''a''): true'
+  - 'Character.isJavaIdentifierPart(''a''): true'
+  - 'Character.isLetter(''a''): true'
+  - 'Character.isLowerCase(''a''): true'
+  - 'Character.isUpperCase(''a''): false'
+  - 'Character.isWhitespace(''a''): false'
+  - 'Character.toLowerCase(''a''): a'
+  - 'Character.toUpperCase(''a''): A'
+  - ''
+'02':
+  stdin:
+  - Hola
+  - ''
+  stdout:
+  - Caràcter?
+  - 'Character.getName(''H''): LATIN CAPITAL LETTER H'
+  - 'Character.isDigit(''H''): false'
+  - 'Character.isJavaIdentifierStart(''H''): true'
+  - 'Character.isJavaIdentifierPart(''H''): true'
+  - 'Character.isLetter(''H''): true'
+  - 'Character.isLowerCase(''H''): false'
+  - 'Character.isUpperCase(''H''): true'
+  - 'Character.isWhitespace(''H''): false'
+  - 'Character.toLowerCase(''H''): h'
+  - 'Character.toUpperCase(''H''): H'
+  - ''
+'03':
+  stdin:
+  - あなた
+  - ''
+  stdout:
+  - Caràcter?
+  - 'Character.getName(''あ''): HIRAGANA LETTER A'
+  - 'Character.isDigit(''あ''): false'
+  - 'Character.isJavaIdentifierStart(''あ''): true'
+  - 'Character.isJavaIdentifierPart(''あ''): true'
+  - 'Character.isLetter(''あ''): true'
+  - 'Character.isLowerCase(''あ''): false'
+  - 'Character.isUpperCase(''あ''): false'
+  - 'Character.isWhitespace(''あ''): false'
+  - 'Character.toLowerCase(''あ''): あ'
+  - 'Character.toUpperCase(''あ''): あ'
+  - ''
+'04':
+  stdin:
+  - ''
+  - ''
+  stdout:
+  - Caràcter?
+  - Caràcter buit
+  - ''
+_mainclass: InformeCaracter
