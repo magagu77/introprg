@@ -1,0 +1,74 @@
+'01':
+  stdin:
+  - Amiga, que són 4 pipes. Ni 1 més, ni 1 menys!
+  stdout:
+  - Text?
+  - Informe
+  - =======
+  - 'lletres en majúscules: 2 (4.44%)'
+  - 'lletres en minúscules: 26 (57.78%)'
+  - 'total lletres: 28 (62.22%)'
+  - 'vocals en majúscules: 1 (2.22%)'
+  - 'vocals en minúscules: 11 (24.44%)'
+  - 'total vocals: 12 (26.67%)'
+  - 'digits: 3 (6.67%)'
+  - 'altres caràcters: 14 (31.11%)'
+  - 'total caràcters: 45'
+'02':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+  - Cadena buida
+'03':
+  stdin:
+  - aeiouàèéïíóòüúbcdfghjklmnpqrstvwxyz
+  stdout:
+  - Text?
+  - Informe
+  - =======
+  - 'lletres en majúscules: 0 (0.00%)'
+  - 'lletres en minúscules: 35 (100.00%)'
+  - 'total lletres: 35 (100.00%)'
+  - 'vocals en majúscules: 0 (0.00%)'
+  - 'vocals en minúscules: 14 (40.00%)'
+  - 'total vocals: 14 (40.00%)'
+  - 'digits: 0 (0.00%)'
+  - 'altres caràcters: 0 (0.00%)'
+  - 'total caràcters: 35'
+'04':
+  stdin:
+  - AEIOUÀÈÉÏÍÓÒÜÚBCDFGHJKLMNPQRSTVWXYZ
+  stdout:
+  - Text?
+  - Informe
+  - =======
+  - 'lletres en majúscules: 35 (100.00%)'
+  - 'lletres en minúscules: 0 (0.00%)'
+  - 'total lletres: 35 (100.00%)'
+  - 'vocals en majúscules: 14 (40.00%)'
+  - 'vocals en minúscules: 0 (0.00%)'
+  - 'total vocals: 14 (40.00%)'
+  - 'digits: 0 (0.00%)'
+  - 'altres caràcters: 0 (0.00%)'
+  - 'total caràcters: 35'
+'05':
+  stdin:
+  - aA1!
+  stdout:
+  - Text?
+  - Informe
+  - =======
+  - 'lletres en majúscules: 1 (25.00%)'
+  - 'lletres en minúscules: 1 (25.00%)'
+  - 'total lletres: 2 (50.00%)'
+  - 'vocals en majúscules: 1 (25.00%)'
+  - 'vocals en minúscules: 1 (25.00%)'
+  - 'total vocals: 2 (50.00%)'
+  - 'digits: 1 (25.00%)'
+  - 'altres caràcters: 1 (25.00%)'
+  - 'total caràcters: 4'
+_mainclass: InformeText
+_tr:
+  - ','
+  - '.'

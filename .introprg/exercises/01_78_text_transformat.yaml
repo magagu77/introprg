@@ -1,0 +1,42 @@
+'01':
+  stdin:
+  - Avuí faig anys!
+  stdout:
+  - Text?
+  - aVuí FaiG aNYS
+'02':
+  stdin:
+  - aeiouàèéïíòóüú
+  stdout:
+  - Text?
+  - aeiouàèéïíòóüú
+'03':
+  stdin:
+  - AEIOUÀÈÉÏÍÒÓÜÚ
+  stdout:
+  - Text?
+  - aeiouàèéïíòóüú
+'04':
+  stdin:
+  - Avuí faig 19 anys!
+  stdout:
+  - Text?
+  - aVuí FaiG (19) aNYS
+'05':
+  stdin:
+  - 1 12 123 1234
+  stdout:
+  - Text?
+  - (1) (12) (123) (1234)
+'06':
+  stdin:
+  - "També\tcal\trespectar\tels\ttabuladors!"
+  stdout:
+  - Text?
+  - "TaMBé\tCaL\tReSPeCTaR\teLS\tTaBuLaDoRS"
+'07':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+_mainclass: TransformaText

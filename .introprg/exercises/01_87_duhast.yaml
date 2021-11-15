@@ -1,0 +1,81 @@
+'01':
+  stdin:
+  - Du hast mich
+  stdout:
+  - Text?
+  - Du
+  - Du hast
+  - Du hast mich
+'02':
+  stdin:
+  - eins
+  stdout:
+  - Text?
+  - eins
+'03':
+  stdin:
+  - a b c d e f g h i j k
+  stdout:
+  - Text?
+  - 'a'
+  - 'a b'
+  - 'a b c'
+  - 'a b c d'
+  - 'a b c d e'
+  - 'a b c d e f'
+  - 'a b c d e f g'
+  - 'a b c d e f g h'
+  - 'a b c d e f g h i'
+  - 'a b c d e f g h i j'
+  - 'a b c d e f g h i j k'
+'04':
+  stdin:
+  - 1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17 siebzehn 18 achtzehn 19 neunzehn 20 zwanzig
+  stdout:
+  - Text?
+  - '1'
+  - '1 eins'
+  - '1 eins 2'
+  - '1 eins 2 zwei'
+  - '1 eins 2 zwei 3'
+  - '1 eins 2 zwei 3 drei'
+  - '1 eins 2 zwei 3 drei 4'
+  - '1 eins 2 zwei 3 drei 4 vier'
+  - '1 eins 2 zwei 3 drei 4 vier 5'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17 siebzehn'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17 siebzehn 18'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17 siebzehn 18 achtzehn'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17 siebzehn 18 achtzehn 19'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17 siebzehn 18 achtzehn 19 neunzehn'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17 siebzehn 18 achtzehn 19 neunzehn 20'
+  - '1 eins 2 zwei 3 drei 4 vier 5 fünf 6 sechs 7 sieben 8 acht 9 neun 10 zehn 11 elf 12 zwölf 13 dreizehn 14 vierzehn 15 fünfzehn 16 sechzehn 17 siebzehn 18 achtzehn 19 neunzehn 20 zwanzig'
+'05':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+_mainclass: TriangleParaules

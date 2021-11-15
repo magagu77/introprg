@@ -1,0 +1,38 @@
+'01':
+  stdin:
+  - Donam una A
+  - Donam una B
+  - Trobam una C
+  - Pintam una D
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - bé
+  - bé
+  - bé
+  - Adéu
+'02':
+  stdin:
+  - a
+  - ab
+  - bc
+  - cd
+  - dd
+  - ee
+  - no em llegeixis
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - bé
+  - bé
+  - bé
+  - bé
+  - bé
+  - Adéu
+'03':
+  stdin:
+  - ''
+  - no em llegeixis
+  stdout:
+  - Introdueix texts (enter sol per finalitzar)
+  - ''
+  - Adéu
+_mainclass: ConteDarrer

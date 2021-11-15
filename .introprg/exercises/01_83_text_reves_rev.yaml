@@ -1,0 +1,30 @@
+'01':
+  stdin:
+  - aeiou
+  stdout:
+  - Text?
+  - uoiea
+'02':
+  stdin:
+  - a1b2c3d4
+  stdout:
+  - Text?
+  - 4d3c2b1a
+'03':
+  stdin:
+  - '{a!e<i)o.u]'
+  stdout:
+  - Text?
+  - '{u!o<i)e.a]'
+'04':
+  stdin:
+  - git branch -m <old-name> <new-name>
+  stdout:
+  - Text?
+  - ema nwenem -a <ndl-omhc> <nar-btig>
+'05':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+_mainclass: TextReves

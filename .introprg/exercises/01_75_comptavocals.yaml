@@ -1,0 +1,49 @@
+'01':
+  stdin:
+  - En Pinxo li va dir a en Panxo "vols que et punxi amb un punxó?
+  stdout:
+  - Text?
+  - '20'
+'02':
+  stdin:
+  - aeiou
+  stdout:
+  - Text?
+  - '5'
+'03':
+  stdin:
+  - AEIOU
+  stdout:
+  - Text?
+  - '5'
+'04':
+  stdin:
+  - bcdfBCDF
+  stdout:
+  - Text?
+  - '0'
+'05':
+  stdin:
+  - aeiouAEIOUbcdfBCDF
+  stdout:
+  - Text?
+  - '10'
+'06':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+  - '0'
+'07':
+  stdin:
+  - àèéïíòóüú
+  stdout:
+  - Text?
+  - '9'
+08:
+  stdin:
+  - ÀÈÉÏÍÒÓÜÚ
+  stdout:
+  - Text?
+  - '9'
+_mainclass: ComptaVocals

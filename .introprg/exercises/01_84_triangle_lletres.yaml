@@ -1,0 +1,27 @@
+'01':
+  stdin:
+  - a
+  stdout:
+  - Text?
+  - a
+'02':
+  stdin:
+  - ab
+  stdout:
+  - Text?
+  - a
+  - a, b
+'03':
+  stdin:
+  - abc
+  stdout:
+  - Text?
+  - a
+  - a, b
+  - a, b, c
+'04':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+_mainclass: TriangleLletres
