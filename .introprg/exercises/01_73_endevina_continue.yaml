@@ -1,0 +1,119 @@
+'01':
+  stdin:
+  - '42'
+  stdout:
+  - Nombre?
+  - Encertat!
+'02':
+  stdin:
+  - '10'
+  - '42'
+  stdout:
+  - Nombre?
+  - Massa petit
+  - Nombre?
+  - Encertat!
+'03':
+  stdin:
+  - '56'
+  - '42'
+  stdout:
+  - Nombre?
+  - Massa gran
+  - Nombre?
+  - Encertat!
+'04':
+  stdin:
+  - '0'
+  - '42'
+  stdout:
+  - Nombre?
+  - Fora de rang
+  - Nombre?
+  - Encertat!
+'05':
+  stdin:
+  - '101'
+  - '42'
+  stdout:
+  - Nombre?
+  - Fora de rang
+  - Nombre?
+  - Encertat!
+'06':
+  stdin:
+  - '5'
+  - '50'
+  - '-1'
+  - '102'
+  - '42'
+  stdout:
+  - Nombre?
+  - Massa petit
+  - Nombre?
+  - Massa gran
+  - Nombre?
+  - Fora de rang
+  - Nombre?
+  - Fora de rang
+  - Nombre?
+  - Encertat!
+'07':
+  stdin:
+  - '5'
+  - '50'
+  - ''
+  stdout:
+  - Nombre?
+  - Massa petit
+  - Nombre?
+  - Massa gran
+  - Nombre?
+  - Cancel·lat!
+08:
+  stdin:
+  - ''
+  - ''
+  stdout:
+  - Nombre?
+  - Cancel·lat!
+09:
+  stdin:
+  - '5'
+  - '50'
+  - ''
+  - '24'
+  stdout:
+  - Nombre?
+  - Massa petit
+  - Nombre?
+  - Massa gran
+  - Nombre?
+  - Cancel·lat!
+'10':
+  stdin:
+  - cinc
+  - '42'
+  - ja està
+  stdout:
+  - Nombre?
+  - Només nombres
+  - Nombre?
+  - Encertat!
+'11':
+  stdin:
+  - '1'
+  - cinc
+  - '92'
+  - '42'
+  - '17'
+  stdout:
+  - Nombre?
+  - Massa petit
+  - Nombre?
+  - Només nombres
+  - Nombre?
+  - Massa gran
+  - Nombre?
+  - Encertat!
+_mainclass: Endevina

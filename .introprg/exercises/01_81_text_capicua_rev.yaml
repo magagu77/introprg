@@ -1,0 +1,91 @@
+'01':
+  stdin:
+  - a
+  stdout:
+  - Text?
+  - És capicua
+'02':
+  stdin:
+  - aa
+  stdout:
+  - Text?
+  - És capicua
+'03':
+  stdin:
+  - aba
+  stdout:
+  - Text?
+  - És capicua
+'04':
+  stdin:
+  - abba
+  stdout:
+  - Text?
+  - És capicua
+'05':
+  stdin:
+  - abcba
+  stdout:
+  - Text?
+  - És capicua
+'06':
+  stdin:
+  - abbca
+  stdout:
+  - Text?
+  - No és capicua
+'07':
+  stdin:
+  - Aquesta és una frase palindròfoba
+  stdout:
+  - Text?
+  - No és capicua
+08:
+  stdin:
+  - A dit, sorpres, a l'obert avenc nevat, rebo la serp rostida.
+  stdout:
+  - Text?
+  - És capicua
+09:
+  stdin:
+  - ',a!'
+  stdout:
+  - Text?
+  - És capicua
+'10':
+  stdin:
+  - '!a/a)'
+  stdout:
+  - Text?
+  - És capicua
+'11':
+  stdin:
+  - (ab)a
+  stdout:
+  - Text?
+  - És capicua
+'12':
+  stdin:
+  - ab(ba)
+  stdout:
+  - Text?
+  - És capicua
+'13':
+  stdin:
+  - '!a@b#c$b%a^'
+  stdout:
+  - Text?
+  - És capicua
+'14':
+  stdin:
+  - ',.;:!@#$'
+  stdout:
+  - Text?
+  - No és capicua
+'15':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+  - No és capicua
+_mainclass: Capicua

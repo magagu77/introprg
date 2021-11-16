@@ -1,0 +1,13 @@
+'01':
+  stdin:
+  - Els 4 Genets de l'Apocalipsi!
+  stdout:
+  - Text?
+  - Els 4 gEnEts dE l'ApOcAlIpsI!
+'02':
+  stdin:
+  - aeiouAEIOUbcdfBCDF
+  stdout:
+  - Text?
+  - AEIOUAEIOUbcdfbcdf
+_mainclass: VocalsMajuscules

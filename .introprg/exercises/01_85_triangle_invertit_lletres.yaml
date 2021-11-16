@@ -1,0 +1,40 @@
+'01':
+  stdin:
+  - a
+  stdout:
+  - Text?
+  - a
+'02':
+  stdin:
+  - ab
+  stdout:
+  - Text?
+  - b, a
+  - a
+'03':
+  stdin:
+  - abc
+  stdout:
+  - Text?
+  - c, b, a
+  - b, a
+  - a
+'04':
+  stdin:
+  - Romualda
+  stdout:
+  - Text?
+  - a, d, l, a, u, m, o, R
+  - d, l, a, u, m, o, R
+  - l, a, u, m, o, R
+  - a, u, m, o, R
+  - u, m, o, R
+  - m, o, R
+  - o, R
+  - R
+'05':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+_mainclass: TriangleLletresInvertit

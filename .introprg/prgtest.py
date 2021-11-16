@@ -29,13 +29,20 @@ class Prgtest:
     DEFAULT_WORKING_DIR_NAME = "introprg"
     DEFAULT_SUPPORT_DIR_NAME = ".introprg"
     DEFAULT_SPEC_DIR_NAME = "exercises"
+    FLAG_RELATIVE_PATH =  'tmp/last.yaml'
     SPECS_FILENAME = "specs.yaml"
 
+    PRGTEST_AUTHOR_NAME = 'prgtest'
+    MSG_AUTOCOMMIT = 'prgtest autocommit #%s %s: %s'
+
+    MSG_MISSING_COMMIT = "Cal registrar els canvis a git"
+    MSG_MISSING_COMMIT_TIP = ("Considera:\n"
+                              '$ git commit -am "»descripció dels canvis realitzats»')
+    MSG_ALL_TEST_PASSED = "El teu exercici passa totes les proves"
     MSG_EXERCISE_WITHOUT_TEST = "Aquest exercici no disposa de proves automàtiques"
     MSG_EXERCISE_WITH_MORE_LINES_THAN_EXPECTED = "No s'esperava la línia:"
     MSG_EXERCISE_WITH_LESS_LINES_THAN_EXPECTED = "A la sortida del programa li falta:"
     MSG_EXERCISE_WITH_DIFFERENT_LINES = "Les següents línies difereixen"
-    MSG_ALL_TEST_PASSED = "El teu exercici passa totes les proves"
     MSG_EXERCISE_NEVER_ENDS = "El teu exercici tarda massa en finalitzar"
     MSG_EXERCISE_NEVER_ENDS_TIP = "Executa'l manualment amb les entrades especificades"
     MSG_COMPILATION_ERROR = "S'ha trobat errors compilant %s"
@@ -67,6 +74,11 @@ class Prgtest:
         return self.target_path.name
 
     @property
+    def target_exercise_id(self):
+        """ returns the id of the target exercise """
+        return "_".join(self.target_exercise.split('_', maxsplit=2)[:2])
+
+    @property
     def support_dir(self):
         """ returns the path to the dir containing the support files.
             In case environment var INTROPRG_SUPPORT_DIR is set, it uses it,
@@ -92,7 +104,7 @@ class Prgtest:
             return Path.cwd()
         specs_dir = os.environ.get(Prgtest.INTROPRGSPECDIR_KEY)
         if specs_dir is None:
-            specs_dir = self.support_dir / 'exercises'
+            specs_dir = self.support_dir / Prgtest.DEFAULT_SPEC_DIR_NAME
         else:
             specs_dir = Path(specs_dir)
         if not specs_dir.is_dir():
@@ -107,7 +119,7 @@ class Prgtest:
         Prgtest.check_option(self.params, 'version', Prgtest.show_version)
 
 
-        # define the working directori
+        # define the working directory
         self.working_dir = Prgtest.find_prgtestdir(self.params)
 
         # check --show-introprgdir
@@ -211,7 +223,6 @@ class Prgtest:
                                        tip=("Revisa que tens el teu sistema configurat tal i "
                                             "com s'especifica als apunts:\n"
                                             "https://moiatjda.github.io/jda.dev.m03/holagit.html"));
-
         return path
 
 
@@ -301,9 +312,13 @@ class Prgtest:
                                       "$ git add --all"))
         # check uncommitted files
         if repo.is_dirty():
-            print_error_and_exit("Cal registrar els canvis a git",
-                                 tip=("Considera:\n"
-                                      '$ git commit -am "»descripció dels canvis realitzats»'))
+            if self.autocommittable():
+                self.autocommit(repo)
+            else:
+                print_error_and_exit(Prgtest.MSG_MISSING_COMMIT,
+                                     tip=Prgtest.MSG_MISSING_COMMIT_TIP)
+        else:
+            self.reset_autocommit_flag(repo)
 
 
     def check_compiled(self):
@@ -439,12 +454,8 @@ class Prgtest:
                 raise AttributeError(f"illdefined _tr for exercise {self.target_path}")
             if len(translatespecs[0]) != len(translatespecs[1]):
                 raise AttributeError(f"illdefined _tr for exercise {self.target_path}")
-            for i, chsrc in enumerate(translatespecs[0]):
-                chdst = translatespecs[1]
-                new_lines = []
-                for line in output:
-                    new_lines.append(line.replace(chsrc, chdst))
-                output = new_lines
+            for chsrc in translatespecs[0]:
+                output = [line.replace(chsrc, translatespecs[1]) for line in output]
             return output
 
         def compare_output(output):
@@ -455,7 +466,7 @@ class Prgtest:
                 return None
             output = prepare_output(output)
             result = Prgtest.compare_lines(expected, output,
-                                           ignore_blank_lines = ignore_blank_lines)
+                                           ignore_blank_lines=ignore_blank_lines)
             return result
 
         if self.returncode == 0:
@@ -513,8 +524,8 @@ class Prgtest:
         print_err(compose_title(Prgtest.MSG_TITLE_PROGRAM_EXECUTION))
         print_err("L'execució ha estat la següent:\n")
         colorized_command = colorize_string(f'java {self.get_main()}',
-                                         forecolor=get_color('FG_JAVAC_CMD'),
-                                         backcolor=get_color('BG_JAVAC_ARGS'))
+                                            forecolor=get_color('FG_JAVAC_CMD'),
+                                            backcolor=get_color('BG_JAVAC_ARGS'))
         colorized_args = colorize_string(argsin,
                                          forecolor=get_color('FG_JAVAC_ARGS'),
                                          backcolor=get_color('BG_JAVAC_ARGS'))
@@ -524,27 +535,40 @@ class Prgtest:
     def show_provided_stdin(self, testid):
         """ shows the contents entered by stdin to the target program (if any) """
         if 'stdin' in self.specs[testid]:
-            print_err(compose_title(Prgtest.MSG_TITLE_STANDARD_INPUT))
-            print_err("Se li ha passat el següent codi per entrada estàndard\n")
-            print_err(compose_enumerated_text(self.specs[testid]['stdin']))
-            print_err()
+            Prgtest.show_output_on_stderr(
+                title=Prgtest.MSG_TITLE_STANDARD_INPUT,
+                msg="Se li ha passat el següent codi per entrada estàndard\n",
+                output=self.specs[testid]['stdin'],
+            )
 
 
     def show_expected_output(self, testid, nr_expected):
-        """ shows the contents expected from the target program execution on stdout """
+        """ shows the contents expected from the target program execution """
         if 'stdout' in self.specs[testid]:
-            print_err(compose_title(Prgtest.MSG_TITLE_EXPECTED_OUTPUT))
-            print_err("S'esperava la següent sortida del programa:\n")
-            print_err(compose_enumerated_text(self.specs[testid]['stdout'],
-                                              TextType.EXPECTED, highlight_line=nr_expected))
+            Prgtest.show_output_on_stderr(
+                title=Prgtest.MSG_TITLE_EXPECTED_OUTPUT,
+                msg="S'esperava la següent sortida del programa:\n",
+                output=self.specs[testid]['stdout'],
+                text_type=TextType.EXPECTED,
+                highlight_line=nr_expected)
 
 
     def show_found_output(self, nr_found):
-        """ shows the contents self.stdout from the target program execution on stdout """
-        print_err(compose_title(Prgtest.MSG_TITLE_STANDARD_OUTPUT))
-        print_err("La sortida que ha generat el programa ha estat:")
-        print_err(compose_enumerated_text(self.stdout ,
-                                          text_type=TextType.FOUND, highlight_line=nr_found))
+        """ shows the found contents from the target program execution """
+        Prgtest.show_output_on_stderr(
+            title=Prgtest.MSG_TITLE_STANDARD_OUTPUT,
+            msg="La sortida que ha generat el programa ha estat:\n",
+            output=self.stdout,
+            text_type=TextType.FOUND,
+            highlight_line=nr_found)
+
+
+    @staticmethod
+    def show_output_on_stderr(title: str, msg: str, output: str, text_type=None, highlight_line=-1):
+        """ shows the given output on stderr """
+        print_err(compose_title(title))
+        print_err(msg)
+        print_err(compose_enumerated_text(output, text_type=text_type, highlight_line=highlight_line))
 
 
     def show_found_stderr(self):
@@ -591,6 +615,74 @@ class Prgtest:
             print(Prgtest.MSG_EXERCISE_WITHOUT_TEST)
             sys.exit(0)
 
+    def autocommittable(self):
+        """ returns True if an autocommit can be performed """
+        flag_path = self.support_dir / Prgtest.FLAG_RELATIVE_PATH
+        if not flag_path.is_file():
+            return False
+        old_contents = load_yaml(flag_path)
+        if old_contents.get('exercise') != self.target_exercise:
+            return False
+        return True
+
+
+    def autocommit(self, repo):
+        """ sets the exercise flag considering last commit and if not the first one,
+            performs the autocommit.
+            It returns True when the autocommit has been performed """
+
+        def do_autocommit(seq, message):
+            """ performs the autocommit with the given seq nr and the student message """
+            author = git.Actor(Prgtest.PRGTEST_AUTHOR_NAME, repo.head.commit.author.email)
+            comment = Prgtest.MSG_AUTOCOMMIT % (seq, self.target_exercise_id, message)
+            try:
+                repo.git.add(all=True)
+                repo.index.commit(message=comment, author=author)
+            except git.GitError:
+                return False
+            return True
+
+        flag_path = self.support_dir / Prgtest.FLAG_RELATIVE_PATH
+        old_contents = load_yaml(flag_path) if flag_path.is_file() else {}
+        splitted_last_comment = repo.head.commit.message.split(": ", maxsplit=2)
+        same_exercise = old_contents.get('exercise') == self.target_exercise 
+        old_seq = old_contents.get('seq', -1)
+        expected_msg = old_seq == 0 or (
+            len(splitted_last_comment) == 2 and
+            old_contents.get('msg') == splitted_last_comment[1]
+        )
+        if same_exercise and expected_msg:
+            seq = old_seq + 1
+            msg = old_contents['msg']
+            do_autocommit(seq, msg)
+            contents = {
+                'msg': msg,
+                'seq': seq,
+                'exercise': self.target_exercise,
+                'sha': repo.head.commit.hexsha,
+            }
+            save_yaml(flag_path, contents)
+        else:
+            self.reset_autocommit_flag(repo)
+
+
+    def reset_autocommit_flag(self, repo):
+        """ creates or resets the autocommit flag """
+        flag_path = self.support_dir / Prgtest.FLAG_RELATIVE_PATH
+        old_contents = load_yaml(flag_path) if flag_path.is_file() else {}
+        current_commit = repo.head.commit
+        current_sha = current_commit.hexsha
+        current_msg = current_commit.message.strip()
+        msg = old_contents.get('msg') if old_contents.get('sha') == current_sha else current_msg
+        contents = {
+            'msg': msg,
+            'seq': 0,
+            'exercise': self.target_exercise,
+            'sha': current_sha,
+        }
+        if old_contents != contents:
+            save_yaml(flag_path, contents)
+
 
     @staticmethod
     def check_option(params, option, method):
@@ -601,8 +693,7 @@ class Prgtest:
 
 
     @staticmethod
-    def compare_lines(expected, found,
-                      ignore_blank_lines = True):
+    def compare_lines(expected, found, ignore_blank_lines = True):
         """ compares two lists of lines and:
             - when both lists are considered equals, it returns None
             - otherwise it returns a pair of numbers corresponding to the lines
@@ -649,6 +740,7 @@ class Prgtest:
         """ shows the program version """
         print(f"{Prgtest.PROGRAM_NAME} versió {Prgtest.PROGRAM_VERSION}")
 
+
     def show_introprgdir(self):
         """ shows the working directory """
         print(self.working_dir)
@@ -657,6 +749,7 @@ class Prgtest:
     def show_target_path(self):
         """ shows the target path """
         print(self.target_path)
+
 
     @staticmethod
     def protected():
@@ -680,6 +773,7 @@ class Foreground():
     WHITE     = '\033[37m'
     ORANGE    = '\033[33m'
     RESET     = '\033[39m'
+
 
 class Background():
     BLACK     = '\033[40m'
@@ -783,7 +877,7 @@ def compose_enumerated_text(lines,
                             highlight_function=None):
     """ composes the lines enumerated """
     width = len(str(len(lines) + 1))
-    return "\n".join(compose_enumerated_line(n, line,
+    return "\n".join(compose_enumerated_line(n, line, width=width,
                                              text_type=text_type,
                                              highlighted=(n==highlight_line),
                                              highlight_function=highlight_function)
@@ -888,6 +982,11 @@ def load_yaml(path, allow_non_existing=False):
         return dict()
     return data
 
+def save_yaml(path, values):
+    """ saves the values as yaml file """
+    path.parent.mkdir(parents = True, exist_ok = True)
+    with open(path, 'w') as f:
+        yaml.safe_dump(values, f, allow_unicode=True)
 
 ##################################################
 # Main

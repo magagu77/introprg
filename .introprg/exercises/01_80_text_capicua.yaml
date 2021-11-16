@@ -1,0 +1,49 @@
+'01':
+  stdin:
+  - a
+  stdout:
+  - Text?
+  - És capicua
+'02':
+  stdin:
+  - aa
+  stdout:
+  - Text?
+  - És capicua
+'03':
+  stdin:
+  - aba
+  stdout:
+  - Text?
+  - És capicua
+'04':
+  stdin:
+  - abba
+  stdout:
+  - Text?
+  - És capicua
+'05':
+  stdin:
+  - abcba
+  stdout:
+  - Text?
+  - És capicua
+'06':
+  stdin:
+  - abbca
+  stdout:
+  - Text?
+  - No és capicua
+'07':
+  stdin:
+  - Aquesta és una frase palindròfoba
+  stdout:
+  - Text?
+  - No és capicua
+08:
+  stdin:
+  - ''
+  stdout:
+  - Text?
+  - No és capicua
+_mainclass: Capicua

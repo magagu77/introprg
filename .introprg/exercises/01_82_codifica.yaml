@@ -1,0 +1,24 @@
+'01':
+  stdin:
+  - abcdefghijklmnopqrstuvwxyz
+  stdout:
+  - Text?
+  - bcdefghijklmnopqrstuvwxyza
+'02':
+  stdin:
+  - a@b@c@d@e@f@g@h@i@j@k@l@m@n@o@p@q@r@s@t@u@v@w@x@y@z@
+  stdout:
+  - Text?
+  - b@c@d@e@f@g@h@i@j@k@l@m@n@o@p@q@r@s@t@u@v@w@x@y@z@a@
+'03':
+  stdin:
+  - Cada lletra que trobem a un string té un codi, un nombre positiu.
+  stdout:
+  - Text?
+  - Cbeb mmfusb rvf uspcfn b vo tusjoh ué vo dpej, vo opncsf qptjujv.
+'04':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+_mainclass: CodificaBasic

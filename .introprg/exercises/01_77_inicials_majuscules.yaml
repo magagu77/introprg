@@ -1,0 +1,30 @@
+'01':
+  stdin:
+  - je suis un homme de CRO-MAGNON
+  stdout:
+  - Text?
+  - Je Suis Un Homme De Cro-Magnon
+'02':
+  stdin:
+  - aA bB cC dD eE
+  stdout:
+  - Text?
+  - Aa Bb Cc Dd Ee
+'03':
+  stdin:
+  - a!e$i%o^u
+  stdout:
+  - Text?
+  - A!E$I%O^U
+'04':
+  stdin:
+  - ' !$% !$% !$% aA bB cC dD eE !$% !$% !$% '
+  stdout:
+  - Text?
+  - ' !$% !$% !$% Aa Bb Cc Dd Ee !$% !$% !$% '
+'05':
+  stdin:
+  - ''
+  stdout:
+  - Text?
+_mainclass: MajusculitzaInicials
