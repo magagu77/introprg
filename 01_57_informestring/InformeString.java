@@ -13,7 +13,7 @@ public class InformeString {
 		String mitad = String.format("\"" + paraula2 + "\"" );
 
 
-		System.out.println(inici + ".length():" + paraula1.length());
+		System.out.println(inici + ".length(): " + paraula1.length());
 		String missatge = String.format(inici + ".startsWith(%s): " + paraula1.startsWith(paraula2), mitad);
 		System.out.println(missatge);
 		missatge = String.format(inici + ".endsWith(%s): " + paraula1.endsWith(paraula2), mitad);
