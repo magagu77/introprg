@@ -6,7 +6,7 @@ public class InformeCaracter {
 	public static void main(String[] args) {
 		
 
-		System.out.println("Carácter?");
+		System.out.println("Caràcter?");
 		String paraula = Entrada.readLine();
 		char lletra = paraula.charAt(0);
 		
