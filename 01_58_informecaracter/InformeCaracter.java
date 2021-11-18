@@ -9,8 +9,10 @@ public class InformeCaracter {
 		System.out.println("Caràcter?");
 		String paraula = Entrada.readLine();
 		char lletra = paraula.charAt(0);
-		if (paraula.isBlank()){
-			System.out.println();
+
+
+		if ((Character.isWhitespace(lletra))) {
+			System.out.println("Caràcter buit");
 		} else {
 			System.out.println("Character.getName('" + lletra + "'): " + Character.getName(lletra));
 			System.out.println("Character.isDigit('" + lletra + "'): " + Character.isDigit(lletra));
@@ -23,8 +25,7 @@ public class InformeCaracter {
 			System.out.println("Character.toLowerCase('" + lletra + "'): " + Character.toLowerCase(lletra));
 			System.out.println("Character.toUpperCase('" + lletra + "'): " + Character.toUpperCase(lletra));
 		} 
-		if (Character.isWhitespace(lletra)) {
-			System.out.println("Caràcter buit");
-		}	
+		
+			
 	}
 }   
