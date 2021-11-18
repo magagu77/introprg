@@ -10,12 +10,12 @@ public class TaulaMultiplicar {
 			int valor4 = Integer.parseInt(args[3]);
 			int resultat = 0;
 			int tmp = 0;
-			if (valor2 > valor1) {
+			if (valor1 > valor2) {
 				tmp = valor1;
 				valor1 = valor2;
 				valor2 = tmp; 
 			}
-			if (valor4 > valor3) {
+			if (valor3 > valor4) {
 				tmp = valor3;
 				valor3 = valor4;
 				valor4 = tmp;
