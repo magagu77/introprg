@@ -9,6 +9,17 @@ public class TaulaMultiplicar {
 			int valor3 = Integer.parseInt(args[2]);
 			int valor4 = Integer.parseInt(args[3]);
 			int resultat = 0;
+			int tmp = 0;
+			if (valor2 > valor1) {
+				tmp = valor1;
+				valor1 = valor2;
+				valor2 = tmp; 
+			}
+			if (valor4 > valor3) {
+				tmp = valor3;
+				valor3 = valor4;
+				valor4 = tmp;
+			}
 
 			for (int i = valor1; i <= valor2; i++) {
 				for (int multiplica = valor3; multiplica <= valor4; multiplica++) {
