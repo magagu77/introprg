@@ -6,11 +6,12 @@
  public class LloroVocalMinuscules {
  	public static void main(String[] args) {
  		
- 		String paraula = Entrada.readLine();
+ 		String paraula = "a";
  		char inici = paraula.charAt(0);
  		while (!paraula.isBlank())
  			System.out.println("El lloro pregunta paraula que comenci amb vocal en minúscules");
  			paraula  = Entrada.readLine();
+         inici = paraula.charAt(0);
  			if (Character.isLowerCase(paraula.charAt(0)) && inici == 'a' || inici == 'e' || 
              inici == 'i' || inici == 'o' || inici == 'u') {
  				System.out.println("El lloro diu: " + paraula);
