@@ -17,7 +17,7 @@ public class InformeCaracter {
 		System.out.println("Character.isLetter('" + lletra + "'): " + Character.isLetter(lletra));
 		System.out.println("Character.isLowerCase('" + lletra + "'): " + Character.isLowerCase(lletra));
 		System.out.println("Character.isUpperCase('" + lletra + "'): " + Character.isUpperCase(lletra));
-		System.out.println("Character.isWhiteSpace('" + lletra + "'): " + Character.isWhitespace(lletra));
+		System.out.println("Character.isWhitespace('" + lletra + "'): " + Character.isWhitespace(lletra));
 		if (Character.isWhitespace(lletra)) {
 			System.out.println("Caràcter buit");
 		}
