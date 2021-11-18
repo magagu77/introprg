@@ -8,9 +8,6 @@ public class InformeCaracter {
 
 		System.out.println("Caràcter?");
 		String paraula = Entrada.readLine();
-		
-
-
 		if (paraula.isEmpty()) {
 			System.out.println("Caràcter buit");
 		} else {
