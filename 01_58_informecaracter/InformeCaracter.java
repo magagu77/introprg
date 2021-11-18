@@ -11,7 +11,7 @@ public class InformeCaracter {
 		char lletra = paraula.charAt(0);
 
 
-		if ((Character.isWhitespace(lletra))) {
+		if (paraula.isEmpty()) {
 			System.out.println("Caràcter buit");
 		} else {
 			System.out.println("Character.getName('" + lletra + "'): " + Character.getName(lletra));
