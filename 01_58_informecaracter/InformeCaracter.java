@@ -9,7 +9,9 @@ public class InformeCaracter {
 		System.out.println("Caràcter?");
 		String paraula = Entrada.readLine();
 		char lletra = paraula.charAt(0);
-		
+		if (paraula.isBlank()){
+			System.out.println();
+		}
 		System.out.println("Character.getName('" + lletra + "'): " + Character.getName(lletra));
 		System.out.println("Character.isDigit('" + lletra + "'): " + Character.isDigit(lletra));
 		System.out.println("Character.isJavaIdentifierStart('" + lletra + "'): " + Character.isJavaIdentifierStart(lletra));
