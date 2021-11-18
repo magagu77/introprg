@@ -18,10 +18,10 @@ public class InformeCaracter {
 		System.out.println("Character.isLowerCase('" + lletra + "'): " + Character.isLowerCase(lletra));
 		System.out.println("Character.isUpperCase('" + lletra + "'): " + Character.isUpperCase(lletra));
 		System.out.println("Character.isWhitespace('" + lletra + "'): " + Character.isWhitespace(lletra));
-		if (Character.isWhitespace(lletra)) {
-			System.out.println("Caràcter buit");
-		}
 		System.out.println("Character.toLowerCase('" + lletra + "'): " + Character.toLowerCase(lletra));
 		System.out.println("Character.toUpperCase('" + lletra + "'): " + Character.toUpperCase(lletra));
+		if (Character.isWhitespace(lletra)) {
+			System.out.println("Caràcter buit");
+		}	
 	}
 }   
