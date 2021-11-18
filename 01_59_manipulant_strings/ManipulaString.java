@@ -7,7 +7,7 @@ public class ManipulaString {
 			
 			System.out.println("Paraula?");
 			String paraula = Entrada.readLine();
-			System.out.println("La longitud és '" + paraula.length() + "'");
+			System.out.println("La longitud és "+ paraula.length() );
 			System.out.println("La segona lletra és '" + paraula.charAt(1) + "'");
 			System.out.println("La derrera lletra és '" + paraula.charAt((paraula.length() - 1)) + "'");
 			System.out.println("La penúltima és '" + paraula.charAt((paraula.length() - 2)) + "'");
