@@ -20,7 +20,7 @@ public class InformeString {
 		System.out.println(missatge);
 		missatge = String.format(inici + ".equals(%s): " + paraula1.equals(paraula2), mitad);
 		System.out.println(missatge);
-		missatge = String.format(inici + ".equalsIgnoreCase(%s): " + paraula1.equalsIgnoreCase(paraula2), paraula2);
+		missatge = String.format(inici + ".equalsIgnoreCase(%s): " + paraula1.equalsIgnoreCase(paraula2), mitad);
 		System.out.println(missatge);
 		missatge = String.format(inici + ".isBlank(): " + paraula1.isBlank());
 		System.out.println(missatge);
