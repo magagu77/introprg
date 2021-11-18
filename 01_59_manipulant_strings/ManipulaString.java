@@ -8,7 +8,9 @@ public class ManipulaString {
 		System.out.println("Paraula?");
 		String paraula = Entrada.readLine();
 		System.out.println("La longitud és "+ paraula.length() );
-		System.out.println("La segona lletra és '" + paraula.charAt(1) + "'");
+		if (paraula.length() > 1){
+			System.out.println("La segona lletra és '" + paraula.charAt(1) + "'");
+		}
 		System.out.println("La darrera lletra és '" + paraula.charAt((paraula.length() - 1)) + "'");
 		if (paraula.length() > 3){
 			System.out.println("La penúltima lletra és '" + paraula.charAt((paraula.length() - 2)) + "'");
