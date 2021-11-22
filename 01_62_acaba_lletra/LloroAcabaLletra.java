@@ -13,7 +13,7 @@ public class LloroAcabaLletra {
 			
 			if (!(Character.isLetter(end) || end == 'a' || end == 'e' || end == 'i' || end == 'o' || end == 'u' || 
 				  end == 'A' || end == 'E' || end == 'I' || end == 'O' || end == 'U')) {
-				String.format("El lloro diu: " + paraula);
+				System.out.println("El lloro diu: " + paraula);
 			} else {
 				System.out.println();
 			}
