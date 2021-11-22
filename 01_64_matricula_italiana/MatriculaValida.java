@@ -14,7 +14,7 @@ public class MatriculaValida {
 		if (matricula.length() == 7) {	
 			for (int end = 0; end <= 6; end++) {
 				if (end <= 1 || end >= 5) {
-					if (Character.isLetter(matricula.charAt(end)) && Character.isUpperCase(matricula.charAt(end)) && end >= 'A' && end <= 'Z') {
+					if (Character.isLetter(matricula.charAt(end)) && Character.isUpperCase(matricula.charAt(end)) && matricula.charAt(end) >= 'A' && matricula.charAt(end) <= 'Z') {
 						valida = "És una matrícula italiana vàlida";
 					} else {
 						valida = "No és una matrícula italiana vàlida";
