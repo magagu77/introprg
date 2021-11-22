@@ -15,7 +15,7 @@ public class LloroAcabaLletra {
 			}
 			if (!(end == 'a' || end == 'e' || end == 'i' || end == 'o' || end == 'u' || 
 				  end == 'A' || end == 'E' || end == 'I' || end == 'O' || end == 'U')) {
-				System.out.println("El lloro diu : " + paraula);
+				System.out.println("El lloro diu: " + paraula);
 			} else {
 				System.out.println();
 			}
