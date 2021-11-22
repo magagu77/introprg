@@ -14,21 +14,21 @@ public class MatriculaValida {
 		if (matricula.length() == 7) {	
 			for (int end = 0; end < matricula.length(); end++) {
 				if (end <= 1 || end >= 5) {
-					if (Character.isLetter(matricula.charAt(end)) && Character.isUpperCase(matricula.charAt(end)) && end >= 'A' && end <= 'Z')
+					if (Character.isLetter(matricula.charAt(end)) && Character.isUpperCase(matricula.charAt(end)) && end >= 'A' && end <= 'Z') {
 						valida = "És una matrícula italiana vàlida";
-				}
-				else {
-					valida = "No és una matrícula italiana vàlida";
-					break;
+					} else {
+						valida = "No és una matrícula italiana vàlida";
+						break;
+					}
 				}
 				if (end >= 2 && end <= 4) { 
 					if (Character.isDigit(matricula.charAt(end))) {
 						valida = "És una matrícula italiana vàlida";
-					}
-				} else {
-					valida = "No és una matrícula italiana vàlida";
-					break;
-				}	
+					} else {
+						valida = "No és una matrícula italiana vàlida";
+						break;
+					}	
+				} 
 			}
 		}
 
