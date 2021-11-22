@@ -9,7 +9,7 @@ public class AnalitzaCaracter {
 		String text = Entrada.readLine();
 		System.out.println("Posició?");
 		int posicio = Integer.parseInt(Entrada.readLine());
-		if (posicio <= 0 && posicio < text.length()) {
+		if (posicio >= 0 && posicio < text.length()) {
 			if (Character.isLetter(text.charAt(posicio))) {
 				System.out.println("'" + text.charAt(posicio) + "' és una lletra");
 			} else if (Character.isDigit(text.charAt(posicio))) {
