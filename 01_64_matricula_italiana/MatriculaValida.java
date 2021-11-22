@@ -12,7 +12,7 @@ public class MatriculaValida {
 		String matricula = Entrada.readLine();
 		String valida = "No és una matrícula italiana vàlida";
 		if (matricula.length() == 7) {	
-			for (int end = 0; end < matricula.length(); end++) {
+			for (int end = 0; end <= 6; end++) {
 				if (end <= 1 || end >= 5) {
 					if (Character.isLetter(matricula.charAt(end)) && Character.isUpperCase(matricula.charAt(end)) && end >= 'A' && end <= 'Z') {
 						valida = "És una matrícula italiana vàlida";
