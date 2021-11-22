@@ -18,5 +18,6 @@ public class LloroAcabaLletra {
 			System.out.println("El lloro pregunta paraula que finalitzi per lletra no vocal");
 			paraula = Entrada.readLine();	
 		}
+		System.out.println("Adéu");
 	}
 }
