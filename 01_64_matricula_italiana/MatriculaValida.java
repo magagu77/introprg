@@ -16,8 +16,8 @@ public class MatriculaValida {
 				if (end <= 1 || end >= 5) {
 					if (Character.isLetter(matricula.charAt(end)) && Character.isUpperCase(matricula.charAt(end)) && 
 						matricula.charAt(end) >= 'A' && matricula.charAt(end) <= 'Z' && 
-						!(matricula.charAt(end) == 'I' || matricula.charAt(end) == 'I' ||
-						 matricula.charAt(end) == 'I' || matricula.charAt(end) == 'I')) {
+						!(matricula.charAt(end) == 'I' || matricula.charAt(end) == 'O' ||
+						 matricula.charAt(end) == 'Q' || matricula.charAt(end) == 'U')) {
 						valida = "És una matrícula italiana vàlida";
 					} else {
 						valida = "No és una matrícula italiana vàlida";
