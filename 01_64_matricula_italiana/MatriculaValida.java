@@ -27,8 +27,9 @@ public class MatriculaValida {
 						}
 				}
 			}	
-		} else {
+		} 
+		else {
 			System.out.println("No és una matrícula italiana vàlida");
 		}
-	}
+	}	
 }   
