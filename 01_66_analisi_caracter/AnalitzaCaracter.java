@@ -25,6 +25,8 @@ public class AnalitzaCaracter {
 			} else {
 				System.out.println("'" + text.charAt(posicio + text.length()) + "' és una altra cosa");
 			}
+		} else {
+			System.out.println("Fora de rang");
 		}	
 	} 
 }  
