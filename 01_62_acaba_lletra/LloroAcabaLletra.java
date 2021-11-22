@@ -10,6 +10,9 @@ public class LloroAcabaLletra {
 		String paraula = Entrada.readLine();
 		while (!paraula.isBlank()) {
 			char end = paraula.charAt(paraula.length() - 1);
+			if (!Character.isLetter(end)) {
+				end = paraula.charAt(paraula.length() - 2);
+			}
 			if (!(end == 'a' || end == 'e' || end == 'i' || end == 'o' || end == 'u' || 
 				  end == 'A' || end == 'E' || end == 'I' || end == 'O' || end == 'U')) {
 				System.out.println("El lloro diu : " + paraula);
