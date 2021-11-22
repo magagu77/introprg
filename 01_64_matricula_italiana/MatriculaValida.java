@@ -14,15 +14,19 @@ public class MatriculaValida {
 		if (matricula.length() == 7) {	
 			char lletra1 = matricula.charAt(0);
 			char lletra2 = matricula.charAt(1);
-			if (Character.isLetter(matricula.charAt(0)) && 
-				Character.isLetter(matricula.charAt(1))) {
+			if (Character.isLetter(lletra1) && 
+				Character.isUpperCase(lletra1) &&
+				Character.isLetter(lletra2) && 
+				Character.isUpperCase(lletra2)) {
 				if (!(lletra1 == 'O' || lletra1 == 'I' || lletra1 == 'Q' || lletra1 == 'U')) {
 					if (!(lletra2 == 'O' || lletra2 == 'I' || lletra2 == 'Q' || lletra2 == 'U'))
 						if (Character.isDigit(matricula.charAt(2)) && 
 							Character.isDigit(matricula.charAt(3)) &&
 							Character.isDigit(matricula.charAt(4))) {
 							if (Character.isLetter(matricula.charAt(5)) && 
-								Character.isLetter(matricula.charAt(6))) {
+								Character.isUpperCase(matricula.charAt(5)) &&
+								Character.isLetter(matricula.charAt(6)) && 
+								Character.isUpperCase(matricula.charAt(6))) {
 								valida ="És una matrícula italiana vàlida";
 							}
 						}
