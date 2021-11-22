@@ -17,7 +17,7 @@ public class AnalitzaCaracter {
 			} else {
 				System.out.println("'" + text.charAt(posicio) + "' és una altra cosa");
 			}	
-		} else if (posicio < 0 || posicio + text.length() >= 1) {
+		} else if (posicio < 0 && posicio + text.length() >= 0) {
 			if (Character.isLetter(text.charAt(posicio + text.length()))) {
 				System.out.println("'" + text.charAt(posicio + text.length()) + "' és una lletra");
 			} else if (Character.isDigit(text.charAt(posicio + text.length()))) {
