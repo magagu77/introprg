@@ -18,7 +18,6 @@
  			} else {
  				System.out.println();
  			}
- 		System.out.println("Adéu");
- 	   }
+ 	   } System.out.println("Adéu");
  	}
 }  
