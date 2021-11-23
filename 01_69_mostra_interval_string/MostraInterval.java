@@ -18,7 +18,7 @@ public class MostraInterval {
 				if (i >= text.length()) {
 					break;
 				} else {
-				System.out.println(Character.toLowerCase(text.charAt(i)));
+				System.out.println(text.charAt(i));
 				}
 			}
 		}
@@ -27,7 +27,7 @@ public class MostraInterval {
 				if (i <= -1) {
 					break;
 				} else {
-					System.out.println(Character.toLowerCase(text.charAt(i)));
+					System.out.println(text.charAt(i));
 				}
 			}
 		}
