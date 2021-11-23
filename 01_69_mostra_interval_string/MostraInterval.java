@@ -25,7 +25,7 @@ public class MostraInterval {
 		if (end > text.length() - 1) {
 			end = text.length() - 1;
 		}
-		if (inici < end) {
+		if (inici <= end) {
 			for (int i = inici; i <= end; i++) {
 				if (i >= text.length()) {
 					break;
