@@ -18,6 +18,12 @@ public class MostraInterval {
 		}
 		if (end < 0) {
 			end = 0;
+		}	
+		if (inici > text.length() - 1) {
+			inici = text.length() - 1;
+		}	
+		if (end > text.length() - 1) {
+			end = text.length() - 1;
 		}
 		if (inici < end) {
 			for (int i = inici; i <= end; i++) {
