@@ -13,21 +13,23 @@ public class MostraInterval {
 		int inici = Integer.parseInt(Entrada.readLine());
 		System.out.println("final?");
 		int end = Integer. parseInt(Entrada.readLine());
-		if (inici < end) {
-			for (int i = inici; i <= end; i++) {
-				if (i >= text.length()) {
-					break;
-				} else {
-				System.out.println(text.charAt(i));
+		if (inici >= 0|| end >= 0) {
+			if (inici < end) {
+				for (int i = inici; i <= end; i++) {
+					if (i >= text.length()) {
+						break;
+					} else {
+					System.out.println(text.charAt(i));
+					}
 				}
 			}
-		}
-		if (end < inici) {
-			for (int i = inici; i >= end; i--) {
-				if (i <= -1) {
-					break;
-				} else {
-					System.out.println(text.charAt(i));
+			if (end < inici) {
+				for (int i = inici; i >= end; i--) {
+					if (i <= -1) {
+						break;
+					} else {
+						System.out.println(text.charAt(i));
+					}
 				}
 			}
 		}
