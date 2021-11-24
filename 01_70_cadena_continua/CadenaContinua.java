@@ -20,7 +20,9 @@ public class CadenaContinua {
 		int numero = Integer.parseInt(nombre);
 		int resultat;
 		for(int i = 0; i < numero; i++) {
-			if (i > text.length() - 1) {
+			if (i % (text.length() - 1) == 0) {
+				System.out.print(text.charAt(0));
+			} else if (i > text.length() - 1) {
 				resultat = i % (text.length() - 1) - 1;
 				System.out.print(text.charAt(resultat));
 			} else {
