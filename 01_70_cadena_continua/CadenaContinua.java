@@ -9,6 +9,7 @@ public class CadenaContinua {
 		System.out.println("Text?");
 		String text = Entrada.readLine();
 		if (text.isBlank()) {
+			System.out.println("error");
 			return;
 		}
 		System.out.println("Nombre?");
