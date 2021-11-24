@@ -21,8 +21,8 @@ public class CadenaContinua {
 		int resultat;
 		for(int i = 0; i < numero; i++) {
 			if (i > text.length() - 1) {
-				resultat = i % (text.length() - 1);
-				System.out.print(text.charAt(resultat - 1));
+				resultat = i % (text.length() - 1) - 1;
+				System.out.print(text.charAt(resultat));
 			} else {
 				System.out.print(text.charAt(i));
 			}
