@@ -18,17 +18,16 @@ public class CadenaContinua {
 			return;
 		}
 		int numero = Integer.parseInt(nombre);
-		int resultat;
-		for(int i = 0; i < numero; i++) {
-			if (i < text.length()) {
+		int divisio = numero / (text.length() - 1);
+		for(int i = 0; i < text.length(); i++) {
 			System.out.print(text.charAt(i));
-			} else if (i == text.length() || i % text.length() == 0) {
-				System.out.print(text.charAt(0));
-			}else if (i > text.length()) {
-				resultat = i % (text.length() - 1);
-				System.out.print(text.charAt(resultat));
+		}
+		if (divisio > 1) {
+			for (int d = 1; d < divisio; d++) {
+				for(int p = 0; p < (text.length() - 1); p++) {
+					System.out.print(text.charAt(p));
+				}
 			}
 		}
-		System.out.println();
 	}
 }
