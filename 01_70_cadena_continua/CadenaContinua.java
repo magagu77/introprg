@@ -22,8 +22,9 @@ public class CadenaContinua {
 		for(int i = 0; i < numero; i++) {
 			if (i < text.length()) {
 			System.out.print(text.charAt(i));
-			}
-			else if (i >= text.length()) {
+			} else if (i == text.length() || i % text.length() == 0) {
+				System.out.print(text.charAt(0));
+			}else if (i > text.length()) {
 				resultat = i % (text.length() - 1);
 				System.out.print(text.charAt(resultat));
 			}
