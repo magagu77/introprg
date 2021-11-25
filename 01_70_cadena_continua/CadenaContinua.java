@@ -22,7 +22,7 @@ public class CadenaContinua {
 		 	if (numero <= text.length()) {
 		 		System.out.print(text.charAt(i));
 		 	} else if (numero > text.length()) {
-		 		System.out.print(i % text.length());
+		 		System.out.print(text.charAt(i % text.length()));
 		 	}
 		}
 	}
