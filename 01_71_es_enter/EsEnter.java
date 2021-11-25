@@ -5,8 +5,7 @@
 public class EsEnter {
 	public static void main(String[] args) {
 
-		System.out.println("Introdueix texts (enter sol per finalitzar)");
-		String text = Entrada.readLine();
+		String text = "a";
 		while (!text.isEmpty()) {
 			System.out.println("Introdueix texts (enter sol per finalitzar)");
 			text = Entrada.readLine();
