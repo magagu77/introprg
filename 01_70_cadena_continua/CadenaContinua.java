@@ -19,8 +19,9 @@ public class CadenaContinua {
 		}
 		int numero = Integer.parseInt(nombre);
 		for (int i = 0; i < numero; i++) {
-		 	System.out.print(text.charAt(i));
-		 	if (numero > text.length()) {
+		 	if (numero <= text.length()) {
+		 		System.out.print(text.charAt(i));
+		 	} else if (numero > text.length()) {
 		 		System.out.print(i % text.length());
 		 	}
 		}
