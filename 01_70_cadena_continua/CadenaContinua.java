@@ -19,7 +19,7 @@ public class CadenaContinua {
 		}
 		int numero = Integer.parseInt(nombre);
 		int divisio = numero / (text.length() - 1);
-		if (numero <= text.length() - 1){
+		if (numero <= text.length()){
 			for(int i = 0; i < numero; i++) {
 				System.out.print(text.charAt(i));
 			}
