@@ -7,17 +7,18 @@ public class EsEnter {
 
 		System.out.println("Introdueix texts (enter sol per finalitzar)");
 		String text = Entrada.readLine();
-		while (!text.isEmpty())
-		System.out.println("Introdueix texts (enter sol per finalitzar)");
-		text = Entrada.readLine();
-		if (text.isEmpty()) {
-			System.out.println("Adéu");
-			return;
-		}
-		for (int i = 0; i <= text.length(); i++) {
-			if (Character.isDigit(text.charAt(i))) {
-				System.out.println("És enter");
-				break;
+		while (!text.isEmpty()) {
+			System.out.println("Introdueix texts (enter sol per finalitzar)");
+			text = Entrada.readLine();
+			if (text.isEmpty()) {
+				System.out.println("Adéu");
+				return;
+			}
+			for (int i = 0; i <= text.length(); i++) {
+				if (Character.isDigit(text.charAt(i))) {
+					System.out.println("És enter");
+					break;
+				}
 			}
 		}
 	}
