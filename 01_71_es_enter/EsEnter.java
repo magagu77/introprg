@@ -17,6 +17,8 @@ public class EsEnter {
 				if (Character.isDigit(text.charAt(i))) {
 					System.out.println("És enter");
 					break;
+				} else {
+					System.out.println("No és enter");
 				}
 			}
 		}
