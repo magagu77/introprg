@@ -14,7 +14,7 @@ public class CadenaContinua {
 		}
 		System.out.println("Nombre?");
 		String nombre = Entrada.readLine();
-		if (nombre.isBlank()) {
+		if (nombre.isBlank() || nombre.equals("0")) {
 			return;
 		}
 		int numero = Integer.parseInt(nombre);
