@@ -20,15 +20,12 @@ public class CadenaContinua {
 		int numero = Integer.parseInt(nombre);
 		int resultat;
 		for(int i = 0; i < numero; i++) {
-			if (i > text.length() - 1) {
-				if (i % (text.length() - 1) == 0) {
-				System.out.print(text.charAt(0));
-				} else {
-				resultat = i % (text.length() - 1);
-				System.out.print(text.charAt(resultat - 1));
-				}
-			} else {
-				System.out.print(text.charAt(i));
+			if (i < text.length()) {
+			System.out.print(text.charAt(i));
+			}
+			else if (i >= text.length()) {
+				resultat = i % text.length() - 1;
+				System.out.print(resultat);
 			}
 		}
 		System.out.println();
