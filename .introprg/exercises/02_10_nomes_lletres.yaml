@@ -1,0 +1,19 @@
+'01':
+  stdin:
+  - Els 4 genets de l'Apocalipsi!
+  stdout:
+  - Text?
+  - E, l, s, g, e, n, e, t, s, d, e, l, A, p, o, c, a, l, i, p, s, i
+'02':
+  stdin:
+  - A,e.r,t.1,4.é.éç[úü}
+  stdout:
+  - Text?
+  - A, e, r, t, é, é, ç, ú, ü
+'03':
+  stdin:
+  - (h(o!l)a)
+  stdout:
+  - Text?
+  - h, o, l, a
+_mainclass: NomesLletres

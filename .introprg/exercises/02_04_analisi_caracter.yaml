@@ -1,0 +1,49 @@
+'01':
+  stdin:
+  - Tinc 3 gats!
+  - '3'
+  stdout:
+  - Text?
+  - Posició?
+  - '''c'' és una lletra'
+'02':
+  stdin:
+  - Tinc 3 gats!
+  - '5'
+  stdout:
+  - Text?
+  - Posició?
+  - '''3'' és un nombre'
+'03':
+  stdin:
+  - Tinc 3 gats!
+  - '-1'
+  stdout:
+  - Text?
+  - Posició?
+  - '''!'' és una altra cosa'
+'04':
+  stdin:
+  - Tinc 3 gats!
+  - '-3'
+  stdout:
+  - Text?
+  - Posició?
+  - '''t'' és una lletra'
+'05':
+  stdin:
+  - Hola
+  - '4'
+  stdout:
+  - Text?
+  - Posició?
+  - Fora de rang
+'06':
+  stdin:
+  - Hola
+  - '-5'
+  stdout:
+  - Text?
+  - Posició?
+  - Fora de rang
+_mainclass: AnalitzaCaracter

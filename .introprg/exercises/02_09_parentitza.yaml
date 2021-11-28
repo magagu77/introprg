@@ -1,0 +1,13 @@
+'01':
+  stdin:
+  - I have an apple.
+  stdout:
+  - Text?
+  - (I) (h)(a)(v)(e) (a)(n) (a)(p)(p)(l)(e).
+'02':
+  stdin:
+  - Pregunta't sempre "està ben comentat?".
+  stdout:
+  - Text?
+  - (P)(r)(e)(g)(u)(n)(t)(a)'(t) (s)(e)(m)(p)(r)(e) "(e)(s)(t)(à) (b)(e)(n) (c)(o)(m)(e)(n)(t)(a)(t)?".
+_mainclass: Parentitza

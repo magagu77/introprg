@@ -1,0 +1,38 @@
+'01':
+  argsin:
+  - '5'
+  - 'X'
+  stdout:
+  - ' X X X X X'
+  - ' X X X X X'
+  - ' X X X X X'
+  - ' X X X X X'
+  - ' X X X X X'
+'02':
+  argsin:
+  - '1'
+  - 'X'
+  stdout:
+  - ' X'
+'03':
+  argsin:
+  - '0'
+  - 'X'
+  stdout: ''
+'04':
+  argsin:
+  - '4'
+  - 'Y'
+  stdout:
+  - ' Y Y Y Y'
+  - ' Y Y Y Y'
+  - ' Y Y Y Y'
+  - ' Y Y Y Y'
+'05':
+  argsin:
+  - '2'
+  - 'Z'
+  stdout:
+  - ' Z Z'
+  - ' Z Z'
+_mainclass: Quadrat
