@@ -1,0 +1,94 @@
+'01':
+  stdin:
+  - abcdefghijklmnopqrstuvwxyz
+  - '1'
+  stdout:
+  - Text?
+  - Quants?
+  - bcdefghijklmnopqrstuvwxyza
+'02':
+  stdin:
+  - a@b@c@d@e@f@g@h@i@j@k@l@m@n@o@p@q@r@s@t@u@v@w@x@y@z@
+  - '1'
+  stdout:
+  - Text?
+  - Quants?
+  - b@c@d@e@f@g@h@i@j@k@l@m@n@o@p@q@r@s@t@u@v@w@x@y@z@a@
+'03':
+  stdin:
+  - Cada lletra que trobem a un string té un codi, un nombre positiu.
+  - '1'
+  stdout:
+  - Text?
+  - Quants?
+  - Cbeb mmfusb rvf uspcfn b vo tusjoh ué vo dpej, vo opncsf qptjujv.
+'04':
+  stdin:
+  - ''
+  - '1'
+  stdout:
+  - Text?
+  - Quants?
+'05':
+  stdin:
+  - abcdefghijklmnopqrstuvwxyz
+  - '0'
+  stdout:
+  - Text?
+  - Quants?
+  - abcdefghijklmnopqrstuvwxyz
+'06':
+  stdin:
+  - a@b@c@d@e@f@g@h@i@j@k@l@m@n@o@p@q@r@s@t@u@v@w@x@y@z@
+  - '0'
+  stdout:
+  - Text?
+  - Quants?
+  - a@b@c@d@e@f@g@h@i@j@k@l@m@n@o@p@q@r@s@t@u@v@w@x@y@z@
+'07':
+  stdin:
+  - Cada lletra que trobem a un string té un codi, un nombre positiu.
+  - '0'
+  stdout:
+  - Text?
+  - Quants?
+  - Cada lletra que trobem a un string té un codi, un nombre positiu.
+08:
+  stdin:
+  - ''
+  - '0'
+  stdout:
+  - Text?
+  - Quants?
+09:
+  stdin:
+  - abcdefghijklmnopqrstuvwxyz
+  - '2'
+  stdout:
+  - Text?
+  - Quants?
+  - cdefghijklmnopqrstuvwxyzab
+'10':
+  stdin:
+  - a@b@c@d@e@f@g@h@i@j@k@l@m@n@o@p@q@r@s@t@u@v@w@x@y@z@
+  - '2'
+  stdout:
+  - Text?
+  - Quants?
+  - c@d@e@f@g@h@i@j@k@l@m@n@o@p@q@r@s@t@u@v@w@x@y@z@a@b@
+'11':
+  stdin:
+  - Cada lletra que trobem a un string té un codi, un nombre positiu.
+  - '2'
+  stdout:
+  - Text?
+  - Quants?
+  - Ccfc nngvtc swg vtqdgo c wp uvtkpi vé wp eqfk, wp pqodtg rqukvkw.
+'12':
+  stdin:
+  - ''
+  - '2'
+  stdout:
+  - Text?
+  - Quants?
+_mainclass: CodificaBasic

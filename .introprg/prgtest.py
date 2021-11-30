@@ -6,12 +6,17 @@ import os
 import sys
 import enum
 import datetime
+import shutil
 import traceback
 import subprocess
+from collections import namedtuple
 from pathlib import Path
 from argparse import ArgumentParser
 import git
 import yaml
+
+# Encapsulation of the out,err and return code of a subprocess execution
+SubprocessResult = namedtuple('SubprocessResult', ['stdout', 'stderr', 'returncode'])
 
 class Prgtest:
     """ this class encapsulates the prgtest functionality """
@@ -20,7 +25,7 @@ class Prgtest:
                            " de programació abans de lliurar-los")
     PROGRAM_VERSION = "2021-22"
 
-    DEFAULT_TIMEOUT = 10 # max time (seconds) expected to be run
+    DEFAULT_TIMEOUT = 10 # max time (seconds) allowed for a sigle test
 
     INTROPRGDIR_KEY = "INTROPRGDIR"
     INTROPRGSPECDIR_KEY = "INTROPRGSPECDIR"
@@ -30,9 +35,19 @@ class Prgtest:
     DEFAULT_SUPPORT_DIR_NAME = ".introprg"
     DEFAULT_SPEC_DIR_NAME = "exercises"
     FLAG_RELATIVE_PATH =  'tmp/last.yaml'
+    TEST_RELATIVE_PATH =  'tmp/test'
     SPECS_FILENAME = "specs.yaml"
+    JUNIT_CLASSNAME = 'TestExercise'
+    JUNIT_FILENAME = f'{JUNIT_CLASSNAME}.java'
 
     PRGTEST_AUTHOR_NAME = 'prgtest'
+    MSG_ERR_INTROPRGDIR_OPT_NOT_FOUND = ("No trobo el directori %s especificat "
+                                         "al paràmetre --introprgdir")
+    MSG_ERR_INTROPRGDIR_ENV_NOT_FOUND = ("No trobo el directori %s especificat "
+                                         "a la variable d'entorn INTROPRGDIR")
+    MSG_ERR_NO_JUNIT = "Aquest exercici no disposa de proves unitàries"
+    MSG_ERR_JUNIT_OVERWRITE = f"Ja existeix un fitxer anomenat {JUNIT_FILENAME}"
+
     MSG_AUTOCOMMIT = 'prgtest autocommit #%s %s: %s'
 
     MSG_MISSING_COMMIT = "Cal registrar els canvis a git"
@@ -46,37 +61,42 @@ class Prgtest:
     MSG_EXERCISE_NEVER_ENDS = "El teu exercici tarda massa en finalitzar"
     MSG_EXERCISE_NEVER_ENDS_TIP = "Executa'l manualment amb les entrades especificades"
     MSG_COMPILATION_ERROR = "S'ha trobat errors compilant %s"
+    MSG_COMPILATION_JUNIT_ERROR = "S'ha trobat errors compilant les proves de JUnit"
     MSG_EXERCISE_BREAKS = "El teu exercici finalitza inesperadament"
     MSG_EXERCISE_BREAKS_TIP = ("Executa l'exercici fora de prgtest amb l'entrada indicada i "
                                "revisa les línies remarcades a la sortida d'error")
+    MSG_JUNIT_COPIED = f"Trobaràs les proves de JUnit al fitxer {JUNIT_FILENAME}"
 
     MSG_TEXT_PASSED_TEST = "PASSA"
     MSG_TEXT_FAILED_TEST = "FALLA"
     MSG_TITLE_PROGRAM_EXECUTION = "Execució del programa"
     MSG_TITLE_STANDARD_INPUT = "Entrada estàndard"
-    MSG_TITLE_EXPECTED_OUTPUT = "Sortida esperada";
-    MSG_TITLE_STANDARD_OUTPUT = "Sortida trobada";
-    MSG_TITLE_STANDARD_ERROR = "Sortida d'error trobada";
-    MSG_TITLE_DISCREPANCY = "Discrepància";
+    MSG_TITLE_EXPECTED_OUTPUT = "Sortida esperada"
+    MSG_TITLE_STANDARD_OUTPUT = "Sortida trobada"
+    MSG_TITLE_STANDARD_ERROR = "Sortida d'error trobada"
+    MSG_TITLE_DISCREPANCY = "Discrepància"
+    MSG_TITLE_JUNIT_ERROR = "Error de JUnit"
 
     def __init__(self):
         self.params = Prgtest.process_params()
-        self.working_dir = None     # path to the dir containing the student's repo
-        self.target_path = None     # path to the dir containing the target exercise
-        self.specs = dict()         # specs fot testing the target exercise
-        self.stdout = None          # std output from the target program
-        self.stderr = None          # std err from the target program
-        self.returncode = None         # returncode from the target program
+        self.working_dir = None             # path to the dir containing the student's repo
+        self.target_path = None             # path to the dir containing the target exercise
+        self.specs = dict()                 # specs fot testing the target exercise
+        self.test_path = None               # temporary path for testing
+        self.env = Prgtest.compute_env()    # environment including CLASSPATH
+
 
     @property
     def target_exercise(self):
         """ returns the name of the target exercise """
         return self.target_path.name
 
+
     @property
     def target_exercise_id(self):
         """ returns the id of the target exercise """
         return "_".join(self.target_exercise.split('_', maxsplit=2)[:2])
+
 
     @property
     def support_dir(self):
@@ -112,6 +132,20 @@ class Prgtest:
         return specs_dir
 
 
+    @staticmethod
+    def compute_env():
+        """ computes the environment where the tests will be performed.
+            It includes specially the CLASSPATH var """
+        env = os.environ.copy()
+        classpath = env.get('CLASSPATH', '')
+        introprgdir_path = Path(__file__).parent
+        if not classpath:
+            env['CLASSPATH'] = f'.:{introprgdir_path}'
+        elif introprgdir_path not in classpath.split(':'):
+            env['CLASSPATH'] = f"{env['CLASSPATH']}:{introprgdir_path}"
+        return env
+
+
     def run(self):
         """ runs the prgtest functionality from the given params """
 
@@ -129,8 +163,6 @@ class Prgtest:
         self.find_target_path()     # obtain the target path
 
         # Obtain exercise specifications
-        #Prgtest.check_option(self.params, 'specs', self.set_specs_path)
-        #self.obtain_specs()         # obtain exercise specifications
         self.obtain_specs()
 
         # check --show-target-path
@@ -139,17 +171,42 @@ class Prgtest:
         # check non testable exercise
         self.check_nontestable()
 
+        # check --copy-junit
+        Prgtest.check_option(self.params, 'copy_junit', self.copy_junit_to_target)
+
         # Reaching here means the code is properly managed by git
         self.check_compiled()   # let's see if the code compilation is updated
 
         # Reaching here means that the target should be tested
         self.check_git()    # let's see whether the exercise is properly managed by git
 
-        # Run the program
-        self.perform_tests()
+        # Prepare test environment
+        self.prepare_test()
 
+        # Perform IO tests
+        self.perform_io_tests()
+
+        # Perform JUnit tests
+        self.perform_junit_tests()
 
         print(Prgtest.MSG_ALL_TEST_PASSED)
+
+
+    def prepare_test(self):
+        """ prepares the test environment.
+            The test env is a temporary folder that will hold all the rellevant
+            files for the test.  These files include: all the target's contents
+            and the junit file if present.
+            The test_path is place in a gitignored folder and will be removed
+            on each prgtest execution. For these reasons, it is not necessary
+            to worry about cleaning it up after prgtest """
+        if Prgtest.protected():
+            self.test_path = self.support_dir / Prgtest.TEST_RELATIVE_PATH
+            if self.test_path.exists():
+                shutil.rmtree(self.test_path)
+            shutil.copytree(self.target_path, self.test_path)
+        else:
+            self.test_path = self.target_path
 
 
     @staticmethod
@@ -173,6 +230,9 @@ class Prgtest:
         parser.add_argument("-s", "--specs",
                             help="Camí a les especificacions de l'exercici",
                             metavar="camí")
+        parser.add_argument("-j", "--copy-junit",
+                            action='store_true',
+                            help="Copia el fitxer amb els tests de JUnit a la carpeta de l'exercici",)
 
         args = parser.parse_args()
         params = {k:v for k,v in vars(args).items() if v}
@@ -199,8 +259,7 @@ class Prgtest:
         if path is not None:
             path = Path(path)
             if not path.is_dir():
-                print_error_and_exit("No trobo el directori %s especificat "
-                                              "al paràmetre --introprgdir" % path)
+                print_error_and_exit(Prgtest.MSG_ERR_INTROPRGDIR_OPT_NOT_FOUND % path)
             return path
 
         # check if defined in environment
@@ -208,8 +267,7 @@ class Prgtest:
         if path is not None:
             path = Path(path)
             if not path.is_dir():
-                print_error_and_exit("No trobo el directori %s especificat "
-                                                  "a la variable d'entorn INTROPRGDIR" % path)
+                print_error_and_exit(Prgtest.MSG_ERR_INTROPRGDIR_ENV_NOT_FOUND % path)
             return path
 
         # check if teacher test
@@ -222,7 +280,7 @@ class Prgtest:
             print_error_and_exit("No trobo el teu repositori amb els exercicis",
                                        tip=("Revisa que tens el teu sistema configurat tal i "
                                             "com s'especifica als apunts:\n"
-                                            "https://moiatjda.github.io/jda.dev.m03/holagit.html"));
+                                            "https://moiatjda.github.io/jda.dev.m03/holagit.html"))
         return path
 
 
@@ -230,12 +288,12 @@ class Prgtest:
         """ it finds the path of the target exercise. i.e. the exercise to be evaluated
             Currently, the only accepted way to define the target exercise is by running
             the program in the folder of the exercise """
-        cwd = Path.cwd()
+        current = Path.cwd()
         if Prgtest.protected():
-            # check cwd is within working directory
-            if self.working_dir != cwd.parent:
+            # check current is within working directory
+            if self.working_dir != current .parent:
                 print_error_and_exit("El directori actual no es troba dins del directori de treball")
-        self.target_path = cwd
+        self.target_path = current
 
 
     def obtain_specs(self):
@@ -350,15 +408,30 @@ class Prgtest:
         return self.specs.get('_timeout', Prgtest.DEFAULT_TIMEOUT)
 
 
-    def perform_tests(self):
-        """ performs the tests specified on specs for target """
+    def perform_io_tests(self):
+        """ performs the I/O tests specified on specs for target """
         for testid, testspecs in self.specs.items():
             if testid.startswith('_'):
                 continue
-            self.run_target(
+            result = self.run_io_tests(
                 stdin=Prgtest.normalize_entry_spec(testspecs.get('stdin')),
                 argsin=Prgtest.normalize_entry_spec(testspecs.get('argsin')))
-            self.compare_results(testid)
+            self.compare_io_result(testid, result)
+
+
+    def perform_junit_tests(self):
+        """ performs the JUnit tests """
+        if not self.has_junit_test():
+            return
+
+        # copy junit test file
+        if Prgtest.protected():
+            dest_path = self.test_path / Prgtest.JUNIT_FILENAME
+            shutil.copy(self.compose_junit_path(), dest_path)
+
+        # perform the tests
+        result = self.run_junit_tests()
+        self.compare_junit_result(result)
 
 
     @staticmethod
@@ -372,76 +445,50 @@ class Prgtest:
         return [entry]
 
 
-    def run_target(self, stdin=None, argsin=None):
-        """ runs the target with the specified stdin and sets self.stdout, self.stderr and self.returncode """
+    def run_io_tests(self, stdin=None, argsin=None):
+        """ runs the target with the specified stdin and returns the SubprocessResult """
 
-        def compile_target(env):
-            """ try to compile targe on teacher test with the given environment """
-            if Prgtest.protected():
-                return
-            cwd = Path.cwd()
-            os.chdir(self.target_path)
-            # remove existing compiled files
-            for compiled_file in self.target_path.glob("*.class"):
-                compiled_file.unlink()
-            command_list =  ['javac', self.get_main_program()]
-            # perform the compilation
-            result = subprocess.run(command_list, capture_output=True, env=env, encoding='utf-8')
-            os.chdir(cwd)
-            if result.returncode != 0:
-                print_error_and_exit(Prgtest.MSG_COMPILATION_ERROR % self.get_main_program(),
-                                     tip=result.stderr)
+        # compile target with the given environment
+        result = run_javac(program_name=self.get_main_program(),
+                           folder=self.test_path, env=self.env)
+        if result.returncode != 0:
+            print_error_and_exit(Prgtest.MSG_COMPILATION_ERROR % self.get_main_program(),
+                                 tip=result.stderr)
 
-        # Prepare CLASSPATH
-        env = os.environ.copy()
-        classpath = env.get('CLASSPATH', '')
-        introprgdir_path = Path(__file__).parent
-        if not classpath:
-            env['CLASSPATH'] = f'.:{introprgdir_path}'
-        elif introprgdir_path not in classpath.split(':'):
-            env['CLASSPATH'] = f"{env['CLASSPATH']}:{introprgdir_path}"
-
-        compile_target(env)
-
-        cwd = Path.cwd()
-        os.chdir(self.target_path)
-
-        # Prepare stdin
+        # run test with the given stdin, args, env and timeout.
         stdin = '' if stdin is None else '\n'.join(str(item) for item in stdin) + '\n'
-
-        # Prepare command
-        if 'INTROPRG_JAVAPOLICYFILE' in os.environ:
-            command_list = ['java',
-                            '-Djava.security.manager',
-                            f"-Djava.security.policy={os.environ['INTROPRG_JAVAPOLICYFILE']}",
-                            self.get_main()]
-        else:
-            command_list = ['java', self.get_main()]
-
-        # Add args if any
-        if argsin is not None:
-            command_list.extend(argsin)
-
-        # run the exercise
-        try:
-            result = subprocess.run(command_list,
-                                    capture_output=True,
-                                    timeout=self.get_timeout(),
-                                    env=env,
-                                    input=stdin, encoding='utf-8',)
-            self.stdout = result.stdout.splitlines()
-            self.stderr = result.stderr.splitlines()
-            self.returncode = result.returncode
-        except subprocess.TimeoutExpired:
-            self.stdout = self.stderr = []
-            self.returncode = 124
-
-        # back to folder
-        os.chdir(cwd)
+        return run_java(class_name=self.get_main(),
+                        folder=self.test_path,
+                        stdin=stdin, argsin=argsin,
+                        env=self.env, timeout=self.get_timeout())
 
 
-    def compare_results(self, testid):
-        """ compares the output found when running target on testif with the expected one """
+    def run_junit_tests(self):
+        """ runs the JUnit test and returns the SubprocessResult  """
+        # compile junit tests
+        result = run_javac(program_name=Prgtest.JUNIT_FILENAME,
+                           folder=self.test_path,
+                           env=self.env)
+        if result.returncode != 0:
+            print_error_and_exit(Prgtest.MSG_COMPILATION_JUNIT_ERROR,
+                                 tip="\n".join(result.stderr))
+
+        # run junit tests
+        argsin = ['-c', Prgtest.JUNIT_CLASSNAME,
+                  '--disable-banner', '--fail-if-no-tests',]
+                  #'--disable-ansi-colors']
+        return run_java(class_name='org.junit.platform.console.ConsoleLauncher',
+                        folder=self.test_path,
+                        env=self.env,
+                        timeout=self.get_timeout(),
+                        argsin=argsin,
+                        general=False,
+                        )
+
+
+    def compare_io_result(self, testid, test_result):
+        """ compares the test_result found when running target on testid with
+            the expected one """
 
         def prepare_output(output):
             """ prepares the output: - it has translations applied if any """
@@ -458,42 +505,53 @@ class Prgtest:
                 output = [line.replace(chsrc, translatespecs[1]) for line in output]
             return output
 
-        def compare_output(output):
-            """ compares output with expected output as defined in specs """
+        def compare_output(stdout):
+            """ compares stdout with expected output as defined in specs """
             ignore_blank_lines = self.specs.get('_ignore_blank_lines', True)
             expected = self.specs[testid].get('stdout')
             if expected is None:
                 return None
-            output = prepare_output(output)
+            output = prepare_output(stdout)
             result = Prgtest.compare_lines(expected, output,
                                            ignore_blank_lines=ignore_blank_lines)
             return result
 
-        if self.returncode == 0:
+        if test_result.returncode == 0:
             self.normalize_expected_output(testid)
-            result = compare_output(self.stdout)
+            result = compare_output(test_result.stdout)
             if result is None:
-                self.show_test_passed(testid)
+                Prgtest.show_test_passed(testid)
                 return
 
-        self.show_test_failed(testid)
+        Prgtest.show_test_failed(testid)
         self.show_program_execution(testid)
         self.show_provided_stdin(testid)
 
-        if self.returncode == 0:
+        if test_result.returncode == 0:
             nr_expected, nr_found = result
-            self.show_discrepancy(testid, nr_expected, nr_found)
-        elif self.returncode == 124:    # timeout
+            self.show_discrepancy(testid, nr_expected, nr_found, test_result.stdout)
+        elif test_result.returncode == 124:    # timeout
             print_error_and_exit(Prgtest.MSG_EXERCISE_NEVER_ENDS,
                       tip=Prgtest.MSG_EXERCISE_NEVER_ENDS_TIP)
         else:
-            self.show_found_stderr()
+            Prgtest.show_found_stderr(test_result.stderr)
             print_error_and_exit(Prgtest.MSG_EXERCISE_BREAKS,
                       tip=Prgtest.MSG_EXERCISE_BREAKS_TIP)
         sys.exit(1)
 
 
-    def show_test_passed(self, testid):
+    def compare_junit_result(self, test_result):
+        """ compares the results of the junit tests """
+        if test_result.returncode == 0:
+            Prgtest.show_test_passed('JUnit')
+            return
+        Prgtest.show_test_failed('JUnit')
+        Prgtest.show_found_junit_error(test_result.stdout)
+        sys.exit(1)
+
+
+    @staticmethod
+    def show_test_passed(testid):
         """ shows the test has passed """
         text = colorize_string(f" {Prgtest.MSG_TEXT_PASSED_TEST} ",
                                forecolor=get_color("FG_PASS_TEST"),
@@ -501,7 +559,8 @@ class Prgtest:
         print(f"Test {testid}: {text}")
 
 
-    def show_test_failed(self, testid):
+    @staticmethod
+    def show_test_failed(testid):
         """ shows the test has failed """
         text = colorize_string(f" {Prgtest.MSG_TEXT_FAILED_TEST} ",
                                forecolor=get_color("FG_FAIL_TEST"),
@@ -509,11 +568,11 @@ class Prgtest:
         print(f"Test {testid}: {text}")
 
 
-    def show_discrepancy(self, testid, nr_expected, nr_found):
+    def show_discrepancy(self, testid, nr_expected, nr_found, stdout):
         """ shows discrepancy between expected and found """
         self.show_expected_output(testid, nr_expected)
-        self.show_found_output(nr_found)
-        self.show_difference(testid, nr_expected, nr_found)
+        Prgtest.show_found_output(nr_found, stdout)
+        self.show_difference(testid, nr_expected, nr_found, stdout)
 
 
     def show_program_execution(self, testid):
@@ -553,12 +612,13 @@ class Prgtest:
                 highlight_line=nr_expected)
 
 
-    def show_found_output(self, nr_found):
+    @staticmethod
+    def show_found_output(nr_found, stdout):
         """ shows the found contents from the target program execution """
         Prgtest.show_output_on_stderr(
             title=Prgtest.MSG_TITLE_STANDARD_OUTPUT,
             msg="La sortida que ha generat el programa ha estat:\n",
-            output=self.stdout,
+            output=stdout,
             text_type=TextType.FOUND,
             highlight_line=nr_found)
 
@@ -571,22 +631,62 @@ class Prgtest:
         print_err(compose_enumerated_text(output, text_type=text_type, highlight_line=highlight_line))
 
 
-    def show_found_stderr(self):
-        """ shows the contents self.stderr from the target program execution on stderr """
+    @staticmethod
+    def show_found_stderr(stderr):
+        """ shows the contents stderr from the target program execution on stderr """
         print_err(compose_title(Prgtest.MSG_TITLE_STANDARD_ERROR))
         print_err("La sortida d'error que ha generat el programa ha estat:")
-        print_err(compose_enumerated_text(self.stderr,
+        print_err(compose_enumerated_text(stderr,
                                           highlight_function=lambda line: not 'at java.' in line))
 
+    @staticmethod
+    def show_found_junit_error(junit_output):
+        """ shows the junit output found when passing the failing tests """
+        def digest_output(junit_output):
+            """ returns a filtered version of the output that includes just one failure """
+            test_name = ''
+            test_descr = ''
+            fail_descr = ''
+            found_first = False
+            for line in junit_output:
+                if not found_first:
+                    if f'JUnit Jupiter:{Prgtest.JUNIT_CLASSNAME}' in line:
+                        found_first = True
+                        splitted = line.split(":")
+                        test_descr = splitted[2] if len(splitted) >2 else line
+                    continue
+                if 'MethodSource' in line:
+                    splitted = line.split("'")
+                    test_name = splitted[3] if len(splitted) > 3 else line
+                    continue
+                if '==>' in line:
+                    splitted = line.split(': ')
+                    fail_descr = splitted[1].split("==>")[0] if len(splitted) > 1 else line
+                    break
+            return [
+                f'Nom del test: {test_name}',
+                f'Descripció  : {test_descr}',
+                f'Problema    : {fail_descr}',
+            ]
 
-    def show_difference(self, testid, nr_expected, nr_found):
-        """ shows the difference between expected and sef.stdout """
+
+        print_err(compose_title(Prgtest.MSG_TITLE_JUNIT_ERROR))
+        print_err("JUnit ha generat la següent sortida d'error:")
+
+        print_err("\t" + "\n\t".join(junit_output))
+
+        print_err("Et proposo que consideris el següent error:")
+        print_err("* " + "\n* ".join(digest_output(junit_output)))
+
+
+    def show_difference(self, testid, nr_expected, nr_found, stdout):
+        """ shows the difference between expected and stdout """
         print_err(compose_title(Prgtest.MSG_TITLE_DISCREPANCY))
         if nr_expected >= len(self.specs[testid].get('stdout', [])):
             print_err(Prgtest.MSG_EXERCISE_WITH_MORE_LINES_THAN_EXPECTED)
             print_err(compose_enumerated_line(nr_found,
-                self.stdout[nr_found], text_type=TextType.FOUND))
-        elif nr_found >= len(self.stdout):
+                stdout[nr_found], text_type=TextType.FOUND))
+        elif nr_found >= len(stdout):
             print_err(Prgtest.MSG_EXERCISE_WITH_LESS_LINES_THAN_EXPECTED)
             print_err(compose_enumerated_line(nr_expected,
                                               self.specs[testid]['stdout'][nr_expected],
@@ -597,7 +697,7 @@ class Prgtest:
                                               self.specs[testid]['stdout'][nr_expected],
                                               text_type=TextType.EXPECTED,
                                               delimited=True))
-            print_err(compose_enumerated_line(nr_found, self.stdout[nr_found],
+            print_err(compose_enumerated_line(nr_found, stdout[nr_found],
                                               text_type=TextType.FOUND,
                                               delimited=True))
 
@@ -645,7 +745,7 @@ class Prgtest:
         flag_path = self.support_dir / Prgtest.FLAG_RELATIVE_PATH
         old_contents = load_yaml(flag_path) if flag_path.is_file() else {}
         splitted_last_comment = repo.head.commit.message.split(": ", maxsplit=2)
-        same_exercise = old_contents.get('exercise') == self.target_exercise 
+        same_exercise = old_contents.get('exercise') == self.target_exercise
         old_seq = old_contents.get('seq', -1)
         expected_msg = old_seq == 0 or (
             len(splitted_last_comment) == 2 and
@@ -744,6 +844,32 @@ class Prgtest:
     def show_introprgdir(self):
         """ shows the working directory """
         print(self.working_dir)
+
+
+    def compose_junit_path(self):
+        """ returns the path to the junit test file """
+        if not Prgtest.protected():
+            path = Path.cwd() / Prgtest.JUNIT_FILENAME
+            if path.is_file():
+                return path
+        return self.specs_dir / f"{self.target_exercise}.junit"
+
+
+    def has_junit_test(self):
+        """ returns True when there's a junit test for the target exercise """
+        return self.compose_junit_path().is_file()
+
+
+    def copy_junit_to_target(self):
+        """ copies the junit file in the target directory.
+            If the file is missing it halts with an error """
+        if not self.has_junit_test():
+            print_error_and_exit(Prgtest.MSG_ERR_NO_JUNIT)
+        dest_path = self.target_path / Prgtest.JUNIT_FILENAME
+        if dest_path.exists():
+            print_error_and_exit(Prgtest.MSG_ERR_JUNIT_OVERWRITE)
+        shutil.copy(self.compose_junit_path(), dest_path)
+        print(Prgtest.MSG_JUNIT_COPIED)
 
 
     def show_target_path(self):
@@ -845,7 +971,7 @@ def get_color(key):
     """ returns the color for the given key.
         If not present, it returns general reset value """
     colorschema = os.environ.get('INTROPRG_COLORSCHEMA', 'clear')
-    if not colorschema in color_schemata:
+    if colorschema not in color_schemata:
         print_warning_and_continue(
             f"No disponible l'esquema de colors {colorschema}",
             tip="Revisa el valor de la variable INTROPRG_COLORSCHEMA",
@@ -974,24 +1100,84 @@ def load_yaml(path, allow_non_existing=False):
     if not path.exists():
         if allow_non_existing:
             return dict()
-        else:
-            print_error_and_exit(f"File not found {path}")
-    with open(path, 'r') as f:
-        data = yaml.load(f, Loader=yaml.SafeLoader)
+        print_error_and_exit(f"File not found {path}")
+    with open(path, 'r') as fd:
+        data = yaml.load(fd, Loader=yaml.SafeLoader)
     if data is None:
         return dict()
     return data
 
+
 def save_yaml(path, values):
     """ saves the values as yaml file """
     path.parent.mkdir(parents = True, exist_ok = True)
-    with open(path, 'w') as f:
-        yaml.safe_dump(values, f, allow_unicode=True)
+    with open(path, 'w') as fd:
+        yaml.safe_dump(values, fd, allow_unicode=True)
+
+##################################################
+# running system commands
+##################################################
+
+def run_command(command_list, folder, env=None, stdin=None, timeout=None):
+    """ runs command in command_list with the given environment
+        and returns the corresponding SubprocessResult """
+    previous_dir = Path.cwd()
+    os.chdir(folder)
+    result = subprocess.run(command_list, env=env,
+                            input=stdin, timeout=timeout,
+                            capture_output=True, encoding='utf-8')
+    os.chdir(previous_dir)
+    return SubprocessResult(stdout=result.stdout.splitlines(),
+                            stderr=result.stderr.splitlines(),
+                            returncode=result.returncode)
+
+def run_javac(program_name, env, folder, full_compilation=True):
+    """ compile program_name in folder with the given environment.
+        if full_compilation it will remove any .class prior to compile.
+        It returns the SubprocessResult """
+    if full_compilation:
+        for compiled_file in folder.glob("*.class"):
+            compiled_file.unlink()
+    command_list = ['javac', program_name]
+    result = run_command(command_list, folder, env=env)
+    return result
+
+def run_java(class_name, folder, env, timeout,
+             stdin = None, argsin = None, general= True):
+    """ runs java class_name,
+        on folder,
+        passing argsin as command line arguments,
+        passing stdin as standard input,
+        considering env as environment,
+        giving as much as timeout time to finish execution.
+        considering general usage
+        It returns the SubprocessResult """
+
+    # Prepare command
+    if general and 'INTROPRG_JAVAPOLICYFILE' in os.environ:
+        command_list = ['java',
+                        '-Djava.security.manager',
+                        f"-Djava.security.policy={os.environ['INTROPRG_JAVAPOLICYFILE']}",
+                        class_name]
+    else:
+        command_list = ['java', class_name]
+
+    # Add args if any
+    if argsin is not None:
+        command_list.extend(argsin)
+
+    # run the target having into account timeout
+    try:
+        return run_command(command_list, folder, env=env, stdin=stdin, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return SubprocessResult(stdout=[], stderr=[], returncode=124)
 
 ##################################################
 # Main
 ##################################################
+
 if __name__ == '__main__':
+    initial_directory = Path.cwd()
     try:
         prgtest = Prgtest()
         prgtest.run()
@@ -999,7 +1185,8 @@ if __name__ == '__main__':
         raise exception
     except Exception as exception:
         if Prgtest.protected():
-            with open('__prgtest_dump.dat', 'a') as dest:
+            dump_path = initial_directory / '__prgtest_dump.dat'
+            with open(dump_path, 'a') as dest:
                 dest.write("\n\n" + "=" * 100 + "\n\n")
                 dest.write(f"{datetime.datetime.now()}\n")
                 issue = Path('/etc/issue')
