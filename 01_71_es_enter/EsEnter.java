@@ -19,12 +19,6 @@ public class EsEnter {
 					break;
 				}
 			}
-			for (int i = 0; i <= text.length(); i++) {
-				if (Character.isLetter(text.charAt(i))) {
-					System.out.println("No és enter");
-					break;
-				}
-			}
 		}
 	}
 }
