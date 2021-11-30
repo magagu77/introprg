@@ -17,11 +17,11 @@
  				text = Entrada.readLine();
  				if (text.equals("dibuixa quadrat")) {
  					dibuixaQuadrat();
- 				} else if (!text.isBlank()) {
- 					System.out.println("El lloro repeteix: " + text);
  				} else if (text.equals("dibuixa rectangle")) {
  					dibuixaRectangle();
- 				}
+ 				} else if (!text.isBlank()) {
+ 					System.out.println("El lloro repeteix: " + text);
+ 				} 
  			}
  		}
  		public static void dibuixaQuadrat() {
