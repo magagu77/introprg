@@ -23,6 +23,7 @@
  					System.out.println("El lloro repeteix: " + text);
  				} 
  			}
+ 			System.out.println("Adéu");
  		}
  		public static void dibuixaQuadrat() {
  			for(int l = 1; l <= 5; l++) {
