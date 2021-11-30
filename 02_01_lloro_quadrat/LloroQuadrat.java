@@ -25,7 +25,7 @@
  		public static void dibuixaQuadrat() {
  			for(int l = 1; l <= 5; l++) {
  				for(int c = 1; c <= 5; c++) {
- 					System.out.print("X");
+ 					System.out.print(" X");
  				}
  				System.out.println();
  			}
