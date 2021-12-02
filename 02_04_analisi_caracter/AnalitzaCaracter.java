@@ -16,7 +16,7 @@ public class AnalitzaCaracter {
 	char caracter = 'q';
 	if (posicio < 0 ) { 
 		caracter = text.charAt(posicio + text.length());
-	} else {
+	} else if (posicio < text.length() && posicio >= 0) {
 		caracter = text.charAt(posicio);
 	}
 	analitzaCaracter(caracter, posicio, text );	
