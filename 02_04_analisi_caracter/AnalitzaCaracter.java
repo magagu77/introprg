@@ -13,7 +13,12 @@ public class AnalitzaCaracter {
 	String text = Entrada.readLine();
 	System.out.println("Posició?");
 	int posicio = Integer.parseInt(Entrada.readLine());
-	char caracter = text.charAt(posicio);
+	char caracter = 'q';
+	if (posicio < 0 ) { 
+		caracter = text.charAt(posicio + text.length());
+	} else {
+		caracter = text.charAt(posicio);
+	}
 	analitzaCaracter(caracter, posicio, text );	
 	}
 	public static void analitzaCaracter(char caracter, int posicio, String text){
