@@ -14,12 +14,12 @@ public class AnalitzaCaracter {
 	System.out.println("Posició?");
 	int posicio = Integer.parseInt(Entrada.readLine());
 	char caracter = text.charAt(posicio);
-	if (posicio < 0 ) { 
-		caracter = (text.charAt(posicio + text.length()));
-	}
 	analitzaCaracter(caracter, posicio, text );	
 	}
 	public static void analitzaCaracter(char caracter, int posicio, String text){
+		if (posicio < 0 ) { 
+		caracter = (text.charAt(posicio + text.length()));
+		}
 		if (posicio >= 0 && posicio < text.length()) {
 			if (Character.isLetter(caracter)) {
 				System.out.println("'" + caracter + "' és una lletra");
