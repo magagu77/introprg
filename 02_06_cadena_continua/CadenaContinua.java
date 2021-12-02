@@ -28,5 +28,6 @@ public class CadenaContinua {
 		 		System.out.print(text.charAt(i % text.length()));
 		 	}
 		}
+		System.out.println();
 	}
 }   
