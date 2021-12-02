@@ -1,3 +1,4 @@
+
 /*Desenvolupa un programa que esperi un valor enter positiu en args[0] 
   i mostri un quadrat de " X" amb el costat indicat pel valor rebut.
 */
@@ -14,4 +15,4 @@ public class Quadrat {
  				System.out.println();
  			}
 	}
-}
+} 
