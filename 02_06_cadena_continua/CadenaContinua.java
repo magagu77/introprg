@@ -17,10 +17,10 @@ public class CadenaContinua {
 		if (nombre.isBlank()) {
 			return;
 		}
-		cadena(text, nombre);
-	}
-	public static void cadena(String text, String nombre) {
 		int numero = Integer.parseInt(nombre);
+		cadena(text, numero);
+	}
+	public static void cadena(String text, int numero) {
 		for (int i = 0; i < numero; i++) {
 		 	if (numero <= text.length()) {
 		 		System.out.print(text.charAt(i));
