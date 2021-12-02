@@ -14,14 +14,14 @@ public class AnalitzaCaracter {
 	System.out.println("Posició?");
 	int posicio = Integer.parseInt(Entrada.readLine());
 	char caracter = 'q';
-	if (posicio < 0 && posicio + text.length() >= 0) { 
-		caracter = text.charAt(posicio + text.length());
-	} else if (text.length() > posicio && posicio >= 0) {
-		caracter = text.charAt(posicio);
-	}
 	analitzaCaracter(caracter, posicio, text );	
 	}
 	public static void analitzaCaracter(char caracter, int posicio, String text){
+		if (posicio < 0 && posicio + text.length() >= 0) { 
+		caracter = text.charAt(posicio + text.length());
+		} else if (text.length() > posicio && posicio >= 0) {
+		caracter = text.charAt(posicio);
+		}
 		if (posicio < 0 ) { 
 		caracter = text.charAt(posicio + text.length());
 		}
@@ -33,14 +33,6 @@ public class AnalitzaCaracter {
 			} else {
 				System.out.println("'" + text.charAt(posicio) + "' és una altra cosa");
 			}	
-		} else if (posicio < 0) {
-			if (Character.isLetter(caracter)) {
-				System.out.println("'" + caracter + "' és una lletra");
-			} else if (Character.isDigit(caracter)) {
-				System.out.println("'" + caracter + "' és un nombre");
-			} else {
-				System.out.println("'" + caracter + "' és una altra cosa");
-			}
 		} else {
 			System.out.println("Fora de rang");
 		}	
