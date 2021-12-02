@@ -14,9 +14,9 @@ public class AnalitzaCaracter {
 	System.out.println("Posició?");
 	int posicio = Integer.parseInt(Entrada.readLine());
 	char caracter = 'q';
-	if (posicio < 0 ) { 
+	if (posicio < 0 && posicio + text.length() >= 0) { 
 		caracter = text.charAt(posicio + text.length());
-	} else if (posicio < text.length() && posicio >= 0) {
+	} else if (text.length() > posicio) {
 		caracter = text.charAt(posicio);
 	}
 	analitzaCaracter(caracter, posicio, text );	
