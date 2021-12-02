@@ -18,7 +18,7 @@ public class AnalitzaCaracter {
 	}
 	public static void analitzaCaracter(char caracter, int posicio, String text){
 		if (posicio < 0 ) { 
-		caracter = (text.charAt(posicio + text.length()));
+		caracter = text.charAt(posicio + text.length());
 		}
 		if (posicio >= 0 && posicio < text.length()) {
 			if (Character.isLetter(caracter)) {
