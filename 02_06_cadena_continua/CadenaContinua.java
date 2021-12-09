@@ -18,9 +18,9 @@ public class CadenaContinua {
 			return;
 		}
 		int longitud = Integer.parseInt(nombre);
-		cadenaContinua(text, longitud);
+		mostraCadenaContinua(text, longitud);
 	}
-	public static void cadenaContinua(String text, int longitud) {
+	public static void mostraCadenaContinua(String text, int longitud) {
 		for (int i = 0; i < longitud; i++) {
 		 	if (longitud <= text.length()) {
 		 		System.out.print(text.charAt(i));
