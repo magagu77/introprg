@@ -14,9 +14,6 @@ public class AnalitzaCaracter {
 		System.out.println("Posició?");
 		int posicio = Integer.parseInt(Entrada.readLine());
 		char caracter = 'a';
-		analitzaCaracter(caracter, posicio, text );	
-		}
-	public static void analitzaCaracter(char caracter, int posicio, String text){
 		if (posicio < text.length() && posicio >= 0) {
 			caracter = text.charAt(posicio);
 		} else if (posicio < 0 && posicio + text.length() >= 0) {
@@ -25,6 +22,9 @@ public class AnalitzaCaracter {
 			System.out.println("Fora de rang");
 			return;
 		}
+	}
+	public static void analitzaCaracter(char caracter) {
+
 		if (Character.isLetter(caracter)) {
 				System.out.println("'" + caracter + "' és una lletra");
 		} else if (Character.isDigit(caracter)) {
