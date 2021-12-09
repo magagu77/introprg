@@ -17,7 +17,7 @@ public class TriangleLletres {
 		for (int f = 0; f <= text.length(); f++) {
 			for (int c = 0; c < f; c++) {
 				if (c + 1 == f) {
-					System.out.print(text.charAt(c) + " ");
+					System.out.print(text.charAt(c));
 				} else
 					System.out.print(text.charAt(c) + ", ");
 			}
@@ -25,4 +25,3 @@ public class TriangleLletres {
 		}
 	}
 }
-
