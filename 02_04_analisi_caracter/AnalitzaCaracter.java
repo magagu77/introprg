@@ -22,6 +22,7 @@ public class AnalitzaCaracter {
 			System.out.println("Fora de rang");
 			return;
 		}
+		analitzaCaracter(caracter);
 	}
 	public static void analitzaCaracter(char caracter) {
 
