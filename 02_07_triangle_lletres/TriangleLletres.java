@@ -14,14 +14,18 @@ public class TriangleLletres {
 		dibuixaTriangle(text);
 	}
 	public static void dibuixaTriangle(String text) {
-		for (int f = 0; f <= text.length(); f++) {
-			for (int c = 0; c < f; c++) {
-				if (c + 1 == f) {
-					System.out.print(text.charAt(c));
-				} else
-					System.out.print(text.charAt(c) + ", ");
-			}
+		for (int linia = 0; linia <= text.length(); linia++) {
+			dibuixaLinia(text, linia);
 			System.out.println();
+		}
+
+	}
+	public static void dibuixaLinia(String text, int linia) {
+		for (int c = 0; c < linia; c++) {
+			if (c + 1 == linia) {
+				System.out.print(text.charAt(c));
+			} else
+				System.out.print(text.charAt(c) + ", ");
 		}
 	}
 }
