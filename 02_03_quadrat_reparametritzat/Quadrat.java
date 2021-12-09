@@ -14,7 +14,7 @@ public class Quadrat {
 
  	public static void dibuixaQuadrat(int numero, char caracter) {
  		 for(int l = 1; l <= numero; l++) {
- 				dibuixaLinia(l, caracter);
+ 				dibuixaLinia(numero, caracter);
  				System.out.println();
  			}
     }
