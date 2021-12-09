@@ -20,7 +20,7 @@ public class Quadrat {
     }
   public static void dibuixaLinia(int numero, char caracter) {
     for (int c = 1; c <= numero; c++) {
-      System.out.print(caracter + " ");
+      System.out.print(" " + caracter);
       } 
 
     }
