@@ -453,7 +453,7 @@ class Prgtest:
                            folder=self.test_path, env=self.env)
         if result.returncode != 0:
             print_error_and_exit(Prgtest.MSG_COMPILATION_ERROR % self.get_main_program(),
-                                 tip=result.stderr)
+                                 tip="\n".join(result.stderr))
 
         # run test with the given stdin, args, env and timeout.
         stdin = '' if stdin is None else '\n'.join(str(item) for item in stdin) + '\n'
