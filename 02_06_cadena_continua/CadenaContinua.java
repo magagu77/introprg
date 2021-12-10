@@ -17,14 +17,14 @@ public class CadenaContinua {
 		if (nombre.isBlank()) {
 			return;
 		}
-		int numero = Integer.parseInt(nombre);
-		cadena(text, numero);
+		int longitud = Integer.parseInt(nombre);
+		mostraCadenaContinua(text, longitud);
 	}
-	public static void cadena(String text, int numero) {
-		for (int i = 0; i < numero; i++) {
-		 	if (numero <= text.length()) {
+	public static void mostraCadenaContinua(String text, int longitud) {
+		for (int i = 0; i < longitud; i++) {
+		 	if (longitud <= text.length()) {
 		 		System.out.print(text.charAt(i));
-		 	} else if (numero > text.length()) {
+		 	} else if (longitud > text.length()) {
 		 		System.out.print(text.charAt(i % text.length()));
 		 	}
 		}
