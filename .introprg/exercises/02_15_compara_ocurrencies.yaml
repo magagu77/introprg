@@ -1,0 +1,16 @@
+'01':
+  stdin: programem en java
+  stdout:
+  - 'Introdueix un text'
+  - 'Nombre de ''a''s: 3'
+  - 'Nombre de ''e''s: 2'
+  - 'Hi ha més ''a''s que ''e''s'
+'02':
+  stdin:
+  - Una prova sense major importància
+  stdout:
+  - Introdueix un text
+  - 'Nombre de ''a''s: 4'
+  - 'Nombre de ''e''s: 2'
+  - Hi ha més 'a's que 'e's
+_mainclass: ComptaAiEs

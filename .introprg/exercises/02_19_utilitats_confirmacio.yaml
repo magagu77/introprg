@@ -1,0 +1,39 @@
+'1':
+  stdin:
+  - Sí
+  - vermell
+  stdout:
+  - Ets major d'edat?
+  - Color?
+  - espera
+'2':
+  stdin:
+  - sí
+  - groc
+  stdout:
+  - Ets major d'edat?
+  - Color?
+  - corre!
+'3':
+  stdin:
+  - s
+  - verd
+  stdout:
+  - Ets major d'edat?
+  - Color?
+  - passa
+'4':
+  stdin:
+  - 'yes'
+  - magenta
+  stdout:
+  - Ets major d'edat?
+  - Color?
+  - ves a l'oculista
+'5':
+  stdin:
+  - Nop
+  stdout:
+  - Ets major d'edat?
+  - No pots fer servir aquest programa sense supervisió
+_mainclass: Semafor

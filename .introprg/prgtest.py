@@ -121,6 +121,8 @@ class Prgtest:
             In case environment var INTROPRG_SPEC_DIR is set, it uses it,
             otherwise, a default subfolder within support dir will be used """
         if not Prgtest.protected():
+            if self.params.get('specs') is not None:
+                return Path(self.params.get('specs')).parent
             return Path.cwd()
         specs_dir = os.environ.get(Prgtest.INTROPRGSPECDIR_KEY)
         if specs_dir is None:
@@ -428,6 +430,11 @@ class Prgtest:
         if Prgtest.protected():
             dest_path = self.test_path / Prgtest.JUNIT_FILENAME
             shutil.copy(self.compose_junit_path(), dest_path)
+        else:
+            junit_path = self.specs_dir / Prgtest.JUNIT_FILENAME
+            dest_path = Path.cwd() / Prgtest.JUNIT_FILENAME
+            if junit_path != dest_path:
+                shutil.copy(junit_path, dest_path)
 
         # perform the tests
         result = self.run_junit_tests()
@@ -849,10 +856,16 @@ class Prgtest:
     def compose_junit_path(self):
         """ returns the path to the junit test file """
         if not Prgtest.protected():
-            path = Path.cwd() / Prgtest.JUNIT_FILENAME
-            if path.is_file():
-                return path
-        return self.specs_dir / f"{self.target_exercise}.junit"
+            return self.specs_dir / Prgtest.JUNIT_FILENAME
+            #if self.params.get('specs') is None:
+            #    path = Path.cwd() / Prgtest.JUNIT_FILENAME
+            #else:
+            #    path = Path(self.params.get('specs')).parent / Prgtest.JUNIT_FILENAME
+            #if path.is_file():
+            #    return path
+            
+        result = self.specs_dir / f"{self.target_exercise}.junit"
+        return result
 
 
     def has_junit_test(self):
