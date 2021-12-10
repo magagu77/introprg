@@ -12,9 +12,9 @@ public class MostraInterval {
 		int inici = Integer.parseInt(Entrada.readLine());
 		System.out.println("final?");
 		int end = Integer. parseInt(Entrada.readLine());
-		interval(text, inici, end);
+		mostraInterval(text, inici, end);
 	} 
-	public static void interval(String text, int inici, int end) {
+	public static void mostraInterval(String text, int inici, int end) {
 		if (inici >= 0 || end >= 0) {
 			if (inici < 0) {
 				inici = 0;
