@@ -24,9 +24,9 @@
 	public static void dibuixaLiniaInvertida(String text, int linia) {
 		for (int c = 0; c < linia; c++) {
 			if (c + 1 == linia) {
-				System.out.print(text.charAt(c));
+				System.out.print(text.charAt(text.length() - linia));
 			} else
-				System.out.print(text.charAt(c) + ", ");
+				System.out.print(text.charAt(text.length() - linia) + ", ");
 		}
 	}
 }	
