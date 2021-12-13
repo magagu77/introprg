@@ -26,7 +26,7 @@
 			if (c + 1 == linia) {
 				System.out.print(text.charAt(c));
 			} else
-				System.out.print(text.charAt(text .length () - c) + ", ");
+				System.out.print(text.charAt(c - linia ) + ", ");
 		}
 	}
 }	
