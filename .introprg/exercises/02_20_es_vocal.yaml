@@ -1,0 +1,65 @@
+'01':
+  stdin:
+  - ànec
+  - ''
+  - s
+  stdout:
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - 'El lloro diu: ànec'
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - El lloro demana confirmació per finalitzar
+  - Adéu
+'02':
+  stdin:
+  - lleó
+  - ''
+  - s
+  stdout:
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - 'El lloro diu: lleó'
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - El lloro demana confirmació per finalitzar
+  - Adéu
+'03':
+  stdin:
+  - gos
+  - ''
+  - s
+  stdout:
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - El lloro demana confirmació per finalitzar
+  - Adéu
+'04':
+  stdin:
+  - ''
+  - n
+  - ''
+  - s
+  stdout:
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - El lloro demana confirmació per finalitzar
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - El lloro demana confirmació per finalitzar
+  - Adéu
+'05':
+  stdin:
+  - üc
+  - Ïc
+  - cé
+  - xÈ
+  - ''
+  - 'yes'
+  stdout:
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - 'El lloro diu: üc'
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - 'El lloro diu: Ïc'
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - 'El lloro diu: cé'
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - 'El lloro diu: xÈ'
+  - El lloro demana paraula amb vocal a l'inici o/i final
+  - El lloro demana confirmació per finalitzar
+  - Adéu
+_mainclass: LloroVocalIniciFi

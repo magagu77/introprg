@@ -1,0 +1,26 @@
+/*
+ * Unit testing methods for an exercise
+ */
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @ParameterizedTest
+    @CsvSource(value={
+    "=,false","+,false","' ',false","a,false","b,false","c,false","d,false","e,false","f,false","g,false","h,false","i,false","j,false","k,false","l,false","m,false","n,false","o,false","p,false","q,false","r,false","s,false","t,false","u,false","v,false","w,false","x,false","y,false","z,false","à,false","á,false",
+    "A,true","B,true","C,true","D,true","E,true","F,true","G,true","H,true","J,true","K,true","L,true","M,true","N,true","P,true","R,true","S,true","T,true","V,true","W,true","X,true","Y,true","Z,true",
+    "I,false","O,false","Q,false","U,false","È,false","É,false",
+    "0,false","1,false","2,false","3,false","4,false","5,false","6,false","7,false","8,false","9,false",
+    })
+
+    @DisplayName("test trobaOcurrencies()")
+    public void esVocal(char lletra, boolean esperat) {
+        boolean obtingut = MatriculaValida.esLletraValidaPerMatriculaItaliana(lletra);
+        assertEquals(esperat, obtingut, "Revisa la crida esLletraValidaPerMatriculaItaliana('" + lletra + "')");
+    }
+
+}
