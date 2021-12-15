@@ -1,0 +1,279 @@
+'01':
+  stdin:
+  - Java rocks!
+  - '5'
+  - '7'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - roc
+'02':
+  stdin:
+  - Rocks Java
+  - '8'
+  - '6'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - vaJ
+'03':
+  stdin:
+  - Java rocks!
+  - '-5'
+  - '9'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - Java rocks
+'04':
+  stdin:
+  - Java mola!
+  - '15'
+  - '5'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - '!alom'
+'05':
+  stdin:
+  - hola
+  - '-2'
+  - '-1'
+  stdout:
+  - text?
+  - inici?
+  - final?
+'06':
+  stdin:
+  - hola
+  - '-2'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+'07':
+  stdin:
+  - hola
+  - '-2'
+  - '2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - hol
+08:
+  stdin:
+  - hola
+  - '-2'
+  - '3'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - hola
+09:
+  stdin:
+  - hola
+  - '-2'
+  - '5'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - hola
+'10':
+  stdin:
+  - hola
+  - '0'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+'11':
+  stdin:
+  - hola
+  - '0'
+  - '2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - hol
+'12':
+  stdin:
+  - hola
+  - '0'
+  - '3'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - hola
+'13':
+  stdin:
+  - hola
+  - '0'
+  - '5'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - hola
+'14':
+  stdin:
+  - hola
+  - '1'
+  - '2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - ol
+'15':
+  stdin:
+  - hola
+  - '1'
+  - '3'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - ola
+'16':
+  stdin:
+  - hola
+  - '1'
+  - '5'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - ola
+'17':
+  stdin:
+  - hola
+  - '-1'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+'18':
+  stdin:
+  - hola
+  - '0'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+'19':
+  stdin:
+  - hola
+  - '2'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - loh
+'20':
+  stdin:
+  - hola
+  - '3'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - aloh
+'21':
+  stdin:
+  - hola
+  - '5'
+  - '-2'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - aloh
+'22':
+  stdin:
+  - hola
+  - '0'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - h
+'23':
+  stdin:
+  - hola
+  - '2'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - loh
+'24':
+  stdin:
+  - hola
+  - '3'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - aloh
+'25':
+  stdin:
+  - hola
+  - '5'
+  - '0'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - aloh
+'26':
+  stdin:
+  - hola
+  - '2'
+  - '1'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - lo
+'27':
+  stdin:
+  - hola
+  - '3'
+  - '1'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - alo
+'28':
+  stdin:
+  - hola
+  - '5'
+  - '1'
+  stdout:
+  - text?
+  - inici?
+  - final?
+  - alo
+_mainclass: MostraInterval
