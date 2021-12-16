@@ -17,7 +17,7 @@
  				System.out.print(Character.toUpperCase(text.charAt(c)));
  			}
  			else if (Character.isLetter(text.charAt(c)) && 
- 				text.charAt(c - 1) == ' ') {
+ 				text.charAt(c - 1) == ' ' || text.charAt(c - 1) == '-') {
  				System.out.print(Character.toUpperCase(text.charAt(c)));
  			} else {
  				System.out.print(Character.toLowerCase(text.charAt(c)));
