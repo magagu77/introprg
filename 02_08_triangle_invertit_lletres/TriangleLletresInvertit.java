@@ -12,7 +12,7 @@
  public class TriangleLletresInvertit {
  	public static void main(String[] args) {
 		System.out.println("Text?");
-		String text = "Marc";  //Entrada.readLine();
+		String text =Entrada.readLine();
 		dibuixaTriangleInvertit(text);
 	}
 	public static void dibuixaTriangleInvertit(String text) {
