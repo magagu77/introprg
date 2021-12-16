@@ -22,7 +22,7 @@
 
 	}
 	public static void dibuixaLiniaInvertida(String text, int linia) {
-		for (int c = text.length() - 1; c < linia && c >= 0; c--) {
+		for (int c = text.length(); c >= linia; c--) {
 			System.out.print(text.charAt(c) + " ");
 		}
 	}
