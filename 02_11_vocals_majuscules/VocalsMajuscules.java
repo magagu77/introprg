@@ -17,7 +17,7 @@
  				text.charAt(i) == 'u') {
  				System.out.print(Character.toUpperCase(text.charAt(i)));
  			} else {
- 				System.out.print(text.charAt(i));
+ 				System.out.print(Character.toLowerCase(text.charAt(i)));
  			}
  		}
  		System.out.println();
