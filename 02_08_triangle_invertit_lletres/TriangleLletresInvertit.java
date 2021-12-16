@@ -8,22 +8,26 @@
     es recolzarà en un altre anomenat dibuixaLinia() que serà qui realment faci 
     la feina de dibuixar cada línia del triangle.
 */
+
  public class TriangleLletresInvertit {
  	public static void main(String[] args) {
 		System.out.println("Text?");
-		String text = Entrada.readLine();
+		String text = "Marc";  //Entrada.readLine();
 		dibuixaTriangleInvertit(text);
 	}
 	public static void dibuixaTriangleInvertit(String text) {
-		for (int linia = text.length(); linia >= 0; linia--) {
+		for (int linia = 0; linia >= 0 && linia < text.length(); linia ++) {
 			dibuixaLiniaInvertida(text, linia);
 			System.out.println();
 		}
 
 	}
 	public static void dibuixaLiniaInvertida(String text, int linia) {
-		for (int c = text.length(); c >= linia; c--) {
-			System.out.print(text.charAt(c) + " ");
+		for (int c = (text.length() - 1); c >= linia; c--) {
+			if (c == linia) {
+				System.out.print(text.charAt(c));
+			} else
+				System.out.print(text.charAt(c - linia) + ", ");
 		}
 	}
-}	
+}
