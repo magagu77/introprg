@@ -13,7 +13,10 @@
  	}
  	public static void majusculitzaInicials(String text) {
  		for (int c = 0; c < text.length(); c++) {
- 			if (Character.isLetter(text.charAt(c)) && 
+ 			if (text.charAt(c) == 0) {
+ 				System.out.print(Character.toUpperCase(text.charAt(c)));
+ 			}
+ 			else if (Character.isLetter(text.charAt(c)) && 
  				text.charAt(c - 1) == ' ') {
  				System.out.print(Character.toUpperCase(text.charAt(c)));
  			} else {
