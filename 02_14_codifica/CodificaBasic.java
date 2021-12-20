@@ -20,11 +20,15 @@ public class CodificaBasic {
 			if (quants < 0) {
 				System.out.println("No s'accepten números negatius");
 				return;
-			} else if (text.charAt(i) == 'z') {
-				System.out.print('a');
+			} else if (Character.isLetter(text.charAt(i))) {
+				if (text.charAt(i) == 'z') {
+					System.out.print('a');
+				} else {
+				codifica = (char)(text.charAt(i) + quants);
+				System.out.print(codifica);
+				}
 			} else {
-			codifica = (char)(text.charAt(i) + quants);
-			System.out.print(codifica);
+				System.out.print(text.charAt(i));
 			}
 		}
 		System.out.println();
