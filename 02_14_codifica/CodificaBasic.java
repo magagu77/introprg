@@ -21,7 +21,7 @@ public class CodificaBasic {
 				System.out.println("No s'accepten números negatius");
 				return;
 			} else if (text.charAt(i) >= 'a' && text.charAt(i) <= 'z') {
-				if (text.charAt(i) == 'z') {
+				if (text.charAt(i) == 'z' && quants > 0) {
 					System.out.print('a');
 				} else {
 				codifica = (char)(text.charAt(i) + quants);
