@@ -9,9 +9,9 @@
 public class CodificaBasic {
 	public static void main(String[] args) {
 		System.out.println("Text?");
-		String text = /*Entrada.readLine();*/ "abcd";
+		String text = Entrada.readLine(); 
 		System.out.println("Quants?");
-		int numero = /*Integer.parseInt(Entrada.readline());*/ 1;
+		int numero = Integer.parseInt(Entrada.readLine());
 		codifica(text , numero);
 	}
 	public static void codifica(String text, int quants) {
