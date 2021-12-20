@@ -20,7 +20,8 @@ public class CodificaBasic {
 			if (quants < 0) {
 				System.out.println("No s'accepten números negatius");
 				return;
-			} else if (Character.isLetter(text.charAt(i))) {
+			} else if (Character.isLetter(text.charAt(i)) && 
+					   Character.isLowerCase(text.charAt(i))) {
 				if (text.charAt(i) == 'z') {
 					System.out.print('a');
 				} else {
