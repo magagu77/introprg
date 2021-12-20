@@ -23,6 +23,8 @@ public class CodificaBasic {
 			} else if (text.charAt(i) >= 'a' && text.charAt(i) <= 'z') {
 				if (text.charAt(i) == 'z' && quants > 0) {
 					System.out.print('a');
+				} else if (text.charAt(i) == 'y' && quants > 1) {
+					System.out.print((char)('a' + quants - 2));
 				} else {
 				codifica = (char)(text.charAt(i) + quants);
 				System.out.print(codifica);
