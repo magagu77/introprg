@@ -22,7 +22,7 @@ public class CodificaBasic {
 				return;
 			} else if (text.charAt(i) >= 'a' && text.charAt(i) <= 'z') {
 				if (text.charAt(i) == 'z' && quants > 0) {
-					System.out.print('a');
+					System.out.print((char)('a' + quants - 1));
 				} else if (text.charAt(i) == 'y' && quants > 1) {
 					System.out.print((char)('a' + quants - 2));
 				} else {
