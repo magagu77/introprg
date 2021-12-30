@@ -18,7 +18,7 @@ public class TestExercise {
     })
 
     @DisplayName("test trobaOcurrencies()")
-    public void esVocal(char lletra, boolean esperat) {
+    public void esLletraValidaPerMatriculaItaliana(char lletra, boolean esperat) {
         boolean obtingut = MatriculaValida.esLletraValidaPerMatriculaItaliana(lletra);
         assertEquals(esperat, obtingut, "Revisa la crida esLletraValidaPerMatriculaItaliana('" + lletra + "')");
     }
