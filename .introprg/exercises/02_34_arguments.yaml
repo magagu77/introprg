@@ -1,0 +1,19 @@
+'01':
+  stdout:
+  - Cap argument
+'02':
+  argsin: un
+  stdout:
+  - '[0] "un": no és enter'
+'03':
+  argsin:
+  - un
+  - '2'
+  - tres
+  - '4'
+  stdout:
+  - '[0] "un": no és enter'
+  - '[1] "2": és enter'
+  - '[2] "tres": no és enter'
+  - '[3] "4": és enter'
+_mainclass: Arguments

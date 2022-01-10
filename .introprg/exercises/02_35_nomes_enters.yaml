@@ -1,0 +1,30 @@
+'01':
+  stdout: '0'
+'02':
+  argsin: un
+  stdout: '0'
+'03':
+  argsin:
+  - '11'
+  - '22'
+  - '33'
+  - '44'
+  stdout: '110'
+'04':
+  argsin:
+  - un
+  - '2'
+  - tres
+  - '4'
+  stdout: '6'
+'05':
+  argsin:
+  - a
+  - '1'
+  - '2'
+  - '-2'
+  - '+4'
+  - '5'
+  - sis
+  stdout: '10'
+_mainclass: SumaEnters

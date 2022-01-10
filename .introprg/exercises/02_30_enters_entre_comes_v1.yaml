@@ -1,0 +1,7 @@
+'01':
+  stdin:
+  - ''
+  stdout:
+  - 1, 2, 3
+  - ''
+_mainclass: EntersEntreComes

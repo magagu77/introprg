@@ -415,9 +415,14 @@ class Prgtest:
         for testid, testspecs in self.specs.items():
             if testid.startswith('_'):
                 continue
+            # normalize stdin and args
+            if 'stdin' in testspecs:
+                testspecs['stdin'] = Prgtest.normalize_entry_spec(testspecs.get('stdin'))
+            if 'argsin' in testspecs:
+                testspecs['argsin'] = Prgtest.normalize_entry_spec(testspecs.get('argsin'))
             result = self.run_io_tests(
-                stdin=Prgtest.normalize_entry_spec(testspecs.get('stdin')),
-                argsin=Prgtest.normalize_entry_spec(testspecs.get('argsin')))
+                stdin=testspecs.get('stdin'),
+                argsin=testspecs.get('argsin'))
             self.compare_io_result(testid, result)
 
 
@@ -601,6 +606,7 @@ class Prgtest:
     def show_provided_stdin(self, testid):
         """ shows the contents entered by stdin to the target program (if any) """
         if 'stdin' in self.specs[testid]:
+            print("XXX self.specs[stdin]", self.specs[testid])
             Prgtest.show_output_on_stderr(
                 title=Prgtest.MSG_TITLE_STANDARD_INPUT,
                 msg="Se li ha passat el següent codi per entrada estàndard\n",
