@@ -15,6 +15,10 @@ public class EntersEntreComes {
 	public static void main(String[] args) {
 		System.out.println("Quants?");
 		int quants = Integer.parseInt(Entrada.readLine());
+		if (quants < 0) {
+			System.out.println("Res a fer");
+			return;
+		}
 		int[] valor = new int[quants];
 		for (int i=0;i<valor.length; i++){
 			System.out.println("Valor " + (i+1) + "?");
