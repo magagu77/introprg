@@ -9,8 +9,8 @@ public class NotaMesAlta {
 		int notaFinal = 0;
 		int notaProvisional = 0;
 		String text = ("La nota més alta és "+notaFinal+" de les introduïdes: ");
+		System.out.println("Introdueix les notes (-1 per finalitzar)");
 		while (nota > 0) {
-			System.out.println("Introdueix les notes (-1 per finalitzar)");
 			nota = Integer.parseInt(Entrada.readLine());
 			if (nota >= 0 && nota <= 10) {
 				numNota++;
