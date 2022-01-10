@@ -1,0 +1,90 @@
+/*
+ * Unit testing methods for an exercise
+ */
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import java.util.Arrays;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test entreComes() amb cap enter")
+    public void entreComesCapEnter() {
+        int[] entrada = {};
+        char sep = '.';
+        String esperat = "";
+        String obtingut = UtilString.entreComes(entrada, sep);
+        assertEquals(esperat, obtingut, String.format("Revisa el cas que entreComes() rebi un array buit"));
+    }
+    @Test
+    @DisplayName("test entreComes() amb un enter")
+    public void entreComesUnEnter() {
+        int[] entrada = {1};
+        char sep = '.';
+        String esperat = "1";
+        String obtingut = UtilString.entreComes(entrada, sep);
+        assertEquals(esperat, obtingut, String.format("Revisa el cas que entreComes() rebi un array amb un únic element"));
+    }
+    @Test
+    @DisplayName("test entreComes() amb dos enters")
+    public void entreComesDosEnters() {
+        int[] entrada = {1, 2};
+        char sep = ',';
+        String esperat = "1, 2";
+        String obtingut = UtilString.entreComes(entrada, sep);
+        assertEquals(esperat, obtingut, "Revisa el cas que entreComes() rebi dos enters amb separació '" + sep + "'");
+    }
+    @Test
+    @DisplayName("test entreComes() amb dos enters")
+    public void entreComesDosEntersSeparadorSorprenent() {
+        int[] entrada = {1, 2};
+        char sep = '¡';
+        String esperat = "1¡ 2";
+        String obtingut = UtilString.entreComes(entrada, sep);
+        assertEquals(esperat, obtingut, "Revisa el cas que entreComes() rebi dos enters amb separació '" + sep + "'");
+    }
+    @Test
+    @DisplayName("test entreComes() amb cinc enters")
+    public void entreComesCincEnters() {
+        int[] entrada = {1, 2, 3, 4, 5};
+        char sep = '>';
+        String esperat = "1> 2> 3> 4> 5";
+        String obtingut = UtilString.entreComes(entrada, sep);
+        assertEquals(esperat, obtingut, "Revisa el cas que entreComes() rebi cinc enters");
+    }
+
+    @Test
+    @DisplayName("Test hi és mòdul esEnter()")
+    public void prgtestX1esEnter() {
+        Class classe = UtilString.class;
+        String modulObjectiu = "esEnter";
+        Method[] methods = classe.getDeclaredMethods();
+        boolean foundTarget = false;
+        for (Method method: methods) {
+            if (modulObjectiu.equals(method.getName())) {
+                foundTarget=true;
+                Type[] types = method.getGenericParameterTypes();
+                assertEquals(
+                        1, 
+                        types.length, 
+                        "Revisa els paràmetres requerits pel mòdul " + modulObjectiu + "()"
+                );
+                assertEquals(
+                    "java.lang.String",
+                    types[0].getTypeName(),
+                    "Revisa els paràmetres requerits pel mòdul " + modulObjectiu + "()"
+                );
+                assertEquals(
+                        "boolean",
+                        method.getGenericReturnType().getTypeName(),
+                        "S'esperava " + modulObjectiu + "() d'un tipus diferent"
+                );
+            }
+        }
+        assertTrue(foundTarget, "No es troba el mòdul " + modulObjectiu + "(). Revisa enunciat.");
+    }
+}
