@@ -1,44 +1,44 @@
 _mainclass: NotaMesAlta
 '01':
   stdin:
-    - '5'
-    - '1'
-    - '3'
-    - '9'
-    - '7'
-    - '9'
-    - '1'
-    - '8'
-    - '-1'
+  - '5'
+  - '1'
+  - '3'
+  - '9'
+  - '7'
+  - '9'
+  - '1'
+  - '8'
+  - '-1'
   stdout:
-  - Introdueix les notes (-1 per finalitzar)
-  - La nota més alta és 9. La resta de notes és: 8, 7, 5, 3 i 1
+  - 'Introdueix les notes (-1 per finalitzar)'
+  - 'La nota més alta és 9. La resta de notes és: 8, 7, 5, 3 i 1'
 '02':
   stdin:
-    - '8'
-    - '9'
-    - '-1'
+  - '8'
+  - '9'
+  - '-1'
   stdout:
-  - Introdueix les notes (-1 per finalitzar)
-  - La nota més alta és 9. La resta de notes és: 8
+  - 'Introdueix les notes (-1 per finalitzar)'
+  - 'La nota més alta és 9. La resta de notes és: 8'
 '03':
   stdin:
-    - '8'
-    - '-1'
+  - '8'
+  - '-1'
   stdout:
-  - Introdueix les notes (-1 per finalitzar)
-  - Com a mínim calen dues notes
+  - 'Introdueix les notes (-1 per finalitzar)'
+  - 'Com a mínim calen dues notes'
 '04':
   stdin:
-    - '-1'
+  - '-1'
   stdout:
-  - Introdueix les notes (-1 per finalitzar)
-  - Com a mínim calen dues notes
+  - 'Introdueix les notes (-1 per finalitzar)'
+  - 'Com a mínim calen dues notes'
 '05':
   stdin:
-    - '8'
-    - '8'
-    - '-1'
+  - '8'
+  - '8'
+  - '-1'
   stdout:
-  - Introdueix les notes (-1 per finalitzar)
-  - La nota més alta és 8. No queden altres notes
+  - 'Introdueix les notes (-1 per finalitzar)'
+  - 'La nota més alta és 8. No queden altres notes'

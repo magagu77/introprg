@@ -7,12 +7,12 @@
   - '4'
   - '5'
   stdout:
-  - Quants?
-  - Valor 1?
-  - Valor 2?
-  - Valor 3?
-  - Valor 4?
-  - Valor 5?
+  - 'Quants?'
+  - 'Valor 1?'
+  - 'Valor 2?'
+  - 'Valor 3?'
+  - 'Valor 4?'
+  - 'Valor 5?'
   - '1, 2, 3, 4, 5'
 '02':
   stdin:
@@ -24,32 +24,32 @@
   - '55'
   - '66'
   stdout:
-  - Quants?
-  - Valor 1?
-  - Valor 2?
-  - Valor 3?
-  - Valor 4?
-  - Valor 5?
-  - Valor 6?
+  - 'Quants?'
+  - 'Valor 1?'
+  - 'Valor 2?'
+  - 'Valor 3?'
+  - 'Valor 4?'
+  - 'Valor 5?'
+  - 'Valor 6?'
   - '11, 22, 33, 44, 55, 66'
 '03':
   stdin:
   - '-1'
   stdout:
-  - Quants?
-  - Res a fer
+  - 'Quants?'
+  - 'Res a fer'
 '04':
   stdin:
   - '1'
   - '100'
   stdout:
-  - Quants?
-  - Valor 1?
+  - 'Quants?'
+  - 'Valor 1?'
   - '100'
 '05':
   stdin:
   - '0'
   stdout:
-  - Quants?
-  - Res a fer
+  - 'Quants?'
+  - 'Res a fer'
 _mainclass: EntersEntreComes
