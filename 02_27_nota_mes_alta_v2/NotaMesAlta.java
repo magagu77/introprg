@@ -13,16 +13,15 @@ public class NotaMesAlta {
 		while (nota > 0) {
 			nota = Integer.parseInt(Entrada.readLine());
 			if (nota >= 0 && nota <= 10) {
-				numNota++; 
+				numNota++;
+				notaProvisional = nota; 
 				if (notaFinal < nota) {
 				notaFinal = nota;
 				}
 			} 
 			if (numNota == 1) {
-				text = text + nota; 	
-			} else {
-				text = text + ", " + nota;
-			}
+				text = text + notaProvisional; 	
+			} 
 		}
 		if (numNota >= 2 ) {
 			System.out.println(text);
