@@ -21,7 +21,9 @@ public class NotaMesAlta {
 			} 
 			if (numNota == 1) {
 				text = text + notaProvisional; 	
-			} 
+			} else {
+				text = text + ", " + notaProvisional;
+			}
 		}
 		if (numNota >= 2 ) {
 			System.out.println(text);
