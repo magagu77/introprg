@@ -53,13 +53,12 @@ public class EntersEntreComes {
 
 	public static String entreComes(int[] valor, char separador) {
 		String numeros = "";
-		System.out.println(valor.length);
 		for (int i=0; i<valor.length; i++) {
 			if (i==0) {
 				numeros = numeros + valor[0];
 			}
 			else {
-				numeros = separador + " " + valor[i];
+				numeros = numeros + separador + " " + valor[i];
 			}
 		}
 		return numeros;
