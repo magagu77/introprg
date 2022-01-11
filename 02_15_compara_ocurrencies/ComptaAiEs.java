@@ -7,24 +7,22 @@ public class ComptaAiEs {
         String entrada = Entrada.readLine();
         char lletra1 = 'a';
         char lletra2 = 'e';
+        comptaLletra(entrada, lletra1);
+        comptaLletra(entrada, lletra2);
         comparaOcurrencies(entrada, lletra1, lletra2);
     }
-
+    public static void comptaLletra(String text, char lletra) {
+        int comptador = 0;
+        for (int i=0; i < text.length(); i++) {
+            if (text.charAt(i) == lletra) {
+                comptador += 1;
+            }
+        }
+        System.out.println("Nombre de '" + lletra + "'s: " + comptador);  
+    }
     public static void comparaOcurrencies(String text, char lletra1, char lletra2) {
         int comptador1 = 0;
-        for (int i=0; i < text.length(); i++) {
-            if (text.charAt(i) == lletra1) {
-                comptador1 += 1;
-            }
-        }
-        System.out.println("Nombre de '" + lletra1 + "'s: " + comptador1);
         int comptador2 = 0;
-        for (int i=0; i < text.length(); i++) {
-            if (text.charAt(i) == lletra2) {
-                comptador2 += 1;
-            }
-        }
-        System.out.println("Nombre de '" + lletra2 + "'s: " + comptador2);
         for (int i=0; i < text.length(); i++) {
             if (text.charAt(i) == lletra1) {
                 comptador1 += 1;
