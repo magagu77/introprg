@@ -12,19 +12,19 @@
   stdout: '110'
 '04':
   argsin:
-  - un
+  - 'un'
   - '2'
-  - tres
+  - 'tres'
   - '4'
   stdout: '6'
 '05':
   argsin:
-  - a
+  - 'a'
   - '1'
   - '2'
   - '-2'
   - '+4'
   - '5'
-  - sis
+  - 'sis'
   stdout: '10'
 _mainclass: SumaEnters

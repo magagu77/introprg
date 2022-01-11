@@ -8,14 +8,14 @@
   - '4'
   - '5'
   stdout:
-  - Quants?
-  - Separador?
-  - Valor 1?
-  - Valor 2?
-  - Valor 3?
-  - Valor 4?
-  - Valor 5?
-  - 1, 2, 3, 4, 5
+  - 'Quants?'
+  - 'Separador?'
+  - 'Valor 1?'
+  - 'Valor 2?'
+  - 'Valor 3?'
+  - 'Valor 4?'
+  - 'Valor 5?'
+  - '1, 2, 3, 4, 5'
 '02':
   stdin:
   - '6'
@@ -27,15 +27,15 @@
   - '55'
   - '66'
   stdout:
-  - Quants?
-  - Separador?
-  - Valor 1?
-  - Valor 2?
-  - Valor 3?
-  - Valor 4?
-  - Valor 5?
-  - Valor 6?
-  - 11, 22, 33, 44, 55, 66
+  - 'Quants?'
+  - 'Separador?'
+  - 'Valor 1?'
+  - 'Valor 2?'
+  - 'Valor 3?'
+  - 'Valor 4?'
+  - 'Valor 5?'
+  - 'Valor 6?'
+  - '11, 22, 33, 44, 55, 66'
 '03':
   stdin:
   - '5'
@@ -46,14 +46,14 @@
   - '4'
   - '5'
   stdout:
-  - Quants?
-  - Separador?
-  - Valor 1?
-  - Valor 2?
-  - Valor 3?
-  - Valor 4?
-  - Valor 5?
-  - 1! 2! 3! 4! 5
+  - 'Quants?'
+  - 'Separador?'
+  - 'Valor 1?'
+  - 'Valor 2?'
+  - 'Valor 3?'
+  - 'Valor 4?'
+  - 'Valor 5?'
+  - '1! 2! 3! 4! 5'
 '04':
   stdin:
   - '5'
@@ -64,50 +64,50 @@
   - '4'
   - '5'
   stdout:
-  - Quants?
-  - Separador?
-  - Valor 1?
-  - Valor 2?
-  - Valor 3?
-  - Valor 4?
-  - Valor 5?
-  - 1, 2, 3, 4, 5
+  - 'Quants?'
+  - 'Separador?'
+  - 'Valor 1?'
+  - 'Valor 2?'
+  - 'Valor 3?'
+  - 'Valor 4?'
+  - 'Valor 5?'
+  - '1, 2, 3, 4, 5'
 '05':
   stdin:
   - '-1'
   stdout:
-  - Quants?
-  - Res a fer
+  - 'Quants?'
+  - 'Res a fer'
 '06':
   stdin:
-  - cinc
-  - sis
+  - 'cinc'
+  - 'sis'
   - '-1'
   stdout:
-  - Quants?
-  - Per favor, un valor enter
-  - Per favor, un valor enter
-  - Res a fer
+  - 'Quants?'
+  - 'Per favor, un valor enter'
+  - 'Per favor, un valor enter'
+  - 'Res a fer'
 '07':
   stdin:
   - '1'
-  - un
-  - un
-  - un
-  - un
-  - un
-  - un
-  - un
+  - 'un'
+  - 'un'
+  - 'un'
+  - 'un'
+  - 'un'
+  - 'un'
+  - 'un'
   - '1'
   stdout:
-  - Quants?
-  - Separador?
-  - Valor 1?
-  - Per favor, un valor enter
-  - Per favor, un valor enter
-  - Per favor, un valor enter
-  - Per favor, un valor enter
-  - Per favor, un valor enter
-  - Per favor, un valor enter
+  - 'Quants?'
+  - 'Separador?'
+  - 'Valor 1?'
+  - 'Per favor, un valor enter'
+  - 'Per favor, un valor enter'
+  - 'Per favor, un valor enter'
+  - 'Per favor, un valor enter'
+  - 'Per favor, un valor enter'
+  - 'Per favor, un valor enter'
   - '1'
 _mainclass: EntersEntreComes
