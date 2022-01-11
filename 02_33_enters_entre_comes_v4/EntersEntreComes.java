@@ -30,9 +30,10 @@ public class EntersEntreComes {
 		System.out.println("Quants?");
 		String repeticions = Entrada.readLine();
 		boolean repetir = true;
+		int quants = 0;
 		while(repetir) {
 			if (Character.isDigit(repeticions.charAt(0))){
-				int quants = Integer.parseInt(repeticions);
+				quants = Integer.parseInt(repeticions);
 				repetir = false;
 			} else {
 				System.out.println("Per favor, un valor enter");
@@ -46,12 +47,12 @@ public class EntersEntreComes {
 			System.out.println("Valor " + (i+1) + "?");
 			valor[i] = Integer.parseInt(Entrada.readLine());
 		}
-		String text;
+		String text = entreComes(valor, separador);
 		System.out.println(text);
 	}
 
 	public static String entreComes(int[] valor, char separador) {
-		String numeros;
+		String numeros = "";
 		for (int i=0; i<valor.length; i++) {
 			if (i==0) {
 				numeros = numeros + valor[0];
