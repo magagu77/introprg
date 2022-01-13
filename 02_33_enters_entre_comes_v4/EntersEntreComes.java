@@ -43,9 +43,13 @@ public class EntersEntreComes {
 		String separar = Entrada.readLine();
 		char separador = separar.charAt(0);
 		int[] valor = new int[quants];
+		String entrada = "";
 		for (int i=0;i<valor.length; i++){
 			System.out.println("Valor " + (i+1) + "?");
-			valor[i] = Integer.parseInt(Entrada.readLine());
+			entrada = Entrada.readLine();
+			if (!entrada.isBlank()) {
+				valor[i] = Integer.parseInt(entrada);
+			}
 		}
 		String text = entreComes(valor, separador);
 		System.out.println(text);
