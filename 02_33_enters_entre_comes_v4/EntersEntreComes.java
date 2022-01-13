@@ -28,7 +28,7 @@ Podem seguir considerant que els valors d’entrada seran enters.
 public class EntersEntreComes {
 	public static void main(String[] args) {
 		System.out.println("Quants?");
-		String repeticions = Entrada.readLine();
+		String repeticions;
 		boolean repetir = true;
 		int quants = 0;
 		char separador;
