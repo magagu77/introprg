@@ -43,7 +43,7 @@ public class EntersEntreComes {
 		System.out.println("Separador?");
 		String separar = Entrada.readLine();
 		if (separar.isBlank()) {
-			separador = ' ';
+			separador = ',';
 		} else {
 			separador = separar.charAt(0);
 		}
