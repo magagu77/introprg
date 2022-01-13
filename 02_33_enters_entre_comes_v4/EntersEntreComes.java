@@ -64,6 +64,7 @@ public class EntersEntreComes {
 		for (int i=0;i<valor.length; i++){
 			System.out.println("Valor " + (i+1) + "?");
 			entrada = Entrada.readLine();
+			while(!entrada.isBlank() && Character.isDigit(entrada.charAt(0)))
 			if (!entrada.isBlank() && Character.isDigit(entrada.charAt(0))) {
 				valor[i] = Integer.parseInt(entrada);
 			} else {
