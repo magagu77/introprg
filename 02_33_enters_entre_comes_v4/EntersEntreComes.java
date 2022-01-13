@@ -70,7 +70,8 @@ public class EntersEntreComes {
 					valor[i] = Integer.parseInt(entrada);
 					repetir = false;
 				} else {
-					System.out.println("Per favor, un valor enter");	
+					System.out.println("Per favor, un valor enter");
+					entrada = Entrada.readLine();	
 				}
 			}
 		}
