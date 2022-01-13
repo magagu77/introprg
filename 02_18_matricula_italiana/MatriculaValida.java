@@ -5,14 +5,14 @@ public class MatriculaValida {
 	public static void main(String[] args) {
 		System.out.println("Introduïu una matrícula");
 		String matricula = Entrada.readLine();
-		boolean matriculaOk;
+		boolean obtingut;
 		if (!(matricula.length() == 7)) {
 			System.out.println("No és una matrícula italiana vàlida");
 			return;
 		}
 		for (int i=0;i<matricula.length();i++) {
-			matriculaOk = esLletraValidaPerMatriculaItaliana(matricula.charAt(i), i);
-			if(!matriculaOk) {
+			obtingut = esLletraValidaPerMatriculaItaliana(matricula.charAt(i), i);
+			if(!obtingut) {
 				System.out.println("No és una matrícula italiana vàlida");
 				return;
 			}
