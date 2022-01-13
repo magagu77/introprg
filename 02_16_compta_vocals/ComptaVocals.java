@@ -4,7 +4,7 @@
 
 public class ComptaVocals {
     public static void main(String[] args) {
-        char[] vocals = {'a','à','e','è','é','i','í','o','ó','ò','u','ú'};
+        char[] vocals = {'a','à','e','è','é','i','í','ï','o','ó','ò','u','ú','ü'};
         char vocal;
         System.out.println("Introdueix un text");
         String text = Entrada.readLine();
