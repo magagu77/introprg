@@ -33,7 +33,7 @@ public class EntersEntreComes {
 		int quants = 0;
 		char separador;
 		while(repetir) {
-			if (Character.isDigit(repeticions.charAt(0))){
+			if (Character.isDigit(repeticions.charAt(0)) || Character.isDigit(repeticions.charAt(1))){
 				quants = Integer.parseInt(repeticions);
 				repetir = false;
 				if (quants < 1) {
