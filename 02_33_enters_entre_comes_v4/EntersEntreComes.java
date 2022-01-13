@@ -37,6 +37,7 @@ public class EntersEntreComes {
 				quants = Integer.parseInt(repeticions);
 				repetir = false;
 				if (quants < 1) {
+					System.out.println("Res a fer");
 					return;
 				}
 			} else {
