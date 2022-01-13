@@ -62,12 +62,13 @@ public class EntersEntreComes {
 
 		// Pide numeros
 		for (int i=0;i<valor.length; i++){
+			repetir = true;
 			System.out.println("Valor " + (i+1) + "?");
 			entrada = Entrada.readLine();
-			while(!repetir) {
+			while(repetir) {
 				if (!entrada.isBlank() && Character.isDigit(entrada.charAt(0))) {
 					valor[i] = Integer.parseInt(entrada);
-					repetir = true;
+					repetir = false;
 				} else {
 					System.out.println("Per favor, un valor enter");	
 				}
