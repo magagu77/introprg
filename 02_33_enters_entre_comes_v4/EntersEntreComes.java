@@ -61,16 +61,16 @@ public class EntersEntreComes {
 		String entrada = "";
 
 		// Pide numeros
-		repetir = true;
 		for (int i=0;i<valor.length; i++){
 			System.out.println("Valor " + (i+1) + "?");
 			entrada = Entrada.readLine();
-			while(repetir)
-			if (!entrada.isBlank() && Character.isDigit(entrada.charAt(0))) {
-				valor[i] = Integer.parseInt(entrada);
-				repetir = false;
-			} else {
-				System.out.println("Per favor, un valor enter");	
+			while(!repetir) {
+				if (!entrada.isBlank() && Character.isDigit(entrada.charAt(0))) {
+					valor[i] = Integer.parseInt(entrada);
+					repetir = true;
+				} else {
+					System.out.println("Per favor, un valor enter");	
+				}
 			}
 		}
 		String text = entreComes(valor, separador);
