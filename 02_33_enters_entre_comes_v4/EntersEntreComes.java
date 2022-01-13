@@ -45,7 +45,7 @@ public class EntersEntreComes {
 				System.out.println("Per favor, un valor enter");
 			}
 		}
-
+		
 		// Pide separador
 		System.out.println("Separador?");
 		String separar = Entrada.readLine();
@@ -61,10 +61,10 @@ public class EntersEntreComes {
 		for (int i=0;i<valor.length; i++){
 			System.out.println("Valor " + (i+1) + "?");
 			entrada = Entrada.readLine();
-			if (!Character.isDigit(entrada.charAt(0))) {
-				System.out.println("Per favor, un valor enter");
+			if (!entrada.isBlank() && Character.isDigit(entrada.charAt(0))) {
+				valor[i] = Integer.parseInt(entrada);
 			} else {
-				valor[i] = Integer.parseInt(Entrada.readLine());
+				System.out.println("Per favor, un valor enter");	
 			}
 		}
 		String text = entreComes(valor, separador);
@@ -81,6 +81,6 @@ public class EntersEntreComes {
 				numeros = numeros + separador + " " + valor[i];
 			}
 		}
-		return numeros;
-	}
+	return numeros;
+	} 
 }
