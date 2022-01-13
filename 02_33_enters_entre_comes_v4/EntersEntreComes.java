@@ -25,6 +25,15 @@
 
 Podem seguir considerant que els valors d’entrada seran enters.
 */
+
+
+
+/*
+
+POR ACABAR USANDO UTILSTRING, PENDIENTE ACABAR LOS EJERCICIOS DE MODULOS ANTES DE SEGUIR
+
+
+*/
 public class EntersEntreComes {
 	public static void main(String[] args) {
 		System.out.println("Quants?");
