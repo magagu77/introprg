@@ -31,6 +31,7 @@ public class EntersEntreComes {
 		String repeticions = Entrada.readLine();
 		boolean repetir = true;
 		int quants = 0;
+		char separador;
 		while(repetir) {
 			if (Character.isDigit(repeticions.charAt(0))){
 				quants = Integer.parseInt(repeticions);
@@ -41,7 +42,11 @@ public class EntersEntreComes {
 		}
 		System.out.println("Separador?");
 		String separar = Entrada.readLine();
-		char separador = separar.charAt(0);
+		if (separar.isBlank()) {
+			separador = ' ';
+		} else {
+			separador = separar.charAt(0);
+		}
 		int[] valor = new int[quants];
 		String entrada = "";
 		for (int i=0;i<valor.length; i++){
