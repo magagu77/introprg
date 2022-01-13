@@ -7,7 +7,7 @@ public class MatriculaValida {
 		String matricula = Entrada.readLine();
 		boolean matriculaOk;
 		if (matricula.length() < 7) {
-			System.out.println("No es una matrícula italiana vàlida");
+			System.out.println("No és una matrícula italiana vàlida");
 			return;
 		}
 		for (int i=0;i<matricula.length();i++) {
