@@ -49,7 +49,6 @@ public class EntersEntreComes {
 			entrada = Entrada.readLine();
 			if (!entrada.isBlank()) {
 				valor[i] = Integer.parseInt(entrada);
-				i--;
 			}
 		}
 		String text = entreComes(valor, separador);
