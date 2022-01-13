@@ -37,9 +37,12 @@ public class EntersEntreComes {
 			if (Character.isDigit(repeticions.charAt(0)) || Character.isDigit(repeticions.charAt(1))){
 				quants = Integer.parseInt(repeticions);
 				repetir = false;
-				if (quants < 1) {
+				if (quants < 0) {
 					System.out.println("Res a fer");
 					return;
+				} else if (quants == 0) {
+					System.out.println("Per favor, un valor enter");
+					repetir = true;
 				}
 			} else {
 				System.out.println("Per favor, un valor enter");
