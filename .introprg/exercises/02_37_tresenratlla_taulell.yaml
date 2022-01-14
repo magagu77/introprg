@@ -1,0 +1,31 @@
+_mainclass: TresEnRatlla
+'01':
+  stdin:
+  - '0'
+  - '0'
+  stdout:
+  - 'La posició inicial del taulell:'
+  - '·OO'
+  - '·X·'
+  - '··X'
+  - 'Fila del següent moviment?'
+  - 'Columna del següent moviment?'
+  - 'La posició final del taulell:'
+  - 'XOO'
+  - '·X·'
+  - '··X'
+'02':
+  stdin:
+  - '1'
+  - '0'
+  stdout:
+  - 'La posició inicial del taulell:'
+  - '·OO'
+  - '·X·'
+  - '··X'
+  - 'Fila del següent moviment?'
+  - 'Columna del següent moviment?'
+  - 'La posició final del taulell:'
+  - '·OO'
+  - 'XX·'
+  - '··X'
