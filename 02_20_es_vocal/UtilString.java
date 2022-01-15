@@ -7,7 +7,7 @@ public class UtilString {
 	public static boolean esVocal(char lletra) {
 		char[] vocals = {'a','à','e','è','é','i','í','ï','o','ó','ò','u','ú','ü'};
 		for (int i=0;i<vocals.length; i++) {
-			if(vocals[i] == lletra) {
+			if(vocals[i] == Character.toLowerCase(lletra)) {
 				return true;
 			}
 		}
