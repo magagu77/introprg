@@ -3,9 +3,10 @@
 */
 public class Semafor {
 	public static void main(String[] args) {
-		System.out.println("Et's major d'edat?");
+		System.out.println("Ets major d'edat?");
 		String text = Entrada.readLine();
 		if (UtilitatsConfirmacio.respostaABoolean(text)) {
+			System.out.println("Color?");
 			String color = Entrada.readLine();
 	        if (color.equals("groc")) {
 	            System.out.println("corre!");
