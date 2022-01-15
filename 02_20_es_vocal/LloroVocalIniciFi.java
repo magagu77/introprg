@@ -8,8 +8,8 @@ public class LloroVocalIniciFi {
 		while(!continuar){
 			System.out.println("El lloro demana paraula amb vocal a l'inici o/i final");
 			String text = Entrada.readLine();
-			if (UtilString.esVocal(text.charAt(0)) || 
-				UtilString.esVocal(text.charAt(text.length() - 1))) {
+			if (UtilString.esVocal(text.charAt(0)) || (text.length() > 1 && UtilString.esVocal(text.charAt(text.length() - 1)))) {
+				System.out.println("El lloro diu: " + text);
 
 			} else if(text.isBlank()) {
 				System.out.println("El lloro demana confirmació per finalitzar");
