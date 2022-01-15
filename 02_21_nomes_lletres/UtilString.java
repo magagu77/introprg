@@ -29,9 +29,9 @@ public class UtilString {
 	public static String lletresSeparades(String text) {
 		String lletres = "";
 		for (int i=0;i<text.length(); i++) {
-			if (text.charAt(i) > text.length()-2) {
+			if (i < text.length() - 2) {
 				lletres = lletres + text.charAt(i) + ", ";
-			} else {
+			} else if (i < text.length()) {
 				lletres = lletres + text.charAt(i);
 			}
 		}
