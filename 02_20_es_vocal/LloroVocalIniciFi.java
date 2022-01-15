@@ -10,6 +10,7 @@ public class LloroVocalIniciFi {
 			String text = Entrada.readLine();
 			if (text.isBlank()) {
 				System.out.println("El lloro demana confirmació per finalitzar");
+				text = Entrada.readLine();
 				continuar = UtilitatsConfirmacio.respostaABoolean(text);
 			} else if (UtilString.esVocal(text.charAt(0)) || (text.length() > 1 && UtilString.esVocal(text.charAt(text.length() - 1)))) {
 				System.out.println("El lloro diu: " + text);
