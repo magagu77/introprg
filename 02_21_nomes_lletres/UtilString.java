@@ -29,10 +29,10 @@ public class UtilString {
 	public static String lletresSeparades(String text) {
 		String lletres = "";
 		for (int i=0;i<text.length(); i++) {
-			if (text.charAt(i) == text.length()-1) {
-				lletres = lletres + text.charAt(i);
-			} else {
+			if (text.charAt(i) > text.length()-2) {
 				lletres = lletres + text.charAt(i) + ", ";
+			} else {
+				lletres = lletres + text.charAt(i);
 			}
 		}
 		return lletres;
