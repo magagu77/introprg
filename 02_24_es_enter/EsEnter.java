@@ -10,7 +10,7 @@ public class EsEnter {
 			valor = text.strip();
 			if (UtilString.esEnter(valor)) {
 				System.out.println("És enter");
-			} else if (!UtilString.esEnter(valor)) {
+			} else {
 				System.out.println("No és enter");
 			}
 			text = Entrada.readLine();
