@@ -5,6 +5,10 @@ public class CadenaContinua {
 	public static void main(String[] args) {
 		System.out.println("Text?");
 		String entrada = Entrada.readLine();
+		if (entrada.isEmpty()) {
+			System.out.println("error");
+			return;
+		}
 		System.out.println("Nombre?");
 		String quants = Entrada.readLine();
 		if (UtilString.esEnter(quants)) {
