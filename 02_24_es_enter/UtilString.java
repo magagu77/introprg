@@ -68,13 +68,12 @@ public class UtilString {
 
 	//Determina si un determinado String es un numero entero 
 	public static boolean esEnter(String valor) {
-		for (int i = 0; i <= valor.length(); i++) {
-			if (Character.isDigit(valor.charAt(i))) {
-				return true;
-			} else {
-				return false;
-			}
+		if (Character.isDigit(valor.charAt(0))) {
+			return true;
+		} else if (Character.isDigit(valor.charAt(1))) {
+			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 }
