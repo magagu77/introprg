@@ -41,6 +41,12 @@ public class UtilString {
 	//Devuelve un String ordenado según un intérvalo (si no se entiende ver 02_23)
 	public static String intervalString(String text, int inicio,int fin) {
 		String interval = "";
+		if (inicio < 0) {
+			inicio = 0;
+		}
+		if (fin > text.length()) {
+			fin = text.length();
+		}
 		if (inicio < fin) {
 			for (int i=(inicio); i<=(fin);i++) {
 				interval = interval + text.charAt(i);
