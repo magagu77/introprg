@@ -44,10 +44,10 @@ public class UtilString {
 		if (inicio < 0) {
 			inicio = 0;
 		} else if (inicio > text.length()) {
-			inicio = text.length();
+			inicio = text.length() - 1;
 		}
 		if (fin > text.length()) {
-			fin = text.length();
+			fin = text.length() - 1;
 		} else if (fin < 0) {
 			fin = 0;
 		}
