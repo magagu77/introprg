@@ -74,7 +74,6 @@ public class UtilString {
 			} else if (valor.charAt(i) == ',') {
 				return false;
 			}
-		return true;
 		}
 		return true;
 	}
