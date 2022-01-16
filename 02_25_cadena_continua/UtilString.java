@@ -80,4 +80,17 @@ public class UtilString {
 		}
 		return true;
 	}
+
+	//Devuelve un String con la cadena de caracteres que ha  de printar
+	public static String cadenaContinua(String text, int longitud) {
+		String salida = "";
+		for (int i = 0; i < longitud; i++) {
+		 	if (longitud <= text.length()) {
+		 		salida = salida + text.charAt(i);
+		 	} else if (longitud > text.length()) {
+		 		salida = salida + (text.charAt(i % text.length()));
+		 	}
+		}
+		return salida; 
+	}
 }

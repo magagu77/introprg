@@ -82,13 +82,12 @@ public class UtilString {
 	}
 
 	//Devuelve un String con la cadena de caracteres que ha  de printar
-	public static String cadenaContinua(String quants, String text) {
-		int numero = Integer.parseInt(quants);
+	public static String cadenaContinua(String text, int longitud) {
 		String salida = "";
-		for (int i = 0; i < numero; i++) {
-		 	if (numero <= text.length()) {
+		for (int i = 0; i < longitud; i++) {
+		 	if (longitud <= text.length()) {
 		 		salida = salida + text.charAt(i);
-		 	} else if (numero > text.length()) {
+		 	} else if (longitud > text.length()) {
 		 		salida = salida + (text.charAt(i % text.length()));
 		 	}
 		}
