@@ -15,5 +15,6 @@ public class EsEnter {
 			}
 			text = Entrada.readLine();
 		}
+		System.out.println("Adéu");
 	}
 }
