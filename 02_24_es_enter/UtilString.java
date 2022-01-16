@@ -71,9 +71,10 @@ public class UtilString {
 		for (int i = 0; i <= valor.length(); i++) {
 			if (Character.isDigit(valor.charAt(i))) {
 				return true;
+			} else {
+				return false;
 			}
 		}
 		return false;
 	}
-
 }
