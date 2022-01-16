@@ -7,7 +7,6 @@ public class EsEnter {
 		String text = Entrada.readLine();
 		String valor = "";
 		while(!text.isBlank()) {
-			valor = text.strip();
 			if (UtilString.esEnter(valor)) {
 				System.out.println("És enter");
 			} else {
