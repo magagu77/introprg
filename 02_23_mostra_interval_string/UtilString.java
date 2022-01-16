@@ -42,11 +42,11 @@ public class UtilString {
 	public static String intervalString(String text, int inicio,int fin) {
 		String interval = "";
 		if (inicio < fin) {
-			for (int i=(inicio-1); i<=(fin-1);i++) {
+			for (int i=(inicio); i<=(fin);i++) {
 				interval = interval + text.charAt(i);
 			}
 		} else {
-			for (int i=inicio-1;i>=fin-1;i--) {
+			for (int i=inicio;i>=fin;i--) {
 				interval = interval + text.charAt(i);
 			}
 		}		
