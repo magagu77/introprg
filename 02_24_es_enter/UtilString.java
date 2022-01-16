@@ -71,7 +71,7 @@ public class UtilString {
 		for (int i=0; i<valor.length();i++) {
 			if (Character.isLetter(valor.charAt(i))) {
 				return false;
-			} else if (valor.charAt(i) == ',' || valor.charAt(i) == ' ' || valor.isEmpty()) {
+			} else if (valor.charAt(i) == ',' || valor.charAt(i) == ' ' || valor.isBlank()) {
 				return false;
 			}
 		}
