@@ -43,9 +43,13 @@ public class UtilString {
 		String interval = "";
 		if (inicio < 0) {
 			inicio = 0;
+		} else if (inicio > text.length()) {
+			inicio = text.length();
 		}
 		if (fin > text.length()) {
 			fin = text.length();
+		} else if (fin < 0) {
+			fin = 0;
 		}
 		if (inicio < fin) {
 			for (int i=(inicio); i<=(fin);i++) {
