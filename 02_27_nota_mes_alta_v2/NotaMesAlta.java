@@ -18,13 +18,15 @@ public class NotaMesAlta {
 				if (notaFinal < nota) {
 				notaFinal = nota;
 				}
+				if (numNota == 1) {
+					text = text + notaProvisional; 	
+			} 	else {
+					text = text + ", " + notaProvisional;
+			}	
 			} 
-			if (numNota == 1) {
-				text = text + notaProvisional; 	
-			} else {
-				text = text + ", " + notaProvisional;
-			}
+			
 		}
+
 		if (numNota >= 2 ) {
 			System.out.println(text);
 		} else {
