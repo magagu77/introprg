@@ -19,7 +19,7 @@ public class NotaMesAlta {
 				notaFinal = nota;
 				}
 			} 
-			if (numNota == 0) {
+			if (numNota == 1) {
 				text = text + notaProvisional; 	
 			} else {
 				text = text + ", " + notaProvisional;
