@@ -4,7 +4,7 @@
 
 public class Arguments {
 	public static void main(String[] args) {
-		if (args[0] == null) {
+		if (args== null) {
 			System.out.println("Cap argument");
 		}
 		for(int i=0;i<args.length;i++) {
