@@ -1,0 +1,400 @@
+/*
+ * Unit testing methods for an exercise
+ */
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    public void inicialitzaCamp() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        char[][] camp = new char[Pilota.N_FILES][Pilota.N_COLS];
+        Pilota.netejaCamp(camp);
+        assertEquals('·', camp[1][1], "Revisa netejaCamp()");
+    }
+
+    @Test
+    public void netejaPosicio() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        char[][] camp = new char[Pilota.N_FILES][Pilota.N_COLS];
+        int[] posicio = {1, 1};
+        Pilota.netejaPosicio(camp, posicio);
+        assertEquals('·', camp[1][1], "Revisa netejaPosicio()");
+    }
+
+    @Test
+    public void posicionaPilota() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        char[][] camp = new char[Pilota.N_FILES][Pilota.N_COLS];
+        int[] posicio = {1, 1};
+        Pilota.posicionaPilota(camp, posicio);
+        assertEquals('O', camp[1][1], "Revisa posicionaPilota()");
+    }
+
+
+    @Test
+    public void seguentPosicioBaixantDretaAbansDelLimit() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio   = {0, 0};
+        int[] increment = {1, 1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està baixant a la dreta";
+        String descrSituacio = "i encara no ha arribat a la darrera fila";
+        int[] posEsperada = {1, 1};
+        int[] incrEsperat = {1, 1};
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioBaixantDretaArribatAlLimitInferior() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {Pilota.N_FILES - 1, 0};
+        int[] increment = {1, 1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està baixant a la dreta";
+        String descrSituacio = "i s'ha arribat a la darrera fila";
+        int[] posEsperada = {Pilota.N_FILES - 2, 1};
+        int[] incrEsperat = {-1, 1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioPujantDretaAbansDelLimit() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {1, 0};
+        int[] increment = {-1, 1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està pujant a la dreta";
+        String descrSituacio = "i encara no s'ha arribat a la primera fila";
+        int[] posEsperada = {0, 1};
+        int[] incrEsperat = {-1, 1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioPujantDretaArribatAlLimitSuperior() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {0, 0};
+        int[] increment = {-1, 1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està pujant a la dreta";
+        String descrSituacio = "i s'ha arribat a la primera fila";
+        int[] posEsperada = {1, 1};
+        int[] incrEsperat = {1, 1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+
+    @Test
+    public void seguentPosicioBaixantEsquerraAbansDelLimit() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio   = {0, 1};
+        int[] increment = {1, -1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està baixant a l'esquerra";
+        String descrSituacio = "i encara no ha arribat a la darrera fila";
+        int[] posEsperada = {1, 0};
+        int[] incrEsperat = {1, -1};
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioBaixantEsquerraArribatAlLimitInferior() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {Pilota.N_FILES - 1, 1};
+        int[] increment = {1, -1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està baixant a l'esquerra";
+        String descrSituacio = "i s'ha arribat a la darrera fila";
+        int[] posEsperada = {Pilota.N_FILES - 2, 0};
+        int[] incrEsperat = {-1, -1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioPujantEsquerraAbansDelLimit() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {1, 1};
+        int[] increment = {-1, -1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està pujant a l'esquerra";
+        String descrSituacio = "i encara no s'ha arribat a la primera fila";
+        int[] posEsperada = {0, 0};
+        int[] incrEsperat = {-1, -1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioPujantEsquerraArribatAlLimitSuperior() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {0, 1};
+        int[] increment = {-1, -1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està pujant a l'esquerra";
+        String descrSituacio = "i s'ha arribat a la primera fila";
+        int[] posEsperada = {1, 0};
+        int[] incrEsperat = {1, -1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+
+    @Test
+    public void seguentPosicioBaixantDretaArribatAlLimitDret() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {0, Pilota.N_COLS -1};
+        int[] increment = {1, 1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està baixant a la dreta";
+        String descrSituacio = "i s'ha arribat a la darrera columna";
+        int[] posEsperada = {1, Pilota.N_COLS - 2};
+        int[] incrEsperat = {1, -1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioPujantDretaArribatAlLimitDret() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {1, Pilota.N_COLS - 1};
+        int[] increment = {-1, 1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està pujant a la dreta";
+        String descrSituacio = "i s'ha arribat a la darrera columna";
+        int[] posEsperada = {0, Pilota.N_COLS - 2};
+        int[] incrEsperat = {-1, -1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioBaixantEsquerraArribatAlLimitEsquerre() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {0, 0};
+        int[] increment = {1, -1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està baixant a l'esquerra";
+        String descrSituacio = "i s'ha arribat a la primera columna";
+        int[] posEsperada = {1, 1};
+        int[] incrEsperat = {1, 1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioPujantEsquerraArribatAlLimitEsquerre() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {1, 0};
+        int[] increment = {-1, -1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està pujant a l'esquerra";
+        String descrSituacio = "i s'ha arribat a la primera columna";
+        int[] posEsperada = {0, 1};
+        int[] incrEsperat = {-1, 1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioBaixantDretaArribatACantonada() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {Pilota.N_FILES -1, Pilota.N_COLS -1};
+        int[] increment = {1, 1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està baixant a la dreta";
+        String descrSituacio = "i s'ha arribat a la darrera fila i darrera columna";
+        int[] posEsperada = {Pilota.N_FILES - 2, Pilota.N_COLS - 2};
+        int[] incrEsperat = {-1, -1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioPujantDretaArribatACantonada() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {0, Pilota.N_COLS - 1};
+        int[] increment = {-1, 1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està pujant a la dreta";
+        String descrSituacio = "i s'ha arribat a la primra fila i darrera columna";
+        int[] posEsperada = {1, Pilota.N_COLS - 2};
+        int[] incrEsperat = {1, -1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioBaixantEsquerraArribatACantonada() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {Pilota.N_FILES - 1, 0};
+        int[] increment = {1, -1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està baixant a l'esquerra";
+        String descrSituacio = "i s'ha arribat a la darrera fila i primera columna";
+        int[] posEsperada = {Pilota.N_FILES - 2, 1};
+        int[] incrEsperat = {-1, 1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void seguentPosicioPujantEsquerraArribatACantonada() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {0, 0};
+        int[] increment = {-1, -1};
+        Pilota.seguentPosicio(posicio, increment);
+
+        String descrMoviment = " que modifica seguentPosicio() quan la " +
+                               "pilota està pujant a l'esquerra";
+        String descrSituacio = "i s'ha arribat a la primera fila i primera columna";
+        int[] posEsperada = {1, 1};
+        int[] incrEsperat = {1, 1};
+
+        assertEquals(posEsperada[0], posicio[0], "Revisa la fila" + descrMoviment + descrSituacio);
+        assertEquals(posEsperada[1], posicio[1], "Revisa la columna" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[0], increment[0], "Revisa l'íncrement de fila" + descrMoviment + descrSituacio);
+        assertEquals(incrEsperat[1], increment[1], "Revisa l'íncrement de columna" + descrMoviment + descrSituacio);
+    }
+
+    @Test
+    public void obteFila() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_FILES - 1 == Pilota.obteFila(new int[]{Pilota.N_FILES - 1, 0}), "Revisa obteFila()");
+    }
+    @Test
+    public void obteCol() {
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        assertTrue(Pilota.N_COLS - 1 == Pilota.obteCol(new int[]{0, Pilota.N_COLS - 1}), "Revisa obteCol()");
+    }
+    @Test
+    public void obteIncrFila() {
+        assertTrue(-1 == Pilota.obteIncrFila(new int[]{-1, 0}), "Revisa obteIncrFila()");
+    }
+    @Test
+    public void obteIncrCol() {
+        assertTrue(-1 == Pilota.obteIncrCol(new int[]{0, -1}), "Revisa obteIncrCol()");
+    }
+
+    @Test
+    public void canviaPosicio() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        int[] posicio = {0, 0};
+        Pilota.canviaPosicio(posicio, 1, 1);
+        assertTrue(1 == posicio[0], "Revisa canviaPosicio()");
+        assertTrue(1 == posicio[1], "Revisa canviaPosicio()");
+    }
+    @Test
+    public void canviaIncrement() {
+        int[] increment = {333, 0};
+        Pilota.canviaIncrement(increment, 666, 999);
+        assertTrue(666 == increment[0], "Revisa canviaIncrement()");
+        assertTrue(999 == increment[1], "Revisa canviaIncrement()");
+    }
+
+
+}
