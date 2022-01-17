@@ -5,7 +5,7 @@
 public class NotaMesAlta {
 	public static void main(String[] args) {
 		int nota = 1;
-		int numNota = 1;
+		int numNota = 0;
 		int notaFinal = 0;
 		int notaProvisional = 0;
 		String text = ("La nota més alta és "+notaFinal+" de les introduïdes: ");
@@ -18,13 +18,15 @@ public class NotaMesAlta {
 				if (notaFinal < nota) {
 				notaFinal = nota;
 				}
+				if (numNota == 1) {
+					text = text + notaProvisional; 	
+			} 	else {
+					text = text + ", " + notaProvisional;
+			}	
 			} 
-			if (numNota == 0) {
-				text = text + notaProvisional; 	
-			} else {
-				text = text + ", " + notaProvisional;
-			}
+			
 		}
+
 		if (numNota >= 2 ) {
 			System.out.println(text);
 		} else {
