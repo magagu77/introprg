@@ -1,0 +1,65 @@
+/*
+ * Unit testing methods for an exercise
+ */
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    public void inicialitzaCamp() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        char[][] camp = new char[Pilota.N_FILES][Pilota.N_COLS];
+        Pilota.netejaCamp(camp);
+        assertEquals('·', camp[1][1], "Revisa netejaCamp()");
+    }
+
+    @Test
+    public void netejaPosicio() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        char[][] camp = new char[Pilota.N_FILES][Pilota.N_COLS];
+        Pilota.netejaPosicio(camp, 1, 1);
+        assertEquals('·', camp[1][1], "Revisa netejaPosicio()");
+    }
+
+    @Test
+    public void posicionaPilota() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        char[][] camp = new char[Pilota.N_FILES][Pilota.N_COLS];
+        Pilota.posicionaPilota(camp, 1, 1);
+        assertEquals('O', camp[1][1], "Revisa posicionaPilota()");
+    }
+
+    @Test
+    public void seguentFilaAbansDelLimit() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        assertEquals(1, Pilota.seguentFila(0), "Revisa seguentFila() quan encara no ha arribat a la darrera fila");
+    }
+
+    @Test
+    public void seguentFilaAlLimit() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        assertEquals(0, Pilota.seguentFila(Pilota.N_FILES - 1), "Revisa seguentFila() quan ha arribat a la darrera fila");
+    }
+
+    @Test
+    public void seguentColAbansDelLimit() {
+        assertTrue(Pilota.N_FILES >= 5, "Pilotes.N_FILES ha de ser >= 5");
+        assertEquals(1, Pilota.seguentCol(0), "Revisa seguentCol() quan encara no ha arribat a la darrera columna");
+    }
+
+    @Test
+    public void seguentColAlLimit() {
+        assertTrue(Pilota.N_COLS >= 5, "Pilotes.N_COLS ha de ser >= 5");
+        assertEquals(0, Pilota.seguentCol(Pilota.N_COLS - 1), "Revisa seguentCol() quan ha arribat a la darrera columna");
+    }
+}
