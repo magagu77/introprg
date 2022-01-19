@@ -1,0 +1,10 @@
+'01':
+  stdin: 'La recursivitat mola!'
+  stdout:
+  - 'Text?'
+  - 'Larecursivitatmola'
+'02':
+  stdin: ''
+  stdout:
+  - 'Text?'
+_mainclass: MostraLletres

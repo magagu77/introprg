@@ -1,0 +1,14 @@
+'01':
+  stdin: '1 més 1 són 2'
+  stdout:
+  - 'Text?'
+  - '112'
+'02':
+  stdin: 'lo mismo 8 que 80'
+  stdout:
+  - 'Text?'
+  - '880'
+'03':
+  stdin: ''
+  stdout: 'Text?'
+_mainclass: ExtreuNombres
