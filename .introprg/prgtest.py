@@ -606,7 +606,6 @@ class Prgtest:
     def show_provided_stdin(self, testid):
         """ shows the contents entered by stdin to the target program (if any) """
         if 'stdin' in self.specs[testid]:
-            print("XXX self.specs[stdin]", self.specs[testid])
             Prgtest.show_output_on_stderr(
                 title=Prgtest.MSG_TITLE_STANDARD_INPUT,
                 msg="Se li ha passat el següent codi per entrada estàndard\n",
