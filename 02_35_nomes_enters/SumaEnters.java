@@ -29,7 +29,6 @@ public class SumaEnters {
 		int suma=0;
 		for(int i=0;i<valors.length;i++) {
 			suma =valors[i] + suma;
-			System.out.println(valors[i]);
 		}
 		return suma;
 	}
