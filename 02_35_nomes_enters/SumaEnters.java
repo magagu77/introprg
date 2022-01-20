@@ -28,7 +28,8 @@ public class SumaEnters {
 	public static int sumaEnters(int[] valors) {
 		int suma=0;
 		for(int i=0;i<valors.length;i++) {
-			suma = suma + valors[i];
+			suma =valors[i] + suma;
+
 		}
 		return suma;
 	}
