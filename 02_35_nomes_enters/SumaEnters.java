@@ -15,12 +15,12 @@ public class SumaEnters {
 		return valor;
 	}
 	public static int[] filtraEnters(String[] valors) {
-		int contador=quantsEnters(valors);
 		int valor[]=new int[quantsEnters(valors)];
+		int contador=0;
 		for(int i=0;i<valors.length;i++) {
 			if (UtilString.esEnter(valors[i])) {
 				valor[contador] = Integer.parseInt(valors[i]);
-				contador--;
+				contador++;
 			}
 		}
 		return valor;
