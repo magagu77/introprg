@@ -14,10 +14,10 @@ public class TresEnRatlla {
         // inicialització de la fila 1
         fila1[0] = 'X';
         fila1[1] = 'X';
-        fila1[2] = '0';
+        fila1[2] = 'O';
 
         // inicialització de la fila 2
-        fila2[0] = '0';
+        fila2[0] = 'O';
         fila2[1] = '.';
         fila2[2] = '.';
 
