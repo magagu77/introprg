@@ -18,8 +18,8 @@ public class TresEnRatlla {
 
         // inicialització de la fila 2
         fila2[0] = 'O';
-        fila2[1] = '.';
-        fila2[2] = '.';
+        fila2[1] = '·';
+        fila2[2] = '·';
 
 
         // mostra el taulell
