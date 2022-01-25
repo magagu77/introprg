@@ -40,6 +40,7 @@ public class TresEnRatlla {
 				fila = coordenada.charAt(0)-48;
 				columna =coordenada.charAt(1)-48;
 			}
+			taulell[fila][columna] = player;
 			//Comprueba si alguien gana
 			if(jugadorGuanya(taulell, player)) {
 				System.out.println(player + " Guanya");
