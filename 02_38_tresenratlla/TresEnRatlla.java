@@ -42,7 +42,7 @@ public class TresEnRatlla {
 			//Comprueba si alguien gana
 			if(jugadorGuanya(taulell, player)) {
 				mostraTaulell(taulell);
-				System.out.println(player + " Guanya");
+				System.out.println(player + " guanya");
 				return;
 			}
 			//Comprueba empate
