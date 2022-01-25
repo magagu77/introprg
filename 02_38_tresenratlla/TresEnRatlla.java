@@ -34,7 +34,7 @@ public class TresEnRatlla {
 			fila = coordenada.charAt(0)-48;
 			columna =coordenada.charAt(1)-48;
 			//Comprueba casilla ocupada
-			while(!casellaOcupada(taulell, fila, columna)) {
+			while(casellaOcupada(taulell, fila, columna)) {
 				System.out.println("Ocupada");
 				coordenada = Entrada.readLine();
 				fila = coordenada.charAt(0)-48;
