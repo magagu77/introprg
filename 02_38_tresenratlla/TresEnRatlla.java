@@ -41,6 +41,7 @@ public class TresEnRatlla {
 			taulell[fila][columna] = player;
 			//Comprueba si alguien gana
 			if(jugadorGuanya(taulell, player)) {
+				mostraTaulell(taulell);
 				System.out.println(player + " Guanya");
 				return;
 			}
