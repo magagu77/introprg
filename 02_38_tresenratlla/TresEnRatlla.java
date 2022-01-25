@@ -29,6 +29,7 @@ public class TresEnRatlla {
 			coordenada = Entrada.readLine();
 			if (coordenada.equals("a")) {
 				System.out.println(player + " abandona");
+				break;
 			}
 			fila = coordenada.charAt(0)-48;
 			columna =coordenada.charAt(1)-48;
