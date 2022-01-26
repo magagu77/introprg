@@ -84,46 +84,33 @@ public class TresEnRatlla {
 	}
 	public static boolean jugadorGuanya(char[][] taulell, char jugador) {
 		for (int fila=0;fila<taulell.length;fila++) {
-			if(taulell[fila][0] != jugador){
+			if(taulell[fila][0] == jugador){
 				return false;
-			} else {
-				return true;
 			}
 		}
 		for (int fila=0;fila<taulell.length;fila++) {
-			if(taulell[fila][1] != jugador) {
+			if(taulell[fila][1] == jugador) {
 				return false;
-			} else {
-				return true;
 			}
 		}
 		for (int fila=0;fila<taulell.length;fila++) {
-			if(taulell[fila][2] != jugador) {
+			if(taulell[fila][2] == jugador) {
 				return false;
-			}
-			else {
-				return true;
 			}
 		}
 		for (int col=0;col<taulell.length;col++) {
-			if(taulell[0][col] != jugador) {
+			if(taulell[0][col] == jugador) {
 				return false;
-			} else {
-				return true;
 			}
 		}
 		for (int col=0;col<taulell.length;col++) {
-			if(taulell[1][col] != jugador) {
+			if(taulell[1][col] == jugador) {
 				return false;
-			} else {
-				return true;
 			}
 		}
 		for (int col=0;col<taulell.length;col++) {
-			if(taulell[2][col] != jugador) {
+			if(taulell[2][col] == jugador) {
 				return false;
-			} else {
-				return true;
 			}
 		}
 		if (taulell[0][0]==jugador && taulell[1][1]==jugador && taulell[2][2]==jugador) {
@@ -132,6 +119,6 @@ public class TresEnRatlla {
 		if (taulell[0][2]==jugador && taulell[1][1]==jugador && taulell[2][0]==jugador) {
 			return true;
 		}
-		return false;
+		return true;
 	}
 }
