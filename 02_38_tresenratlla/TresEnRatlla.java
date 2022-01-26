@@ -46,7 +46,7 @@ public class TresEnRatlla {
 				return;
 			}
 			//Comprueba empate
-			if(hihaEmpat(taulell)) {
+			if(hiHaEmpat(taulell)) {
 				System.out.println("Empat");
 				return;
 			}
@@ -72,7 +72,7 @@ public class TresEnRatlla {
 			return true;
 		}
 	}
-	public static boolean hihaEmpat(char[][] tauler) {
+	public static boolean hiHaEmpat(char[][] tauler) {
 		for (int i=0;i<3;i++){
 			for(int c=0;c<3;c++){
 				if(tauler[i][c]=='·') {
