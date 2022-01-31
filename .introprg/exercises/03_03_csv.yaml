@@ -1,0 +1,41 @@
+'01':
+  filein:
+  - filename: notes.csv
+    lines:
+    - "alumne,uf1,uf2,uf3,uf4,uf5,uf6"
+    - "Eleftèria Ortiz Luján,7,8,5,7,8,9"
+    - "Daniel Carrasco Macadàmia,5,4,5,2,NP,NP"
+    - "Gabriela Cirerer Nasal,6,7,5,8,9,5"
+  stdout:
+  - "Eleftèria Ortiz Luján (7.33)"
+  - "Daniel Carrasco Macadàmia (2.67)"
+  - "Gabriela Cirerer Nasal (6.67)"
+'02':
+  filein:
+  - filename: notes.csv
+    lines:
+    - "alumne,uf1,uf2,uf3,uf4,uf5,uf6"
+    - "Eleftèria Ortiz Luján,7,8,5,7,8,9"
+  stdout:
+  - "Eleftèria Ortiz Luján (7.33)"
+'03':
+  filein:
+  - filename: notes.csv
+    lines:
+    - "alumne,uf1,uf2,uf3,uf4,uf5,uf6"
+    - "Daniel Carrasco Macadàmia,1,1,1,1,1,1"
+    - "Gabriela Cirerer Nasal,NP,NP,NP,NP,NP,NP"
+  stdout:
+  - "Daniel Carrasco Macadàmia (1.00)"
+  - "Gabriela Cirerer Nasal (0.00)"
+'04':
+  filein:
+  - filename: notes.csv
+    lines: "alumne,uf1,uf2,uf3,uf4,uf5,uf6"
+  stdout: "Cap entrada"
+_mainclass: NotaMitja
+_wafiles:
+- notes.csv
+_tr:
+  - ','
+  - '.'

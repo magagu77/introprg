@@ -1,0 +1,21 @@
+'01':
+  filein:
+  - filename: frases.txt
+    lines: ànec
+  stdout: ànec
+'02':
+  filein:
+  - filename: frases.txt
+    lines:
+    - ànec
+    - gat
+    - lleó
+  stdout:
+  - ànec
+  - lleó
+'03':
+  filein:
+  - filename: frases.txt
+_mainclass: FitxerVocalIniciFi
+_wafiles:
+- frases.txt
