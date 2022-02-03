@@ -626,6 +626,9 @@ def compose_filein(test_path, filein):
         if entry.get('filename') is None:
             continue
         path = test_path / entry['filename']
+        if entry['filename'].endswith('/'):
+            path.mkdir(parents=True, exist_ok=True)
+            continue
         lines = entry.get('lines')
         if lines is None:
             contents = ''
@@ -633,6 +636,7 @@ def compose_filein(test_path, filein):
             contents = lines
         else:
             contents = "\n".join(lines)
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(contents)
 
 
@@ -1134,6 +1138,9 @@ def show_provided_filein(provided_filein):
         if contents:
             show_output_on_stderr(msg=getmsg('MSG_CREATED_FILEIN') % filename,
                                   output=contents)
+        elif filein.get('filename').endswith('/'):
+            show_output_on_stderr(msg=getmsg('MSG_CREATED_EMPTY_FOLDER') % filename,)
+            print_err()
         else:
             show_output_on_stderr(msg=getmsg('MSG_CREATED_EMPTY_FILE') % filename,)
             print_err()

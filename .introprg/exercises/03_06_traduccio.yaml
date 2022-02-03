@@ -1,0 +1,73 @@
+'01':
+  stdout:
+  - 'ERROR: Cal especificar els fitxers origen, traduccio i destinació'
+'02':
+  argsin: origen.txt
+  stdout:
+  - 'ERROR: Cal especificar els fitxers origen, traduccio i destinació'
+'03':
+  argsin:
+  - origen.txt
+  - traduccio.csv
+  stdout:
+  - 'ERROR: Cal especificar els fitxers origen, traduccio i destinació'
+'04':
+  argsin:
+  - origen.txt
+  - traduccio.csv
+  - destinacio.txt
+  filein:
+  - filename: traduccio.csv
+    lines:
+    - George Orwell, William Golding
+    - Animal Farm, Lord of the Flies
+    - 1945, 1954
+    - en Federico García Lorca, la Nancy Mitford
+    - La casa de Bernarda Alba, Madame de Pompadour
+  - filename: origen.txt
+    lines:
+    - En George Orwell va publicar "Animal Farm" en 1945.
+    - Al mateix any, en Federico García Lorca va publicar "La casa de Bernarda Alba".
+  fileout:
+  - filename: destinacio.txt
+    lines:
+    - En William Golding va publicar "Lord of the Flies" en 1954.
+    - Al mateix any, la Nancy Mitford va publicar "Madame de Pompadour".
+'05':
+  argsin:
+  - src.txt
+  - trd.csv
+  - dest.txt
+  filein:
+  - filename: src.txt
+    lines:
+    - '"Animal Farm" es va publicar en 1945.'
+  - filename: trd.csv
+    lines:
+    - Animal Farm, Lord of the Flies
+    - 1945, 19ipico
+    - 19ipico, 1954
+  fileout:
+  - filename: dest.txt
+    lines:
+    - '"Lord of the Flies" es va publicar en 1954.'
+'06':
+  argsin:
+  - src.txt
+  - trd.csv
+  - dest.txt
+  filein:
+  - filename: src.txt
+    lines:
+    - '"Animal Farm" es va publicar en 1945. Des que es va publicar "Animal'
+    - Farm" el món no ha tornat a ser el que era.
+  - filename: trd.csv
+    lines:
+    - 1945, 1954
+    - Animal Farm, Lord of the Flies
+  fileout:
+  - filename: dest.txt
+    lines:
+    - '"Lord of the Flies" es va publicar en 1954. Des que es va publicar "Animal'
+    - Farm" el món no ha tornat a ser el que era.
+_mainclass: Traduccio

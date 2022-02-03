@@ -1,0 +1,60 @@
+'01':
+  fileout:
+  - filename: records.txt
+    lines:
+    - Com estàs?
+    - Molt bé
+    - Vinga, siau
+  stdin:
+  - Com estàs?
+  - Molt bé
+  - Vinga, siau
+  - ''
+  stdout:
+  - 'El lloro pregunta paraula:'
+  - 'El lloro registra: Com estàs?'
+  - 'El lloro pregunta paraula:'
+  - 'El lloro registra: Molt bé'
+  - 'El lloro pregunta paraula:'
+  - 'El lloro registra: Vinga, siau'
+  - 'El lloro pregunta paraula:'
+  - D'acord
+  - 'El lloro recorda: Com estàs?'
+  - 'El lloro recorda: Molt bé'
+  - 'El lloro recorda: Vinga, siau'
+  - Adéu
+'02':
+  fileout:
+  - filename: records.txt
+  stdin: ''
+  stdout:
+  - 'El lloro pregunta paraula:'
+  - D'acord
+  - El lloro no recorda res
+  - Adéu
+'03':
+  fileout:
+  - filename: records.txt
+    lines:
+    - a
+    - b
+    - c
+  stdin:
+  - '  a   '
+  - '    b   '
+  - '   c   '
+  - ''
+  stdout:
+  - 'El lloro pregunta paraula:'
+  - 'El lloro registra: a'
+  - 'El lloro pregunta paraula:'
+  - 'El lloro registra: b'
+  - 'El lloro pregunta paraula:'
+  - 'El lloro registra: c'
+  - 'El lloro pregunta paraula:'
+  - D'acord
+  - 'El lloro recorda: a'
+  - 'El lloro recorda: b'
+  - 'El lloro recorda: c'
+  - Adéu
+_mainclass: Recordat
