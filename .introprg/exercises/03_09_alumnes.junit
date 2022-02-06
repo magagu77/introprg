@@ -1,0 +1,53 @@
+/*
+ * Unit testing methods for an exercise
+ */
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test alumneACsv() amb dades conegudes")
+    public void alumneACsvElefteria() {
+        CercaAlumnes.Alumne alumne = new CercaAlumnes.Alumne();
+        alumne.nom = "Eleftèria Ortiz Luján";
+        alumne.email = "elefteria.ortiz@iesjoandaustria.org";
+        alumne.edat = 19;
+        alumne.esOient = false;
+        alumne.notes = new int[] { 7, 8, 5, 7, 8, 9 };
+        String expected = "Eleftèria Ortiz Luján,elefteria.ortiz@iesjoandaustria.org,19,false,7,8,5,7,8,9";
+        String found = CercaAlumnes.alumneACsv(alumne);
+        assertEquals(expected, found, "revisa la funció csvAAlumne()");
+    }
+
+    @Test
+    @DisplayName("test alumneACsv() amb dades fictícies")
+    public void alumneACsvGran() {
+        CercaAlumnes.Alumne alumne = new CercaAlumnes.Alumne();
+        alumne.nom = "Granny";
+        alumne.email = "granny@ogg.org";
+        alumne.edat = 99;
+        alumne.esOient = true;
+        alumne.notes = new int[] { 10, 9, 8, 7, 6, 5 };
+        String expected = "Granny,granny@ogg.org,99,true,10,9,8,7,6,5";
+        String found = CercaAlumnes.alumneACsv(alumne);
+        assertEquals(expected, found, "revisa la funció csvAAlumne()");
+    }
+
+    @Test
+    @DisplayName("test alumneACsv() amb no presentats")
+    public void alumneACsvNP() {
+        CercaAlumnes.Alumne alumne = new CercaAlumnes.Alumne();
+        alumne.nom = "x";
+        alumne.email = "y@z.org";
+        alumne.edat = 1;
+        alumne.esOient = true;
+        alumne.notes = new int[] { -1, -1, -1, -1, -1, -1 };
+        String expected = "x,y@z.org,1,true,NP,NP,NP,NP,NP,NP";
+        String found = CercaAlumnes.alumneACsv(alumne);
+        assertEquals(expected, found, "revisa la funció csvAAlumne()");
+    }
+
+}

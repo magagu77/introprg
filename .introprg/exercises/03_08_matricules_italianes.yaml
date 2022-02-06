@@ -1,0 +1,47 @@
+'01':
+  filein:
+  - filename: matriculesllegides.txt
+    lines: DD029YJ
+  fileout:
+  - filename: matriculesvalides.txt
+    lines: DD029YJ
+  - filename: matriculeserronies.txt
+'02':
+  filein:
+  - filename: matriculesllegides.txt
+    lines: B2993NV
+  fileout:
+  - filename: matriculesvalides.txt
+  - filename: matriculeserronies.txt
+    lines: B2993NV
+'03':
+  filein:
+  - filename: matriculesllegides.txt
+    lines:
+    - BC123FG
+    - B2993NV
+    - FRV5996
+    - PR444RP
+    - 4563BBB
+    - CHUCKY
+    - JK432HJ
+  fileout:
+  - filename: matriculesvalides.txt
+    lines:
+    - BC123FG
+    - PR444RP
+    - JK432HJ
+  - filename: matriculeserronies.txt
+    lines:
+    - B2993NV
+    - FRV5996
+    - 4563BBB
+    - CHUCKY
+'04':
+  filein:
+  - filename: matriculesllegides.txt
+  fileout:
+  - filename: matriculesvalides.txt
+  - filename: matriculeserronies.txt
+
+_mainclass: TriaMatricules
