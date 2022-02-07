@@ -1,0 +1,1060 @@
+'01':
+  stdin:
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines: something
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: *********'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'02':
+  stdin:
+  - quelcom
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines: java
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Error: cal una lletra entre ''a'' i ''z'', ''prou'' o ''glups'''
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'03':
+  stdin:
+  - x
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines: java
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: X'
+  - 'Intents disponibles: 9'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'04':
+  stdin:
+  - j
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines: java
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: j***'
+  - 'Utilitzades: J'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'05':
+  stdin:
+  - x
+  - x
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines: java
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: X'
+  - 'Intents disponibles: 9'
+  - Introdueix una lletra
+  - La lletra ja ha estat utilitzada
+  - 'Paraula: ****'
+  - 'Utilitzades: X'
+  - 'Intents disponibles: 9'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'06':
+  stdin:
+  - j
+  - j
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines: java
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: j***'
+  - 'Utilitzades: J'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - La lletra ja ha estat utilitzada
+  - 'Paraula: j***'
+  - 'Utilitzades: J'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'07':
+  stdin:
+  - j
+  - a
+  - v
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: j***'
+  - 'Utilitzades: J'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ja*a'
+  - 'Utilitzades: J i A'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - Has encertat! La paraula era java
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 2'
+  - 'Paraules encertades: 1'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+08:
+  stdin:
+  - b
+  - c
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines: java
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B'
+  - 'Intents disponibles: 9'
+  - Introdueix una lletra
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B i C'
+  - 'Intents disponibles: 8'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+09:
+  stdin:
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - k
+  - l
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B'
+  - 'Intents disponibles: 9'
+  - Introdueix una lletra
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B i C'
+  - 'Intents disponibles: 8'
+  - Introdueix una lletra
+  - "\t··XXXXXXX·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B, C i D'
+  - 'Intents disponibles: 7'
+  - Introdueix una lletra
+  - "\t··XXXXXXX·"
+  - "\t···X····X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B, C, D i E'
+  - 'Intents disponibles: 6'
+  - Introdueix una lletra
+  - "\t··XXXXXXX·"
+  - "\t···X····X·"
+  - "\t··oOo···X·"
+  - "\t··oOo···X·"
+  - "\t···O····X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B, C, D, E i F'
+  - 'Intents disponibles: 5'
+  - Introdueix una lletra
+  - "\t··XXXXXXX·"
+  - "\t···X····X·"
+  - "\t··oOo···X·"
+  - "\t··oOo···X·"
+  - "\t···O····X·"
+  - "\t··OOO···X·"
+  - "\t··OOO···X·"
+  - "\t··OOO···X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B, C, D, E, F i G'
+  - 'Intents disponibles: 4'
+  - Introdueix una lletra
+  - "\t··XXXXXXX·"
+  - "\t···X····X·"
+  - "\t··oOo···X·"
+  - "\t··oOo···X·"
+  - "\t···O····X·"
+  - "\t·oOOO···X·"
+  - "\t·oOOO···X·"
+  - "\t·oOOO···X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B, C, D, E, F, G i H'
+  - 'Intents disponibles: 3'
+  - Introdueix una lletra
+  - "\t··XXXXXXX·"
+  - "\t···X····X·"
+  - "\t··oOo···X·"
+  - "\t··oOo···X·"
+  - "\t···O····X·"
+  - "\t·oOOOo··X·"
+  - "\t·oOOOo··X·"
+  - "\t·oOOOo··X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B, C, D, E, F, G, H i I'
+  - 'Intents disponibles: 2'
+  - Introdueix una lletra
+  - "\t··XXXXXXX·"
+  - "\t···X····X·"
+  - "\t··oOo···X·"
+  - "\t··oOo···X·"
+  - "\t···O····X·"
+  - "\t·oOOOo··X·"
+  - "\t·oOOOo··X·"
+  - "\t·oOOOo··X·"
+  - "\t····O···X·"
+  - "\t····O···X·"
+  - "\t····Oo··X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: B, C, D, E, F, G, H, I i K'
+  - 'Intents disponibles: 1'
+  - Introdueix una lletra
+  - "\t··XXXXXXX·"
+  - "\t···X····X·"
+  - "\t··oOo···X·"
+  - "\t··oOo···X·"
+  - "\t···O····X·"
+  - "\t·oOOOo··X·"
+  - "\t·oOOOo··X·"
+  - "\t·oOOOo··X·"
+  - "\t··O·O···X·"
+  - "\t··O·O···X·"
+  - "\t·oO·Oo··X·"
+  - "\t········X·"
+  - "\t········X·"
+  - "\tXXXXXXXXXX"
+  - Has mort
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 2'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 1'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'10':
+  stdin:
+  - glups
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 2'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 2'
+  - Espero que t'hagis divertit
+'11':
+  stdin:
+  - a
+  - x
+  - glups
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: *a*a'
+  - 'Utilitzades: A'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: *a*a'
+  - 'Utilitzades: A i X'
+  - 'Intents disponibles: 9'
+  - Introdueix una lletra
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 2'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 2'
+  - Espero que t'hagis divertit
+'12':
+  stdin:
+  - glups
+  - glups
+  - glups
+  - glups
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: *****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: *******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - No queden més paraules
+  - 'Paraules jugades: 4'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 4'
+  - Espero que t'hagis divertit
+'13':
+  stdin:
+  - glups
+  - n
+  - i
+  - l
+  - t
+  - o
+  - k
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: *****n'
+  - 'Utilitzades: N'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ****in'
+  - 'Utilitzades: N i I'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ***lin'
+  - 'Utilitzades: N, I i L'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: **tlin'
+  - 'Utilitzades: N, I, L i T'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: *otlin'
+  - 'Utilitzades: N, I, L, T i O'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - Has encertat! La paraula era kotlin
+  - 'Paraula: *****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 3'
+  - 'Paraules encertades: 1'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 2'
+  - Espero que t'hagis divertit
+'14':
+  stdin:
+  - glups
+  - n
+  - i
+  - l
+  - t
+  - o
+  - k
+  - glups
+  - glups
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: *****n'
+  - 'Utilitzades: N'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ****in'
+  - 'Utilitzades: N i I'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ***lin'
+  - 'Utilitzades: N, I i L'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: **tlin'
+  - 'Utilitzades: N, I, L i T'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: *otlin'
+  - 'Utilitzades: N, I, L, T i O'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - Has encertat! La paraula era kotlin
+  - 'Paraula: *****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: *******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - No queden més paraules
+  - 'Paraules jugades: 4'
+  - 'Paraules encertades: 1'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 3'
+  - Espero que t'hagis divertit
+'15':
+  stdin:
+  - j
+  - a
+  - v
+  - k
+  - o
+  - t
+  - l
+  - i
+  - n
+  - s
+  - c
+  - a
+  - l
+  - c
+  - l
+  - o
+  - j
+  - u
+  - r
+  - e
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: j***'
+  - 'Utilitzades: J'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ja*a'
+  - 'Utilitzades: J i A'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - Has encertat! La paraula era java
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: k*****'
+  - 'Utilitzades: K'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ko****'
+  - 'Utilitzades: K i O'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: kot***'
+  - 'Utilitzades: K, O i T'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: kotl**'
+  - 'Utilitzades: K, O, T i L'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: kotli*'
+  - 'Utilitzades: K, O, T, L i I'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - Has encertat! La paraula era kotlin
+  - 'Paraula: *****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: s****'
+  - 'Utilitzades: S'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: sc***'
+  - 'Utilitzades: S i C'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: sca*a'
+  - 'Utilitzades: S, C i A'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - Has encertat! La paraula era scala
+  - 'Paraula: *******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: c******'
+  - 'Utilitzades: C'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: cl*****'
+  - 'Utilitzades: C i L'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: clo****'
+  - 'Utilitzades: C, L i O'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: cloj***'
+  - 'Utilitzades: C, L, O i J'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: cloju**'
+  - 'Utilitzades: C, L, O, J i U'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: clojur*'
+  - 'Utilitzades: C, L, O, J, U i R'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - Has encertat! La paraula era clojure
+  - No queden més paraules
+  - 'Paraules jugades: 4'
+  - 'Paraules encertades: 4'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 0'
+  - Espero que t'hagis divertit
+'16':
+  stdin:
+  - pRoU
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'17':
+  stdin:
+  - J
+  - a
+  - V
+  - PROU
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: j***'
+  - 'Utilitzades: J'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ja*a'
+  - 'Utilitzades: J i A'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - Has encertat! La paraula era java
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 2'
+  - 'Paraules encertades: 1'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'18':
+  stdin:
+  - x
+  - X
+  - Prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\t··········"
+  - "\tXXXXXXXXXX"
+  - 'Paraula: ****'
+  - 'Utilitzades: X'
+  - 'Intents disponibles: 9'
+  - Introdueix una lletra
+  - La lletra ja ha estat utilitzada
+  - 'Paraula: ****'
+  - 'Utilitzades: X'
+  - 'Intents disponibles: 9'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'19':
+  stdin:
+  - gLuPs
+  - proU
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Paraula: ******'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 2'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 2'
+  - Espero que t'hagis divertit
+'20':
+  stdin:
+  - prou
+  - no
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines:
+      - java
+      - kotlin
+      - scala
+      - clojure
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+'21':
+  filein:
+    - filename: paraules.txt
+  stdout:
+  - No tinc paraules per jugar
+'22':
+  stdin:
+  - ''
+  - prou
+  - sí
+  filein:
+    - filename: paraules.txt
+      lines: java
+  stdout:
+  - Comencem a jugar
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Error: cal una lletra entre ''a'' i ''z'', ''prou'' o ''glups'''
+  - 'Paraula: ****'
+  - 'Utilitzades: cap'
+  - 'Intents disponibles: 10'
+  - Introdueix una lletra
+  - 'Vols finalitzar?'
+  - 'Paraules jugades: 1'
+  - 'Paraules encertades: 0'
+  - 'Paraules fallades: 0'
+  - 'Paraules cancel·lades: 1'
+  - Espero que t'hagis divertit
+_mainclass: Penjat
+_wafiles:
+- recursos/figura0.txt
+- recursos/figura1.txt
+- recursos/figura2.txt
+- recursos/figura3.txt
+- recursos/figura4.txt
+- recursos/figura5.txt
+- recursos/figura6.txt
+- recursos/figura7.txt
+- recursos/figura8.txt
+- recursos/figura9.txt
+_wofiles:
+- paraules.txt

@@ -1,0 +1,45 @@
+/*
+ * Unit testing methods for an exercise
+ */
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @ParameterizedTest
+    @CsvSource(value={
+    "CURTA",
+    "MASSALLARGA",
+    "bC123DF",
+    "Bc123DF",
+    "BC123dF",
+    "BC123Df",
+    "BCB23DF",
+    "BC3B3DF",
+    "BC33BDF",
+    "BB123CQ",
+    "BB123CO",
+    "BB123CI",
+    "BU123CI",
+    })
+    @DisplayName("test matriculaItalianaValida() quan no ho és")
+    public void matriculaItalianaValidaQuanNo(String valor) {
+        boolean obtingut = TriaMatricules.matriculaItalianaValida(valor);
+        assertFalse(obtingut, "Revisa matriculaItalianaValida(\"" + valor+ "\")");
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+    "BB123CC",
+    "YZ123JK",
+    })
+    @DisplayName("test matriculaItalianaValida() quan ho és")
+    public void matriculaItalianaValidaQuanSi(String valor) {
+        boolean obtingut = TriaMatricules.matriculaItalianaValida(valor);
+        assertTrue(obtingut, "Revisa matriculaItalianaValida(\"" + valor+ "\")");
+    }
+
+}

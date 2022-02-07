@@ -1,0 +1,34 @@
+'01':
+  filein:
+  - filename: log.txt
+    lines:
+    - contingut inicial
+    - ''
+  fileout:
+  - filename: log.txt
+    lines:
+    - contingut inicial
+    - '[1] ERROR: Això és un error greu'
+    - '[2] WARNING: Això és un avís'
+    - '[1] DEBUG: Aquí s''acaba el main()'
+'02':
+  argsin:
+  - origen.txt
+  - traduccio.csv
+  - destinacio.txt
+  filein:
+  - filename: log.txt
+    lines:
+    - contingut inicial
+    - ''
+  fileout:
+  - filename: log.txt
+    lines:
+    - contingut inicial
+    - '[1] ERROR: Això és un error greu'
+    - '[2] WARNING: Això és un avís'
+    - '[3] INFO: Argument 0: origen.txt'
+    - '[4] INFO: Argument 1: traduccio.csv'
+    - '[5] INFO: Argument 2: destinacio.txt'
+    - '[1] DEBUG: Aquí s''acaba el main()'
+_mainclass: UsaLog
