@@ -59,6 +59,7 @@ MSG_ERR_NO_OUTPUT_FOUND: "S'ha trobat el fitxer buit"
 
 MSG_CREATED_FILEIN: "S'ha creat el fitxer %s amb el contingut"
 MSG_CREATED_EMPTY_FILE: "S'ha creat el fitxer buit %s"
+MSG_CREATED_EMPTY_FOLDER: "S'ha creat el directori buit %s"
 
 # Information messages
 PROGRAM_DESCRIPTION: "Aquest programa et permet avaluar els teus exercicis de programació abans de lliurar-los"
