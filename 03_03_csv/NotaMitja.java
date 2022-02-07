@@ -7,6 +7,7 @@ public class NotaMitja {
         String fitxerNotas = "notes.csv";
         BufferedReader input = new BufferedReader(new FileReader(fitxerNotas));
         String notas = input.readLine();
+        int contador = 0;
         while (true) {
             notas = input.readLine(); 
             if (null == notas) break;
@@ -14,7 +15,9 @@ public class NotaMitja {
             String nom = DeterminaNom(notas);
             System.out.printf(nom + " (%.2f)",mitjaNotas);
             System.out.println();
+            contador ++;
         }
+        if (contador == 0) System.out.println("Cap entrada");
     }
     public static double MitjaNotes (String notas) {
         double notaMitja = 0;
