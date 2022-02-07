@@ -12,7 +12,7 @@ public class NotaMitja {
             if (null == notas) break;
             double mitjaNotas = MitjaNotes(notas);
             String nom = DeterminaNom(notas);
-            System.out.printf(nom + "(%.2f)",mitjaNotas);
+            System.out.printf(nom + " (%.2f)",mitjaNotas);
             System.out.println();
         }
     }
