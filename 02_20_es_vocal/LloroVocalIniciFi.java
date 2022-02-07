@@ -17,7 +17,5 @@ public class LloroVocalIniciFi {
 			}
 		}
 		System.out.println("Adéu");
-	}
-	
+	}	
 }
-
