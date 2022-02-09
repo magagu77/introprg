@@ -1,0 +1,162 @@
+_mainclass: Inspecciona
+'01':
+  filein:
+  - filename: buit.txt
+  argsin: buit.txt
+  stdout:
+    - "Processant argument: buit.txt"
+    - "============================="
+    - ""
+    - "rw- fitxer buit"
+'02':
+  argsin: inexistent
+  stdout:
+    - "Processant argument: inexistent"
+    - "==============================="
+    - ""
+    - "No trobat"
+'03':
+  filein:
+  - filename: buida/
+  argsin: buida
+  stdout:
+    - "Processant argument: buida"
+    - "=========================="
+    - ""
+    - "rwx directori buit"
+'04':
+  filein:
+  - filename: carpeta/contingut.txt
+  - filename: carpeta/subcarpeta/
+  argsin:
+    - carpeta
+    - carpeta/contingut.txt
+    - carpeta/subcarpeta
+  stdout:
+  - "Processant argument: carpeta"
+  - "============================"
+  - ""
+  - "rwx directori que conté: buit.txt, buida, subcarpeta, contingut.txt"
+  - ""
+  - "Processant argument: carpeta/contingut.txt"
+  - "=========================================="
+  - ""
+  - "rw- fitxer buit"
+  - ""
+  - "Processant argument: carpeta/subcarpeta"
+  - "======================================="
+  - ""
+  - "rwx directori buit"
+'05':
+  filein:
+  - filename: contingut.txt
+    lines:
+    - 'primer'
+    - 'segon'
+    - 'tercer'
+  argsin:
+    - contingut.txt
+  stdout:
+    - "Processant argument: contingut.txt"
+    - "=================================="
+    - ""
+    - "rw- fitxer de mida en bytes: 19"
+    - "Amb els continguts:"
+    - "|primer|"
+    - "|segon|"
+    - "|tercer|"
+'06':
+  filein:
+  - filename: contingut.lst
+    lines:
+    - 'primer'
+    - 'segon'
+    - 'tercer'
+    - 'quart'
+  argsin:
+    - contingut.lst
+  stdout:
+    - "Processant argument: contingut.lst"
+    - "=================================="
+    - ""
+    - "rw- fitxer de mida en bytes: 25"
+'07':
+  filein:
+  - filename: llistat.lst
+    lines:
+    - 'primer'
+    - 'segon'
+    - 'tercer'
+    - 'quart'
+  - filename: ple.txt
+    lines:
+    - 'primera línia'
+    - 'línia segona'
+    - 'tercera línia'
+    - 'i una de regal'
+  - filename: senseres.txt
+  - filename: carpetabuida/
+  - filename: carpetaplena/contingut.txt
+    lines: algunacosapocimportant
+  - filename: carpetaplena/carpetaocupada/mescontinguts.txt
+    lines: algunacosaimportant
+  argsin:
+    - ple.txt
+    - llistat.lst
+    - senseres.txt
+    - unquenohies.txt
+    - carpetabuida
+    - carpetaplena
+    - carpetaplena/contingut.txt
+    - carpetaplena/carpetaocupada/mescontinguts.txt
+  stdout:
+
+
+    - "Processant argument: ple.txt"
+    - "============================"
+    - ""
+    - "rw- fitxer de mida en bytes: 58"
+    - "Amb els continguts:"
+    - "|primera línia|"
+    - "|línia segona|"
+    - "|tercera línia|"
+    - "|i una de regal|"
+    - ""
+    - "Processant argument: llistat.lst"
+    - "================================"
+    - ""
+    - "rw- fitxer de mida en bytes: 25"
+    - ""
+    - "Processant argument: senseres.txt"
+    - "================================="
+    - ""
+    - "rw- fitxer buit"
+    - ""
+    - "Processant argument: unquenohies.txt"
+    - "===================================="
+    - ""
+    - "No trobat"
+    - ""
+    - "Processant argument: carpetabuida"
+    - "================================="
+    - ""
+    - "rwx directori buit"
+    - ""
+    - "Processant argument: carpetaplena"
+    - "================================="
+    - ""
+    - "rwx directori que conté: carpetaocupada, contingut.txt"
+    - ""
+    - "Processant argument: carpetaplena/contingut.txt"
+    - "==============================================="
+    - ""
+    - "rw- fitxer de mida en bytes: 22"
+    - "Amb els continguts:"
+    - "|algunacosapocimportant|"
+    - ""
+    - "Processant argument: carpetaplena/carpetaocupada/mescontinguts.txt"
+    - "=================================================================="
+    - ""
+    - "rw- fitxer de mida en bytes: 19"
+    - "Amb els continguts:"
+    - "|algunacosaimportant|"
