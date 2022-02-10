@@ -3,10 +3,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class NotaMitja {
+    // Main del programa
     public static void main(String[] args) throws IOException {
         String fitxerNotas = "notes.csv";
         BufferedReader input = new BufferedReader(new FileReader(fitxerNotas));
         String notas = input.readLine();
+        // Para comprobar si hay notas en el documento o no
         int contador = 0;
         while (true) {
             notas = input.readLine(); 
@@ -19,6 +21,8 @@ public class NotaMitja {
         }
         if (contador == 0) System.out.println("Cap entrada");
     }
+
+    // Calcula la mitja de notas de cada entrada del document
     public static double MitjaNotes (String notas) {
         double notaMitja = 0;
         String[] elements = notas.split(",");
@@ -32,6 +36,7 @@ public class NotaMitja {
         notaMitja = notaMitja / ((elements.length )- 1);
         return notaMitja;
     }
+    // Separa el nom del document i de les notes
     public static String DeterminaNom (String notas) {
         String[] elements = notas.split(",");
         return elements[0];
