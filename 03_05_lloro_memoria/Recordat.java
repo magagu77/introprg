@@ -1,3 +1,7 @@
+/* Programa del loro con alzheimer que necesita un fixero para guardar 3 frases*/
+
+// PENDIENTA ACABAR Y SACAR COSAS EN MODULOS
+
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;

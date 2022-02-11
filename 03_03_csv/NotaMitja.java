@@ -1,3 +1,5 @@
+/* Programa que calcula la nota media de unos alumnos desde un fixero .csv */
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
