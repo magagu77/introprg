@@ -11,7 +11,7 @@ public class Recordat {
             if (paraula.isBlank()) break;
             output.write(paraula);
             output.newLine();
-            System.out.printf("El lloro registra: %s /n", paraula);
+            System.out.printf("El lloro registra: %s \n", paraula);
         }
         output.close();
     }
