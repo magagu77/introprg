@@ -23,7 +23,10 @@ public class Recordat {
         output.close();
         while (true) {
             paraula = input.readLine();
-            if (paraula == null) break;
+            if (paraula == null) {
+                System.out.println("Adéu");
+                break;
+            }
             System.out.printf("El lloro recorda: %s\n",paraula);
         }
     }
