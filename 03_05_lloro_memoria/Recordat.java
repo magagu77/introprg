@@ -21,13 +21,18 @@ public class Recordat {
             System.out.printf("El lloro registra: %s\n", paraula);
         }
         output.close();
+        int contador = 0;
         while (true) {
             paraula = input.readLine();
             if (paraula == null) {
+                if(contador == 0){
+                    System.out.println("El lloro no recorda res");
+                }
                 System.out.println("Adéu");
                 break;
             }
             System.out.printf("El lloro recorda: %s\n",paraula);
+            contador++;
         }
     }
 }
