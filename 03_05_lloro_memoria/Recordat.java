@@ -24,7 +24,7 @@ public class Recordat {
             System.out.printf("El lloro registra: %s\n", paraula);
         }
         output.close();
-        
+        mostraRecords(nouFitxer);
     }
     public static boolean procesaEntrada(String entrada) {
         if (entrada.isBlank()) return true;
