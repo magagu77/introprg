@@ -19,7 +19,7 @@ public class Recordat {
                 System.out.println("D'acord");
                 break;
             }
-            output.write(paraula);
+            output.write(paraula.strip());
             output.newLine();
             System.out.printf("El lloro registra: %s\n", paraula);
         }
