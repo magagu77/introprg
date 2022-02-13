@@ -16,11 +16,11 @@ public class Recordat {
         while (true) {
             System.out.println("El lloro pregunta paraula:");
             paraula = Entrada.readLine();
+            paraula = procesaEntrada(paraula);
             if (paraula.isBlank()) {
                 System.out.println("D'acord");
                 break;
             }
-            paraula = paraula.strip();
             output.write(paraula);
             output.newLine();
             System.out.printf("El lloro registra: %s\n", paraula);
@@ -39,5 +39,9 @@ public class Recordat {
             System.out.printf("El lloro recorda: %s\n",paraula);
             contador++;
         }
+    }
+    public static String procesaEntrada(String entrada) {
+        entrada = entrada.strip();
+        return entrada;
     }
 }
