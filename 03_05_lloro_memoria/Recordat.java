@@ -15,7 +15,7 @@ public class Recordat {
         while (true) {
             System.out.println("El lloro pregunta paraula:");
             paraula = Entrada.readLine();
-            if (!procesaEntrada(paraula)) {
+            if (!processaEntrada(paraula)) {
                 System.out.println("D'acord");
                 break;
             }
@@ -27,7 +27,7 @@ public class Recordat {
         output.close();
         mostraRecords(nouFitxer);
     }
-    public static boolean procesaEntrada(String entrada) {
+    public static boolean processaEntrada(String entrada) {
         if (entrada.isBlank()) return false;
         else return true;
     }
