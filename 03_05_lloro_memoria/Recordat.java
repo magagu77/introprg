@@ -10,12 +10,16 @@ import java.io.BufferedReader;
 public class Recordat {
     public static void main(String[] args) throws IOException {
         String nouFitxer = "records.txt";
-        BufferedWriter output = new BufferedWriter(new FileWriter(nouFitxer));
+        processaEntrada(nouFitxer);
+        mostraRecords(nouFitxer);
+    }
+    public static void processaEntrada(String fitxer) throws IOException {
+        BufferedWriter output = new BufferedWriter(new FileWriter(fitxer));
         String paraula = "a";
         while (true) {
             System.out.println("El lloro pregunta paraula:");
             paraula = Entrada.readLine();
-            if (!processaEntrada(paraula)) {
+            if (paraula.isBlank()) {
                 System.out.println("D'acord");
                 break;
             }
@@ -25,11 +29,6 @@ public class Recordat {
             System.out.printf("El lloro registra: %s\n", paraula);
         }
         output.close();
-        mostraRecords(nouFitxer);
-    }
-    public static boolean processaEntrada(String entrada) {
-        if (entrada.isBlank()) return false;
-        else return true;
     }
     public static void mostraRecords (String fitxer) throws IOException {
         int contador = 0;
