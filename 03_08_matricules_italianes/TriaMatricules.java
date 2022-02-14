@@ -22,6 +22,8 @@ public class TriaMatricules {
                 error.write(matricula);
             }
         }
+        correcta.close();
+        error.close();
     }
     public static boolean matriculaItalianaValida (String matricula) {
         boolean obtingut;
