@@ -6,11 +6,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 public class Traduccio {
     public static void main(String[] args) throws IOException {
-        if (args.length < 3) {
+        if (args.length != 3) {
             System.out.println("ERROR: Cal especificar els fitxers origen, traduccio i destinació");
             return;
         }
-        tradueix(args[0], "traduccio.csv", args[2]);
+        tradueix(args[0], args[1], args[2]);
     }
     // Coge una linea del primer archivo y escribe en el tercero
     public static void tradueix (String fitxerOrigen, String fitxerTraduccio, String fitxerDestinacio) throws IOException {
