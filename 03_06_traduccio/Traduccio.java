@@ -20,7 +20,7 @@ public class Traduccio {
             // Coge linea del primer archivo
             String linia = origen.readLine();
             if (null == linia) break;
-            tradueixLinia(linia, fitxerTraduccio);
+            linia = tradueixLinia(linia, fitxerTraduccio);
             // Escribe en el tercer archivo
             destinacio.write(linia);
             destinacio.newLine();
