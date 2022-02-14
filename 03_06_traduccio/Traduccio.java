@@ -25,6 +25,7 @@ public class Traduccio {
             destinacio.write(linia);
             destinacio.newLine();
         }
+        destinacio.close();
     }
     // Hace la "traducción"
     public static String tradueixLinia (String linia, String fitxerTraduccio) throws IOException {
