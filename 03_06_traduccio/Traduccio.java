@@ -34,7 +34,6 @@ public class Traduccio {
         String aTraduir = traduccio.readLine();
         String[] elements = aTraduir.split(",");
         linia = linia.replaceFirst(elements[0],elements[1]);
-        traduccio.close();
         return linia;
     }
 }
