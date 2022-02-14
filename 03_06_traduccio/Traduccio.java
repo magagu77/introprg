@@ -23,7 +23,6 @@ public class Traduccio {
             String linia = origen.readLine();
             if (null == linia) break;
             while (true) {
-                contador = traduccio.readLine();
                 if(null == linia) break;
                 linia = tradueixLinia(linia, fitxerTraduccio);
                 // Escribe en el tercer archivo
@@ -38,7 +37,7 @@ public class Traduccio {
         BufferedReader traduccio = new BufferedReader(new FileReader(fitxerTraduccio));
         String aTraduir = traduccio.readLine();
         String[] elements = aTraduir.split(",");
-        linia = linia.replaceFirst(elements[0],elements[1]);
+        linia = linia.replaceFirst(elements[0].strip(),elements[1].strip());
         return linia;
     }
 }
