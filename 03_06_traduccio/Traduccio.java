@@ -37,7 +37,7 @@ public class Traduccio {
         String aTraduir = traduccio.readLine();
         String[] elements = aTraduir.split(",");
         for (int i = 0; i<elements.length/2;i = i + 2) {
-            linia = linia.replaceFirst(elements[i].strip(),elements[i+1].strip());
+            linia = linia.replace(elements[i].strip(),elements[i+1].strip());
         }
         return linia;
     }
