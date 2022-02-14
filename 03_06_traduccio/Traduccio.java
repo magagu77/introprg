@@ -17,12 +17,13 @@ public class Traduccio {
         BufferedReader origen = new BufferedReader(new FileReader(fitxerOrigen));
         BufferedReader traduccio = new BufferedReader(new FileReader(fitxerTraduccio));
         BufferedWriter destinacio = new BufferedWriter(new FileWriter(fitxerDestinacio));
+        String contador = "a";
         while (true) {
             // Coge linea del primer archivo
             String linia = origen.readLine();
             if (null == linia) break;
             while (true) {
-                String contador = traduccio.readLine();
+                contador = traduccio.readLine();
                 if(null == linia) break;
                 linia = tradueixLinia(linia, fitxerTraduccio);
                 // Escribe en el tercer archivo
