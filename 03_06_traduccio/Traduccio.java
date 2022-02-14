@@ -31,7 +31,10 @@ public class Traduccio {
     // Hace la "traducción"
     public static String tradueixLinia (String linia, String fitxerTraduccio) throws IOException {
         BufferedReader traduccio = new BufferedReader(new FileReader(fitxerTraduccio));
-        linia = linia.replace(traduccio.readLine(), traduccio.readLine());
+        String[] traduccions = new String[2];
+        traduccions[0] = traduccio.readLine();
+        traduccions[1] = traduccio.readLine();
+        linia = linia.replace(traduccions[0], traduccions[1]);
         traduccio.close();
         return linia;
     }
