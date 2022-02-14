@@ -17,10 +17,10 @@ public class Traduccio {
         BufferedReader origen = new BufferedReader(new FileReader(fitxerOrigen));
         BufferedReader traduccio = new BufferedReader(new FileReader(fitxerTraduccio));
         BufferedWriter destinacio = new BufferedWriter(new FileWriter(fitxerDestinacio));
-        String contador = "a";
+        String linia = "a";
         while (true) {
             // Coge linea del primer archivo
-            String linia = origen.readLine();
+            linia = origen.readLine();
             if (null == linia) break;
             
             if(null == linia) break;
