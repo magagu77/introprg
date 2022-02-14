@@ -17,9 +17,9 @@ public class TriaMatricules {
             matricula = lectura.readLine();
             if (null == matricula) break;
             if (matriculaItalianaValida(matricula)) {
-                correcta.write(matricula);
-            } else {
                 error.write(matricula);
+            } else {
+                correcta.write(matricula);
             }
         }
         correcta.close();
