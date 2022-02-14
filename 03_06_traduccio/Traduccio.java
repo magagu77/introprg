@@ -15,7 +15,6 @@ public class Traduccio {
     // Coge una linea del primer archivo y escribe en el tercero
     public static void tradueix (String fitxerOrigen, String fitxerTraduccio, String fitxerDestinacio) throws IOException {
         BufferedReader origen = new BufferedReader(new FileReader(fitxerOrigen));
-        BufferedReader traduccio = new BufferedReader(new FileReader(fitxerTraduccio));
         BufferedWriter destinacio = new BufferedWriter(new FileWriter(fitxerDestinacio));
         String linia = "a";
         while (true) {
@@ -36,7 +35,7 @@ public class Traduccio {
             String aTraduir = traduccio.readLine();
             if (null == aTraduir) break;
             String[] elements = aTraduir.split(",");
-            linia = linia.replace(elements[0].strip(),elements[1].strip());
+            linia = linia.replaceFirst(elements[0].strip(),elements[1].strip());
         }
         return linia;
     }
