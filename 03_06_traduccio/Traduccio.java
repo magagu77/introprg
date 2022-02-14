@@ -36,7 +36,7 @@ public class Traduccio {
         BufferedReader traduccio = new BufferedReader(new FileReader(fitxerTraduccio));
         String aTraduir = traduccio.readLine();
         String[] elements = aTraduir.split(",");
-        for (int i = 0; i<elements.length;i = i++) {
+        for (int i = 0; i<elements.length - 1;i = i++) {
             System.out.println(elements[i]);
             //linia = linia.replace(elements[i].strip(),elements[i+1].strip());
         }
