@@ -15,15 +15,20 @@ public class Traduccio {
     // Coge una linea del primer archivo y escribe en el tercero
     public static void tradueix (String fitxerOrigen, String fitxerTraduccio, String fitxerDestinacio) throws IOException {
         BufferedReader origen = new BufferedReader(new FileReader(fitxerOrigen));
+        BufferedReader traduccio = new BufferedReader(new FileReader(fitxerTraduccio));
         BufferedWriter destinacio = new BufferedWriter(new FileWriter(fitxerDestinacio));
         while (true) {
             // Coge linea del primer archivo
             String linia = origen.readLine();
             if (null == linia) break;
-            linia = tradueixLinia(linia, fitxerTraduccio);
-            // Escribe en el tercer archivo
-            destinacio.write(linia);
-            destinacio.newLine();
+            while (true) {
+                String contador = traduccio.readLine();
+                if(null == linia) break;
+                linia = tradueixLinia(linia, fitxerTraduccio);
+                // Escribe en el tercer archivo
+                destinacio.write(linia);
+                destinacio.newLine();
+            }
         }
         destinacio.close();
     }
