@@ -7,7 +7,7 @@ import java.io.FileWriter;
 public class TriaMatricules {
     public static void main(String[] args) throws IOException {
         String matriculesLlegides = "matriculesllegides.txt";
-        String matricuaCorrecta = "matriculescorrectes.txt";
+        String matricuaCorrecta = "matriculesvalides.txt";
         String matriculaErronea = "matriculeserronies.txt";
         BufferedReader lectura = new BufferedReader(new FileReader(matriculesLlegides));
         BufferedWriter correcta = new BufferedWriter(new FileWriter(matricuaCorrecta));
