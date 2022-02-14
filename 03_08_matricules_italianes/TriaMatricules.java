@@ -10,8 +10,8 @@ public class TriaMatricules {
         String matricuaCorrecta = "matriculescorrectes.txt";
         String matriculaErronea = "matriculeserronies.txt";
         BufferedReader lectura = new BufferedReader(new FileReader(matriculesLlegides));
-        BufferedWriter correcta = new BufferedWriter(new FileWriter(matricuaCorrecta, true));
-        BufferedWriter error = new BufferedWriter(new FileWriter(matriculaErronea, true));
+        BufferedWriter correcta = new BufferedWriter(new FileWriter(matricuaCorrecta));
+        BufferedWriter error = new BufferedWriter(new FileWriter(matriculaErronea));
         String matricula = "a";
         while (true) {
             matricula = lectura.readLine();
