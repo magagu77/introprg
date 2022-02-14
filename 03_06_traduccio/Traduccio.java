@@ -22,13 +22,12 @@ public class Traduccio {
             // Coge linea del primer archivo
             String linia = origen.readLine();
             if (null == linia) break;
-            while (true) {
-                if(null == linia) break;
-                linia = tradueixLinia(linia, fitxerTraduccio);
-                // Escribe en el tercer archivo
-                destinacio.write(linia);
-                destinacio.newLine();
-            }
+            
+            if(null == linia) break;
+            linia = tradueixLinia(linia, fitxerTraduccio);
+            // Escribe en el tercer archivo
+            destinacio.write(linia);
+            destinacio.newLine();
         }
         destinacio.close();
     }
