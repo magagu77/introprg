@@ -36,7 +36,7 @@ _mainclass: Inspecciona
   - "Processant argument: carpeta"
   - "============================"
   - ""
-  - "rwx directori que conté: buit.txt, buida, subcarpeta, contingut.txt"
+  - "rwx directori que conté: subcarpeta, contingut.txt"
   - ""
   - "Processant argument: carpeta/contingut.txt"
   - "=========================================="
@@ -110,8 +110,6 @@ _mainclass: Inspecciona
     - carpetaplena/contingut.txt
     - carpetaplena/carpetaocupada/mescontinguts.txt
   stdout:
-
-
     - "Processant argument: ple.txt"
     - "============================"
     - ""
