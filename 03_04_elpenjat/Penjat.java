@@ -28,12 +28,12 @@ public class Penjat {
 			}
 			System.out.println();
 			String lletres = "cap";
-			System.out.println("Paraula: " + new String(adivina));
 			char lletra ='a';
 			int intents = 10;
 			paraulesJugades++;
 			// Bucle de juego por cada palabra
 			while(true) {
+				System.out.println("Paraula: " + new String(adivina));
 				System.out.println("Utilitzades: " + lletres);
 				System.out.println("Intents disponibles: " + intents);
 				System.out.println("Introdueix una lletra");
