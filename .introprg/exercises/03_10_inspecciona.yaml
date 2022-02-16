@@ -36,7 +36,7 @@ _mainclass: Inspecciona
   - "Processant argument: carpeta"
   - "============================"
   - ""
-  - "rwx directori que conté: subcarpeta, contingut.txt"
+  - "rwx directori que conté: contingut.txt, subcarpeta"
   - ""
   - "Processant argument: carpeta/contingut.txt"
   - "=========================================="
