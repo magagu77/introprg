@@ -73,7 +73,6 @@ public class Penjat {
 					paraulesEncertades++;
 					break;
 				}
-				System.out.println(new String(adivina));
 			}	
 		}
 		estadistica(paraulesJugades, paraulesEncertades, paraulesFallades, paraulesCancelades);
