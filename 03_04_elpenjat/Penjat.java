@@ -37,6 +37,7 @@ public class Penjat {
 				System.out.println("Utilitzades: " + lletres);
 				System.out.println("Intents disponibles: " + intents);
 				System.out.println("Introdueix una lletra");
+				if(lletres.equals("cap")) lletres ="";
 				entrada = Entrada.readLine();
 				if(!lletraCorrecta(entrada)){
 					System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
@@ -58,7 +59,7 @@ public class Penjat {
 					System.out.println("La lletra ja ha estat utilitzada");
 					continue;
 				}
-				if (lletres.equals("cap")) {
+				if (lletres.isEmpty()) {
 					lletres = Character.toString(Character.toUpperCase(lletra));
 				} else {
 					lletres = lletres + ", " + Character.toString(Character.toUpperCase(lletra));
@@ -162,8 +163,8 @@ public class Penjat {
 	// Comprueba si la letra introducida está repetida entere las usadas
 	public static boolean lletraUtilitzada(String lletresUtilitzades, char lletra) {
 		for (int i=0; i<lletresUtilitzades.length();i++) {
-			if (lletresUtilitzades.charAt(i)==lletra) return true;
+			if (lletresUtilitzades.charAt(i)==Character.toUpperCase(lletra)) return true;
 		}
 		return false;
 	}
-}
+}	
