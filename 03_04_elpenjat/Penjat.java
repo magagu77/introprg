@@ -67,6 +67,7 @@ public class Penjat {
 				System.out.println(new String(adivina));
 			}	
 		}
+		estadistica(paraulesJugades, paraulesEncertades, paraulesFallades, paraulesCancelades);
 	}
 	// Pone asteriscos en el un array con la misma longitud que la palabra
 	public static char[] asteriscos(char[] asteriscos) {
