@@ -129,10 +129,10 @@ public class Penjat {
 	}
 	// Hace un print de la "estadistica" de esta partida
 	public static void estadistica(int paraulesJugades,	int paraulesEncertades, int paraulesFallades, int paraulesCancelades) {
-		System.out.printf("Paraules jugades: %i\n",paraulesJugades);
-		System.out.printf("Paraules encertades: %i\n",paraulesEncertades);
-		System.out.printf("Paraules fallades: %i\n",paraulesFallades);
-		System.out.printf("Paraules cancel·lades: %i\n",paraulesCancelades);
+		System.out.printf("Paraules jugades: %s\n",paraulesJugades);
+		System.out.printf("Paraules encertades: %s\n",paraulesEncertades);
+		System.out.printf("Paraules fallades: %s\n",paraulesFallades);
+		System.out.printf("Paraules cancel·lades: %s\n",paraulesCancelades);
 		System.out.println("Espero que t'hagis divertit");
 	}
 }
