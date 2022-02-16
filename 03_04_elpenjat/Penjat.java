@@ -26,9 +26,6 @@ public class Penjat {
 			for (int i=0;i<adivina.length;i++) {
 				adivina[i] = '*';
 			}
-			for (int i=0;i<adivina.length;i++){
-				System.out.print(adivina[i]);
-			}
 			System.out.println();
 			String lletres = "cap";
 			System.out.println("Paraula: " + new String(adivina));
