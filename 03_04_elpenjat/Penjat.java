@@ -38,10 +38,19 @@ public class Penjat {
 				System.out.println("Intents disponibles: " + intents);
 				System.out.println("Introdueix una lletra");
 				entrada = Entrada.readLine();
+				if(!lletraCorrecta(entrada)){
+					System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
+					continue;
+				}
 				if (comprovaSiPara(entrada)) {
 					continua = false;
 					paraulesCancelades++;
 					break;	
+				}
+				// Comprueba si la entrada es "glups" y salta la palabra actual
+				if(entrada.equals("glups")) {
+					paraulesCancelades++;
+					break;
 				}
 				lletra = entrada.charAt(0);
 				if (lletres.equals("cap")) {
@@ -126,6 +135,17 @@ public class Penjat {
 			if (UtilitatsConfirmacio.respostaABoolean(Entrada.readLine())) return true;
 			else return false;
 		} else return false;
+	}
+	public static boolean lletraCorrecta(String paraula) {
+		int lletra;
+		if (paraula.equals("prou") || paraula.equals("glups")) return true;
+		else {
+			if (paraula.length()==1) {
+				lletra = paraula.charAt(0);
+				if (lletra >=97 && lletra <= 122) return true;
+				else return false;
+			} else return false;
+		}
 	}
 	// Hace un print de la "estadistica" de esta partida
 	public static void estadistica(int paraulesJugades,	int paraulesEncertades, int paraulesFallades, int paraulesCancelades) {
