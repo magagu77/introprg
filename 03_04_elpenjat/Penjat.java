@@ -53,6 +53,11 @@ public class Penjat {
 					break;
 				}
 				lletra = entrada.charAt(0);
+				// Comprueba si ya se ha usado la letra
+				if (lletraUtilitzada(lletres, lletra)) {
+					System.out.println("La lletra ja ha estat utilitzada");
+					continue;
+				}
 				if (lletres.equals("cap")) {
 					lletres = Character.toString(Character.toUpperCase(lletra));
 				} else {
@@ -153,5 +158,12 @@ public class Penjat {
 		System.out.printf("Paraules fallades: %s\n",paraulesFallades);
 		System.out.printf("Paraules cancel·lades: %s\n",paraulesCancelades);
 		System.out.println("Espero que t'hagis divertit");
+	}
+	// Comprueba si la letra introducida está repetida entere las usadas
+	public static boolean lletraUtilitzada(String lletresUtilitzades, char lletra) {
+		for (int i=0; i<lletresUtilitzades.length();i++) {
+			if (lletresUtilitzades.charAt(i)==lletra) return true;
+		}
+		return false;
 	}
 }
