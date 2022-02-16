@@ -121,6 +121,7 @@ public class Penjat {
 	// Comprueba si tiene que parar la palabra y la partida
 	public static boolean comprovaSiPara (String para) {
 		if (para.equals("prou")) {
+			System.out.println("Vols finalitzar?");
 			if (UtilitatsConfirmacio.respostaABoolean(Entrada.readLine())) return true;
 			else return false;
 		} else return false;
