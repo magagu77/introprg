@@ -146,6 +146,7 @@ public class Penjat {
 	}
 	public static boolean lletraCorrecta(String paraula) {
 		int lletra;
+		paraula = paraula.toLowerCase();
 		if (paraula.equals("prou") || paraula.equals("glups")) return true;
 		else {
 			if (paraula.length()==1) {
