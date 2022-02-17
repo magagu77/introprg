@@ -27,15 +27,14 @@ public class Penjat {
 				adivina[i] = '*';
 			}
 			System.out.println();
-			String lletres = "";
+			String lletres = "cap";
 			char lletra ='a';
 			int intents = 10;
-			String utilitzades ="cap";
 			paraulesJugades++;
 			// Bucle de juego por cada palabra
 			while(true) {
 				System.out.println("Paraula: " + new String(adivina));
-				System.out.println("Utilitzades: " + utilitzades);
+				System.out.println("Utilitzades: " + lletres);
 				System.out.println("Intents disponibles: " + intents);
 				System.out.println("Introdueix una lletra");
 				entrada = Entrada.readLine();
@@ -60,8 +59,7 @@ public class Penjat {
 					continue;
 				}
 				// Manda a un módulo el string lletres para ampliarlo separado por comas
-				lletres = retornaLletres(lletra, lletres);
-				utilitzades = stringLletres(lletres, lletra);
+				lletres = stringLletres(lletres, lletra);
 				//Comprueba si la letra esta en la palabra y la sustituye
 				if (comprovaLletra(paraula,lletra)) {
 					adivina = sustitueixLletra(paraula,lletra,adivina);
@@ -172,26 +170,12 @@ public class Penjat {
 	}
 	// Devuelve un string con la letras utilizadas
 	public static String stringLletres (String lletres, char lletra) {
-		String[] lletresUtilitzades = creaArrayLletres(lletres);
-		if (lletresUtilitzades.length == 1) return lletres;
-		lletra = Character.toUpperCase(lletra);
-		for (int i=0;i<lletresUtilitzades.length;i++) {
-			if (i==0) {
-				lletres = Character.toString(lletra);
-			} else if (i == lletresUtilitzades.length - 1) {
-				lletres = lletres + " i " + lletra;
-			} else {
-				lletres = lletres + ", " + lletra;
-			}
-		}
-		return lletres;
-	}
-	// Devuelve un string con las letras separadas por ,
-	public static String retornaLletres (char lletra, String lletres) {
+		if(lletres.equals("cap")) lletres = "";
+		lletres = lletres.replace("i",",");
 		if (lletres.isEmpty()) {
 			lletres = Character.toString(Character.toUpperCase(lletra));
 		} else {
-			lletres = lletres + ", " + Character.toString(Character.toUpperCase(lletra));
+			lletres = lletres +", " + Character.toUpperCase(Character.toUpperCase(lletra));
 		}
 		return lletres;
 	}
