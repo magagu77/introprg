@@ -459,7 +459,7 @@ def check_git(working_dir, target_exercise):
 
 def get_working_dir():
     """ tries to get the working directory from the environment.
-    The working directory must be defined by the environment variable
+        The working directory must be defined by the environment variable
         INTROPRGDIR, otherwise it halts execution.
         On success it returns the path to the working directory """
     path = os.environ.get(INTROPRGDIR_KEY)
@@ -711,15 +711,15 @@ def translate_output(contents, translate_specs):
 # test utilities
 ##################################################
 
-def perform_io_tests(test_path, specs, env, precommand=None):
+def perform_io_tests(working_dir, specs, env, precommand=None):
     """ performs the i/o tests specified on specs on test_path:
         - test_path contains the target exercise
         - specs potentially contains:
           - _tr: translation specs
           - [^_]\w*: io test specs
     """
-    def remove_fileout(iotest):
-        """ removes the existing fileout from the test_path if any """
+    def remove_fileout(test_path, iotest):
+        """ removes existing fileout from the test_path """
         for filespec in iotest.get('fileout'):
             path = test_path / filespec.get('filename')
             if path.is_file():
@@ -734,7 +734,8 @@ def perform_io_tests(test_path, specs, env, precommand=None):
         if testid.startswith('_'):
             continue
         normalize_iotest(iotest)
-        remove_fileout(iotest)
+        test_path = prepare_test(working_dir)
+        remove_fileout(test_path, iotest)
         result = run_io_tests(test_path, iotest, env,
                               main_class, main_program,
                               timeout, precommand=precommand)
@@ -822,10 +823,11 @@ def check_output_file(path, filespec, ignore_blank_lines) -> OutputComparison:
     return OutputComparison(exists=True, equals=False, nr_expected=nr_expected, nr_found=nr_found)
 
 
-def perform_junit_tests(test_path, junit_path, env, timeout, precommand=None):
+def perform_junit_tests(working_dir, junit_path, env, timeout, precommand=None):
     """ performs the JUnit tests """
     if junit_path is None:
         return
+    test_path = get_test_path(working_dir)
     copy_junit(junit_path, dest_path=test_path)
     result = run_junit_tests(test_path, env, timeout, precommand=precommand)
     compare_junit_result(result)
@@ -1246,16 +1248,13 @@ def run():
     # Check whether the exercise is properly managed by git
     check_git(working_dir, target_exercise)
 
-    # Prepare test environment
-    test_path = prepare_test(working_dir)
-
     # Perform IO tests
     env = compute_environment_variables()
-    perform_io_tests(test_path, specs, env)
+    perform_io_tests(working_dir, specs, env)
 
     # Perform JUnit tests
     timeout = get_timeout(specs)
-    perform_junit_tests(test_path, junit_path, env, timeout)
+    perform_junit_tests(working_dir, junit_path, env, timeout)
 
     print(getmsg('MSG_ALL_TEST_PASSED'))
 
