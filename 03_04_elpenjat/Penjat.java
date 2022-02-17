@@ -27,10 +27,10 @@ public class Penjat {
 				adivina[i] = '*';
 			}
 			System.out.println();
-			String lletres = "cap";
+			String lletres = "";
 			char lletra ='a';
 			int intents = 10;
-			String utilitzades ="a";
+			String utilitzades ="cap";
 			paraulesJugades++;
 			// Bucle de juego por cada palabra
 			while(true) {
@@ -60,7 +60,6 @@ public class Penjat {
 					continue;
 				}
 				// Manda a un módulo el string lletres para ampliarlo separado por comas
-				if(lletres.equals("cap")) lletres ="";
 				lletres = retornaLletres(lletra, lletres);
 				utilitzades = stringLletres(lletres, lletra);
 				//Comprueba si la letra esta en la palabra y la sustituye
