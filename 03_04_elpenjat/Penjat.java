@@ -34,7 +34,7 @@ public class Penjat {
 			// Bucle de juego por cada palabra
 			while(true) {
 				System.out.println("Paraula: " + new String(adivina));
-				System.out.println("Utilitzades: " + lletres);
+				System.out.println("Utilitzades: " + stringLletres(lletres, lletra));
 				System.out.println("Intents disponibles: " + intents);
 				System.out.println("Introdueix una lletra");
 				entrada = Entrada.readLine();
@@ -58,12 +58,8 @@ public class Penjat {
 					System.out.println("La lletra ja ha estat utilitzada");
 					continue;
 				}
-				if(lletres.equals("cap")) lletres ="";
-				if (lletres.isEmpty()) {
-					lletres = Character.toString(Character.toUpperCase(lletra));
-				} else {
-					lletres = lletres + ", " + Character.toString(Character.toUpperCase(lletra));
-				}
+				// Manda a un módulo el string lletres para ampliarlo separado por comas
+				lletres = retornaLletres(lletra, lletres);
 				//Comprueba si la letra esta en la palabra y la sustituye
 				if (comprovaLletra(paraula,lletra)) {
 					adivina = sustitueixLletra(paraula,lletra,adivina);
@@ -166,5 +162,35 @@ public class Penjat {
 			if (lletresUtilitzades.charAt(i)==Character.toUpperCase(lletra)) return true;
 		}
 		return false;
+	}
+	// Crea un array con las letras utilizadas
+	public static String[] creaArrayLletres (String lletresUtilitzades) {
+		String elements [] = lletresUtilitzades.split(",");
+		return elements;
+	}
+	// Devuelve un string con la letras utilizadas
+	public static String stringLletres (String lletres, char lletra) {
+		String[] lletresUtilitzades = creaArrayLletres(lletres);
+		if (lletresUtilitzades.length == 1) return lletres;
+		lletra = Character.toUpperCase(lletra);
+		for (int i=0;i<lletresUtilitzades.length;i++) {
+			if (i==0) {
+				lletres = Character.toString(lletra);
+			} else if (i == lletresUtilitzades.length - 1) {
+				lletres = lletres + " i " + lletra;
+			} else {
+				lletres = lletres + ", " + lletra;
+			}
+		}
+		return lletres;
+	}
+	// Devuelve un string con las letras separadas por ,
+	public static String retornaLletres (char lletra, String lletres) {
+		if (lletres.isEmpty()) {
+			lletres = Character.toString(Character.toUpperCase(lletra));
+		} else {
+			lletres = lletres + ", " + Character.toString(Character.toUpperCase(lletra));
+		}
+		return lletres;
 	}
 }	
