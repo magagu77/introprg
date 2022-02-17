@@ -73,6 +73,7 @@ public class Penjat {
 				}
 				if(comprovaVictoria(adivina)) {
 					paraulesEncertades++;
+					System.out.printf("Has encertat! La paraula era %s\n",paraula);
 					break;
 				}
 			}	
