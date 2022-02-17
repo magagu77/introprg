@@ -197,3 +197,4 @@ public class Penjat {
 		return lletres;
 	}
 }	
+// Para redondear
