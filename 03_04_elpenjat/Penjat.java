@@ -81,7 +81,7 @@ public class Penjat {
 			}	
 		}
 		if (null == paraula) {
-			System.out.println("NO queden més paraules");
+			System.out.println("No queden més paraules");
 		}
 		estadistica(paraulesJugades, paraulesEncertades, paraulesFallades, paraulesCancelades);
 	}
