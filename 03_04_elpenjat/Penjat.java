@@ -16,11 +16,12 @@ public class Penjat {
 		int paraulesEncertades = 0;
 		int paraulesFallades = 0;
 		int paraulesCancelades = 0;
+		String paraula ="a";
 		
 		// Bucle del juego
 		while(continua) {
 			// Coge una palabra del fichero
-			String paraula = input.readLine();
+			paraula = input.readLine();
 			if (null == paraula) break;
 			char[] adivina = new char[paraula.length()];
 			for (int i=0;i<adivina.length;i++) {
@@ -78,6 +79,9 @@ public class Penjat {
 					break;
 				}
 			}	
+		}
+		if (null == paraula) {
+			System.out.println("NO queden més paraules");
 		}
 		estadistica(paraulesJugades, paraulesEncertades, paraulesFallades, paraulesCancelades);
 	}
