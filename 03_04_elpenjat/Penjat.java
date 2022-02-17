@@ -30,11 +30,12 @@ public class Penjat {
 			String lletres = "cap";
 			char lletra ='a';
 			int intents = 10;
+			String utilitzades ="a";
 			paraulesJugades++;
 			// Bucle de juego por cada palabra
 			while(true) {
 				System.out.println("Paraula: " + new String(adivina));
-				System.out.println("Utilitzades: " + stringLletres(lletres, lletra));
+				System.out.println("Utilitzades: " + utilitzades);
 				System.out.println("Intents disponibles: " + intents);
 				System.out.println("Introdueix una lletra");
 				entrada = Entrada.readLine();
@@ -61,6 +62,7 @@ public class Penjat {
 				// Manda a un módulo el string lletres para ampliarlo separado por comas
 				if(lletres.equals("cap")) lletres ="";
 				lletres = retornaLletres(lletra, lletres);
+				utilitzades = stringLletres(lletres, lletra);
 				//Comprueba si la letra esta en la palabra y la sustituye
 				if (comprovaLletra(paraula,lletra)) {
 					adivina = sustitueixLletra(paraula,lletra,adivina);
