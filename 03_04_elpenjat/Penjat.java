@@ -175,7 +175,7 @@ public class Penjat {
 		if (lletres.isEmpty()) {
 			lletres = Character.toString(Character.toUpperCase(lletra));
 		} else {
-			lletres = lletres +"i " + Character.toUpperCase(Character.toUpperCase(lletra));
+			lletres = lletres +" i " + Character.toUpperCase(Character.toUpperCase(lletra));
 		}
 		return lletres;
 	}
