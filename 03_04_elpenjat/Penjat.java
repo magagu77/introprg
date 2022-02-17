@@ -38,7 +38,7 @@ public class Penjat {
 				System.out.println("Utilitzades: " + lletres);
 				System.out.println("Intents disponibles: " + intents);
 				System.out.println("Introdueix una lletra");
-				entrada = Entrada.readLine();
+				entrada = (Entrada.readLine()).toLowerCase();
 				if(!lletraCorrecta(entrada)){
 					System.out.println("Error: cal una lletra entre 'a' i 'z', 'prou' o 'glups'");
 					continue;
