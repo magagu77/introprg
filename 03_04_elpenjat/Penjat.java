@@ -59,6 +59,7 @@ public class Penjat {
 					continue;
 				}
 				// Manda a un módulo el string lletres para ampliarlo separado por comas
+				if(lletres.equals("cap")) lletres ="";
 				lletres = retornaLletres(lletra, lletres);
 				//Comprueba si la letra esta en la palabra y la sustituye
 				if (comprovaLletra(paraula,lletra)) {
