@@ -9,6 +9,11 @@ public class Penjat {
 		// Seleccionar fichero del que leer las palabras
 		String fitxerParaula = "paraules.txt";
 		BufferedReader input = new BufferedReader(new FileReader(fitxerParaula));
+		String comprobaFitxer = input.readLine();
+		if (comprobaFitxer == null) {
+			System.out.println("No tinc paraules per jugar");
+			return;
+		}
 		System.out.println("Comencem a jugar");
 		String entrada ="a";
 		boolean continua = true;
@@ -44,9 +49,14 @@ public class Penjat {
 					continue;
 				}
 				if (comprovaSiPara(entrada)) {
-					continua = false;
-					paraulesCancelades++;
-					break;	
+					System.out.println("Vols finalitzar?");
+					if (UtilitatsConfirmacio.respostaABoolean(Entrada.readLine())) {
+						continua = false;
+						paraulesCancelades++;
+						break;
+					} else {
+						continue;
+					} 
 				}
 				// Comprueba si la entrada es "glups" y salta la palabra actual
 				if(entrada.equals("glups")) {
@@ -139,9 +149,7 @@ public class Penjat {
 	public static boolean comprovaSiPara (String para) {
 		para = para.toLowerCase();
 		if (para.equals("prou")) {
-			System.out.println("Vols finalitzar?");
-			if (UtilitatsConfirmacio.respostaABoolean(Entrada.readLine())) return true;
-			else return false;
+			return true;
 		} else return false;
 	}
 	public static boolean lletraCorrecta(String paraula) {
