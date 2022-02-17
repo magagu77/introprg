@@ -172,7 +172,7 @@ public class Penjat {
 	// Devuelve un string con la letras utilizadas
 	public static String stringLletres (String lletres, char lletra) {
 		if(lletres.equals("cap")) lletres = "";
-		lletres = lletres.replace("i",",");
+		lletres = lletres.replace(" i",",");
 		if (lletres.isEmpty()) {
 			lletres = Character.toString(Character.toUpperCase(lletra));
 		} else {
