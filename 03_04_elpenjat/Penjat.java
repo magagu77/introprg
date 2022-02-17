@@ -9,7 +9,8 @@ public class Penjat {
 		// Seleccionar fichero del que leer las palabras
 		String fitxerParaula = "paraules.txt";
 		BufferedReader input = new BufferedReader(new FileReader(fitxerParaula));
-		String comprobaFitxer = input.readLine();
+		BufferedReader proba = new BufferedReader(new FileReader(fitxerParaula));
+		String comprobaFitxer = proba.readLine();
 		if (comprobaFitxer == null) {
 			System.out.println("No tinc paraules per jugar");
 			return;
@@ -22,7 +23,7 @@ public class Penjat {
 		int paraulesFallades = 0;
 		int paraulesCancelades = 0;
 		String paraula ="a";
-		
+		proba.close();
 		// Bucle del juego
 		while(continua) {
 			// Coge una palabra del fichero
