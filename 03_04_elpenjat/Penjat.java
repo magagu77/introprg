@@ -68,6 +68,7 @@ public class Penjat {
 					intents = intents - 1;
 					if(comprovaDerrota(intents)) {
 						paraulesFallades++;
+						System.out.println("Has mort");
 						break;
 					}
 				}
