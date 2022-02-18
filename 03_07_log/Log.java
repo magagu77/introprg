@@ -1,4 +1,4 @@
-/* Programa que crea un fichero de log */
+/* Programa que crea un fichero de log con mensajes de error según sea necesario */
 public class Log{
     private static int nSeq = 1;
     // Log de erroe
