@@ -28,7 +28,7 @@ public class Inspecciona {
                     if (carpeta.length() == 0){
                         System.out.println(" fitxer buit");
                     } else {
-                        System.out.printf(" fitxer mida en bytes: %s\n", carpeta.length());
+                        System.out.printf(" fitxer de mida en bytes: %s\n", carpeta.length());
                     }
                 }
             }
@@ -36,8 +36,7 @@ public class Inspecciona {
             else {
                 System.out.println("No trobat");
                 System.out.println();
-                // continue;
-                break;
+                continue;
             }
         }
     }
