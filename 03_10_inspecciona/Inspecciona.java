@@ -8,7 +8,8 @@ public class Inspecciona {
         for(int i=0;i<args.length;i++) {
             File carpeta = new File(args[i]);
             String procesant = "Processant argument: " + args[i];
-            String[] extensio = args[i].split(".");
+            String nomFitxer = args[i];
+            String[] extensio = nomFitxer.split(".");
             System.out.println(procesant);
             for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
@@ -31,7 +32,7 @@ public class Inspecciona {
                     } else {
                         BufferedReader input =new BufferedReader(new FileReader(args[i]));
                         System.out.printf(" fitxer de mida en bytes: %s\n", carpeta.length());
-                        System.out.println(args[i]);
+                        System.out.println(nomFitxer);
             /*            if(extensio[1].equals("txt")|| extensio[1].equals("java")){
                             System.out.println("Amb els continguts:");
                             while (true) {
