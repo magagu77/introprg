@@ -9,21 +9,26 @@ public class Inspecciona {
             File carpeta = new File(args[i]);
             String procesant = "Procesant argument: " + args[i];
             System.out.println(procesant);
-            for(int c=0;i<procesant.length();c++) {
+            for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
             }
             System.out.println();
             // Comprueba si existe una carpeta o archivo con ese nombre
             if(carpeta.exists()) {
                 System.out.print(permisos(args[i]));
+                if (carpeta.isDirectory()) {
+                    System.out.print(" directori que conté:" + carpeta.list());
+                } else if (carpeta.isFile()) {
+                    System.out.printf(" fitxer mida en bytes: %s\n", carpeta.length());
+
+                }
             }
-            if (carpeta.isDirectory()) {
-                System.out.print(" directori que conté:" + carpeta.list());
-            }
+            
             else {
                 System.out.println("No trobat");
                 System.out.println();
-                continue;
+                // continue;
+                break;
             }
         }
     }
