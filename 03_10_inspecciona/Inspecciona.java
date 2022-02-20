@@ -8,8 +8,7 @@ public class Inspecciona {
         for(int i=0;i<args.length;i++) {
             File carpeta = new File(args[i]);
             String procesant = "Processant argument: " + args[i];
-            String nomFitxer = args[i];
-            String[] extensio = nomFitxer.split(".");
+            String[] extensio = args[i].split(".");
             System.out.println(procesant);
             for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
