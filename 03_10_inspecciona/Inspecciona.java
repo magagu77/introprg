@@ -8,7 +8,6 @@ public class Inspecciona {
     public static void main(String[] args) throws IOException {
         for(int i=0;i<args.length;i++) {
             File carpeta = new File(args[i]);
-            String nomFitxer = args[i];
             String procesant = "Processant argument: " + args[i];
             System.out.println(procesant);
             for(int c=0;c<procesant.length();c++) {
@@ -32,7 +31,7 @@ public class Inspecciona {
                     } else {
                         BufferedReader input =new BufferedReader(new FileReader(args[i]));
                         System.out.printf(" fitxer de mida en bytes: %s\n", carpeta.length());
-                        if(extensioCorrecta(nomFitxer)) {
+                        if(extensioCorrecta(args[i])) {
                             System.out.println("Amb els continguts:");
                             while (true) {
                                 String contingut = input.readLine();
@@ -48,7 +47,7 @@ public class Inspecciona {
             else {
                 System.out.println("No trobat");
                 System.out.println();
-                break;
+                continue;
             }
         }
     }
