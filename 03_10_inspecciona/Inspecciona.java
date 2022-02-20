@@ -8,9 +8,7 @@ public class Inspecciona {
         for(int i=0;i<args.length;i++) {
             File carpeta = new File(args[i]);
             String procesant = "Processant argument: " + args[i];
-            String[] extensio = args[i].split(".");
             System.out.println(procesant);
-            System.out.println(args.length);
             for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
             }
@@ -32,8 +30,7 @@ public class Inspecciona {
                     } else {
                         BufferedReader input =new BufferedReader(new FileReader(args[i]));
                         System.out.printf(" fitxer de mida en bytes: %s\n", carpeta.length());
-                        System.out.println(extensio.length);
-            /*            if(extensio[1].equals("txt")|| extensio[1].equals("java")){
+                        if(extensioCorrecta(args[i])) {
                             System.out.println("Amb els continguts:");
                             while (true) {
                                 String contingut = input.readLine();
@@ -41,7 +38,7 @@ public class Inspecciona {
                                 System.out.printf("|%s|\n",contingut);
                             }
                             input.close();
-                        } */
+                        }
                     }
                 }
             }
@@ -74,6 +71,7 @@ public class Inspecciona {
         }
         return permisos;
     }
+    // Genera un string
     public static String generaNoms(String[] fitxersCarpeta) {
         String fitxers ="";
         for (int i=0;i<fitxersCarpeta.length;i++) {
@@ -85,7 +83,11 @@ public class Inspecciona {
         }
         return fitxers;
     }
-    /*public static boolean extensioCorrecta (String nomFitxer) {
-        return nomFitxer;
-    }*/
+
+    // Comprueba extension y retorna true o false
+    public static boolean extensioCorrecta (String nomFitxer) {
+        String[] extensio = nomFitxer.split(".");
+        if(extensio[1].equals("txt") || extensio[1].equals("java")) return true;
+        return false;
+    }
 }
