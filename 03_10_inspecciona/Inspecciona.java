@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 public class Inspecciona {
     public static void main(String[] args) throws IOException {
         for(int i=0;i<args.length;i++) {
@@ -74,6 +75,7 @@ public class Inspecciona {
     // Genera un string
     public static String generaNoms(String[] fitxersCarpeta) {
         String fitxers ="";
+        Arrays.sort(fitxersCarpeta);
         for (int i=0;i<fitxersCarpeta.length;i++) {
             if (i==0) {
                 fitxers = fitxersCarpeta[i];
