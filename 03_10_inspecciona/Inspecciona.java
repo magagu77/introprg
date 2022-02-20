@@ -17,7 +17,11 @@ public class Inspecciona {
             if(carpeta.exists()) {
                 System.out.print(permisos(args[i]));
                 if (carpeta.isDirectory()) {
-                    System.out.print(" directori que conté:" + carpeta.list());
+                    if (carpeta.list()==null){
+                        System.out.println("directori buit");
+                    } else {
+                        System.out.print(" directori que conté:" + carpeta.list());
+                    }
                 } else if (carpeta.isFile()) {
                     if (carpeta.length() == 0){
                         System.out.println(" fitxer buit");
