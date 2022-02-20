@@ -32,7 +32,7 @@ public class Inspecciona {
                     } else {
                         BufferedReader input =new BufferedReader(new FileReader(args[i]));
                         System.out.printf(" fitxer de mida en bytes: %s\n", carpeta.length());
-                        System.out.println(nomFitxer);
+                        System.out.println(extensio.length);
             /*            if(extensio[1].equals("txt")|| extensio[1].equals("java")){
                             System.out.println("Amb els continguts:");
                             while (true) {
