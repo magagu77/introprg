@@ -34,7 +34,7 @@ public class Inspecciona {
                         while (true) {
                             String contingut = input.readLine();
                             if (contingut == null) break;
-                            System.out.printf("| %s |\n",contingut);
+                            System.out.printf("|%s|\n",contingut);
                         }
                         input.close();
                     }
