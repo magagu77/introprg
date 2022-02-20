@@ -32,7 +32,7 @@ public class Inspecciona {
                         System.out.printf(" fitxer de mida en bytes: %s\n", carpeta.length());
                         String[] extensio = args[i].split(".");
                         System.out.println(extensio.length);
-                        if(extensio[1].equals("txt")|| extensio[1].equals("java")){
+            /*            if(extensio[1].equals("txt")|| extensio[1].equals("java")){
                             System.out.println("Amb els continguts:");
                             while (true) {
                                 String contingut = input.readLine();
@@ -40,7 +40,7 @@ public class Inspecciona {
                                 System.out.printf("|%s|\n",contingut);
                             }
                             input.close();
-                        }
+                        } */
                     }
                 }
             }
