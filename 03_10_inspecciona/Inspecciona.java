@@ -88,8 +88,8 @@ public class Inspecciona {
 
     // Comprueba extension y retorna true o false
     public static boolean extensioCorrecta (String nomFitxer) {
-        nomFitxer = nomFitxer.replace(".",",");
-        String[] extensio = nomFitxer.split(",");
+        //nomFitxer = nomFitxer.replace(".",",");
+        String[] extensio = nomFitxer.split("\\.");
         if(extensio[1].equals("txt") || extensio[1].equals("java")) return true;
         return false;
     }
