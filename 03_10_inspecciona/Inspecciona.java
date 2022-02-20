@@ -19,6 +19,9 @@ public class Inspecciona {
                 if (carpeta.isDirectory()) {
                     System.out.print(" directori que conté:" + carpeta.list());
                 } else if (carpeta.isFile()) {
+                    if (carpeta.length() == 0){
+                        System.out.println(" fitxer buit");
+                    }
                     System.out.printf(" fitxer mida en bytes: %s\n", carpeta.length());
 
                 }
