@@ -22,7 +22,7 @@ public class Inspecciona {
                         System.out.println(" directori buit");
                     } else {
                         String fitxersCarpeta = generaNoms(subcarpeta);
-                        System.out.printf(" directori que conté: %s\n");
+                        System.out.printf(" directori que conté: %s\n", fitxersCarpeta);
                     }
                 } else if (carpeta.isFile()) {
                     if (carpeta.length() == 0){
