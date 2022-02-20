@@ -10,6 +10,7 @@ public class Inspecciona {
             String procesant = "Processant argument: " + args[i];
             String[] extensio = args[i].split(".");
             System.out.println(procesant);
+            System.out.println(extensio[0]);
             for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
             }
@@ -84,4 +85,7 @@ public class Inspecciona {
         }
         return fitxers;
     }
+    /*public static boolean extensioCorrecta (String nomFitxer) {
+        return nomFitxer;
+    }*/
 }
