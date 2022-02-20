@@ -19,7 +19,7 @@ public class Inspecciona {
                 if (carpeta.isDirectory()) {
                     String[] subcarpeta = carpeta.list();
                     if (subcarpeta.length ==0){
-                        System.out.println("directori buit");
+                        System.out.println(" directori buit");
                     } else {
                         System.out.print(" directori que conté:" + carpeta.list());
                     }
