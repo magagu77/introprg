@@ -3,14 +3,13 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 public class Inspecciona {
     public static void main(String[] args) throws IOException {
         for(int i=0;i<args.length;i++) {
             File carpeta = new File(args[i]);
             String procesant = "Processant argument: " + args[i];
-            String[] extensio = args[i].split(".");
             System.out.println(procesant);
-            System.out.println(args.length);
             for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
             }
@@ -32,8 +31,7 @@ public class Inspecciona {
                     } else {
                         BufferedReader input =new BufferedReader(new FileReader(args[i]));
                         System.out.printf(" fitxer de mida en bytes: %s\n", carpeta.length());
-                        System.out.println(extensio.length);
-            /*            if(extensio[1].equals("txt")|| extensio[1].equals("java")){
+                        if(extensioCorrecta(args[i])) {
                             System.out.println("Amb els continguts:");
                             while (true) {
                                 String contingut = input.readLine();
@@ -41,7 +39,7 @@ public class Inspecciona {
                                 System.out.printf("|%s|\n",contingut);
                             }
                             input.close();
-                        } */
+                        }
                     }
                 }
             }
@@ -49,7 +47,7 @@ public class Inspecciona {
             else {
                 System.out.println("No trobat");
                 System.out.println();
-                break;
+                continue;
             }
         }
     }
@@ -74,8 +72,10 @@ public class Inspecciona {
         }
         return permisos;
     }
+    // Genera un string
     public static String generaNoms(String[] fitxersCarpeta) {
         String fitxers ="";
+        Arrays.sort(fitxersCarpeta);
         for (int i=0;i<fitxersCarpeta.length;i++) {
             if (i==0) {
                 fitxers = fitxersCarpeta[i];
@@ -85,7 +85,12 @@ public class Inspecciona {
         }
         return fitxers;
     }
-    /*public static boolean extensioCorrecta (String nomFitxer) {
-        return nomFitxer;
-    }*/
+
+    // Comprueba extension y retorna true o false
+    public static boolean extensioCorrecta (String nomFitxer) {
+        nomFitxer = nomFitxer.replace(".",",");
+        String[] extensio = nomFitxer.split(",");
+        if(extensio[1].equals("txt") || extensio[1].equals("java")) return true;
+        return false;
+    }
 }
