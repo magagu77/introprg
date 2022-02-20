@@ -10,7 +10,7 @@ public class Inspecciona {
             String procesant = "Processant argument: " + args[i];
             String[] extensio = args[i].split(".");
             System.out.println(procesant);
-            System.out.println(args[0].length());
+            System.out.println(args.length);
             for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
             }
