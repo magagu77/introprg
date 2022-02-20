@@ -21,7 +21,8 @@ public class Inspecciona {
                     if (subcarpeta.length ==0){
                         System.out.println(" directori buit");
                     } else {
-                        System.out.print(" directori que conté:" + carpeta.list());
+                        String fitxersCarpeta = generaNoms(subcarpeta);
+                        System.out.printf(" directori que conté: %s\n");
                     }
                 } else if (carpeta.isFile()) {
                     if (carpeta.length() == 0){
@@ -60,5 +61,16 @@ public class Inspecciona {
             permisos = permisos + "-";
         }
         return permisos;
+    }
+    public static String generaNoms(String[] fitxersCarpeta) {
+        String fitxers ="";
+        for (int i=0;i<fitxersCarpeta.length;i++) {
+            if (i==0) {
+                fitxers = fitxersCarpeta[i];
+            } else {
+                fitxers = fitxers +", " + fitxersCarpeta[i];
+            }
+        }
+        return fitxers;
     }
 }
