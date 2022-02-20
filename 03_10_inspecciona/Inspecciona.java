@@ -7,7 +7,7 @@ public class Inspecciona {
     public static void main(String[] args) throws IOException {
         for(int i=0;i<args.length;i++) {
             File carpeta = new File(args[i]);
-            String procesant = "Procesant argument: " + args[i];
+            String procesant = "Processant argument: " + args[i];
             System.out.println(procesant);
             for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
