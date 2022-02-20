@@ -17,7 +17,8 @@ public class Inspecciona {
             if(carpeta.exists()) {
                 System.out.print(permisos(args[i]));
                 if (carpeta.isDirectory()) {
-                    if (carpeta.list()==null){
+                    String[] subcarpeta = carpeta.list();
+                    if (subcarpeta.length ==0){
                         System.out.println("directori buit");
                     } else {
                         System.out.print(" directori que conté:" + carpeta.list());
