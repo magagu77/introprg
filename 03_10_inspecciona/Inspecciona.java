@@ -8,7 +8,6 @@ public class Inspecciona {
         for(int i=0;i<args.length;i++) {
             File carpeta = new File(args[i]);
             String procesant = "Processant argument: " + args[i];
-            BufferedReader input =new BufferedReader(new FileReader(args[i]));
             System.out.println(procesant);
             for(int c=0;c<procesant.length();c++) {
                 System.out.print("=");
@@ -29,6 +28,7 @@ public class Inspecciona {
                     if (carpeta.length() == 0){
                         System.out.println(" fitxer buit");
                     } else {
+                        BufferedReader input =new BufferedReader(new FileReader(args[i]));
                         System.out.printf(" fitxer de mida en bytes: %s\n", carpeta.length());
                         System.out.println("Amb els continguts:");
                         while (true) {
@@ -36,6 +36,7 @@ public class Inspecciona {
                             if (contingut == null) break;
                             System.out.printf("| %s |",contingut);
                         }
+                        input.close();
                     }
                 }
             }
@@ -45,7 +46,6 @@ public class Inspecciona {
                 System.out.println();
                 break;
             }
-            input.close();
         }
     }
     // Modulo para comprobar los permisos de un archivo o carpeta
