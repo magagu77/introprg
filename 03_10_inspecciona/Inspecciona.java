@@ -21,9 +21,9 @@ public class Inspecciona {
                 } else if (carpeta.isFile()) {
                     if (carpeta.length() == 0){
                         System.out.println(" fitxer buit");
+                    } else {
+                        System.out.printf(" fitxer mida en bytes: %s\n", carpeta.length());
                     }
-                    System.out.printf(" fitxer mida en bytes: %s\n", carpeta.length());
-
                 }
             }
             
