@@ -1,4 +1,4 @@
-/* Programa UsaLog para probar el Log.java */	
+/* Programa UsaLog para probar el Log.java, demostración de uso del profe */	
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
