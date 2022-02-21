@@ -1,0 +1,26 @@
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test GatRenat.pis")
+    public void testGatRenatTeVides() {
+        GatRenat renat = new GatRenat();
+        assertEquals(7, renat.vides, "Cal inicialitzar les vides segons enunciat");
+    }
+    @Test
+    @DisplayName("test Renat neix estirat")
+    public void testRenatNeixEstirat() {
+        assertEquals("estirat", new GatRenat().posicio, "Cal inicialitzar la posició segons enunciat");
+    }
+    @Test
+    @DisplayName("test GatRenat no té main()")
+    public void testGatRenatNoTeMain() {
+        assertFalse(java.util.Arrays.stream(GatRenat.class.getDeclaredMethods())
+                .anyMatch(m -> m.getName().equals("main")),
+                "La classe GatRenat no hauria de tenir main() en aquest exercici");
+    }
+
+}

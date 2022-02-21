@@ -1,0 +1,8 @@
+'01':
+  stdin:
+  - ''
+  stdout:
+  - 'Pis inicial: -1'
+  - 'Moviment inicial: aturat'
+  - 'Moviment final: pujant'
+_mainclass: UsaAscensor

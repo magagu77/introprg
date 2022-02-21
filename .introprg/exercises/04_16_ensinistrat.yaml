@@ -1,0 +1,7 @@
+_mainclass: UsaGatRenat
+'01':
+  stdout:
+  - 'El Renat diu: m''aixeco'
+  - 'El Renat diu: m''assec'
+  - 'El Renat diu: m''estiro'
+  - 'El Renat diu: no faig res'

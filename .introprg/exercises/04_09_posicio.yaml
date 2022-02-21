@@ -1,0 +1,8 @@
+'01':
+  stdin:
+  - ''
+  stdout:
+  - 'Vides inicials: 7'
+  - 'Posició inicial: estirat'
+  - 'Posició final: assegut'
+_mainclass: UsaGatRenat

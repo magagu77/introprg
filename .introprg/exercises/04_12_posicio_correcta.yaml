@@ -1,0 +1,29 @@
+'01':
+  stdin: estirat
+  stdout:
+  - 'Vides inicials: 7'
+  - 'Posició inicial: estirat'
+  - 'Introdueix nova posició:'
+  - 'Posició final: estirat'
+'02':
+  stdin: dret
+  stdout:
+  - 'Vides inicials: 7'
+  - 'Posició inicial: estirat'
+  - 'Introdueix nova posició:'
+  - 'Posició final: dret'
+'03':
+  stdin: assegut
+  stdout:
+  - 'Vides inicials: 7'
+  - 'Posició inicial: estirat'
+  - 'Introdueix nova posició:'
+  - 'Posició final: assegut'
+'04':
+  stdin: corrent
+  stdout:
+  - 'Vides inicials: 7'
+  - 'Posició inicial: estirat'
+  - 'Introdueix nova posició:'
+  - 'Posició final: estirat'
+_mainclass: UsaGatRenat

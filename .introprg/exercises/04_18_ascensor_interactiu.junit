@@ -1,0 +1,232 @@
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.lang.reflect.Modifier;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test l'Ascensor s'inicialitza correctament")
+    public void inicialitzatCorrectament() {
+        Ascensor ascensor = new Ascensor();
+        assertEquals(-1, ascensor.getPis(), "Revisa la inicialització de l'ascensor");
+        assertEquals("aturat", ascensor.getMoviment(), "Revisa la inicialització de l'ascensor segons enunciat");
+    }
+
+    @Test
+    @DisplayName("test l'ascensor sempre està en un pis vàlid")
+    public void ascensorEnPisValidQuanValid() {
+        for (int i=-1; i<=10; i++) {
+            Ascensor ascensor = new Ascensor();
+            ascensor.setPis(i);
+            assertEquals(i, ascensor.getPis(), "Revisa setPis()");
+        }
+    }
+
+    @Test
+    @DisplayName("test l'ascensor sempre està en un pis vàlid")
+    public void ascensorEnPisValidQuanNoValid() {
+        for (int i=1; i<10; i++) {
+            Ascensor ascensor = new Ascensor();
+            ascensor.setPis(20 - i);
+            assertEquals(-1, ascensor.getPis(), "Revisa setPis()");
+            ascensor = new Ascensor();
+            ascensor.setPis(20 + i);
+            assertEquals(-1, ascensor.getPis(), "Revisa setPis()");
+        }
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "aturat, aturat",
+        "pujant, pujant",
+        "baixant, baixant",
+        "tremolant, aturat",
+        "saltant, aturat"
+    })
+    @DisplayName("test Ascensor quan canvia moviment")
+    public void movimentCorrecte(String nouMoviment, String movimentFinal) {
+        Ascensor ascensor = new Ascensor();
+        ascensor.setMoviment(nouMoviment);
+        assertEquals(movimentFinal, ascensor.getMoviment());
+    }
+
+    @Test
+    @DisplayName("test totes les propietats són privades")
+    public void propietatsPrivades() {
+        assertFalse(Arrays.stream(Ascensor.class.getDeclaredFields())
+                .anyMatch(f -> ! Modifier.isPrivate(f.getModifiers())),
+                "Totes les propietats han de ser marcades com privades per evitar modificacions indesitjades");
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "aturat,true,false,false,false",
+        "pujant,false,true,false,true",
+        "baixant,false,false,true,true"
+    })
+    @DisplayName("test consultes de moviment")
+    public void consultesMoviment(String moviment,
+                                  boolean estaAturat,
+                                  boolean estaPujant,
+                                  boolean estaBaixant,
+                                  boolean estaMovent) {
+        Ascensor ascensor = new Ascensor();
+        ascensor.setMoviment(moviment);
+        assertAll(
+                () -> assertEquals(moviment, ascensor.getMoviment(), "Revisa setMoviment()"),
+                () -> assertEquals(estaAturat, ascensor.estaAturat(), "Revisa estaAturat()"),
+                () -> assertEquals(estaPujant, ascensor.estaPujant(), "Revisa estaPujant()"),
+                () -> assertEquals(estaBaixant, ascensor.estaBaixant(), "Revisa estaBaixant()"),
+                () -> assertEquals(estaMovent, ascensor.estaMovent(), "Revisa estaMovent()")
+                );
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "-1,true,false",
+        "0,false,false",
+        "1,false,false",
+        "10,false,true",
+    })
+    @DisplayName("test consultes del pis en que es troba")
+    public void consultesMoviment(int pis,
+                                  boolean estaAbaix,
+                                  boolean estaAmunt) {
+        Ascensor ascensor = new Ascensor();
+        ascensor.setPis(pis);
+        assertAll(
+                () -> assertEquals(pis, ascensor.getPis(), "Revisa setPis()"),
+                () -> assertEquals(estaAbaix, ascensor.estaAbaix(), "Revisa estaAbaix()"),
+                () -> assertEquals(estaAmunt, ascensor.estaAmunt(), "Revisa estaAmunt()")
+                );
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "-1,aturat,aturat al pis -1",
+        "0,pujant,pujant al pis 0",
+        "1,baixant,baixant al pis 1",
+    })
+    @DisplayName("test consultes estat de l'ascensor")
+    public void consultesEstat(int pis,
+                               String moviment,
+                               String respostaEsperada) {
+        Ascensor ascensor = new Ascensor();
+        ascensor.setPis(pis);
+        ascensor.setMoviment(moviment);
+        String respostaObtinguda = ascensor.comEsta();
+        assertEquals(respostaEsperada, respostaObtinguda, 
+                String.format("Revisa comEsta() quan %s al pis %d, s'espera \"%s\"",
+                    moviment, pis, respostaEsperada));
+    }
+
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "aturat,false,aturat",
+        "pujant,true,aturat",
+        "baixant,true,aturat",
+    })
+    @DisplayName("test atura l'ascensor")
+    public void aturaAscensor(String movimentInicial,
+                                  boolean respostaEsperada,
+                                  String movimentFinal) {
+        Ascensor ascensor = new Ascensor();
+        ascensor.setMoviment(movimentInicial);
+        boolean respostaObtinguda = ascensor.aturat();
+        assertAll(
+                () -> assertEquals(movimentFinal, ascensor.getMoviment(),
+                                   String.format("Quan està %s, aturat() l'ha de deixar %s",
+                                       movimentInicial, movimentFinal)),
+                () -> assertEquals(respostaEsperada, respostaObtinguda, 
+                                   String.format("Quan està %s, aturat() l'ha de respondre %b",
+                                       movimentInicial, respostaEsperada))
+                );
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "aturat,true,pujant",
+        "pujant,false,pujant",
+        "baixant,false,baixant",
+    })
+    @DisplayName("test arrenca amunt l'ascensor")
+    public void arrencaAmuntAscensor(String movimentInicial,
+                                     boolean respostaEsperada,
+                                     String movimentFinal) {
+        Ascensor ascensor = new Ascensor();
+        ascensor.setMoviment(movimentInicial);
+        boolean respostaObtinguda = ascensor.arrencaAmunt();
+        assertAll(
+                () -> assertEquals(movimentFinal, ascensor.getMoviment(),
+                                   String.format("Quan està %s, arrencaAmunt() l'ha de deixar %s",
+                                       movimentInicial, movimentFinal)),
+                () -> assertEquals(respostaEsperada, respostaObtinguda, 
+                                   String.format("Quan està %s, arrencaAmunt() l'ha de respondre %b",
+                                       movimentInicial, respostaEsperada))
+                );
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "aturat,true,baixant",
+        "pujant,false,pujant",
+        "baixant,false,baixant",
+    })
+    @DisplayName("test arrenca abaix l'ascensor")
+    public void arrencaAbaixAscensor(String movimentInicial,
+                                     boolean respostaEsperada,
+                                     String movimentFinal) {
+        Ascensor ascensor = new Ascensor();
+        ascensor.setMoviment(movimentInicial);
+        boolean respostaObtinguda = ascensor.arrencaAbaix();
+        assertAll(
+                () -> assertEquals(movimentFinal, ascensor.getMoviment(),
+                                   String.format("Quan està %s, arrencaAbaix() l'ha de deixar %s",
+                                       movimentInicial, movimentFinal)),
+                () -> assertEquals(respostaEsperada, respostaObtinguda, 
+                                   String.format("Quan està %s, arrencaAbaix() l'ha de respondre %b",
+                                       movimentInicial, respostaEsperada))
+                );
+    }
+
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "aturat,1,1,aturat",
+        "pujant,1,2,pujant",
+        "pujant,2,3,pujant",
+        "pujant,9,10,pujant",
+        "pujant,10,9,baixant",
+        "baixant,3,2,baixant",
+        "baixant,4,3,baixant",
+        "baixant,0,-1,baixant",
+        "baixant,-1,0,pujant",
+    })
+    @DisplayName("test següent pis")
+    public void seguentPis(String movimentInicial,
+                           int pisInicial,
+                           int pisEsperat,
+                           String movimentEsperat) {
+        Ascensor ascensor = new Ascensor();
+        ascensor.setMoviment(movimentInicial);
+        ascensor.setPis(pisInicial);
+        int pisObtingut = ascensor.seguentPis();
+        assertAll(
+                () -> assertEquals(movimentEsperat, ascensor.getMoviment(),
+                                   String.format("Quan està %s al pis %d, seguentPis() ha de quedar %s",
+                                       movimentInicial, pisInicial, movimentEsperat)),
+                () -> assertEquals(pisEsperat, pisObtingut, 
+                                   String.format("Quan està %s al pis %d, seguentPis() ha de passar al pis %d",
+                                       movimentInicial, pisInicial, pisEsperat))
+                );
+    }
+
+
+}

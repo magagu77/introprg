@@ -1,0 +1,45 @@
+_mainclass: UsaAscensor
+'01':
+  stdin:
+  - '5'
+  - pujant
+  stdout:
+  - 'Pis inicial: -1'
+  - 'Moviment inicial: aturat'
+  - 'Introdueix nou pis:'
+  - 'Introdueix nou moviment:'
+  - 'Pis final: 5'
+  - 'Moviment final: pujant'
+'02':
+  stdin:
+  - '6'
+  - baixant
+  stdout:
+  - 'Pis inicial: -1'
+  - 'Moviment inicial: aturat'
+  - 'Introdueix nou pis:'
+  - 'Introdueix nou moviment:'
+  - 'Pis final: 6'
+  - 'Moviment final: baixant'
+'03':
+  stdin:
+  - '12'
+  - aturat
+  stdout:
+  - 'Pis inicial: -1'
+  - 'Moviment inicial: aturat'
+  - 'Introdueix nou pis:'
+  - 'Introdueix nou moviment:'
+  - 'Pis final: -1'
+  - 'Moviment final: aturat'
+'04':
+  stdin:
+  - 'planta baixa'
+  - tremola
+  stdout:
+  - 'Pis inicial: -1'
+  - 'Moviment inicial: aturat'
+  - 'Introdueix nou pis:'
+  - 'Introdueix nou moviment:'
+  - 'Pis final: -1'
+  - 'Moviment final: aturat'

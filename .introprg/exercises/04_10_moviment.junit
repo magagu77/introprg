@@ -1,0 +1,26 @@
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test Ascensor.pis")
+    public void testAscensorTePis() {
+        Ascensor renat = new Ascensor();
+        assertEquals(-1, renat.pis, "Cal inicialitzar el pis segons enunciat");
+    }
+    @Test
+    @DisplayName("test Renat neix estirat")
+    public void testAscensorIniciaAturat() {
+        assertEquals("aturat", new Ascensor().moviment, "Cal inicialitzar el moviment segons enunciat");
+    }
+    @Test
+    @DisplayName("test Ascensor no té main()")
+    public void testAscensorNoTeMain() {
+        assertFalse(java.util.Arrays.stream(Ascensor.class.getDeclaredMethods())
+                .anyMatch(m -> m.getName().equals("main")),
+                "La classe Ascensor no hauria de tenir main() en aquest exercici");
+    }
+
+}

@@ -1,0 +1,25 @@
+import java.lang.reflect.Type;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+    @Test
+    @DisplayName("test Ascensor.moltsAscensors(5)")
+    public void cincAscensors() {
+        Ascensor[] ascensors = Ascensor.creaAscensors(5);
+        assertNotNull(ascensors, "Revisa creaAscensors(5). No hauria de retornar null");
+        assertEquals(5, ascensors.length, "Revisa creaAscensors(5)");
+        for (int i=0; i<ascensors.length; i++) {
+            assertNotNull(ascensors[i], "Revisa creaAscensors(5). Està retornant valors nulls");
+            assertEquals(i, ascensors[i].pis, "Revisa creaAscensors(5). Està retornant ascensors en pis no esperat ");
+        }
+    }
+    @Test
+    @DisplayName("test Ascensor.moltsAscensors(0)")
+    public void zeroAscensors() {
+        Ascensor[] ascensors = Ascensor.creaAscensors(0);
+        assertNotNull(ascensors, "Revisa creaAscensors(0). No hauria de retornar null");
+        assertEquals(0, ascensors.length, "Revisa el funcionament de la crida creaAscensors(0)");
+    }
+}

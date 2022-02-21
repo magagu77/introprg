@@ -1,0 +1,13 @@
+import java.lang.reflect.Type;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+    @Test
+    @DisplayName("test Ascensor.pis")
+    public void testAscensorTePis() {
+        Ascensor ascensor = new Ascensor();
+        assertEquals(-1, ascensor.pis, "Cal inicialitzar el pis segons enunciat");
+    }
+}

@@ -827,7 +827,7 @@ def perform_junit_tests(working_dir, junit_path, env, timeout, precommand=None):
     """ performs the JUnit tests """
     if junit_path is None:
         return
-    test_path = get_test_path(working_dir)
+    test_path = prepare_test(working_dir)
     copy_junit(junit_path, dest_path=test_path)
     result = run_junit_tests(test_path, env, timeout, precommand=precommand)
     compare_junit_result(result)
@@ -1119,7 +1119,7 @@ def show_provided_stdin(provided_stdin):
     if provided_stdin:
         show_output_on_stderr(
             title=getmsg('MSG_TITLE_STANDARD_INPUT'),
-            msg="Se li ha passat el següent codi per entrada estàndard\n",
+            msg=getmsg('MSG_ERR_TEST_INPUT_CONTENTS'),
             output=provided_stdin,
         )
 
