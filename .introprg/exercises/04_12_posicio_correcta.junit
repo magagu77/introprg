@@ -1,0 +1,43 @@
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.lang.reflect.Modifier;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test Renat neix estirat")
+    public void testRenatNeixEstirat() {
+        assertEquals("estirat", new GatRenat().getPosicio());
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "estirat, estirat",
+        "dret, dret",
+        "assegut, assegut",
+        "corrent, estirat",
+        "saltant, estirat"
+    })
+    @DisplayName("test Renat quan canvia")
+    public void testRenatNeixEstirat(String nouPosicio, String posicioFinal) {
+        GatRenat renat = new GatRenat();
+        renat.setPosicio(nouPosicio);
+        assertEquals(posicioFinal, renat.getPosicio());
+    }
+
+    @Test
+    @DisplayName("test totes les propietats són privades")
+    public void propietatsPrivades() {
+        assertFalse(Arrays.stream(GatRenat.class.getDeclaredFields())
+                .anyMatch(f -> ! Modifier.isPrivate(f.getModifiers())),
+                "Totes les propietats han de ser marcades com privades per evitar modificacions indesitjades");
+
+    }
+
+}

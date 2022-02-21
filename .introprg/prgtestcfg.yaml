@@ -36,6 +36,8 @@ MSG_ERR_NON_STAGED_TIP: "Considera una de les següents possibilitats:\n$ git ad
 MSG_ERR_MISSING_COMMIT: "Cal registrar els canvis a git"
 MSG_ERR_MISSING_COMMIT_TIP: 'Considera:\n$ git commit -am "»descripció dels canvis realitzats»"'
 
+MSG_ERR_TEST_INPUT_CONTENTS: "Se li ha passat el següent contingut per entrada estàndard:"
+
 MSG_ERR_MORE_LINES_THAN_EXPECTED: "Li sobra la línia:"
 MSG_ERR_LESS_LINES_THAN_EXPECTED: "Li falta la línia:"
 MSG_ERR_LINE_DISCREPANCY: "Les següents línies difereixen"

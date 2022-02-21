@@ -1,0 +1,78 @@
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.lang.reflect.Modifier;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test Renat neix estirat")
+    public void testRenatNeixEstirat() {
+        assertEquals("estirat", new GatRenat().getPosicio(), "Renat ha de néixer estirat");
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+        "estirat,true,false,false",
+        "assegut,false,true,false",
+        "dret,false,false,true"
+    })
+    @DisplayName("test consultes de posició")
+    public void testRenatNeixEstirat(String posicio,
+                                     boolean estaEstirat,
+                                     boolean estaAssegut,
+                                     boolean estaDret) {
+        GatRenat renat = new GatRenat();
+        renat.setPosicio(posicio);
+        assertAll(
+                () -> assertEquals(posicio, renat.getPosicio(), "Revisa setPosicio()"),
+                () -> assertEquals(estaEstirat, renat.estaEstirat(), "Revisa estaEstirat()"),
+                () -> assertEquals(estaAssegut, renat.estaAssegut(), "Revisa estaAssegut()"),
+                () -> assertEquals(estaDret, renat.estaDret(), "Revisa estaDret()")
+                );
+    }
+
+    @Test
+    @DisplayName("test Renat neix viu")
+    public void testRenatNeixViu() {
+        assertTrue(new GatRenat().estaViu(), "Renat ha de néixer viu");
+    }
+
+    @Test
+    @DisplayName("test Renat pot morir")
+    public void testRenatPotMorir() {
+        GatRenat renat = new GatRenat();
+        renat.setVides(0);
+        assertFalse(renat.estaViu(), "Renat no està viu amb 0 vides");
+    }
+
+
+    @Test
+    @DisplayName("test Renat quan està dret")
+    public void testRenatDret() {
+        GatRenat renat = new GatRenat();
+        renat.setPosicio("dret");
+
+        assertAll("dret", 
+                () -> assertTrue(renat.estaDret(), "Renat ha d'estar dret"),
+                () -> assertFalse(renat.estaEstirat(), "Renat no pot estar estirat quan està dret"),
+                () -> assertFalse(renat.estaAssegut(), "Renat no pot estar assegut quan està dret")
+                );
+    }
+
+
+    @Test
+    @DisplayName("test totes les propietats són privades")
+    public void propietatsPrivades() {
+        assertFalse(Arrays.stream(GatRenat.class.getDeclaredFields())
+                .anyMatch(f -> ! Modifier.isPrivate(f.getModifiers())),
+                "Totes les propietats han de ser marcades com privades per evitar modificacions indesitjades");
+
+    }
+
+}

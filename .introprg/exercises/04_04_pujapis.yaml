@@ -1,0 +1,5 @@
+_mainclass: Ascensor
+'01':
+  'stdout':
+    - "L'ascensor inicialment està a la planta -1"
+    - "L'ascensor finalment està a la planta 0"

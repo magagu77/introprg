@@ -1,0 +1,22 @@
+_mainclass: Ascensor
+'01':
+  'argsin': '1'
+  'stdout':
+    - "Ascensor 0 al pis 0"
+'02':
+  'argsin': '2'
+  'stdout':
+    - "Ascensor 0 al pis 0"
+    - "Ascensor 1 al pis 1"
+'03':
+  'argsin': '3'
+  'stdout':
+    - "Ascensor 0 al pis 0"
+    - "Ascensor 1 al pis 1"
+    - "Ascensor 2 al pis 2"
+'04':
+  'argsin': '0'
+  'stdout': "Cap ascensor"
+'05':
+  'argsin': 'cap'
+  'stdout': "Cap ascensor"

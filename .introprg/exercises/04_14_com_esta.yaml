@@ -1,0 +1,31 @@
+'01':
+  stdin:
+  - '1'
+  - assegut
+  stdout:
+  - 'Inicialment renat.estaViu(): true'
+  - 'Inicialment renat.estaDret(): false'
+  - 'Inicialment renat.estaAssegut(): false'
+  - 'Inicialment renat.estaEstirat(): true'
+  - 'Introdueix quantes vides:'
+  - 'Introdueix nova posició:'
+  - 'Finalment renat.estaViu(): true'
+  - 'Finalment renat.estaDret(): false'
+  - 'Finalment renat.estaAssegut(): true'
+  - 'Finalment renat.estaEstirat(): false'
+'02':
+  stdin:
+  - '0'
+  - estirat
+  stdout:
+  - 'Inicialment renat.estaViu(): true'
+  - 'Inicialment renat.estaDret(): false'
+  - 'Inicialment renat.estaAssegut(): false'
+  - 'Inicialment renat.estaEstirat(): true'
+  - 'Introdueix quantes vides:'
+  - 'Introdueix nova posició:'
+  - 'Finalment renat.estaViu(): false'
+  - 'Finalment renat.estaDret(): false'
+  - 'Finalment renat.estaAssegut(): false'
+  - 'Finalment renat.estaEstirat(): true'
+_mainclass: UsaGatRenat
