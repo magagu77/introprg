@@ -2,8 +2,8 @@
 public class Ascensor {
     public static int pis = 0;
     // AScensor puja un pis
-    public static void pujaPis(Ascensor ascensor, int pis) {
-        ascensor.pis = pis;
+    public static void pujaPis(Ascensor ascensor, int numero) {
+        ascensor.pis = numero;
     }
     public static Ascensor[] creaAscensors(int quants) {
         Ascensor[] ascensors = new Ascensor[quants];
