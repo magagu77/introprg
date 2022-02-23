@@ -15,6 +15,7 @@ public class Ascensor {
         Ascensor[] ascensors = creaAscensors(quants);
         for (int i = 0; i < ascensors.length; i++) {
             System.out.printf("Ascensor %d al pis %d%n", i, ascensors[i].pis);
+            ascensors[i].pis = i;
         }
     }
 }
