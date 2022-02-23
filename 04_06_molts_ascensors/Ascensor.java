@@ -2,9 +2,6 @@
 public class Ascensor {
     public static int pis = 0;
     // AScensor puja un pis
-    public static void pujaPis(Ascensor ascensor, int numero) {
-        ascensor.pis = numero;
-    }
     public static Ascensor[] creaAscensors(int quants) {
         Ascensor[] ascensors = new Ascensor[quants];
         return ascensors;
@@ -18,8 +15,8 @@ public class Ascensor {
         int quants = Integer.parseInt(args[0]);
         Ascensor[] ascensors = creaAscensors(quants);
         for (int i = 0; i < ascensors.length; i++) {
+            ascensors[i].pis = i;
             System.out.printf("Ascensor %d al pis %d%n", i, ascensors[i].pis);
-            pujaPis(ascensors[i], i);
         }
     }
 }
