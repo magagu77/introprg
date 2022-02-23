@@ -1,3 +1,4 @@
+// Programa del ascensor pero puja un pis
 public class Ascensor {
     public static int pis = -1;
     public static void pujaPis(Ascensor ascensor) {
