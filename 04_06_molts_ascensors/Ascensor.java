@@ -7,7 +7,7 @@ public class Ascensor {
     }
     public static void main(String[] args) {
         Ascensor ascensor = new Ascensor();
-        if(!UtilString.esEnter(args[0])) {
+        if(!UtilString.esEnter(args[0]) || args[0].equals("0")) {
             System.out.println("Cap ascensor");
             return;
         }
