@@ -2,8 +2,12 @@
 public class Ascensor {
     public static int pis = 0;
     // AScensor puja un pis
-    public static void pujaPis(Ascensor ascensor) {
-        ascensor.pis++;
+    public static void pujaPis(Ascensor ascensor, int pis) {
+        ascensor.pis = pis;
+    }
+    public static Ascensor[] creaAscensors(int quants) {
+        Ascensor[] ascensors = new Ascensor[quants];
+        return ascensors;
     }
     public static void main(String[] args) {
         Ascensor ascensor = new Ascensor();
@@ -11,11 +15,11 @@ public class Ascensor {
             System.out.println("Cap ascensor");
             return;
         }
-        int numero = Integer.parseInt(args[0]);
-        for (int i=0;i<numero;i++) {
-            System.out.printf("Ascensor %s al pis %s\n",i,ascensor.pis);
-            pujaPis(ascensor);
-
+        int quants = Integer.parseInt(args[0]);
+        Ascensor[] ascensors = creaAscensors(quants);
+        for (int i = 0; i < ascensors.length; i++) {
+            System.out.printf("Ascensor %d al pis %d%n", i, ascensors[i].pis);
+            pujaPis(ascensors[i], i);
         }
     }
 }
