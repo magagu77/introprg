@@ -4,6 +4,9 @@ public class Ascensor {
     // AScensor puja un pis
     public static Ascensor[] creaAscensors(int quants) {
         Ascensor[] ascensors = new Ascensor[quants];
+        for (int i=0;i<quants;i++) {
+            ascensors[i].pis = i;
+        }
         return ascensors;
     }
     public static void main(String[] args) {
