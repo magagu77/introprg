@@ -1,6 +1,6 @@
 /* Programa del ascensor con entrada de valores con args[] */
 public class Ascensor {
-    public static int pis = 0;
+    public static int pis = -1;
     // AScensor puja un pis
     public static Ascensor[] creaAscensors(int quants) {
         Ascensor[] ascensors = new Ascensor[quants];
