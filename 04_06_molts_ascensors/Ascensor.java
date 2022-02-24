@@ -5,8 +5,8 @@ public class Ascensor {
     public static Ascensor[] creaAscensors(int quants) {
         Ascensor[] ascensors = new Ascensor[quants];
         for (int i=0;i<quants;i++) {
-            ascensors[i] = i;
-            System.out.println(ascensors[i]);
+            ascensors[i] = new Ascensor();
+            ascensors[i].pis = i;
         }       
         return ascensors;
     }
