@@ -1,12 +1,13 @@
 /* Programa del ascensor con entrada de valores con args[] */
 public class Ascensor {
-    public static int pis = 0;
+    public int pis;
     // AScensor puja un pis
     public static Ascensor[] creaAscensors(int quants) {
         Ascensor[] ascensors = new Ascensor[quants];
         for (int i=0;i<quants;i++) {
             ascensors[i] = new Ascensor();
             ascensors[i].pis = i;
+            System.out.println(ascensors[i].pis);
         }       
         return ascensors;
     }
@@ -18,7 +19,7 @@ public class Ascensor {
         int quants = Integer.parseInt(args[0]);
         Ascensor[] ascensors = creaAscensors(quants);
         for (int i = 0; i < ascensors.length; i++) {
-            System.out.printf("Ascensor %d al pis %d%n", i, ascensors[i].pis);
+            System.out.printf("Ascensor %s al pis %s%n", i, ascensors[i].pis);
         }
     }
 }
