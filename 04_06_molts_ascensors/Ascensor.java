@@ -5,8 +5,9 @@ public class Ascensor {
     public static Ascensor[] creaAscensors(int quants) {
         Ascensor[] ascensors = new Ascensor[quants];
         for (int i=0;i<quants;i++) {
-            ascensors[i].pis = i;
-        }
+            ascensors[i] = i;
+            System.out.println(ascensors[i]);
+        }       
         return ascensors;
     }
     public static void main(String[] args) {
@@ -17,7 +18,6 @@ public class Ascensor {
         int quants = Integer.parseInt(args[0]);
         Ascensor[] ascensors = creaAscensors(quants);
         for (int i = 0; i < ascensors.length; i++) {
-            ascensors[i].pis = i;
             System.out.printf("Ascensor %d al pis %d%n", i, ascensors[i].pis);
         }
     }
