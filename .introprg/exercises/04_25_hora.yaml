@@ -1,0 +1,6 @@
+'01':
+  stdout:
+  - 'Inicialment hora1: 0:00:00 < hora2: 0:00:02'
+  - 'Incrementem 1 segon a la primera i decrementem 1 segon a la segona'
+  - 'Finalment hora1: 0:00:01 == hora2: 0:00:01'
+_mainclass: Hora
