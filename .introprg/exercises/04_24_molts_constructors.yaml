@@ -1,0 +1,7 @@
+'01':
+  stdout:
+  - 'Vides: 7. Posició: estirat'
+  - 'Vides: 8. Posició: estirat'
+  - 'Vides: 7. Posició: dret'
+  - 'Vides: 8. Posició: dret'
+_mainclass: GatRenat
