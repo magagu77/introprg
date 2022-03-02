@@ -1,0 +1,42 @@
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.lang.reflect.Modifier;
+import java.util.Arrays;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test GatRenat defineix correctament la propietat instancia")
+    public void instancia() {
+        assertTrue(Arrays.stream(GatRenat.class.getDeclaredFields())
+            .anyMatch(p -> p.getName().equals("instancia") &&
+                    Modifier.isPrivate(p.getModifiers()) &&
+                    Modifier.isStatic(p.getModifiers())),
+            "No compleixes els requeriments sobre la propietat instancia");
+    }
+    @Test
+    @DisplayName("test GatRenat defineix correctament els constructors")
+    public void constructors() {
+        assertFalse(Arrays.stream(GatRenat.class.getDeclaredConstructors())
+                .anyMatch(c -> !Modifier.isPrivate(c.getModifiers())),
+                "Revisa si queden constructors no privats");
+    }
+    @Test
+    @DisplayName("test GatRenat.getInstancia() sobre la mateixa instància")
+    public void mateixaInstancia() {
+        final String msg = "getInstancia() ha de retornar sempre la mateixa instància";
+        assertTrue(GatRenat.getInstancia() == GatRenat.getInstancia(), msg);
+        assertEquals(7, GatRenat.getInstancia().getVides(), "Revisa el valor inicial de vides");
+        assertEquals("estirat", GatRenat.getInstancia().getPosicio(), "Revisa el valor inicial de posicio");
+        assertTrue(GatRenat.getInstancia(4) == GatRenat.getInstancia(), msg);
+        assertEquals(4, GatRenat.getInstancia().getVides(), "Revisa què fa getInstancia(int) amb vides");
+        assertEquals("estirat", GatRenat.getInstancia().getPosicio(), "Revisa què fa getInstancia(int) amb posicio");
+        assertTrue(GatRenat.getInstancia("dret") == GatRenat.getInstancia(), msg);
+        assertEquals(4, GatRenat.getInstancia().getVides(), "Revisa què fa getInstancia(String) amb vides");
+        assertEquals("dret", GatRenat.getInstancia().getPosicio(), "Revisa què fa getInstancia(String) amb posicio");
+        assertTrue(GatRenat.getInstancia(5, "assegut") == GatRenat.getInstancia(), msg);
+        assertEquals(5, GatRenat.getInstancia().getVides(), "Revisa què fa getInstancia(int, String) amb vides");
+        assertEquals("assegut", GatRenat.getInstancia().getPosicio(), "Revisa què fa getInstancia(int, String) amb posicio");
+    }
+}

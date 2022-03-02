@@ -1,0 +1,6 @@
+_mainclass: GatRenat
+'01':
+  stdout:
+  - 'Quan està estirat: false + false'
+  - 'Quan està assegut: true + false'
+  - 'Quan està dret: true + true'
