@@ -48,7 +48,7 @@ public class TestExercise {
         renat.setVides(0);
         String missatge = renat.resuscita();
         assertAll("resuscita1",
-                () -> assertEquals("guai!", missatge, "revisa el missatge de retorn quan resuscita"),
+                () -> assertEquals("guai!", missatge, "revisa el missatge de retorn quan resuscita()"),
                 () -> assertEquals(1, renat.getVides(), "hauria de recuperar 1 vida")
                 );
     }
@@ -60,7 +60,7 @@ public class TestExercise {
         renat.setVides(0);
         String missatge = renat.resuscita(5);
         assertAll("resuscitamoltes",
-                () -> assertEquals("guai!", missatge, "revisa el missatge de retorn quan resuscita"),
+                () -> assertEquals("guai!", missatge, "revisa el missatge de retorn quan resuscita(int)"),
                 () -> assertEquals(5, renat.getVides(), "hauria de recuperar 5 vides")
                 );
     }
@@ -71,7 +71,7 @@ public class TestExercise {
         GatRenat renat = new GatRenat();
         String missatge = renat.resuscita(5);
         assertAll("resuscitaviu",
-                () -> assertEquals("...", missatge, "revisa el missatge de retorn quan resuscita estant viu"),
+                () -> assertEquals("...", missatge, "revisa el missatge de retorn resuscita(int) estant viu"),
                 () -> assertEquals(7, renat.getVides(), "hauria tenir totes les vides")
                 );
     }
@@ -83,7 +83,7 @@ public class TestExercise {
         renat.setVides(0);
         String missatge = renat.resuscita(-5);
         assertAll("resuscitanegatiu",
-                () -> assertEquals("...", missatge, "revisa el missatge de retorn quan resuscita amb vides negatives"),
+                () -> assertEquals("...", missatge, "revisa el missatge de retorn quan resuscita(int) amb vides negatives"),
                 () -> assertEquals(0, renat.getVides(), "hauria de quedar-li 0 vides")
                 );
     }

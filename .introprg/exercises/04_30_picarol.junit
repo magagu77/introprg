@@ -1,0 +1,166 @@
+/*
+    Unit testing methods for exercise
+*/
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    // test picarol
+    @Test
+    @DisplayName("test nombre de cops que sona el picarol")
+    public void sonaPicarol() {
+        Picarol picarol = new Picarol();
+        for (int i=0; i<3; i++) {
+            assertEquals(i, picarol.quantsCops(), "revisa el comptador de cops del Picarol");
+            picarol.sona();
+        }
+        assertEquals(3, picarol.quantsCops(), "revisa el comptador de cops del Picarol");
+    }
+
+    // test GatRenat
+
+    @Test
+    @DisplayName("test quan neix no té picarol")
+    public void quanNeixPerDefecte() {
+        assertFalse(new GatRenat().tePicarol());
+    }
+
+    @Test
+    @DisplayName("test GatRenat accepta picarol")
+    public void testRenatAcceptaPicarol() {
+        GatRenat renat = new GatRenat();
+        Picarol picarol1 = new Picarol();
+        Picarol picarol2 = new Picarol();
+        Picarol picarolExpectedNull = renat.posaPicarol(picarol1);
+        boolean tePicarol = renat.tePicarol();
+        Picarol picarolExpected1 = renat.posaPicarol(picarol2);
+        Picarol picarolExpected2 = renat.posaPicarol(null);
+        assertAll(
+                () -> assertNull(picarolExpectedNull, "quan no té picarol, posaPicarol() retorna null"),
+                () -> assertEquals(picarolExpected1, picarol1, "posaPicarol() ha de fer servir el picarol assignat"),
+                () -> assertTrue(tePicarol, "tePicarol() ha de ser true quan se li assigna un picarol"),
+                () -> assertEquals(picarolExpected2, picarol2, "posaPicarol() ha de quedar-se el picarol que li passen")
+                );
+    }
+
+    @Test
+    @DisplayName("test GatRenat retorna picarol el picarol anterior quan accepta un de nou")
+    public void testRenatRetornaPicarolAnteriorEnAcceptarUnDeNou() {
+        GatRenat renat = new GatRenat();
+        Picarol picarol1 = new Picarol();
+        Picarol picarol2 = new Picarol();
+        picarol1.sona();
+        renat.posaPicarol(picarol1);
+        Picarol anticPicarol = renat.posaPicarol(picarol2);
+        assertAll(
+                () -> assertEquals(picarol1, anticPicarol, "posaPicarol() ha de retornar el picarol anterior"),
+                () -> assertEquals(1, picarol1.quantsCops(), "posaPicarol() no ha de fer sonar el picarol"),
+                () -> assertEquals(0, picarol2.quantsCops(), "posaPicarol() no ha de fer sonar el picarol")
+                );
+    }
+
+    @Test
+    @DisplayName("test GatRenat retorna null quan se li demana que tregui un picarol inexistent")
+    public void testRenatTreuPicarolNull() {
+        assertNull(new GatRenat().treuPicarol());
+    }
+
+
+    @Test
+    @DisplayName("test GatRenat retorna el picarol quan se li demana que el tregui")
+    public void testRenatTreuPicarol() {
+        GatRenat renat = new GatRenat();
+        Picarol picarol = new Picarol();
+        picarol.sona();
+        renat.posaPicarol(picarol);
+        Picarol anticPicarol = renat.treuPicarol();
+        assertAll(
+                () -> assertEquals(picarol, anticPicarol, "treuPicarol() ha de retornar el picarol anterior"),
+                () -> assertEquals(1, picarol.quantsCops(), "treuPicarol() no ha de fer sonar el picarol"),
+                () -> assertFalse(renat.tePicarol(), "treuPicarol() ha de deixar sense picarol a GatRenat")
+                );
+    }
+
+    @Test
+    @DisplayName("test GatRenat fa sonar el picarol quan es mou")
+    public void aixecat() {
+        GatRenat renat = new GatRenat();
+        Picarol picarol = new Picarol();
+        renat.posaPicarol(picarol);
+        renat.aixecat();
+        assertEquals(1, picarol.quantsCops());
+    }
+
+    @Test
+    @DisplayName("test GatRenat fa sonar el picarol quan es mou")
+    public void seu() {
+        GatRenat renat = new GatRenat();
+        Picarol picarol = new Picarol();
+        renat.posaPicarol(picarol);
+        renat.seu();
+        assertEquals(1, picarol.quantsCops());
+    }
+
+    @Test
+    @DisplayName("test GatRenat fa sonar el picarol quan es mou")
+    public void estirat() {
+        GatRenat renat = new GatRenat("dret");
+        Picarol picarol = new Picarol();
+        renat.posaPicarol(picarol);
+        renat.estirat();
+        assertEquals(1, picarol.quantsCops());
+    }
+
+    @Test
+    @DisplayName("test GatRenat fa sonar el picarol quan no es mou")
+    public void aixecatAixecat() {
+        GatRenat renat = new GatRenat("dret");
+        Picarol picarol = new Picarol();
+        renat.posaPicarol(picarol);
+        renat.aixecat();
+        assertEquals(0, picarol.quantsCops());
+    }
+
+    @Test
+    @DisplayName("test GatRenat fa sonar el picarol quan no es mou")
+    public void seuSeu() {
+        GatRenat renat = new GatRenat("assegut");
+        Picarol picarol = new Picarol();
+        renat.posaPicarol(picarol);
+        renat.seu();
+        assertEquals(0, picarol.quantsCops());
+    }
+
+    @Test
+    @DisplayName("test GatRenat fa sonar el picarol quan no es mou")
+    public void estiratEstirat() {
+        GatRenat renat = new GatRenat();
+        Picarol picarol = new Picarol();
+        renat.posaPicarol(picarol);
+        renat.estirat();
+        assertEquals(0, picarol.quantsCops());
+    }
+
+    @Test
+    @DisplayName("test GatRenat comprovació quants cops sona el picarol quan aixeca, aixeca, seu, seu, estirat, estirat")
+    public void multiplesMoviments() {
+        GatRenat renat = new GatRenat();
+        Picarol picarol = new Picarol();
+        renat.posaPicarol(picarol);
+        renat.aixecat();
+        renat.aixecat();
+        renat.seu();
+        renat.seu();
+        renat.estirat();
+        renat.estirat();
+        assertEquals(3, picarol.quantsCops());
+    }
+
+}
