@@ -1,4 +1,4 @@
- // Programa que usa GatRenat
+ // Programa que usa GatRenat en la version del ejercicio 04_09
  public class UsaGatRenat {
     public static void main(String[] args) {
         GatRenat renat = new GatRenat();
