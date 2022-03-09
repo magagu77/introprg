@@ -13,6 +13,13 @@ public class GatRenat {
         return posicio;
     }
     public void setPosicio (String novaPosicio) {
-        posicio = novaPosicio; 
+        if (posicioCorrecta(novaPosicio)) {
+            posicio = novaPosicio; 
+        }
+    }
+    public static boolean posicioCorrecta (String posicio) {
+        if(posicio.equals("dret") || posicio.equals("assegut") 
+        || posicio.equals("estirat")) return true;
+        return false;
     }
 }
