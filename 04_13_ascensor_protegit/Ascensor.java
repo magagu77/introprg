@@ -11,10 +11,14 @@ public class Ascensor {
     public void setPis(String newPis) {
         if (UtilString.esEnter(newPis)) {
             int nouPis = Integer.parseInt(newPis);
-            pis = nouPis;
+            if (nouPis <= 10 && nouPis >= -1) {
+                pis = nouPis;
+            }
         }    
     }
     public void setMoviment(String newMoviment) {
-        moviment = newMoviment;
+        if (newMoviment.equals("pujant") || newMoviment.equals("aturat") || newMoviment.equals("baixant")){
+            moviment = newMoviment;
+        }
     }
 }
