@@ -213,8 +213,8 @@ def print_err(text=''):
     print(text, file=sys.stderr)
 
 
-def print_error_and_exit(msg: str, tip: str = None,
-                         plain_color = False):
+def print_error_and_exit(msg: str, tip: str=None,
+                         plain_color=False, returncode=1):
     """ prints the message and stops execution with error code
         if tip is set, it shows it in a different line.
         if plain_color, it does not try to colorize"""
@@ -232,13 +232,13 @@ def print_error_and_exit(msg: str, tip: str = None,
         for line in tip.splitlines():
             print_err(tab + line)
     print_err()
-    sys.exit(1)
+    sys.exit(returncode)
 
 
 def print_warning_and_continue(msg: str, tip: str = None,
                                plain_color = False):
     """ prints the message to the stderr and continues with execution.
-    if tip is set, it shows it in a different line.
+        if tip is set, it shows it in a different line.
         if plain_color, it does not try to colorize"""
     warning_mark = 'WARNING:'
     tab=" " * (len(warning_mark) + 1)
@@ -256,7 +256,7 @@ def print_warning_and_continue(msg: str, tip: str = None,
 
 def load_yaml(path, allow_non_existing=False):
     """ loads and returns a dict with the values kept in a yaml file
-    In case allow_non_existing, it returns an empty dict when the file
+        In case allow_non_existing, it returns an empty dict when the file
         doesn't exist
         Otherwise, on non existing file it breaks execution """
     if not path.exists():
@@ -282,7 +282,7 @@ def save_yaml(path, values):
 
 def run_command(command_list, folder, env=None, stdin=None, timeout=None):
     """ runs command in command_list with the given environment
-    and returns the corresponding SubprocessResult """
+        and returns the corresponding SubprocessResult """
     previous_dir = Path.cwd()
     os.chdir(folder)
     result = subprocess.run(command_list, env=env,
@@ -296,7 +296,7 @@ def run_command(command_list, folder, env=None, stdin=None, timeout=None):
 
 def run_javac(program_name, env, folder, full_compilation=True):
     """ compile program_name in folder with the given environment.
-    if full_compilation it will remove any .class prior to compile.
+        if full_compilation it will remove any .class prior to compile.
         It returns the SubprocessResult """
     if full_compilation:
         for compiled_file in folder.glob("*.class"):
@@ -308,8 +308,7 @@ def run_javac(program_name, env, folder, full_compilation=True):
 
 def run_java(class_name, folder, env, timeout,
              stdin=None, argsin=None, precommand=None):
-    """ runs java class_name,
-    on folder,
+    """ runs java class_name, on folder,
         passing argsin as command line arguments,
         passing stdin as standard input,
         considering env as environment,
@@ -356,7 +355,7 @@ def reset_autocommit_flag(working_dir, target_exercise, repo):
 
 def get_git_repo(folder):
     """ checks folder is a git repository
-    If so, it builds a git.Repo instance. Otherwise it halts execution """
+        If so, it builds a git.Repo instance. Otherwise it halts execution """
     try:
         result = git.Repo(folder, search_parent_directories=True)
     except git.InvalidGitRepositoryError:
@@ -365,8 +364,7 @@ def get_git_repo(folder):
 
 
 def try_commit(repo, exercise_id, seq, message):
-    """ performs the autocommit on repo with the given seq nr and the student
-    message """
+    """ performs the autocommit on repo with the given seq nr and the student message """
     author = git.Actor(PRGTEST_AUTHOR_NAME, repo.head.commit.author.email)
     comment = getmsg('MSG_AUTOCOMMIT') % (seq, exercise_id, message)
     try:
@@ -379,9 +377,8 @@ def try_commit(repo, exercise_id, seq, message):
 
 def do_autocommit(working_dir, target_exercise, repo):
     """ sets the exercise flag considering last commit and if not the first one,
-    performs the autocommit.
+        performs the autocommit.
         It returns True when the autocommit has been performed """
-
     flag_path = get_flag_path(working_dir)
     old_contents = load_yaml(flag_path) if flag_path.is_file() else {}
     splitted_last_comment = repo.head.commit.message.split(": ", maxsplit=2)
@@ -443,7 +440,6 @@ def check_git(working_dir, target_exercise):
 
     # check uncommitted files
     if repo.is_dirty():
-        #if is_autocommittable(working_dir, target_exercise):
         if same_exercise_as_flagged():
             do_autocommit(working_dir, target_exercise, repo)
         else:
@@ -489,7 +485,7 @@ def get_flag_path(working_dir):
 
 def get_target_exercise(working_dir):
     """ it gets the name of the target exercise from the current folder
-    as long as it is a direct subfolder of the working directory.
+        as long as it is a direct subfolder of the working directory.
         Otherwise it halts execution.  """
     current = Path.cwd()
     if working_dir != current.parent:
@@ -528,24 +524,17 @@ def get_test_path(working_dir):
 
 
 def get_junit_path(specs_folder, target):
-    """ obtains the path to the junit test file for the target exercise
-    if any. Otherwise it returns None """
+    """ obtains the path to the junit test file for the target exercise if any.
+        Otherwise it returns None """
     path = specs_folder / f'{target}.junit'
     return path if path.is_file() else None
 
 
-def has_junit_test(working_dir, target):
-    """ returns True when there's a junit test for the target exercise """
-    path = get_junit_path(working_dir, target)
-    return path is not None and path.is_file()
-
-
 def check_testable(specs, junit):
     """ checks whether the target exercise has tests to perform.
-    An exercise is considered not to have tests if the corresponding
+        An exercise is considered not to have tests if the corresponding
         IO specs do not specify a main class and there's no junit.
-        In case there's no test, it halts execution but it is not considered an
-        error """
+        In case there's no test, it halts execution but it is not considered an error """
     if '_mainclass' not in specs and junit is None:
         print(getmsg('MSG_EXERCISE_WITHOUT_TEST'))
         sys.exit(0)
@@ -712,8 +701,8 @@ def translate_output(contents, translate_specs):
 ##################################################
 
 def perform_io_tests(working_dir, specs, env, precommand=None):
-    """ performs the i/o tests specified on specs on test_path:
-        - test_path contains the target exercise
+    """ performs the i/o tests specified on specs:
+        - cwd contains the target exercise
         - specs potentially contains:
           - _tr: translation specs
           - [^_]\w*: io test specs
@@ -899,7 +888,6 @@ def show_found_junit_error(junit_output):
             f'Problema    : {fail_descr}',
         ]
 
-    print_err(compose_title(getmsg('MSG_TITLE_JUNIT_ERROR')))
     print_err(getmsg('MSG_ERR_JUNIT_NOTICE'))
 
     print_err("\t" + "\n\t".join(junit_output))
@@ -939,7 +927,8 @@ def show_failure_execution_and_end(test_result):
     """ notifies the target program broke when being tested """
     if test_result.returncode == 124:    # timeout
         print_error_and_exit(getmsg('MSG_ERR_EXERCISE_NEVER_ENDS'),
-                             tip=getmsg('MSG_ERR_EXERCISE_NEVER_ENDS_TIP'))
+                             tip=getmsg('MSG_ERR_EXERCISE_NEVER_ENDS_TIP'),
+                             returncode=test_result.returncode)
     else:
         show_found_stderr(test_result.stderr)
         print_error_and_exit(getmsg('MSG_ERR_EXERCISE_BREAKS'),
@@ -1097,6 +1086,12 @@ def compare_junit_result(test_result):
         show_test_passed('JUnit')
         return
     show_test_failed('JUnit')
+    print_err(compose_title(getmsg('MSG_TITLE_JUNIT_ERROR')))
+    if test_result.returncode == 124:    # timeout
+        print_error_and_exit(getmsg('MSG_ERR_EXERCISE_NEVER_ENDS'),
+                             tip=getmsg('MSG_ERR_EXERCISE_NEVER_ENDS_TIP'),
+                             returncode=test_result.returncode)
+        return
     show_found_junit_error(test_result.stdout)
     sys.exit(1)
 
@@ -1191,6 +1186,7 @@ def check_commandline_option_version(params,
         print(f"{program_descriptor} versió {PROGRAM_VERSION}")
         sys.exit(0)
 
+
 def check_commandline_option_copy_junit(junit_path, params):
     """ checks option --copy-junit in commandline params
         If present, it tries to copy the junit test file in cwd and ends execution """
@@ -1201,8 +1197,9 @@ def check_commandline_option_copy_junit(junit_path, params):
         print(getmsg('MSG_JUNIT_COPIED'))
         sys.exit(0)
 
+
 def copy_junit(junit_path, dest_path=None, exist_ok=True):
-    """ copies junit test file to cwd """
+    """ copies junit test file to dest_path or cwd if not specified """
     dest = (Path.cwd() if dest_path is None else dest_path) / JUNIT_FILENAME
     if not exist_ok and dest.exists():
         print_error_and_exit(getmsg('MSG_ERR_JUNIT_OVERWRITE'),
