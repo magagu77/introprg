@@ -1,0 +1,59 @@
+_mainclass: UsaInterfagats
+'01':
+  stdout:
+  - Comprovem els mètodes de ensinistrable
+  - ======================================
+  - m'aixeco
+  - 'true'
+  - m'assec
+  - 'true'
+  - m'estiro
+  - 'true'
+  - Comprovem els mètodes d'AnimalDeCompanyia
+  - =========================================
+  - em deixo estimar
+  - em deixo estimar, però només una mica
+  - Comprovem els mètodes d'Esser viu
+  - =================================
+  - 'true'
+  - adéu món cruel
+  - encara miolo
+  - 'true'
+  - adéu món cruel
+  - encara miolo
+  - 'true'
+  - adéu món cruel
+  - encara miolo
+  - 'true'
+  - adéu món cruel
+  - encara miolo
+  - Comprovem els mètodes de Gat
+  - ============================
+  - "Renat"
+  - "encara miolo"
+  - "adéu món cruel"
+  - "ja l'he espifiada"
+  - "false"
+  - "guai!"
+  - "1"
+  - "Garfield"
+  - "encara miolo"
+  - "adéu món cruel"
+  - "ja l'he espifiada"
+  - "false"
+  - "guai!"
+  - "1"
+  - "Gat Salvatge"
+  - "encara miolo"
+  - "adéu món cruel"
+  - "ja l'he espifiada"
+  - "false"
+  - "guai!"
+  - "1"
+  - "Gargamel"
+  - "encara miolo"
+  - "adéu món cruel"
+  - "ja l'he espifiada"
+  - "false"
+  - "guai!"
+  - "1"

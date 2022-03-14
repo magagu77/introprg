@@ -1,0 +1,105 @@
+import java.util.Arrays;
+import java.lang.reflect.Modifier;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test Gat.vides és privat")
+    public void GatVidesEsPrivate() {
+        assertTrue(classHasPrivateField(Gat.class, "vides"),
+                "Cal que vides sigui privada per grantir que no pugui ser modificada malament");
+    }
+
+    @Test
+    @DisplayName("test Gat.nom és privat")
+    public void GatNomEsPrivate() {
+        assertTrue(classHasPrivateField(Gat.class, "nom"),
+                "Cal que nom sigui privada per grantir que no pugui ser modificada malament");
+    }
+
+    @Test
+    @DisplayName("test Gat implementa EsserViu")
+    public void GatEsEsserViu() {
+        assertAll(
+                () -> assertTrue(classImplementsInterface(Gat.class, EsserViu.class),
+                                 "Revisa la jerarquia demanada"),
+                () -> assertEquals(1, Gat.class.getInterfaces().length, 
+                                   "Revisa la jerarquia demanada"));
+    }
+
+    @Test
+    @DisplayName("test Gat es diu anònim quan nom no vàlid")
+    public void gatAnonim() {
+        assertAll(
+                () -> assertEquals("anònim", new Gat(null).getNom()),
+                () -> assertEquals("anònim", new Gat("").getNom()),
+                () -> assertEquals("anònim", new Gat("   ").getNom()),
+                () -> assertEquals("anònim", new Gat(null, 5).getNom()),
+                () -> assertEquals("anònim", new Gat("", 5).getNom()),
+                () -> assertEquals("anònim", new Gat("   ", 5).getNom())
+                );
+    }
+
+    @Test
+    @DisplayName("test només GatRenat i Garfield són AnimalDeCompanyia")
+    public void hiSonElsAnimalsDeCompanyia() {
+        assertAll(
+                () -> assertTrue(classImplementsInterface(GatRenat.class, AnimalDeCompanyia.class),
+                                 "Revisa la jerarquia demanada"),
+                () -> assertTrue(classImplementsInterface(Garfield.class, AnimalDeCompanyia.class),
+                                 "Revisa la jerarquia demanada"),
+                () -> assertFalse(classImplementsInterface(GatSalvatge.class, AnimalDeCompanyia.class),
+                                  "Revisa la jerarquia demanada"));
+    }
+
+    @Test
+    @DisplayName("test només GatRenat és ensinistrable")
+    public void hiSonElsEnsinistrables() {
+        assertAll(
+                () -> assertTrue(classImplementsInterface(GatRenat.class, Ensinistrable.class),
+                                 "Revisa la jerarquia demanada"),
+                () -> assertFalse(classImplementsInterface(Garfield.class, Ensinistrable.class),
+                                  "Revisa la jerarquia demanada"),
+                () -> assertFalse(classImplementsInterface(GatSalvatge.class, Ensinistrable.class),
+                                  "Revisa la jerarquia demanada"));
+    }
+
+    @Test
+    @DisplayName("test les classes declaren només els membres requerits")
+    public void classesMinimes() {
+        assertAll(
+                () -> assertAboutMembers(GatSalvatge.class, 0, 0, 1),
+                () -> assertAboutMembers(GatRenat.class, 1, 10, 1),
+                () -> assertAboutMembers(Gat.class, 2, 6, 2),
+                () -> assertAboutMembers(Garfield.class, 0, 1, 1)
+                );
+    }
+
+    boolean classHasPrivateField(Class classe, String field) {
+        return Arrays.stream(classe.getDeclaredFields())
+            .anyMatch(p -> p.getName().equals(field) &&
+                    Modifier.isPrivate(p.getModifiers()));
+    }
+
+    boolean classImplementsInterface(Class classe, Class interficie) {
+        if (! interficie.isInterface()) return false;
+        return Arrays.stream(classe.getInterfaces())
+            .anyMatch(c -> c.equals(interficie));
+    }
+
+    void assertAboutMembers(Class classe, int numFields, int numMethods, int numConstructors) {
+        String msg = String.format("Segur que %s defineix exactament els membres i constructors requerits?",
+                classe.getName());
+        assertAll(
+                () -> assertEquals(numFields, classe.getDeclaredFields().length, msg),
+                () -> assertEquals(numMethods, classe.getDeclaredMethods().length, msg),
+                () -> assertEquals(numConstructors, classe.getDeclaredConstructors().length, msg));
+    }
+
+}

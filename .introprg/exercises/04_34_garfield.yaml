@@ -1,0 +1,22 @@
+'01':
+  stdin:
+  - ''
+  stdout:
+  - Entrenant el gat Misifú
+  - 'Misifú diu: m''assec'
+  - 'Misifú diu: m''aixeco'
+  - 'Misifú diu: no faig res'
+  - 'Misifú diu: m''estiro'
+  - ''
+  - Entrenant el gat Renat
+  - 'Renat diu: m''assec'
+  - 'Renat diu: m''aixeco'
+  - 'Renat diu: no faig res'
+  - 'Renat diu: m''estiro'
+  - ''
+  - Entrenant el gat Garfield
+  - 'Garfield diu: m''assec'
+  - 'Garfield diu: m''aixeco'
+  - 'Garfield diu: no faig res'
+  - 'Garfield diu: Bai Maitea, bai'
+_mainclass: UsaGats
