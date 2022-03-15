@@ -9,9 +9,7 @@ public class Ascensor {
     public String getMoviment() {
         return moviment;
     }
-    public void setPis(String newPis) {
-        if (UtilString.esEnter(newPis)) {
-            int nouPis = Integer.parseInt(newPis);
+    public void setPis(int nouPis) {
             if (nouPis <= 10 && nouPis >= -1) {
                 pis = nouPis;
             }
