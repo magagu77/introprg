@@ -51,4 +51,8 @@ public class Ascensor {
         estat = estat + " al pis " + getPis(); 
         return estat;
     }
+    public boolean estaMovent() {
+        if (estaAturat()) return false;
+        else return true;
+    }
 }
