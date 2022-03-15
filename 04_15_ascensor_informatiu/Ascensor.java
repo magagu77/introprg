@@ -12,8 +12,7 @@ public class Ascensor {
     public void setPis(int nouPis) {
             if (nouPis <= 10 && nouPis >= -1) {
                 pis = nouPis;
-            }
-        }    
+            }   
     }
     public void setMoviment(String newMoviment) {
         if (newMoviment.equals("pujant") || newMoviment.equals("aturat") || newMoviment.equals("baixant")){
