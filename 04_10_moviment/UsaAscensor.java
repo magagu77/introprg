@@ -1,4 +1,4 @@
-// Programa que usa un ascensor
+// Programa que usa un ascensor y muestra El piso en el que está, y el movimiento que hace 
 public class UsaAscensor {
     public static void main(String[] args) {
         Ascensor ascensor = new Ascensor();
