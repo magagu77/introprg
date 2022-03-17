@@ -75,7 +75,7 @@ public class TestExercise {
     public void classesMinimes() {
         assertAll(
                 () -> assertAboutMembers(GatSalvatge.class, 0, 0, 1),
-                () -> assertAboutMembers(GatRenat.class, 1, 10, 1),
+                () -> assertAboutMembers(GatRenat.class, 1, 8, 2),
                 () -> assertAboutMembers(Gat.class, 2, 6, 2),
                 () -> assertAboutMembers(Garfield.class, 0, 1, 1)
                 );
@@ -98,8 +98,12 @@ public class TestExercise {
                 classe.getName());
         assertAll(
                 () -> assertEquals(numFields, classe.getDeclaredFields().length, msg),
-                () -> assertEquals(numMethods, classe.getDeclaredMethods().length, msg),
+                () -> assertEquals(numMethods,
+                                   Arrays.stream(classe.getDeclaredMethods())
+                                   .filter(m -> Modifier.isPublic(m.getModifiers()))
+                                   .count(), msg),
                 () -> assertEquals(numConstructors, classe.getDeclaredConstructors().length, msg));
     }
+
 
 }
