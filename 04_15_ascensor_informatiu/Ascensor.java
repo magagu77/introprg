@@ -1,4 +1,5 @@
-// Ascensor que demana l'exercici 04_15
+/* Ascensor que demana l'exercici 04_15, añade modulos booleanos,
+ que hacen referencia a la posicion y al movimiento */ 
 public class Ascensor {
     private int pis = -1;
     private String moviment = "aturat";
