@@ -77,10 +77,12 @@ public class GatRenat {
         else return resuscita();
     }
     public String resuscita() {
+        if(!estaViu())
         setVides(1);
         return "guai!";
     }
     public String resuscita(int vides) {
+        if(!estaViu())
         setVides(vides);
         return "guai!";
     }
