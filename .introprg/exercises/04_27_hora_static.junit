@@ -1,233 +1,67 @@
-import java.lang.reflect.Method;
-import java.lang.reflect.Type;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestExercise {
 
     @Test
-    @DisplayName("test hora per defecte")
-    public void testHoraPerDefecte000() {
+    @DisplayName("test constructor per defecte")
+    public void constructorDefecte() {
         Hora hora = new Hora();
-        assertAll("testHoraPerDefecte000",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
+        String msg = String.format(
+                "Hora() hauria de ser '0:0:0' però és '%d:%d:%d'",
+                hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "testHoraPerDefecte000";
+        assertHoraEsperada(0, 0, 0, hora, titol, msg);
     }
 
-    @Test
-    @DisplayName("test hora constructor específic")
-    public void testHoraConstructorEspecific() {
-        Hora hora = new Hora(1, 2, 3);
-        assertAll("testHoraConstructorEspecific",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(3, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora quan valors al límit superior")
-    public void testHoraConstrueixCorrecteQuanValorsAmbLimitSuperior() {
-        Hora hora = new Hora(23, 59, 59);
-        assertAll("testHoraConstrueixCorrecteQuanValorsAmbLimitSuperior",
-                () -> assertEquals(23, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(59, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(59, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora quan hores no vàlides")
-    public void testHoraConstrueixPerDefecteQuanValorNoValidPerHores() {
-        Hora hora = new Hora(24, 2, 3);
-        assertAll("testHoraConstrueixPerDefecteQuanValorNoValidPerHores",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora quan hores no vàlides")
-    public void testHoraConstrueixPerDefecteQuanValorNegatiuPerHores() {
-        Hora hora = new Hora(-24, 2, 3);
-        assertAll("testHoraConstrueixPerDefecteQuanValorNegatiuPerHores",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora quan minuts no vàlids")
-    public void testHoraConstrueixPerDefecteQuanValorNoValidPerMinuts() {
-        Hora hora = new Hora(1, 60, 3);
-        assertAll("testHoraConstrueixPerDefecteQuanValorNoValidPerMinuts",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora quan minuts no vàlids")
-    public void testHoraConstrueixPerDefecteQuanValorNegatiuPerMinuts() {
-        Hora hora = new Hora(1, -6, 3);
-        assertAll("testHoraConstrueixPerDefecteQuanValorNegatiuPerMinuts",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora quan segons no vàlids")
-    public void testHoraConstrueixPerDefecteQuanValorNoValidPerSegons() {
-        Hora hora = new Hora(1, 2, 60);
-        assertAll("testHoraConstrueixPerDefecteQuanValorNoValidPerSegons",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora quan segons no vàlids")
-    public void testHoraConstrueixPerDefecteQuanValorNegatiuPerSegons() {
-        Hora hora = new Hora(1, 2, -1);
-        assertAll("testHoraConstrueixPerDefecteQuanValorNegatiuPerSegons",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
+    @ParameterizedTest
+    @CsvSource(value={
+    "1,2,3,1,2,3",
+    "23,59,59,23,59,59",
+    "24,2,3,0,0,0",
+    "-24,3,4,0,0,0",
+    "23,60,4,0,0,0",
+    "22,-6,5,0,0,0",
+    "21,6,60,0,0,0",
+    "20,7,-13,0,0,0",
+    })
+    @DisplayName("test constructor específic")
+    public void constructorEspecific(
+            int ho, int mo, int so,
+            int hd, int md, int sd) {
+        Hora hora = new Hora(ho, mo, so);
+        String msg = String.format(
+                "Hora('%d:%d:%d') hauria de ser '%d:%d:%d' però és '%d:%d:%d'",
+                ho, mo, so, hd, md, sd,
+                hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "testHoraConstructorEspecific";
+        assertHoraEsperada(hd, md, sd, hora, titol, msg);
     }
 
 
-    @Test
-    @DisplayName("test hora increment un segon")
-    public void testHoraIncrementaCasEstandard() {
-        Hora hora = new Hora(1, 2, 3);
-
+    @ParameterizedTest
+    @CsvSource(value={
+    "0,0,0,0,0,1",
+    "1,2,3,1,2,4",
+    "2,3,59,2,4,0",
+    "3,59,59,4,0,0",
+    "23,59,59,0,0,0",
+    })
+    @DisplayName("test Hora.incrementa()")
+    public void incrementa1(
+            int ho, int mo, int so,
+            int hd, int md, int sd) {
+        Hora hora = new Hora(ho, mo, so);
         hora.incrementa();
-
-        assertAll("testHoraIncrementaCasEstandard",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(4, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora increment següent minut")
-    public void testHoraIncrementaCasIncrementaMinut() {
-        Hora hora = new Hora(1, 2, 59);
-
-        hora.incrementa();
-
-        assertAll("testHoraIncrementaCasIncrementaMinut",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(3, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora increment següent hora")
-    public void testHoraIncrementaCasIncrementaHora() {
-        Hora hora = new Hora(1, 59, 59);
-
-        hora.incrementa();
-
-        assertAll("testHoraIncrementaCasIncrementaHora",
-                () -> assertEquals(2, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(0, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora increment reinicia")
-    public void testHoraIncrementaCasReinicia() {
-        Hora hora = new Hora(23, 59, 59);
-
-        hora.incrementa();
-
-        assertEquals(0, hora.getHores(), "Respecte a les hores");
-        assertEquals(0, hora.getMinuts(), "Respecte als minuts");
-        assertEquals(0, hora.getSegons(), "Respecte als segons");
-    }
-
-    @Test
-    @DisplayName("test hora increment n cas estàndard")
-    public void testHoraIncrementaNCasEstandard() {
-        Hora hora = new Hora(1, 2, 3);
-
-        hora.incrementa(2);
-
-        assertAll("testHoraIncrementaNCasEstandard",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(5, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora increment n cas incrementa minuts")
-    public void testHoraIncrementaNCasIncrementaMinut() {
-        Hora hora = new Hora(1, 2, 3);
-
-        hora.incrementa(59);
-
-        assertAll("testHoraIncrementaNCasIncrementaMinut",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(3, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(2, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora increment n cas incrementa hores")
-    public void testHoraIncrementaNCasIncrementaHora() {
-        Hora hora = new Hora(1, 2, 3);
-
-        hora.incrementa(3539);
-
-        assertAll("testHoraIncrementaNCasIncrementaHora",
-                () -> assertEquals(2, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(1, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(2, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora increment n cas reinicia")
-    public void testHoraIncrementaNCasReinicia() {
-        Hora hora = new Hora(1, 2, 3);
-
-        hora.incrementa(82739);
-
-        assertAll("testHoraIncrementaNCasReinicia",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(1, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(2, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora increment n cas n és gran")
-    public void testHoraIncrementaNCasGranN() {
-        Hora hora = new Hora(0, 0, 0);
-
-        hora.incrementa(172737);
-
-        assertAll("testHoraIncrementaNCasGranN",
-                () -> assertEquals(23, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(58, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(57, hora.getSegons(), "Respecte als segons")
-                );
+        String msg = String.format(
+                "'%d:%d:%d'.incrementa() hauria de ser '%d:%d:%d' però és '%d:%d:%d'",
+                ho, mo, so, hd, md, sd,
+                hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "testIncrementaUnSegon";
+        assertHoraEsperada(hd, md, sd, hora, titol, msg);
     }
 
     // test compareTo
@@ -236,7 +70,6 @@ public class TestExercise {
     public void testCompareToReconeixMenorMajor() {
         Hora horaMenor = new Hora(1, 2, 3);
         Hora horaMajor = new Hora(1, 2, 4);
-
         assertTrue(horaMenor.compareTo(horaMajor)<0);
     }
 
@@ -245,7 +78,6 @@ public class TestExercise {
     public void testCompareToReconeixMajorMenor() {
         Hora horaMenor = new Hora(1, 2, 3);
         Hora horaMajor = new Hora(1, 2, 4);
-
         assertTrue(horaMajor.compareTo(horaMenor)>0);
     }
 
@@ -254,164 +86,138 @@ public class TestExercise {
     public void testCompareToReconeixHoresIguals() {
         Hora hora1 = new Hora(1, 2, 3);
         Hora hora2 = new Hora(1, 2, 3);
-
         assertEquals(0, hora1.compareTo(hora2));
     }
 
-    // Test decrementa
-    @Test
-    @DisplayName("test hora incrementa amb segons negatius")
-    public void testHoraIncrementaSegonsNegatius() {
-        Hora hora = new Hora(1, 2, 4);
-
-        hora.incrementa(-1);
-
-        assertAll("testHoraIncrementaSegonsNegatius",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(3, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa estàndard")
-    public void testHoraDecrementaCasEstandard() {
-        Hora hora = new Hora(1, 2, 4);
-
+    @ParameterizedTest
+    @CsvSource(value={
+    "1,2,4,1,2,3",
+    "5,6,8,5,6,7",
+    "2,3,0,2,2,59",
+    "3,0,0,2,59,59",
+    "0,0,0,23,59,59",
+    })
+    @DisplayName("test Hora.decrementa()")
+    public void decrementa1(
+            int ho, int mo, int so,
+            int hd, int md, int sd) {
+        Hora hora = new Hora(ho, mo, so);
         hora.decrementa();
-
-        assertAll("testHoraDecrementaCasEstandard",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(3, hora.getSegons(), "Respecte als segons")
-                );
+        String msg = String.format(
+                "'%d:%d:%d'.decrementa() hauria de ser '%d:%d:%d' però és '%d:%d:%d'",
+                ho, mo, so, hd, md, sd,
+                hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "testDecrementaUnSegon";
+        assertHoraEsperada(hd, md, sd, hora, titol, msg);
     }
 
-    @Test
-    @DisplayName("test hora decrementa quan canvia minuts")
-    public void testHoraDecrementaCasDecrementaMinut() {
-        Hora hora = new Hora(0, 2, 3);
+
+    @ParameterizedTest
+    @CsvSource(value={
+    "0,0,1,1,0,0,2",
+    "0,1,0,1,0,1,1",
+    "1,0,0,1,1,0,1",
+    "0,0,0,1,0,0,1",
+    "1,2,5,2,1,2,7",
+    "0,0,0,59,0,0,59",
+    "3,2,4,59,3,3,3",
+    "0,0,0,60,0,1,0",
+    "4,5,6,60,4,6,6",
+    "0,0,0,3600,1,0,0",
+    "9,8,7,3600,10,8,7",
+    "0,0,0,82739,22,58,59",
+    "1,2,3,82739,0,1,2",
+    "0,0,0,172737,23,58,57",
+    "1,2,3,172737,1,1,0",
+    "9,8,7,172737,9,7,4",
+    "1,2,3,3599,2,2,2",
+    "0,0,0,3599,0,59,59",
+    "0,0,0,432001,0,0,1",
+    "12,21,52,432001,12,21,53",
+    "0,0,0,86399,23,59,59",
+    "1,2,3,86399,1,2,2",
+    "23,59,59,86399,23,59,58",
+    "0,0,0,2147397247,3,14,7",
+    "1,2,3,2147397247,4,16,10",
+    "3,2,1,2147397247,6,16,8",
+    "0,0,1,-1,0,0,0",
+    "0,1,0,-1,0,0,59",
+    "1,0,0,-1,0,59,59",
+    "0,0,0,-1,23,59,59",
+    "1,2,5,-2,1,2,3",
+    "3,2,4,-60,3,1,4",
+    "1,2,3,-3600,0,2,3",
+    "0,0,0,-3600,23,0,0",
+    "0,0,0,-432001,23,59,59",
+    "12,21,52,-432001,12,21,51",
+    "0,0,0,-86399,0,0,1",
+    "1,2,3,-86399,1,2,4",
+    "23,59,59,-86399,0,0,0",
+    "0,0,0,-2147397248,20,45,52",
+    "1,2,3,-2147397248,21,47,55",
+    "3,2,1,-2147397248,23,47,53",
+    })
+    @DisplayName("test hora incrementa N")
+    public void incrementaN(
+            int ho, int mo, int so,
+            int delta,
+            int hd, int md, int sd) {
+        Hora hora = new Hora(ho, mo, so);
+        hora.incrementa(delta);
+        String msg = String.format("'%d:%d:%d'.incrementa(%d) hauria de ser '%d:%d:%d' però és '%d:%d:%d'",
+                ho, mo, so, delta, hd, md, sd, hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "testHoraIncrementaN";
+        assertHoraEsperada(hd, md, sd, hora, titol, msg);
+            }
 
 
-        hora.decrementa(60);
-        assertAll("testHoraDecrementaCasDecrementaMinut",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(1, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(3, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa quan canvia hores")
-    public void testHoraDecrementaCasDecrementaHora() {
-        Hora hora = new Hora(1, 2, 3);
-
-        hora.decrementa(3600);
-
-        assertAll("testHoraDecrementaCasDecrementaHora",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(3, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa quan reinicia")
-    public void testHoraDecrementaCasReinicia() {
-        Hora hora = new Hora(0, 0, 0);
-
-        hora.decrementa(1);
-
-        assertAll("testHoraDecrementaCasReinicia",
-                () -> assertEquals(23, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(59, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(59, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa N cas estàndard")
-    public void testHoraDecrementaNCasEstandard() {
-        Hora hora = new Hora(1, 2, 5);
-
-        hora.decrementa(2);
-
-        assertAll("testHoraDecrementaNCasEstandard",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(3, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa N cas decrementa minut")
-    public void testHoraDecrementaNCasDecrementaMinut() {
-        Hora hora = new Hora(3, 2, 4);
-
-        hora.decrementa(60);
-
-        assertAll("testHoraDecrementaNCasDecrementaMinut",
-                () -> assertEquals(3, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(1, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(4, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa N cas decrementa hora")
-    public void testHoraDecrementaNCasDecrementaHora() {
-        Hora hora = new Hora(1, 2, 3);
-
-        hora.decrementa(3600);
-
-        assertAll("testHoraDecrementaNCasDecrementaHora",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(3, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa N cas reinicia")
-    public void testHoraDecrementaNCasReinicia() {
-        Hora hora = new Hora(0, 0, 0);
-
-        hora.decrementa(86399);
-
-        assertAll("testHoraDecrementaNCasReinicia",
-                () -> assertEquals(0, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(0, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(1, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa N cas valor gran")
-    public void testHoraDecrementaNCasGranN() {
-        Hora hora = new Hora(0, 0, 0);
-
-        hora.decrementa(432001);
-
-        assertAll("testHoraDecrementaNCasGranN",
-                () -> assertEquals(23, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(59, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(59, hora.getSegons(), "Respecte als segons")
-                );
-    }
-
-    @Test
-    @DisplayName("test hora decrementa N cas valor negatiu")
-    public void testHoraDecrementaNegatiu() {
-        Hora hora = new Hora(1, 2, 3);
-
-        hora.decrementa(-1);
-
-        assertAll("testHoraDecrementaNegatiu",
-                () -> assertEquals(1, hora.getHores(), "Respecte a les hores"),
-                () -> assertEquals(2, hora.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(4, hora.getSegons(), "Respecte als segons")
-                );
-    }
+    @ParameterizedTest
+    @CsvSource(value={
+    "0,0,1,1,0,0,0",
+    "0,1,0,1,0,0,59",
+    "1,0,0,1,0,59,59",
+    "0,0,0,1,23,59,59",
+    "1,2,5,2,1,2,3",
+    "3,2,4,60,3,1,4",
+    "1,2,3,3600,0,2,3",
+    "0,0,0,3600,23,0,0",
+    "0,0,0,432001,23,59,59",
+    "12,21,52,432001,12,21,51",
+    "0,0,0,86399,0,0,1",
+    "1,2,3,86399,1,2,4",
+    "23,59,59,86399,0,0,0",
+    "0,0,0,2147397247,20,45,53",
+    "1,2,3,2147397247,21,47,56",
+    "3,2,1,2147397247,23,47,54",
+    "0,0,1,-1,0,0,2",
+    "0,1,0,-1,0,1,1",
+    "1,0,0,-1,1,0,1",
+    "0,0,0,-1,0,0,1",
+    "1,2,5,-2,1,2,7",
+    "3,2,4,-60,3,3,4",
+    "1,2,3,-3600,2,2,3",
+    "0,0,0,-3600,1,0,0",
+    "0,0,0,-432001,0,0,1",
+    "12,21,52,-432001,12,21,53",
+    "0,0,0,-86399,23,59,59",
+    "1,2,3,-86399,1,2,2",
+    "23,59,59,-86399,23,59,58",
+    "0,0,0,-2147397248,3,14,8",
+    "1,2,3,-2147397248,4,16,11",
+    "3,2,1,-2147397248,6,16,9",
+    })
+    @DisplayName("test hora decrementa N")
+    public void decrementaN(
+            int ho, int mo, int so,
+            int delta,
+            int hd, int md, int sd) {
+        Hora hora = new Hora(ho, mo, so);
+        hora.decrementa(delta);
+        String msg = String.format("'%d:%d:%d'.decrementa(%d) hauria de ser '%d:%d:%d' però és '%d:%d:%d'",
+                ho, mo, so, delta, hd, md, sd, hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "testHoraDecrementaN";
+        assertHoraEsperada(hd, md, sd, hora, titol, msg);
+            }
 
     //  test de toString()
     @Test
@@ -529,11 +335,16 @@ public class TestExercise {
     public void testDuplicaStaticHoraResultatAmbMateixosValors() {
         Hora hora = new Hora(1, 2, 3);
         Hora duplicada = Hora.duplica(hora);
-        assertAll("testDuplicaHoraResultatAmbMateixosValors",
-                () -> assertEquals(hora.getHores(), duplicada.getHores(), "Respecte a les hores"),
-                () -> assertEquals(hora.getMinuts(), duplicada.getMinuts(), "Respecte als minuts"),
-                () -> assertEquals(hora.getSegons(), duplicada.getSegons(), "Respecte als segons")
-                );
+        String msg = String.format(
+                "Hora.duplica('%d:%d:%d') hauria de ser '%d:%d:%d' però és '%d:%d:%d'",
+                1, 2, 3, 1, 2, 3,
+                hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "test duplica Hora resulta amb els mateixos valors";
+        assertHoraEsperada(
+                1, 2, 3,
+                duplicada,
+                titol,
+                msg);
     }
 
     @Test
@@ -545,6 +356,15 @@ public class TestExercise {
         assertFalse(hora == duplicada, "L'hora duplicada no ha de ser la mateixa instància");
     }
 
-
-
+    private void assertHoraEsperada(
+            int he, int me, int se,
+            Hora hora,
+            String titol,
+            String msg) {
+        assertAll(titol,
+                () -> assertEquals(he, hora.getHores(), msg),
+                () -> assertEquals(me, hora.getMinuts(), msg),
+                () -> assertEquals(se, hora.getSegons(), msg)
+                );
+    }
 }
