@@ -70,11 +70,9 @@ public class GatRenat {
             vides--;
             if (vides > 0) return "auch";
             else return "ximpún";
-        } else if (vides==0){
-            vides = -1;
+        } else {
             return "...";
         } 
-        else return resuscita();
     }
     public String resuscita() {
         if(!estaViu()) {
