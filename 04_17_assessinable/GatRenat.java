@@ -81,7 +81,7 @@ public class GatRenat {
             setVides(1);
             return "guai!";
         }
-        return mor();
+        return "...";
         
     }
     public String resuscita(int vides) {
