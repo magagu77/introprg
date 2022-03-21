@@ -71,7 +71,8 @@ public class Ascensor {
     }
     public boolean arrencaAmunt() {
         if (estaAmunt()) return false;
-        else {
+        else {  
+            setMoviment("pujant");
             return true;
         }
     }
