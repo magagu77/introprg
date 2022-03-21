@@ -64,12 +64,13 @@ public class Ascensor {
         }
     }
     public boolean arrencaAbaix(){
-        if (getMoviment().equals("baixant")) {
+        if (getMoviment().equals("baixant"))return true;
+        if (!getMoviment().equals("pujant")) {
             if(estaAturat())setMoviment("baixant");
-            return true;
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     }
     public boolean arrencaAmunt() {
