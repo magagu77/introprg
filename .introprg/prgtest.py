@@ -41,18 +41,100 @@ DEFAULT_TIMEOUT = 10
 PROGRAM_DESCRIPTOR = "prgtest"
 PROGRAM_VERSION = "2021-22"
 INTROPRGDIR_KEY = "INTROPRGDIR"
-INTROPRGSUPPORTDIR_KEY = "INTROPRGSUPPORTDIR"
-DEFAULT_WORKING_DIR_NAME = "introprg"
 SUPPORT_FOLDER_NAME = ".introprg"
 SPECS_FOLDER_NAME = ".introprg/exercises"
 FLAG_RELATIVE_PATH = "tmp/last.yaml"
 TEST_RELATIVE_PATH = "tmp/test"
-SPECS_FILENAME = "specs.yaml"
 JUNIT_CLASSNAME = "TestExercise"
-JUNIT_FILENAME = "TestExercise.java"
+JUNIT_FILENAME = f"{JUNIT_CLASSNAME}.java"
 PRGTEST_AUTHOR_NAME = "prgtest"
-PRGTESTCFG_PATH = Path(__file__).resolve().parent / 'prgtestcfg.yaml'
 
+###################################################
+# Literal messages
+###################################################
+
+MESSAGES = {
+    # Error messages
+    "MSG_ERR_SUPPORT_FILES_ISSUES": "S'ha trobat problemes amb els fitxers de suport",
+    "MSG_ERR_SUPPORT_FILES_ISSUES_TIP": "Considera tornar a instal·lar o consulta al teu docent",
+    "MSG_ERR_INTROPRGDIR_ENV_NOT_FOUND": "No està definida la variable INTROPRGDIR",
+    "MSG_ERR_INTROPRGDIR_ENV_NOT_FOUND_TIP": "Revisa la instal·lació o consulta el teu docent",
+    "MSG_ERR_INTROPRGDIR_NOT_FOUND": "No trobo el directori %s especificat a la variable d'entorn INTROPRGDIR",
+    "MSG_ERR_INTROPRGDIR_NOT_FOUND_TIP": "Revisa la instal·lació o consulta el teu docent",
+    "MSG_ERR_NON_GIT": "El directori %s no és un repositori git vàlid",
+
+    "MSG_ERR_OUT_OF_WORKINGDIR": "Aquest programa no funciona en el directori actual",
+    "MSG_ERR_OUT_OF_WORKINGDIR_TIP": "Cal executar-lo a la carpeta d'algun dels exercicis.",
+
+    "MSG_ERR_NOT_AN_EXERCISE": "El directori actual no es correspon amb un exercici conegut",
+    "MSG_ERR_NOT_AN_EXERCISE_TIP": "Revisa que el nom de la carpeta sigui exàctament el requerit a l'enunciat",
+
+    "MSG_ERR_EXERCISE_WITHOUT_MAIN_FILE": "No s'ha trobat el fitxer %s",
+    "MSG_ERR_NON_COMPILED_SOURCE_FILE": "No es troba el fitxer %s",
+    "MSG_ERR_NON_COMPILED_SOURCE_FILE_TIP": "Considera una de les següents possibilitats:\n$ javac %s\no\n$ javac *.java",
+    "MSG_ERR_OUTDATED_COMPILED_SOURCE_FILE": "El fitxer %s ha estat modificat després de compilar",
+    "MSG_ERR_OUTDATED_COMPILED_SOURCE_FILE_TIP": "Considera una de les següents possibilitats:\n$ javac %s\no\n$ javac *.java",
+
+
+    "MSG_ERR_NO_JUNIT": "Aquest exercici no disposa de proves unitàries",
+    "MSG_ERR_JUNIT_OVERWRITE": "Ja existeix un fitxer anomenat TestExercise.java",
+    "MSG_ERR_JUNIT_OVERWRITE_TIP": "Si el vols actualitzar, elimina'l primer.",
+    "MSG_ERR_JUNIT_NOTICE": "JUnit ha generat la següent sortida d'error:",
+    "MSG_ERR_JUNIT_TIP": "Et proposo que consideris el següent error:",
+
+    "MSG_ERR_NON_STAGED": "Hi ha fitxers no afegits a git",
+    "MSG_ERR_NON_STAGED_TIP": "Considera una de les següents possibilitats:\n$ git add %s\no\n$ git add --all",
+
+    "MSG_ERR_MISSING_COMMIT": "Cal registrar els canvis a git",
+    "MSG_ERR_MISSING_COMMIT_TIP": 'Considera:\n$ git commit -am "»descripció dels canvis realitzats»"',
+
+    "MSG_ERR_TEST_INPUT_CONTENTS": "Se li ha passat el següent contingut per entrada estàndard:",
+
+    "MSG_ERR_MORE_LINES_THAN_EXPECTED": "Li sobra la línia:",
+    "MSG_ERR_LESS_LINES_THAN_EXPECTED": "Li falta la línia:",
+    "MSG_ERR_LINE_DISCREPANCY": "Les següents línies difereixen",
+    "MSG_ERR_EXERCISE_NEVER_ENDS": "El teu programa tarda massa en finalitzar",
+    "MSG_ERR_EXERCISE_NEVER_ENDS_TIP": "Executa'l manualment amb les entrades especificades",
+    "MSG_ERR_COMPILATION": "S'ha trobat errors compilant %s",
+    "MSG_ERR_COMPILATION_JUNIT": "S'ha trobat errors compilant les proves de JUnit",
+    "MSG_ERR_EXERCISE_BREAKS": "El teu programa finalitza inesperadament",
+    "MSG_ERR_EXERCISE_BREAKS_TIP": "Executa el programa fora de prgtest amb l'entrada indicada i revisa les línies remarcades a la sortida d'error",
+
+    "MSG_ERR_EXPECTED_OUTPUT": "S'esperava el següent contingut:",
+    "MSG_ERR_FOUND_OUTPUT": "S'ha trobat, però:",
+    "MSG_ERR_FOUND_EMPTY": "S'ha trobat, però el fitxer buit",
+    "MSG_ERR_EXPECTED_FILEOUT": "S'esperava el fitxer %s amb el següent contingut:",
+    "MSG_ERR_FOUND_FILEOUT": "S'ha trobat, però, el següent contingut:",
+    "MSG_ERR_MISSING_EXPECTED_FILE": "No s'ha trobat el fitxer %s",
+    "MSG_ERR_NO_STDOUT_EXPECTED": "No s'esperava cap contingut per sortida estàndard",
+    "MSG_ERR_NO_STDOUT_FOUND": "No s'ha trobat, però, cap contingut per sortida estàndard",
+    "MSG_ERR_NO_OUTPUT_EXPECTED": "S'esperava el fitxer buit %s",
+    "MSG_ERR_NO_OUTPUT_FOUND": "S'ha trobat el fitxer buit",
+
+    "MSG_CREATED_FILEIN": "S'ha creat el fitxer %s amb el contingut",
+    "MSG_CREATED_EMPTY_FILE": "S'ha creat el fitxer buit %s",
+    "MSG_CREATED_EMPTY_FOLDER": "S'ha creat el directori buit %s",
+
+    # Information messages
+    "PROGRAM_DESCRIPTION": "Aquest programa et permet avaluar els teus exercicis de programació abans de lliurar-los",
+    "MSG_HELP_VERSION": "Mostra la versió d'aquest programa",
+    "MSG_HELP_COPY_JUNIT": "Copia els tests JUnit a la carpeta de l'exercici",
+
+    "MSG_EXERCISE_WITHOUT_TEST": "Aquest exercici no disposa de proves automàtiques.",
+    "MSG_JUNIT_COPIED": "Trobaràs les proves de JUnit al fitxer TestExercise.java",
+    "MSG_ALL_TEST_PASSED": "El teu exercici passa totes les proves",
+    "MSG_AUTOCOMMIT": "prgtest autocommit #%s %s: %s",
+
+    "MSG_TEXT_PASSED_TEST": "PASSA",
+    "MSG_TEXT_FAILED_TEST": "FALLA",
+    "MSG_TITLE_PROGRAM_EXECUTION": "Execució del programa",
+    "MSG_TITLE_STANDARD_INPUT": "Entrada estàndard",
+    "MSG_TITLE_FILEIN": "Fitxers d'entrada",
+    "MSG_TITLE_STANDARD_OUTPUT": "Sortida estàndard",
+    "MSG_TITLE_STANDARD_ERROR": "Sortida d'error",
+    "MSG_TITLE_JUNIT_ERROR": "Error de JUnit",
+    "MSG_TITLE_EXPECTED_FILEOUT": "Fitxer de sortida esperat",
+}
 
 ###################################################
 # messages utilities
@@ -61,12 +143,9 @@ PRGTESTCFG_PATH = Path(__file__).resolve().parent / 'prgtestcfg.yaml'
 # a dict containing the literals to be presented for messages
 READABLE_MESSAGES = None
 def getmsg(key: str) -> str:
-    """ tries to get the human readable message corresponding to the given key.
-        In case it is not present, it returns the key itself """
-    global READABLE_MESSAGES
-    if READABLE_MESSAGES is None:
-        READABLE_MESSAGES = load_yaml(PRGTESTCFG_PATH, allow_non_existing=True)
-    return READABLE_MESSAGES.get(key, key)
+    """ gets the human readable message corresponding to the given key.
+        In case it is not present, it halts execution. """
+    return MESSAGES[key]
 
 
 ##################################################
@@ -453,20 +532,19 @@ def check_git(working_dir, target_exercise):
 # context utilities
 ##################################################
 
-def get_working_dir():
-    """ tries to get the working directory from the environment.
-        The working directory must be defined by the environment variable
-        INTROPRGDIR, otherwise it halts execution.
-        On success it returns the path to the working directory """
-    path = os.environ.get(INTROPRGDIR_KEY)
-    if path is None:
-        print_error_and_exit(getmsg('MSG_ERR_INTROPRGDIR_ENV_NOT_FOUND'),
-                             tip=getmsg('MSG_ERR_INTROPRGDIR_ENV_NOT_FOUND_TIP'))
-    path = Path(path)
-    if not path.is_dir():
-        print_error_and_exit(getmsg('MSG_ERR_INTROPRGDIR_NOT_FOUND') % path,
-                             tip=getmsg('MSG_ERR_INTROPRGDIR_NOT_FOUND_TIP'))
-    return path
+def get_working_dir(cwd=None):
+    """ tries to get the working directory from cwd
+        If cwd is not a subfolder of a proper prgtest installation,
+        i.e. the folder is not a direct subfolder of a folder
+        containing SUPPORT_FOLDER_NAME, it halts with an error """
+    if cwd is None:
+        cwd = Path.cwd()
+    if (cwd / SUPPORT_FOLDER_NAME).is_dir():
+        return cwd
+    if cwd == Path(cwd.root):
+        print_error_and_exit(getmsg('MSG_ERR_OUT_OF_WORKINGDIR'),
+                             tip=getmsg('MSG_ERR_OUT_OF_WORKINGDIR_TIP'))
+    return get_working_dir(cwd.parent)
 
 
 def get_support_dir(working_dir):
@@ -490,7 +568,7 @@ def get_target_exercise(working_dir):
     current = Path.cwd()
     if working_dir != current.parent:
         print_error_and_exit(getmsg('MSG_ERR_OUT_OF_WORKINGDIR'),
-                             tip=getmsg('MSG_ERR_OUT_OF_WORKINGDIR_TIP') % working_dir)
+                             tip=getmsg('MSG_ERR_OUT_OF_WORKINGDIR_TIP'))
     return current.name
 
 
@@ -594,12 +672,12 @@ def prepare_test(working_dir):
     return test_path
 
 
-def compute_environment_variables():
+def compute_environment_variables(working_dir):
     """ computes the environment where the tests will be performed.
         It includes specially the CLASSPATH var """
     env = os.environ.copy()
+    introprgdir_path = working_dir / SUPPORT_FOLDER_NAME
     classpath = env.get('CLASSPATH', '')
-    introprgdir_path = Path(__file__).parent
     if not classpath:
         env['CLASSPATH'] = f'.:{introprgdir_path}'
     elif introprgdir_path not in classpath.split(':'):
@@ -1246,7 +1324,7 @@ def run():
     check_git(working_dir, target_exercise)
 
     # Perform IO tests
-    env = compute_environment_variables()
+    env = compute_environment_variables(working_dir)
     perform_io_tests(working_dir, specs, env)
 
     # Perform JUnit tests
