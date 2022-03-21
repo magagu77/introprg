@@ -64,9 +64,9 @@ public class Ascensor {
         }
     }
     public boolean arrencaAbaix(){
-        if (estaBaixant()) return false;
+        if (estaBaixant()) return true;
         else {
-            return true;
+            return false;
         }
     }
     public boolean arrencaAmunt() {
