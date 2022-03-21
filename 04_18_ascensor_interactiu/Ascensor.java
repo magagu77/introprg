@@ -69,7 +69,7 @@ public class Ascensor {
             return true;
         }
         else {
-            return true;
+            return false;
         }
     }
     public boolean arrencaAmunt() {
