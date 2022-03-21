@@ -66,6 +66,7 @@ public class Ascensor {
     public boolean arrencaAbaix(){
         if (estaBaixant()) return true;
         else {
+            setMoviment("baixant");
             return false;
         }
     }
@@ -76,17 +77,17 @@ public class Ascensor {
             return true;
         }
     }
-    public void seguentPis() {
+    public int seguentPis() {
         if (estaPujant()) {
             if(getPis() == 10) {
                 setMoviment("baixant");
-                setPis(getPis()-1);
-            } else setPis(getPis()+1);
+                return (getPis()-1);
+            } else return (getPis()+1);
         } else if (estaBaixant()) {
             if (getPis() == -1) {
                 setMoviment("pujant");
-                setPis(getPis()+1);
-            } else setPis(getPis()-1); 
-        }
+                return (getPis()+1);
+            } else return (getPis()-1); 
+        } else return getPis();
     }
 }
