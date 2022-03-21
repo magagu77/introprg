@@ -88,7 +88,7 @@ public class GatRenat {
             return "...";
         }
         setVides(vides);
-        if(estaViu()) {
+        if(!estaViu()) {
             return "...";
         }
         return "guai!";
