@@ -57,10 +57,10 @@ public class Ascensor {
         else return true;
     }
     public boolean aturat() {
-        if (estaAturat()) return true;
+        if (estaAturat()) return false;
         else {
             setMoviment("aturat");
-            return false;
+            return true;
         }
     }
     public boolean arrencaAbaix(){
