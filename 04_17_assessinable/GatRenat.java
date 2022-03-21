@@ -72,7 +72,7 @@ public class GatRenat {
             else return "ximpún";
         } else if (vides==0){
             vides = -1;
-            return ". . .";
+            return "...";
         } 
         else return resuscita();
     }
