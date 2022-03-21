@@ -10,7 +10,7 @@ public class GatRenat {
         return vides;
     }
     public void setVides(int valor) {
-        if (valor > 0) {
+        if (valor >= 0) {
             vides = valor;
         }
     }
@@ -69,7 +69,7 @@ public class GatRenat {
     }
     public String mor() {
         if(vides > 0) {
-            vides--;
+            setVides(getVides()-1);
             if (vides > 0) return "auch";
             else return "ximpún";
         } else {
