@@ -84,10 +84,10 @@ public class GatRenat {
         return "guai!";        
     }
     public String resuscita(int vides) {
+        setVides(vides);
         if(estaViu()) {
             return "...";
         }
-        setVides(vides);
         return "guai!";
     }
 }
