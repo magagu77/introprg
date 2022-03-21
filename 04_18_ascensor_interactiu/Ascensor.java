@@ -73,7 +73,7 @@ public class Ascensor {
         }
     }
     public boolean arrencaAmunt() {
-        if (!getMoviment().equals("pujant")) {
+        if (getMoviment().equals("pujant")) {
             if(estaAturat())setMoviment("pujant");
             return false;
         }
