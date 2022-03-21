@@ -64,7 +64,7 @@ public class Ascensor {
         }
     }
     public boolean arrencaAbaix(){
-        if (!getMoviment().equals("baixant")) {
+        if (getMoviment().equals("baixant")) {
             if(estaAturat())setMoviment("baixant");
             return true;
         }
