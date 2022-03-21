@@ -40,7 +40,7 @@ public class GatRenat {
         else return false;
     }
     public String aixecat() {
-        if(posicio.equals("m'aixeco")){
+        if(estaDret()){
             return "no faig res";
         } else {
             setPosicio("dret");;
@@ -48,7 +48,7 @@ public class GatRenat {
         }
     } 
     public String seu() {
-        if(posicio.equals("m'assec")){
+        if(estaAssegut()){
             return "no faig res";
         } else {
             setPosicio("assegut");
@@ -56,7 +56,7 @@ public class GatRenat {
         } 
     }
     public String estirat() {
-        if(posicio.equals("m'estiro")){
+        if(estaEstirat()){
             return "no faig res";
         } else {
             setPosicio("estirat");
