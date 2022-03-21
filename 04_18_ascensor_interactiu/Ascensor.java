@@ -84,7 +84,7 @@ public class Ascensor {
                 setPis(getPis()-1);
             } else setPis(getPis()+1);
         } else if (estaBaixant()) {
-            if (getPis() == 0) {
+            if (getPis() == -1) {
                 setMoviment("pujant");
                 setPis(getPis()+1);
             } else setPis(getPis()-1); 
