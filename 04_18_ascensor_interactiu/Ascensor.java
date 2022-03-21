@@ -64,10 +64,10 @@ public class Ascensor {
         }
     }
     public boolean arrencaAbaix(){
-        if (estaBaixant()) return true;
+        if (!estaBaixant()) return false;
         else {
             setMoviment("baixant");
-            return false;
+            return true;
         }
     }
     public boolean arrencaAmunt() {
