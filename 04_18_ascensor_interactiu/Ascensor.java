@@ -60,7 +60,7 @@ public class Ascensor {
         if (estaAturat()) return true;
         else {
             setMoviment("aturat");
-            return true;
+            return false;
         }
     }
     public boolean arrencaAbaix(){
