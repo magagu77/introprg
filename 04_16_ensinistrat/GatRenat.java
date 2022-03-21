@@ -43,24 +43,24 @@ public class GatRenat {
         if(posicio.equals("m'aixeco")){
             return "no faig res";
         } else {
-            setPosicio("m'aixeco");
-            return posicio;
+            setPosicio("dret");;
+            return "m'aixeco";
         }
     } 
     public String seu() {
         if(posicio.equals("m'assec")){
             return "no faig res";
         } else {
-            setPosicio("m'assec");
-            return posicio;
+            setPosicio("assegut");
+            return "m'assec";
         } 
     }
     public String estirat() {
         if(posicio.equals("m'estiro")){
             return "no faig res";
         } else {
-            setPosicio("mestiro");
-            return posicio;
+            setPosicio("estirat");
+            return "m'estiro";
         }
     }
 }
