@@ -10,7 +10,9 @@ public class GatRenat {
         return vides;
     }
     public void setVides(int valor) {
-        vides = valor;
+        if (valor > 0) {
+            vides = valor;
+        }
     }
     public String getPosicio() {
         return posicio;
