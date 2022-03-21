@@ -79,13 +79,16 @@ public class GatRenat {
     public String resuscita() {
         if(!estaViu()) {
             setVides(1);
+            return "guai!";
         }
-        return "guai!";
+        return mor();
+        
     }
     public String resuscita(int vides) {
         if(!estaViu()) {
             setVides(vides);
+            return "guai!";
         }
-        return "guai!";
+        return "...";
     }
 }
