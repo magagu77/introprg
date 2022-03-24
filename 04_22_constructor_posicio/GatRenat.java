@@ -24,11 +24,11 @@ public class GatRenat {
     //Comprova posicio correcta
     public static boolean posicioCorrecta (String posicio) {
         if(posicio.equals("dret") || posicio.equals("assegut") 
-        || posicio.equals("estirat")){ return true; }
-        else {return false;}
+        || posicio.equals("estirat")) return true; 
+        else return false;
     }
 
     public static void main(String[] args) {
-        System.out.println(new GatRenat(7, "corrent"));
+        System.out.println(new GatRenat(7, "dret"));
     }
 }
