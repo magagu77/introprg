@@ -3,7 +3,7 @@ public class GatRenat {
     private String posicio;
     public GatRenat(int novesVides, String novaPosicio) {
         vides = novesVides;
-        posicio = novaPosicio;
+        setPosicio(novaPosicio);
     }
     @Override
     public String toString() {
@@ -24,11 +24,11 @@ public class GatRenat {
     //Comprova posicio correcta
     public static boolean posicioCorrecta (String posicio) {
         if(posicio.equals("dret") || posicio.equals("assegut") 
-        || posicio.equals("estirat")) return true;
-        return false;
+        || posicio.equals("estirat")){ return true; }
+        else {return false;}
     }
 
     public static void main(String[] args) {
-        System.out.println(new GatRenat(7, "dret"));
+        System.out.println(new GatRenat(7, "corrent"));
     }
 }
