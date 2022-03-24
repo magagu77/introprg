@@ -1,8 +1,8 @@
 /*  Ejercicio que comprueba que valor asigna en la posicio del gat renat y en caso de que no sea correcta le dice que esta estirado
     esta versión usa el 'this' para llamr a una variable con el mismo nombre, con muchos constructores*/
     public class GatRenat {
-        private int vides;
-        private String posicio;
+        private int vides = 7;
+        private String posicio = "estirat";
 
         public GatRenat(int vides, String posicio) {
             setVides(vides);
