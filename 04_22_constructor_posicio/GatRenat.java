@@ -1,3 +1,4 @@
+/* Ejercicio que comprueba que valor asigna en la posicio del gat renat y en caso de que no sea correcta le dice que esta estirado*/
 public class GatRenat {
     private int vides;
     private String posicio;
