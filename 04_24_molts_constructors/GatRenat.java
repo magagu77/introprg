@@ -1,11 +1,22 @@
 /*  Ejercicio que comprueba que valor asigna en la posicio del gat renat y en caso de que no sea correcta le dice que esta estirado
-    esta versión usa el 'this' para llamr a una variable con el mismo nombre*/
+    esta versión usa el 'this' para llamr a una variable con el mismo nombre, con muchos constructores*/
     public class GatRenat {
         private int vides;
         private String posicio;
+
         public GatRenat(int vides, String posicio) {
             setVides(vides);
             setPosicio(posicio);
+        }
+        public GatRenat(){
+            setPosicio("estirat");
+            setVides(7);
+        }
+        public GatRenat (String posicio) {
+            setPosicio(posicio);
+        }
+        public GatRenat (int vides) {
+            setVides(vides);
         }
         @Override
         public String toString() {
@@ -39,6 +50,15 @@
         }
     
         public static void main(String[] args) {
-            System.out.println(new GatRenat(7, "dret"));
+            GatRenat[] renats = {
+                new GatRenat(),         // tot per defecte
+                new GatRenat(8),        // 8 vides i posició per defecte
+                new GatRenat("dret"),   // posició dret i vides per defecte
+                new GatRenat(8, "dret") // 8 vides i posició dret
+        
+            };
+            for (GatRenat renat: renats) {
+                System.out.println(renat);
+            }
         }
     }
