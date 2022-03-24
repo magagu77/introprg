@@ -1,3 +1,4 @@
+/*  Gato que necesita que le añadas tu el valor de vidas y la posicion, y en el main te dice que vaor les has asignado*/ 
 public class GatRenat {
     private int vides;
     private String posicio;
