@@ -1,4 +1,8 @@
-
+/** Ascensor que te dice si sube o baja, que si esta subiendo 
+    no para hasta que llega arriba del todo aun que lo llames 
+    porque funciona regular, eso si, te dice en que piso está 
+    cada vez que baja o sube uno y si esta subiendo o bajando
+    también te lo dice, bastante majete la verdad */  
  public class UsaAscensor {
     public static int llegeixEnter() {
         String resposta = Entrada.readLine();
