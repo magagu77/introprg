@@ -187,7 +187,7 @@ public class Hora {
 
     @Override
     public String toString () {
-        return String.format("%d %2d %02d", hores,minuts, segons );
+        return String.format("%d:%2d:%02d", hores,minuts, segons );
     }
 
     /**
