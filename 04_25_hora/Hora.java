@@ -113,18 +113,18 @@ public class Hora {
 
     // Decrementales
     public void decrementa() {
-        if (segons - 1 >= 0) {
+        if (getSegons() - 1 >= 0) {
             setSegons(getSegons()-1);
-        } else if (segons - 1 < 0) {
+        } else if (getSegons() - 1 < 0) {
             setSegons(59);
-            if (minuts - 1 >= 0) {
+            if (getMinuts() - 1 >= 0) {
                 setMinuts(getMinuts()-1);
-            } else if (minuts - 1 < 0) {
+            } else if (getMinuts() - 1 < 0) {
                 setMinuts(59);
-                if (hores - 1 > 0) {
+                if (getHores() - 1 >= 0) {
                     setHores(getHores()-1);
-                } else if (hores - 1 >= 0) {
-                    setHores(getHores()-1);
+                } else if (getHores() - 1 < 0) {
+                    setHores(23);
                 }
             }
         }
