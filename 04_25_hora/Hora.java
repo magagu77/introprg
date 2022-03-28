@@ -106,7 +106,7 @@ public class Hora {
         } else {
             setMinuts(getMinuts() + minuts);
         }
-        if (hora > 24){
+        if (hora >= 24){
             int numVueltas = hora/24;
             hora = hora - numVueltas * 24;
         }
