@@ -105,7 +105,7 @@ public class Hora {
             setMinuts(getMinuts() + minuts);
         }
         if (getHores() + getHores() >= 24) {
-            setHores((getHores()-24) +hora);
+            setHores((getHores()-25) + hora);
         } else {
             setHores(getHores() + hora);
         }      
