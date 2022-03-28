@@ -110,7 +110,7 @@ public class Hora {
             int numVueltas = hora/24;
             hora = hora - numVueltas * 24;
         }
-        if (getHores() + getHores() >= 24) {
+        if (getHores() + hora >= 24) {
             setHores((getHores()-24) + hora);
         } else {
             setHores(getHores() + hora);
