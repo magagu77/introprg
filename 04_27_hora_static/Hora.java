@@ -191,8 +191,8 @@ public class Hora {
         else return -1;
     }
     public static boolean esValida (int hores, int minuts, int segons) {
-        if (hores >=24 && hores <0 && minuts >= 60 && minuts < 0 
-            && segons >= 60 && segons < 0) return true;
+        if ( hores >= 0 && minuts < 60 && minuts >= 0 
+            && segons < 60 && segons >= 0) return true;
         else return false;
     }
     public static int compareTo(Hora hora1, Hora hora2) {
