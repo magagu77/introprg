@@ -10,9 +10,9 @@ public class Hora {
 
     //Constructor de horas minutos y segundos
     public Hora(int hores, int minuts, int segons) {
-        if (hores >= 0 && hores >= 23 ) {setHores(hores);}
-        if (minuts >= 0 && minuts <= 59) {setMinuts(minuts);}
-        if (segons >= 0 && segons <= 59) {setSegons(segons);}
+        setHores(hores);
+        setMinuts(minuts);
+        setSegons(segons);
     }
     public Hora() {
         setHores(0);
