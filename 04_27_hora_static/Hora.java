@@ -190,12 +190,12 @@ public class Hora {
         else if (getHores() > hora2.getHores()) return 1;
         else return -1;
     }
-    public boolean esValida (int hores, int minuts, int segons) {
+    public static boolean esValida (int hores, int minuts, int segons) {
         if (hores >=24 && hores <0 && minuts >= 60 && minuts < 0 
             && segons >= 60 && segons < 0) return true;
         else return false;
     }
-    public int compareTo(Hora hora1, Hora hora2) {
+    public static int compareTo(Hora hora1, Hora hora2) {
         if (hora1.getHores() == hora2.getHores() && hora1.getMinuts() == hora2.getMinuts() && hora1.getSegons() == hora2.getSegons()) return 0;
         else if (hora1.getHores() == hora2.getHores() && hora1.getMinuts() == hora2.getMinuts() && hora1.getSegons() > hora2.getSegons()) return 1;
         else if (hora1.getHores() == hora2.getHores() && hora1.getMinuts() > hora2.getMinuts()) return 1;
@@ -209,7 +209,7 @@ public class Hora {
         hora1.setSegons(this.getSegons());
         return hora1;
     }
-    public Hora duplica (Hora hora) {
+    public static Hora duplica (Hora hora) {
         Hora hora1 = new Hora(hora.getHores(),hora.getMinuts(),hora.getSegons());
         return hora1;
     }
