@@ -94,10 +94,6 @@ public class Hora {
     }
     // hace los augmentos
     public void incrementa(int hora, int minuts, int segons) {
-        if (hora > 24){
-            int numVueltas = hora/24;
-            hora = hora - numVueltas * 24;
-        }
         if (getSegons() + segons >= 60) {
             minuts++;
             setSegons(getSegons()+segons-60);
@@ -109,6 +105,10 @@ public class Hora {
             setMinuts(getMinuts()+minuts-60);
         } else {
             setMinuts(getMinuts() + minuts);
+        }
+        if (hora > 24){
+            int numVueltas = hora/24;
+            hora = hora - numVueltas * 24;
         }
         if (getHores() + getHores() >= 24) {
             setHores((getHores()-24) + hora);
