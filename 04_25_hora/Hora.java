@@ -230,5 +230,5 @@ public static void main(String[] args) {
             composaOperadorComparacio(hora1, hora2),
             hora2);
 
-}
+    }
 }
