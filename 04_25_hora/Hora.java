@@ -5,21 +5,20 @@
  * */
 public class Hora {
     private int hores = 0;
-    private int minuts = 00;
-    private int segons = 00;
+    private int minuts = 0;
+    private int segons = 0;
 
     //Constructor de horas minutos y segundos
     public Hora(int hores, int minuts, int segons) {
-        if(hores >=24 || hores <0 || 
-        minuts >= 60 || minuts < 0 ||
-        segons >= 60 || segons < 0) {
+        if(hores >=24 || hores <0 || minuts >= 60 || minuts < 0 ||segons >= 60 || segons < 0) {
             setHores(0);
             setMinuts(0);
             setSegons(0);
+        } else {
+            setHores(hores);
+            setMinuts(minuts);
+            setSegons(segons);
         }
-        setHores(hores);
-        setMinuts(minuts);
-        setSegons(segons);
     }
     public Hora() {
         setHores(0);
