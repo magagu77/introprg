@@ -99,7 +99,7 @@ public class Hora {
             setSegons(getSegons()+segons);
         }
         if (getMinuts() + minuts >= 60) {
-            hores++;
+            hora++;
             setMinuts(getMinuts()+minuts-60);
         } else {
             setMinuts(getMinuts() + minuts);
