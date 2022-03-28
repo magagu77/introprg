@@ -160,13 +160,13 @@ public class Hora {
             hora = hora - numVueltas * 24;
         }
         if (getSegons() - segons < 0) {
-            setMinuts(getMinuts()-1);
+            minuts++;
             setSegons(getSegons()+60-segons);
         } else {
             setSegons(getSegons()-segons);
         }
         if (getMinuts()- minuts < 0) {
-            setHores(getHores()-1);
+            hora++;
             setMinuts(getMinuts()+60-minuts);
         } else {
             setMinuts(getMinuts()-minuts);
