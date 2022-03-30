@@ -9,6 +9,7 @@
         public GatRenat(){
             setPosicio("estirat");
             setVides(7);
+            ulls = new UllDeGat[2];
             ulls[0] = new UllDeGat();
             ulls[1] = new UllDeGat();
         }
