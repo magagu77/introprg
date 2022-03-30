@@ -13,6 +13,8 @@
         private GatRenat(){
             setPosicio("estirat");
             setVides(7);
+            ulls[0] = new UllDeGat();
+            ulls[1] = new UllDeGat();
         }
         private GatRenat (String posicio) {
             setPosicio(posicio);
