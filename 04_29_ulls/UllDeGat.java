@@ -4,16 +4,16 @@ import java.io.ObjectStreamClass;
     la informacio de com están els ulls del gat
 */
 public class UllDeGat {
-    private String posicio = "tancat";
+    private boolean posicio = true;
     
     public void obret() {
-        posicio = "obert";
+        posicio = true;
     }
     public void tancat() {
-        posicio = "tancat";
+        posicio = true;
     }
     public boolean estaObert() {
-        if(posicio.equals("obert")) {
+        if(posicio == true) {
             return true;
         } else {
             return false;
