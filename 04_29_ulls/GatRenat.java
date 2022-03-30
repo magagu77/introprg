@@ -6,7 +6,7 @@
         private String posicio = "estirat";
         private UllDeGat[] ulls = new UllDeGat [2];
 
-        private GatRenat(){
+        public GatRenat(){
             setPosicio("estirat");
             setVides(7);
             ulls[0] = new UllDeGat();
