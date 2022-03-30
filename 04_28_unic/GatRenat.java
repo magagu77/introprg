@@ -4,7 +4,7 @@ import java.util.Objects;
     public class GatRenat {
         private int vides = 7;
         private String posicio = "estirat";
-        private static GatRenat instancia = null;
+        private static GatRenat instancia = new GatRenat();
 
         private GatRenat(int vides, String posicio) {
             setVides(vides);
@@ -76,6 +76,7 @@ import java.util.Objects;
                 GatRenat instancia = new GatRenat(vides);
                 return instancia;
             } else {
+                instancia.setVides(vides);
                 return instancia;
             }
         }
@@ -84,6 +85,7 @@ import java.util.Objects;
                 GatRenat instancia = new GatRenat(posicio);
                 return instancia;
             } else {
+                instancia.setPosicio(posicio);
                 return instancia;
             }
         }
@@ -92,6 +94,8 @@ import java.util.Objects;
                 GatRenat instancia = new GatRenat(vides,posicio);
                 return instancia;
             } else {
+                instancia.setVides(vides);
+                instancia.setPosicio(posicio);
                 return instancia;
             }
         }
