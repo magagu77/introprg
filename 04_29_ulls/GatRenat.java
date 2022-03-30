@@ -6,21 +6,11 @@
         private String posicio = "estirat";
         private UllDeGat[] ulls = new UllDeGat [2];
 
-        private GatRenat(int vides, String posicio) {
-            setVides(vides);
-            setPosicio(posicio);
-        }
         private GatRenat(){
             setPosicio("estirat");
             setVides(7);
             ulls[0] = new UllDeGat();
             ulls[1] = new UllDeGat();
-        }
-        private GatRenat (String posicio) {
-            setPosicio(posicio);
-        }
-        private GatRenat (int vides) {
-            setVides(vides);
         }
         @Override
         public String toString() {
