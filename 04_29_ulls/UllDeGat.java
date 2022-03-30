@@ -10,7 +10,7 @@ public class UllDeGat {
         posicio = "obert";
     }
     public void tancat() {
-        posicio = "obert";
+        posicio = "tancat";
     }
     public boolean estaObert() {
         if(posicio.equals("obert")) {
