@@ -4,7 +4,7 @@ import java.io.ObjectStreamClass;
     la informacio de com están els ulls del gat
 */
 public class UllDeGat {
-    private String posicio = "obert";
+    private String posicio = "tancat";
     
     public void obret() {
         posicio = "obert";
