@@ -13,17 +13,17 @@
             ulls[0] = new UllDeGat(false);
             ulls[1] = new UllDeGat(false);
         }
-        private GatRenat(int vides, String posicio) {
+        public GatRenat(int vides, String posicio) {
             setVides(vides);
             setPosicio(posicio);
             ulls = new UllDeGat[2];
             ulls[0] = new UllDeGat(false);
             ulls[1] = new UllDeGat(false);
         }
-        private GatRenat (String posicio) {
+        public GatRenat (String posicio) {
             setPosicio(posicio);
         }
-        private GatRenat (int vides) {
+        public GatRenat (int vides) {
             setVides(vides);
         }
         @Override
