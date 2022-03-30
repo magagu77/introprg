@@ -14,11 +14,11 @@ public class UsaGatRenat {
     private static void canviaPosicio(String novaPosicio) {
         // Tradueix novaPosicio: 1 -> estirat, 2 -> assegut, 3 -> dret,
         // altrament es queda com estava
-        if (Integer.parseInt(novaPosicio) == 1) {
+        if (novaPosicio.equals("1")) {
             novaPosicio = "estirat";
-        } else if (Integer.parseInt(novaPosicio) == 2) {
+        } else if (novaPosicio.equals("2")) {
             novaPosicio = "assegut";
-        } else if (Integer.parseInt(novaPosicio) == 3) {
+        } else if (novaPosicio.equals("3")) {
             novaPosicio = "dret";
         } else {
             return;
