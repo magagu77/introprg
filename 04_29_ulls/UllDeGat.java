@@ -4,7 +4,7 @@ import java.io.ObjectStreamClass;
     la informacio de com están els ulls del gat
 */
 public class UllDeGat {
-    private boolean posicio;
+    private boolean posicio = false;
     //Constructor
     public UllDeGat() {
         posicio = true;
