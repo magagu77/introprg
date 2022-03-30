@@ -5,7 +5,13 @@ import java.io.ObjectStreamClass;
 */
 public class UllDeGat {
     private boolean posicio;
-    
+    //Constructor
+    public UllDeGat() {
+        posicio = true;
+    }
+    public UllDeGat(boolean posicio) {
+        this.posicio = posicio;
+    }
     public void obret() {
         posicio = true;
     }
