@@ -61,13 +61,13 @@
         }
         public void aixecat(){
             setPosicio("dret");
-            ulls[1].obret();
-            ulls[0].obret();
+            this.ulls[1].obret();
+            this.ulls[0].obret();
         }
         public void seu() {
             setPosicio("assegut");
-            ulls[1].tancat();
-            ulls[0].obret();
+            this.ulls[1].tancat();
+            this.ulls[0].obret();
         }
         public void estirat() {
             setPosicio("estirat");
