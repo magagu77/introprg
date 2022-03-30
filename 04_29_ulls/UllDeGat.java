@@ -10,7 +10,7 @@ public class UllDeGat {
         posicio = true;
     }
     public void tancat() {
-        posicio = true;
+        posicio = false;
     }
     public boolean estaObert() {
         if(posicio == true) {
