@@ -4,7 +4,7 @@
     public class GatRenat {
         private int vides = 7;
         private String posicio = "estirat";
-        private UllDeGat[] ulls = new UllDeGat [2];
+        private UllDeGat[] ulls;
 
         public GatRenat(){
             setPosicio("estirat");
