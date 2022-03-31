@@ -7,7 +7,7 @@ public class UllDeGat {
     private boolean posicio = false;
     //Constructor
     public UllDeGat() {
-        posicio = true;
+        posicio = false;
     }
 
     public UllDeGat(boolean posicio) {
