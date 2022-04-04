@@ -45,6 +45,8 @@ public class Vi {
     public void setPreu(int preu) {
         if (preu >= 0) {
             this.preu = preu;
+        } else {
+            this.preu = -1;
         }
     }
     public void setEstoc(int stock) {
@@ -60,6 +62,14 @@ public class Vi {
         nom = nom.trim();
         nom = String.format(nom.replaceAll("\\s"," "));
         return nom;
+    }
+    // Determina si el preu d'un vi es valid o no
+    public boolean esValid() {
+        if (preu < 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
