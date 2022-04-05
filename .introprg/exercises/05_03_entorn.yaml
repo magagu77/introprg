@@ -1,0 +1,365 @@
+'01':
+  stdin:
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - botiga> adéu
+'02':
+  stdin:
+  - ajuda
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> Comandes disponibles:'
+  - ajuda
+  - cerca
+  - afegeix
+  - modifica
+  - elimina
+  - surt
+  - botiga> adéu
+'03':
+  stdin:
+  - afegeix
+  - ''
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - botiga> nom (enter cancel·la)> botiga> adéu
+'04':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '-24'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> ERROR: el valor ha de ser un
+    enter positiu'
+  - botiga> adéu
+'05':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '-24'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    ERROR: el valor ha de ser un enter positiu'
+  - botiga> adéu
+'06':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '24'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - botiga> adéu
+'07':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - ''
+  - ''
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 0"
+  - "    Estoc: 0"
+  - ''
+  - botiga> adéu
+08:
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '24'
+  - afegeix
+  - Roura blanc
+  - '2222'
+  - ''
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    ERROR: no s''ha pogut afegir'
+  - botiga> adéu
+09:
+  stdin:
+  - cerca
+  - ''
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - botiga> nom (enter cancel·la)> botiga> adéu
+'10':
+  stdin:
+  - cerca
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - botiga> nom (enter cancel·la)> No trobat
+  - botiga> adéu
+'11':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '24'
+  - cerca
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> Trobat:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - botiga> adéu
+'12':
+  stdin:
+  - modifica
+  - ''
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - botiga> nom (enter cancel·la)> botiga> adéu
+'13':
+  stdin:
+  - modifica
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - botiga> nom (enter cancel·la)> No trobat
+  - botiga> adéu
+'14':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '24'
+  - modifica
+  - Roura blanc
+  - '2222'
+  - '12'
+  - cerca
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> preu (enter 2200)> estoc (enter 24)> Modificat:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2222"
+  - "    Estoc: 12"
+  - ''
+  - 'botiga> nom (enter cancel·la)> Trobat:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2222"
+  - "    Estoc: 12"
+  - ''
+  - botiga> adéu
+'15':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '24'
+  - modifica
+  - Roura blanc
+  - ''
+  - ''
+  - cerca
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> preu (enter 2200)> estoc (enter 24)> Modificat:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> Trobat:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - botiga> adéu
+'16':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '24'
+  - modifica
+  - Roura blanc
+  - '-24'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> preu (enter 2200)> ERROR: el valor ha de ser un
+    enter positiu'
+  - botiga> adéu
+'17':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '24'
+  - modifica
+  - Roura blanc
+  - ''
+  - '-24'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> preu (enter 2200)> estoc (enter 24)> ERROR: el
+    valor ha de ser un enter positiu'
+  - botiga> adéu
+'18':
+  stdin:
+  - elimina
+  - ''
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - botiga> nom (enter cancel·la)> botiga> adéu
+'19':
+  stdin:
+  - elimina
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - botiga> nom (enter cancel·la)> No trobat
+  - botiga> adéu
+'20':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - ''
+  - elimina
+  - Roura blanc
+  - 'no'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 0"
+  - ''
+  - 'botiga> nom (enter cancel·la)> A eliminar:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 0"
+  - ''
+  - Segur?> No eliminat
+  - botiga> adéu
+'21':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - '24'
+  - elimina
+  - Roura blanc
+  - sí
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> A eliminar:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 24"
+  - ''
+  - 'Segur?> ERROR: no s''ha pogut eliminar'
+  - botiga> adéu
+'22':
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '2200'
+  - ''
+  - elimina
+  - Roura blanc
+  - sí
+  - cerca
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 0"
+  - ''
+  - 'botiga> nom (enter cancel·la)> A eliminar:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 2200"
+  - "    Estoc: 0"
+  - ''
+  - Segur?> Eliminat
+  - botiga> nom (enter cancel·la)> No trobat
+  - botiga> adéu
+_mainclass: Entorn

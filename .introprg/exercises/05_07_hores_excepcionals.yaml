@@ -1,0 +1,15 @@
+'01':
+  stdout:
+  - Inicialment 0:00:00
+  - Si intentem assignar a hores un -1
+  - 'java.lang.Exception: hores fora de rang: -1'
+  - El valor resultant és 0:00:00
+  - ''
+  - Si intentem assignar a minuts un -1
+  - 'java.lang.Exception: minuts fora de rang: -1'
+  - El valor resultant és 0:00:00
+  - ''
+  - Si intentem assignar a segons un -1
+  - 'java.lang.Exception: segons fora de rang: -1'
+  - El valor resultant és 0:00:00
+_mainclass: UsaHora

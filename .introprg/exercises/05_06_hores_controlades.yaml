@@ -1,0 +1,22 @@
+'01':
+  stdin:
+  - ''
+  stdout:
+  - Inicialment 0:00:00
+  - hores.setHores(-1) -> false
+  - hores.setHores(12) -> true
+  - hores.setHores(24) -> false
+  - Ara 12:00:00
+  - ''
+  - hores.setMinuts(-1) -> false
+  - hores.setMinuts(21) -> true
+  - hores.setMinuts(62) -> false
+  - Ara 12:21:00
+  - ''
+  - hores.setSegons(100) -> false
+  - hores.setSegons(59) -> true
+  - hores.setSegons(-2) -> false
+  - finalment 12:21:59
+_mainclass: UsaHora
+_wafiles:
+- UsaHora.java

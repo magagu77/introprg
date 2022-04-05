@@ -1,0 +1,15 @@
+_mainclass: UsaVi
+'01':
+  stdout:
+  - Vi sense estoc
+  - "    Vi: Roura blanc"
+  - "    Preu: 1234"
+  - "    Estoc: 0"
+  - Vi amb estoc
+  - "    Vi: Roura blanc"
+  - "    Preu: 1234"
+  - "    Estoc: 24"
+  - Vi modificat
+  - "    Vi: Roura blanc"
+  - "    Preu: 1354"
+  - "    Estoc: 14"

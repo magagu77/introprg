@@ -1,0 +1,5 @@
+'01':
+  stdout:
+  - Intentarem crear una hora amb valors no vàlids
+  - Argument il·legal!
+_mainclass: UsaHora

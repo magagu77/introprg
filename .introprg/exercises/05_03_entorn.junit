@@ -1,0 +1,401 @@
+import java.util.Arrays;
+import java.lang.reflect.Type;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    /* ************************************************************************* *
+     *  Test de Vi                                                               *
+     * ************************************************************************* */
+    @Nested
+    @DisplayName("Tests de Vi")
+    class SobreVi {
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "'   nom',nom",
+        "'nom   ',nom",
+        "'nom   cognom1   cognom2', 'nom cognom1 cognom2'",
+        "'nom cognom1 cognom2', 'nom cognom1 cognom2'",
+        "'  Nom  Cognom1 Cognom2 ', 'Nom Cognom1 Cognom2'",
+        "'', 'NOM NO VÀLID!'",
+        "'   ', 'NOM NO VÀLID!'"
+        })
+        @DisplayName("test Vi.normalitzaNom()")
+        public void normalitzaNom(String nom, String esperat) {
+            String obtingut = Vi.normalitzaNom(nom);
+            String msg = String.format("Vi.normalitzaNom(\"%s\") s'esperava \"%s\" però s'ha trobat \"%s\"", nom, esperat, obtingut);
+            assertEquals(esperat, obtingut, msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "'   nom',nom",
+        "'nom   ',nom",
+        "'nom   cognom1   cognom2', 'nom cognom1 cognom2'",
+        "'nom cognom1 cognom2', 'nom cognom1 cognom2'",
+        "'  Nom  Cognom1 Cognom2 ', 'Nom Cognom1 Cognom2'",
+        "'', 'NOM NO VÀLID!'",
+        "'   ', 'NOM NO VÀLID!'"
+        })
+        @DisplayName("test Vi(String, int) normalitza nom")
+        public void constructorSenseEstocNormalitzaNom(String nom, String esperat) {
+            Vi vi = new Vi(nom, 1);
+            String msg = String.format("Vi(\"%s\", 1) s'esperava nom \"%s\" però s'ha trobat \"%s\"", nom, esperat, vi.getNom());
+            assertEquals(esperat, vi.getNom(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "'   nom',nom",
+        "'nom   ',nom",
+        "'nom   cognom1   cognom2', 'nom cognom1 cognom2'",
+        "'nom cognom1 cognom2', 'nom cognom1 cognom2'",
+        "'  Nom  Cognom1 Cognom2 ', 'Nom Cognom1 Cognom2'",
+        "'', 'NOM NO VÀLID!'",
+        "'   ', 'NOM NO VÀLID!'"
+        })
+        @DisplayName("test Vi(String, int, int) normalitza nom")
+        public void constructorAmbEstocNormalitzaNom(String nom, String esperat) {
+            Vi vi = new Vi(nom, 1, 1);
+            String msg = String.format("Vi(\"%s\", 1, 1) s'esperava nom \"%s\" però s'ha trobat \"%s\"", nom, esperat, vi.getNom());
+            assertEquals(esperat, vi.getNom(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1,-1",
+        "-10,-1"
+        })
+        @DisplayName("test Vi(String, int) controla preu")
+        public void constructorSenseEstocAssignaPreu(int preu, int esperat) {
+            Vi vi = new Vi("Roura Blanc", preu);
+            String msg = String.format("Vi(\"Roura Blanc\", %d) s'esperava preu \"%d\" però s'ha trobat \"%d\"", preu, esperat, vi.getPreu());
+            assertEquals(esperat, vi.getPreu(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1,-1",
+        "-10,-1"
+        })
+        @DisplayName("test Vi(String, int, int) controla preu")
+        public void constructorAmbEstocAssignaPreu(int preu, int esperat) {
+            Vi vi = new Vi("Roura Blanc", preu, 1);
+            String msg = String.format("Vi(\"Roura Blanc\", %d, 1) s'esperava preu \"%d\" però s'ha trobat \"%d\"", preu, esperat, vi.getPreu());
+            assertEquals(esperat, vi.getPreu(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1, -1",
+        "-10, -1"
+        })
+        @DisplayName("test Vi(String, int, int) controla estoc")
+        public void constructorAmbEstocAssignaEstoc(int estoc, int esperat) {
+            Vi vi = new Vi("Roura Blanc", 1012, estoc);
+            String msg = String.format("Vi(\"Roura Blanc\", 1012, %d) s'esperava estoc \"%d\" però s'ha trobat \"%d\"", estoc, esperat, vi.getEstoc());
+            assertEquals(esperat, vi.getEstoc(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1,1012",
+        "-10,1012"
+        })
+        @DisplayName("test Vi.setPreu(int) controla preu")
+        public void setPreu(int preu, int esperat) {
+            Vi vi = new Vi("Roura Blanc", 1012);
+            vi.setPreu(preu);
+            String msg = String.format("setPreu(%d) s'esperava preu \"%d\" però s'ha trobat \"%d\"", preu, esperat, vi.getPreu());
+            assertEquals(esperat, vi.getPreu(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1,42",
+        "-10,42"
+        })
+        @DisplayName("test Vi.setEstoc(int) controla estoc")
+        public void setEstoc(int estoc, int esperat) {
+            Vi vi = new Vi("Roura Blanc", 1012, 42);
+            vi.setEstoc(estoc);
+            String msg = String.format("setEstoc(%d) s'esperava estoc \"%d\" però s'ha trobat \"%d\"", estoc, esperat, vi.getEstoc());
+            assertEquals(esperat, vi.getEstoc(), msg);
+        }
+
+        // esValid()
+        @Test
+        @DisplayName("test esValid() quan nom vàlid")
+        public void esValidQuanValid() {
+            String nom = "Roura Blanc";
+            Vi vi = new Vi(nom, 1012);
+            String msg = String.format("Vi(\"%s\", 1012).esValid() ha de retornar true", nom);
+            assertTrue(vi.esValid(), msg);
+        }
+        @Test
+        @DisplayName("test esValid() quan nom no vàlid")
+        public void esValidQuanNomNoValid() {
+            String nom = "   ";
+            Vi vi = new Vi(nom, 1012);
+            String msg = String.format("Vi(\"%s\", 1012).esValid() ha de retornar false", nom);
+            assertFalse(vi.esValid(), msg);
+        }
+        @Test
+        @DisplayName("test esValid() quan preu no vàlid")
+        public void esValidQuanPreuNoValid() {
+            Vi vi = new Vi("Roure Blanc", -20);
+            String msg = String.format("Vi(\"Roure Blanc\", -20).esValid() ha de retornar false");
+            assertFalse(vi.esValid(), msg);
+        }
+        @Test
+        @DisplayName("test esValid() quan estoc no vàlid")
+        public void esValidQuanEstocNoValid() {
+            Vi vi = new Vi("Roure Blanc", 1012, -30);
+            String msg = String.format("Vi(\"Roure Blanc\", 1012, -30).esValid() ha de retornar false");
+            assertFalse(vi.esValid(), msg);
+        }
+
+    }
+
+    /* ************************************************************************* *
+     *  Test de Botiga                                                           *
+     * ************************************************************************* */
+    @Nested
+    @DisplayName("Tests de Botiga")
+    class SobreBotiga {
+
+        // afegeix()
+        @Test
+        @DisplayName("test botiga afegeix nou vi")
+        public void testAfegeix() {
+            Vi vi = new Vi("Supervi superbe", 1323);
+            Vi trobat = new Botiga().afegeix(vi);
+            assertVinsIguals(vi, trobat, "afegeix() ha de retornar el vi afegit");
+        }
+        @Test
+        @DisplayName("test botiga no afegeix vi amb nom repetit")
+        public void testNoRepetits() {
+            Vi vi = new Vi("Supervi superbe", 1323);
+            Vi viRepetit = new Vi("Supervi superbe", 1324);
+            Botiga botiga = new Botiga();
+            botiga.afegeix(vi);
+            Vi trobat = botiga.afegeix(viRepetit);
+            assertNull(trobat, "afegeix() no ha d'afegir un vi amb nom repetit");
+        }
+        @Test
+        @DisplayName("test botiga no afegeix vi quan no queda espai")
+        public void testNoEspai() {
+            Vi viInicial = new Vi("Supervi superbe", 1323);
+            Vi viFinal = new Vi("Supervi negre", 1324);
+            Botiga botiga = new Botiga(1);
+            botiga.afegeix(viInicial);
+            Vi trobat = botiga.afegeix(viFinal);
+            assertNull(trobat, "Quan la botiga està plena afegeix() no ha d'afegir un nou vi");
+        }
+        @Test
+        @DisplayName("test botiga afegeix vi no vàlid per nom")
+        public void testAfegeixNoValidPerNom() {
+            Vi vi = new Vi("", 10);
+            Vi trobat = new Botiga().afegeix(vi);
+            assertNull(trobat, "afegeix() ha de retornar null quan el vi no és vàlid");
+        }
+        @Test
+        @DisplayName("test botiga afegeix vi no vàlid per preu")
+        public void testAfegeixNoValidPerPreu() {
+            Vi vi = new Vi("Supervi superbe", -1);
+            Vi trobat = new Botiga().afegeix(vi);
+            assertNull(trobat, "afegeix() ha de retornar null quan el vi no és vàlid");
+        }
+        @Test
+        @DisplayName("test botiga afegeix vi no vàlid per estoc")
+        public void testAfegeixNoValidPerEstoc() {
+            Vi vi = new Vi("Supervi superbe", 100, -1);
+            Vi trobat = new Botiga().afegeix(vi);
+            assertNull(trobat, "afegeix() ha de retornar null quan el vi no és vàlid");
+        }
+
+        // cerca()
+        @Test
+        @DisplayName("test botiga troba vi conegut")
+        public void testTrobaExisteix() {
+            Vi cercat = new Vi("Supervi superbe", 1323);
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                cercat ,
+                new Vi("un altre vi", 1342)
+            }).forEach(botiga::afegeix);
+            Vi trobat = botiga.cerca("Supervi superbe");
+            assertEquals(cercat , trobat, "cerca() ha de trobar un vi que hi és");
+        }
+        @Test
+        @DisplayName("test botiga troba vi conegut normalitzant el nom")
+        public void testTrobaExisteixNormalitzant() {
+            Vi cercat = new Vi("Supervi superbe", 1323);
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                cercat ,
+                new Vi("un altre vi", 1342)
+            }).forEach(botiga::afegeix);
+            Vi trobat = botiga.cerca("  Supervi   superbe    ");
+            assertEquals(cercat , trobat, "cerca() ha de normalitzar el nom");
+        }
+        @Test
+        @DisplayName("test botiga troba vi ignorant majúscules/minúscules")
+        public void testTrobaExisteixCaseInsensitive() {
+            String nom = "Supervi superbe";
+            Vi cercat = new Vi(nom, 1323);
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                cercat ,
+                new Vi("un altre vi", 1342)
+            }).forEach(botiga::afegeix);
+            Vi trobat = botiga.cerca(nom.toUpperCase());
+            assertEquals(cercat , trobat, "cerca() ha d'ignorar majúscules/minúscules del nom del vi a cercar");
+        }
+        @Test
+        @DisplayName("test botiga no troba vi desconegut")
+        public void testNoTrobaDesconegut() {
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                new Vi("un altre vi", 1342),
+                new Vi("encara més vi", 1234)
+            }).forEach(botiga::afegeix);
+            Vi trobat = botiga.cerca("un vi desconegut");
+            assertNull(trobat, "cerca() ha de tornar null quan no troba un vi que no hi és");
+        }
+
+        // elimina()
+        @Test
+        @DisplayName("test botiga elimina vi conegut")
+        public void testEliminaConegut() {
+            String nom = "Supervi superbe";
+            Vi cercat = new Vi(nom, 1323);
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                cercat ,
+                new Vi("un altre vi", 1342)
+            }).forEach(botiga::afegeix);
+            botiga.elimina(nom);
+            Vi trobat = botiga.cerca(nom);
+            assertNull(trobat, "elimina() ha d'eliminar un vi conegut");
+        }
+        @Test
+        @DisplayName("test botiga elimina vi amb nom normalitzat")
+        public void testEliminaNormalitzant() {
+            String nom = "   Supervi    superbe   ";
+            Vi cercat = new Vi(nom, 1323);
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                cercat ,
+                new Vi("un altre vi", 1342)
+            }).forEach(botiga::afegeix);
+            botiga.elimina(nom);
+            Vi trobat = botiga.cerca(nom);
+            assertNull(trobat, "elimina() ha de normalitzar el nom del vi a eliminar");
+        }
+        @Test
+        @DisplayName("test botiga elimina vi ignorant majúscules/minúscules")
+        public void testEliminaCaseInsensitive() {
+            String nom = "Supervi superbe";
+            Vi cercat = new Vi(nom, 1323);
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                cercat ,
+                new Vi("un altre vi", 1342)
+            }).forEach(botiga::afegeix);
+            botiga.elimina(nom);
+            Vi trobat = botiga.cerca(nom.toUpperCase());
+            assertNull(trobat, "elimina() ha d'ignorar majúscules/minúscules del nom del vi a eliminar");
+        }
+        @Test
+        @DisplayName("test botiga elimina vi conegut")
+        public void testRetornaViEliminat() {
+            String nom = "Supervi superbe";
+            Vi cercat = new Vi(nom, 1323);
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                cercat ,
+                new Vi("un altre vi", 1342)
+            }).forEach(botiga::afegeix);
+            Vi trobat = botiga.elimina(nom);
+            assertEquals(cercat , trobat, "elimina() ha de retornar el vi eliminat");
+        }
+        @Test
+        @DisplayName("test botiga no elimina vi desconegut")
+        public void testNoEliminaDesconegut() {
+            String nom = "Supervi superbe";
+            Vi cercat = new Vi(nom, 1323);
+            Botiga botiga = new Botiga();
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                new Vi("un altre vi", 1342),
+                new Vi("encara més vi", 1234)
+            }).forEach(botiga::afegeix);
+            Vi trobat = botiga.elimina(nom);
+            assertNull(trobat, "elimina() ha de tornar null quan ha d'eliminar un vi que no hi és");
+        }
+        @Test
+        @DisplayName("test botiga en eliminar segon vi queda espai per un de nou")
+        public void testEliminaDeixaEspai() {
+            Botiga botiga = new Botiga();
+            String nomInicial = "Supervi superbe";
+            String nomNou = "El Quintà";
+            Vi viInicial = new Vi(nomInicial, 1323);
+            Vi nouVi = new Vi(nomNou, 1387);
+            Arrays.stream(new Vi[] {
+                new Vi("un vi", 1234),
+                viInicial,
+                new Vi("un altre vi", 1342)
+            }).forEach(botiga::afegeix);
+            Vi eliminat = botiga.elimina(nomInicial);
+            Vi cercatEliminat = botiga.cerca(nomInicial);
+            Vi afegitNou = botiga.afegeix(nouVi);
+            assertAll(
+                    () -> assertNull(cercatEliminat, "elimina() ha d'eliminar un vi conegut"),
+                    () -> assertVinsIguals(viInicial, eliminat, "elimina() ha de retornar el vi eliminat"),
+                    () -> assertVinsIguals(nouVi, afegitNou, "elimina() ha de deixar espai per poder afegir un nou vi")
+                    );
+        }
+        @Test
+        @DisplayName("test botiga no es pot eliminar un vi amb estoc")
+        public void testNoEliminaAmbEstoc() {
+            String nom = "Supervi superbe";
+            Vi cercat = new Vi(nom, 1323, 24);
+            Botiga botiga = new Botiga();
+            botiga.afegeix(cercat);
+            Vi eliminat = botiga.elimina(nom);
+            assertNull(eliminat, "elimina() no ha d'eliminar vins amb estoc");
+        }
+    }
+
+    /* ************************************************************************* *
+     *  Utilitats                                                                *
+     * ************************************************************************* */
+    private static void assertVinsIguals(Vi un, Vi dos, String msg) {
+        assertEquals(un.getNom(), dos.getNom(), msg);
+    }
+}
