@@ -1,0 +1,169 @@
+import java.lang.reflect.Type;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+public class TestExercise {
+    @Nested
+    @DisplayName("Tests de Vi")
+    class SobreVi {
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "'   nom',nom",
+        "'nom   ',nom",
+        "'nom   cognom1   cognom2', 'nom cognom1 cognom2'",
+        "'nom cognom1 cognom2', 'nom cognom1 cognom2'",
+        "'  Nom  Cognom1 Cognom2 ', 'Nom Cognom1 Cognom2'",
+        "'', 'NOM NO VÀLID!'",
+        "'   ', 'NOM NO VÀLID!'"
+        })
+        @DisplayName("test Vi.normalitzaNom()")
+        public void normalitzaNom(String nom, String esperat) {
+            String obtingut = Vi.normalitzaNom(nom);
+            String msg = String.format("Vi.normalitzaNom(\"%s\") s'esperava \"%s\" però s'ha trobat \"%s\"", nom, esperat, obtingut);
+            assertEquals(esperat, obtingut, msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "'   nom',nom",
+        "'nom   ',nom",
+        "'nom   cognom1   cognom2', 'nom cognom1 cognom2'",
+        "'nom cognom1 cognom2', 'nom cognom1 cognom2'",
+        "'  Nom  Cognom1 Cognom2 ', 'Nom Cognom1 Cognom2'",
+        "'', 'NOM NO VÀLID!'",
+        "'   ', 'NOM NO VÀLID!'"
+        })
+        @DisplayName("test Vi(String, int) normalitza nom")
+        public void constructorSenseEstocNormalitzaNom(String nom, String esperat) {
+            Vi vi = new Vi(nom, 1);
+            String msg = String.format("Vi(\"%s\", 1) s'esperava nom \"%s\" però s'ha trobat \"%s\"", nom, esperat, vi.getNom());
+            assertEquals(esperat, vi.getNom(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "'   nom',nom",
+        "'nom   ',nom",
+        "'nom   cognom1   cognom2', 'nom cognom1 cognom2'",
+        "'nom cognom1 cognom2', 'nom cognom1 cognom2'",
+        "'  Nom  Cognom1 Cognom2 ', 'Nom Cognom1 Cognom2'",
+        "'', 'NOM NO VÀLID!'",
+        "'   ', 'NOM NO VÀLID!'"
+        })
+        @DisplayName("test Vi(String, int, int) normalitza nom")
+        public void constructorAmbEstocNormalitzaNom(String nom, String esperat) {
+            Vi vi = new Vi(nom, 1, 1);
+            String msg = String.format("Vi(\"%s\", 1, 1) s'esperava nom \"%s\" però s'ha trobat \"%s\"", nom, esperat, vi.getNom());
+            assertEquals(esperat, vi.getNom(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1,-1",
+        "-10,-1"
+        })
+        @DisplayName("test Vi(String, int) controla preu")
+        public void constructorSenseEstocAssignaPreu(int preu, int esperat) {
+            Vi vi = new Vi("Roura Blanc", preu);
+            String msg = String.format("Vi(\"Roura Blanc\", %d) s'esperava preu \"%d\" però s'ha trobat \"%d\"", preu, esperat, vi.getPreu());
+            assertEquals(esperat, vi.getPreu(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1,-1",
+        "-10,-1"
+        })
+        @DisplayName("test Vi(String, int, int) controla preu")
+        public void constructorAmbEstocAssignaPreu(int preu, int esperat) {
+            Vi vi = new Vi("Roura Blanc", preu, 1);
+            String msg = String.format("Vi(\"Roura Blanc\", %d, 1) s'esperava preu \"%d\" però s'ha trobat \"%d\"", preu, esperat, vi.getPreu());
+            assertEquals(esperat, vi.getPreu(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1, -1",
+        "-10, -1"
+        })
+        @DisplayName("test Vi(String, int, int) controla estoc")
+        public void constructorAmbEstocAssignaEstoc(int estoc, int esperat) {
+            Vi vi = new Vi("Roura Blanc", 1012, estoc);
+            String msg = String.format("Vi(\"Roura Blanc\", 1012, %d) s'esperava estoc \"%d\" però s'ha trobat \"%d\"", estoc, esperat, vi.getEstoc());
+            assertEquals(esperat, vi.getEstoc(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1,1012",
+        "-10,1012"
+        })
+        @DisplayName("test Vi.setPreu(int) controla preu")
+        public void setPreu(int preu, int esperat) {
+            Vi vi = new Vi("Roura Blanc", 1012);
+            vi.setPreu(preu);
+            String msg = String.format("setPreu(%d) s'esperava preu \"%d\" però s'ha trobat \"%d\"", preu, esperat, vi.getPreu());
+            assertEquals(esperat, vi.getPreu(), msg);
+        }
+
+        @ParameterizedTest
+        @CsvSource(value={
+        "1,1",
+        "10,10",
+        "-1,42",
+        "-10,42"
+        })
+        @DisplayName("test Vi.setEstoc(int) controla estoc")
+        public void setEstoc(int estoc, int esperat) {
+            Vi vi = new Vi("Roura Blanc", 1012, 42);
+            vi.setEstoc(estoc);
+            String msg = String.format("setEstoc(%d) s'esperava estoc \"%d\" però s'ha trobat \"%d\"", estoc, esperat, vi.getEstoc());
+            assertEquals(esperat, vi.getEstoc(), msg);
+        }
+
+        // esValid()
+        @Test
+        @DisplayName("test esValid() quan nom vàlid")
+        public void esValidQuanValid() {
+            String nom = "Roura Blanc";
+            Vi vi = new Vi(nom, 1012);
+            String msg = String.format("Vi(\"%s\", 1012).esValid() ha de retornar true", nom);
+            assertTrue(vi.esValid(), msg);
+        }
+        @Test
+        @DisplayName("test esValid() quan nom no vàlid")
+        public void esValidQuanNomNoValid() {
+            String nom = "   ";
+            Vi vi = new Vi(nom, 1012);
+            String msg = String.format("Vi(\"%s\", 1012).esValid() ha de retornar false", nom);
+            assertFalse(vi.esValid(), msg);
+        }
+        @Test
+        @DisplayName("test esValid() quan preu no vàlid")
+        public void esValidQuanPreuNoValid() {
+            Vi vi = new Vi("Roure Blanc", -20);
+            String msg = String.format("Vi(\"Roure Blanc\", -20).esValid() ha de retornar false");
+            assertFalse(vi.esValid(), msg);
+        }
+        @Test
+        @DisplayName("test esValid() quan estoc no vàlid")
+        public void esValidQuanEstocNoValid() {
+            Vi vi = new Vi("Roure Blanc", 1012, -30);
+            String msg = String.format("Vi(\"Roure Blanc\", 1012, -30).esValid() ha de retornar false");
+            assertFalse(vi.esValid(), msg);
+        }
+
+    }
+}

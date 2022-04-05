@@ -1,0 +1,204 @@
+'01':
+  fileout:
+  - filename: botiga.csv
+    lines:
+    - ''
+  stdin:
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'Referències llegides: 0'
+  - 'botiga> Referències guardades: 0'
+  - adéu
+'02':
+  fileout:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1234;24
+    - El Quintà;1485;12
+  stdin:
+  - afegeix
+  - Roura blanc
+  - '1234'
+  - '24'
+  - afegeix
+  - El Quintà
+  - '1485'
+  - '12'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'Referències llegides: 0'
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 1234"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: El Quintà"
+  - "    Preu: 1485"
+  - "    Estoc: 12"
+  - ''
+  - 'botiga> Referències guardades: 2'
+  - adéu
+'03':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1234;24
+    - El Quintà;1485;12
+  fileout:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1234;24
+    - El Quintà;1485;12
+  stdin:
+  - cerca
+  - El Quintà
+  - cerca
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'Referències llegides: 2'
+  - 'botiga> nom (enter cancel·la)> Trobat:'
+  - "    Vi: El Quintà"
+  - "    Preu: 1485"
+  - "    Estoc: 12"
+  - ''
+  - 'botiga> nom (enter cancel·la)> Trobat:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 1234"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> Referències guardades: 2'
+  - adéu
+'04':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1234;24
+    - El Quintà;1485;12
+  fileout:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1234;24
+    - El Quintà;1485;12
+    - Almodi Petit Blanc;570;32
+  stdin:
+  - afegeix
+  - Almodi Petit Blanc
+  - '570'
+  - '32'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'Referències llegides: 2'
+  - 'botiga> nom (enter cancel·la)> preu (en cèntims)> estoc (enter sense estoc)>
+    Introduït:'
+  - "    Vi: Almodi Petit Blanc"
+  - "    Preu: 570"
+  - "    Estoc: 32"
+  - ''
+  - 'botiga> Referències guardades: 3'
+  - adéu
+'05':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1234;24
+    - El Quintà;1485;12
+  fileout:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1540;24
+    - El Quintà;1485;54
+  stdin:
+  - modifica
+  - Roura blanc
+  - '1540'
+  - ''
+  - modifica
+  - El Quintà
+  - ''
+  - '54'
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'Referències llegides: 2'
+  - 'botiga> nom (enter cancel·la)> preu (enter 1234)> estoc (enter 24)> Modificat:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 1540"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> nom (enter cancel·la)> preu (enter 1485)> estoc (enter 12)> Modificat:'
+  - "    Vi: El Quintà"
+  - "    Preu: 1485"
+  - "    Estoc: 54"
+  - ''
+  - 'botiga> Referències guardades: 2'
+  - adéu
+'06':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1234;0
+    - El Quintà;1485;12
+  fileout:
+  - filename: botiga.csv
+    lines:
+    - El Quintà;1485;12
+  stdin:
+  - elimina
+  - Roura blanc
+  - sí
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'Referències llegides: 2'
+  - 'botiga> nom (enter cancel·la)> A eliminar:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 1234"
+  - "    Estoc: 0"
+  - ''
+  - Segur?> Eliminat
+  - 'botiga> Referències guardades: 1'
+  - adéu
+'07':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - Una línia sense cap element
+    - Roura blanc;1234;24
+    - Una;línia;amb;massa;elements
+    - El Quintà;1485;12
+    - Una linia amb preu incorrecte;gratis;123
+  fileout:
+  - filename: botiga.csv
+    lines:
+    - Roura blanc;1234;24
+    - El Quintà;1485;12
+  stdin:
+  - cerca
+  - El Quintà
+  - cerca
+  - Roura blanc
+  - surt
+  stdout:
+  - Celler La Bona Estrella. Escriviu ajuda per veure opcions.
+  - 'Referències llegides: 2'
+  - 'botiga> nom (enter cancel·la)> Trobat:'
+  - "    Vi: El Quintà"
+  - "    Preu: 1485"
+  - "    Estoc: 12"
+  - ''
+  - 'botiga> nom (enter cancel·la)> Trobat:'
+  - "    Vi: Roura blanc"
+  - "    Preu: 1234"
+  - "    Estoc: 24"
+  - ''
+  - 'botiga> Referències guardades: 2'
+  - adéu
+_mainclass: Entorn

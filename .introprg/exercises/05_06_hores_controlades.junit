@@ -1,0 +1,58 @@
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test constructor per defecte")
+    public void constructorDefecte() {
+        Hora hora = new Hora();
+        String msg = String.format(
+                "Hora() hauria de ser '0:0:0' però és '%d:%d:%d'",
+                hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "testHoraPerDefecte000";
+        assertHoraEsperada(0, 0, 0, hora, titol, msg);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+    "0,0,1,0,0,1",
+    "0,3,0,0,3,0",
+    "5,0,0,5,0,0",
+    "0,0,-1,0,0,0",
+    "0,-3,0,0,0,0",
+    "-5,0,0,0,0,0",
+    "0,0,100,0,0,0",
+    "0,300,0,0,0,0",
+    "500,0,0,0,0,0",
+    })
+    @DisplayName("test bàsic dels setters de la classe Hora")
+    public void settersHora(
+            int ho, int mo, int so,
+            int hd, int md, int sd) {
+        Hora hora = new Hora();
+        hora.setHores(ho);
+        hora.setMinuts(mo);
+        hora.setSegons(so);
+        String msg = String.format("En assignar a l'hora per defecte, els valors hores:%d, minuts: %d, segons: %d, el resultat hauria de ser '%d:%d:%d' però és '%d:%d:%d'",
+                ho, mo, so, hd, md, sd, hora.getHores(), hora.getMinuts(), hora.getSegons());
+        String titol = "Test setters de Hora";
+        assertHoraEsperada(hd, md, sd, hora, titol, msg);
+    }
+
+
+    private void assertHoraEsperada(
+            int he, int me, int se,
+            Hora hora,
+            String titol,
+            String msg) {
+        assertAll(titol,
+                () -> assertEquals(he, hora.getHores(), msg),
+                () -> assertEquals(me, hora.getMinuts(), msg),
+                () -> assertEquals(se, hora.getSegons(), msg)
+                );
+    }
+}
