@@ -25,7 +25,7 @@ public class Vi {
     public Vi(String nom, int preu, int estoc) {
         this.estoc = estoc;
         this.nom = normalitzaNom(nom);
-        this.preu = preu;
+        setPreu(preu);
     }
 
     // Getters
