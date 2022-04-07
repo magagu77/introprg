@@ -23,7 +23,6 @@ public class Vi {
     }
     // Constructor con stock
     public Vi(String nom, int preu, int estoc) {
-        this.estoc = estoc;
         this.nom = normalitzaNom(nom);
         setPreu(preu);
         setEstoc(estoc);
