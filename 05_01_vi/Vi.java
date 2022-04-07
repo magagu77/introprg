@@ -69,6 +69,8 @@ public class Vi {
             return false;
         } else if (nom.isBlank()){
             return false;
+        } else if (nom.equals("NOM NO VÀLID!")) {
+            return false;
         } else {
             return true;
         }
