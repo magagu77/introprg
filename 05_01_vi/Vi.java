@@ -57,7 +57,7 @@ public class Vi {
     // Normaliza String del nombre
     public static String normalitzaNom(String nom) {
         if (nom.isBlank()) {
-            return "NOM NO VALID!";
+            return "NOM NO VÀLID!";
         }
         nom = nom.trim();
         nom = String.format(nom.replaceAll("\t"," "));
