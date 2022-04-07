@@ -26,6 +26,7 @@ public class Vi {
         this.estoc = estoc;
         this.nom = normalitzaNom(nom);
         setPreu(preu);
+        setEstoc(estoc);
     }
 
     // Getters
