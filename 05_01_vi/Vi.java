@@ -67,6 +67,8 @@ public class Vi {
     public boolean esValid() {
         if (preu < 0) {
             return false;
+        } else if (nom.isBlank()){
+            return false;
         } else {
             return true;
         }
