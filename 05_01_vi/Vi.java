@@ -17,14 +17,14 @@ public class Vi {
     // Constructor sense tenir en compte stock
     public Vi(String nom, int preu) {
         this.preu = preu;
-        this.nom = nom;
+        this.nom = normalitzaNom(nom);
         estoc = 0;
 
     }
     // Constructor con stock
     public Vi(String nom, int preu, int estoc) {
         this.estoc = estoc;
-        this.nom = nom;
+        this.nom = normalitzaNom(nom);
         this.preu = preu;
     }
 
