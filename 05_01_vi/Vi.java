@@ -60,7 +60,7 @@ public class Vi {
             return "NOM NO VÀLID!";
         }
         nom = nom.trim();
-        nom = String.format(nom.replaceAll("\\s",""));
+        nom = String.format(nom.replaceAll(" +"," "));
         return nom;
     }
     // Determina si el preu d'un vi es valid o no
