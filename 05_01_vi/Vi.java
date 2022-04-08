@@ -12,7 +12,7 @@ public class Vi {
 
     private String nom = "";
     private int preu = -1;
-    private int estoc = 0; // Duele Moises, duele
+    private int estoc = -1; // Duele Moises, duele
 
     // Constructor sense tenir en compte stock
     public Vi(String nom, int preu) {
@@ -25,7 +25,7 @@ public class Vi {
     public Vi(String nom, int preu, int estoc) {
         this.nom = normalitzaNom(nom);
         setPreu(preu);
-        this.estoc = estoc;
+        setEstoc(estoc);
     }
 
     // Getters
@@ -70,6 +70,8 @@ public class Vi {
         } else if (nom.isBlank()){
             return false;
         } else if (nom.equals("NOM NO VÀLID!")) {
+            return false;
+        } else if (estoc < 0){
             return false;
         } else {
             return true;
