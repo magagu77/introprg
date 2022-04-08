@@ -16,7 +16,7 @@ public class Vi {
 
     // Constructor sense tenir en compte stock
     public Vi(String nom, int preu) {
-        this.preu = preu;
+        setPreu(preu);
         this.nom = normalitzaNom(nom);
         estoc = 0;
 
@@ -60,7 +60,7 @@ public class Vi {
             return "NOM NO VÀLID!";
         }
         nom = nom.trim();
-        nom = String.format(nom.replaceAll("\t"," "));
+        nom = String.format(nom.replaceAll("\\s",""));
         return nom;
     }
     // Determina si el preu d'un vi es valid o no
