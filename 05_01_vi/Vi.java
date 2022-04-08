@@ -45,8 +45,6 @@ public class Vi {
     public void setPreu(int preu) {
         if (preu >= 0) {
             this.preu = preu;
-        } else {
-            this.preu = -1;
         }
     }
     public void setEstoc(int stock) {
