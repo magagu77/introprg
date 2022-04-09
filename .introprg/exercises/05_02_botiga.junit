@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import java.lang.reflect.Type;
+import java.lang.reflect.Modifier;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -390,6 +390,18 @@ public class TestExercise {
             Vi eliminat = botiga.elimina(nom);
             assertNull(eliminat, "elimina() no ha d'eliminar vins amb estoc");
         }
+
+        // members
+        @Test
+        @DisplayName("test Botiga té propietat privada vins de tipus Vi[]")
+        public void vinsEsList() {
+            assertTrue(Arrays.stream(Botiga.class.getDeclaredFields())
+                    .anyMatch(p -> p.getName().equals("vins") &&
+                        Modifier.isPrivate(p.getModifiers()) &&
+                        p.getType().getTypeName().toString().equals("Vi[]")),
+                    "Botiga ha de tenir una propietat privada de tipus Vi[]");
+        }
+
     }
 
     private static void assertVinsIguals(Vi un, Vi dos, String msg) {
