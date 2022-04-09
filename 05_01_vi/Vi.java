@@ -12,11 +12,11 @@ public class Vi {
 
     private String nom = "";
     private int preu = -1;
-    private int estoc = 0; // Duele Moises, duele
+    private int estoc = -1; // Duele Moises, duele
 
     // Constructor sense tenir en compte stock
     public Vi(String nom, int preu) {
-        this.preu = preu;
+        setPreu(preu);
         this.nom = normalitzaNom(nom);
         estoc = 0;
 
@@ -45,8 +45,6 @@ public class Vi {
     public void setPreu(int preu) {
         if (preu >= 0) {
             this.preu = preu;
-        } else {
-            this.preu = -1;
         }
     }
     public void setEstoc(int stock) {
@@ -60,7 +58,7 @@ public class Vi {
             return "NOM NO VÀLID!";
         }
         nom = nom.trim();
-        nom = String.format(nom.replaceAll("\t"," "));
+        nom = String.format(nom.replaceAll(" +"," "));
         return nom;
     }
     // Determina si el preu d'un vi es valid o no
@@ -70,6 +68,8 @@ public class Vi {
         } else if (nom.isBlank()){
             return false;
         } else if (nom.equals("NOM NO VÀLID!")) {
+            return false;
+        } else if (estoc < 0){
             return false;
         } else {
             return true;
