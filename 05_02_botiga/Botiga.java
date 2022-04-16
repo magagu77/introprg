@@ -27,8 +27,10 @@ public class Botiga {
         if (!viEnLlista(vins, nouVi.getNom())) {
             for(int i=0;i<vins.length;i++) {
                 if(vins[i]==null) {
-                    vins[i] = new Vi (nouVi.getNom(), nouVi.getPreu(), nouVi.getEstoc());
-                    return vins[i];
+                    if(nouVi.esValid()) {
+                        vins[i] = new Vi (nouVi.getNom(), nouVi.getPreu(), nouVi.getEstoc());
+                        return vins[i];
+                    }
                 } else {
                     continue;
                 }
