@@ -52,7 +52,7 @@ public class Botiga {
                 continue;
             } else if(vins[i].getNom().equals(nomVi)) {
                 vins[i] = null;
-                return null;
+                return vins[i];
             }
         }
         return null;
