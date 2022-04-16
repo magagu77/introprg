@@ -44,7 +44,7 @@ public class Botiga {
     // Elimina vi
     public Vi elimina(String nomVi) {
         nomVi = normalitzaNom(nomVi);
-        if(viEnLlista(vins, nomVi)) {
+        if(!viEnLlista(vins, nomVi)) {
             return null;
         }
         for(int i=0;i<vins.length;i++) {
