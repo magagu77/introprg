@@ -11,5 +11,67 @@
  *  cerca() i elimina() normalitzen el nom
  */
 public class Botiga {
+    private int DEFAULT_MAX_VINS = 10;
+    private Vi[] vins;
 
+    public Botiga() {
+        vins = new Vi[DEFAULT_MAX_VINS];
+    }
+    // Constructor sense vins per defecte
+    public Botiga(int maxVins) {
+        vins = new Vi[maxVins];
+    }
+
+    // Modul que afegeix vins
+    public Vi afegeix(Vi nouVi) {
+        if (!viEnLlista(vins, nouVi.getNom())) {
+            for(int i=0;i<vins.length;i++) {
+                if(vins[i]==null) {
+                    vins[i] = nouVi;
+                    break;
+                }
+            }
+            return nouVi;
+        } else {
+            return null;
+        }
+    }
+    public Vi elimina(String nomVi) {
+        nomVi = Vi.normalitzaNom(nomVi);
+        if(viEnLlista(vins, nomVi)) {
+            return null;
+        }
+        for(int i=0;i<vins.length;i++) {
+            if (vins[i]==null){
+                continue;
+            } else if(vins[i].getNom().equals(nomVi) && vins[i].getEstoc()<=0) {
+                vins[i] = null;
+                return vins[i];
+            }
+        }
+        return null;
+    }
+
+    public Vi cerca(String nomVi) {
+        for(int i=0;i<vins.length;i++) {
+            if(vins[i].getNom().equals(nomVi)) {
+                return vins[i];
+            } else if (vins[i] == null) {
+                continue;
+            }
+        }
+        return null;
+    }
+
+    // Comprova si el vi esta en la llista
+    private boolean viEnLlista (Vi[] vins, String nomVi) {
+        for(int i=0;i<vins.length;i++) {
+            if(vins[i].getNom().equals(nomVi)) {
+                return true;
+            } else if (vins[i] == null) {
+                continue;
+            }
+        }
+        return false;
+    }
 }
