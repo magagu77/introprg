@@ -55,16 +55,19 @@ public class Botiga {
     }
 
     public Vi cerca(String nomVi) {
-        for(int i=0;i<vins.length;i++) {
-            if(vins[i] == null) {
-                continue;
-            } else if (vins[i].getNom().equals(nomVi)) {
-                return vins[i];
+        if(viEnLlista(vins, nomVi)) {
+            for(int i=0;i<vins.length;i++) {
+                if(vins[i] == null) {
+                    continue;
+                } else if (vins[i].getNom().equals(nomVi)) {
+                    return vins[i];
+                }
             }
-        } 
-          
-        return null;
-    }
+            return null;
+        } else{
+            return null;
+        }
+    }   
 
     // Comprova si el vi esta en la llista
     private boolean viEnLlista (Vi[] vins, String nomVi) {
