@@ -56,12 +56,13 @@ public class Botiga {
 
     public Vi cerca(String nomVi) {
         for(int i=0;i<vins.length;i++) {
-            if(vins[i].getNom().equals(nomVi)) {
-                return vins[i];
-            } else if (vins[i] == null) {
+            if(vins[i] == null) {
                 continue;
+            } else if (vins[i].getNom().equals(nomVi)) {
+                return vins[i];
             }
-        }
+        } 
+          
         return null;
     }
 
