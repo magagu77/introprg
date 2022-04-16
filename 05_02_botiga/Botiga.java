@@ -68,11 +68,12 @@ public class Botiga {
     // Comprova si el vi esta en la llista
     private boolean viEnLlista (Vi[] vins, String nomVi) {
         for(int i=0;i<vins.length;i++) {
-            if(vins[i].getNom().equals(nomVi)) {
-                return true;
-            } else if (vins[i] == null) {
+            if(vins[i] == null) {
                 continue;
+            } else if (vins[i].getNom().equals(nomVi)) {
+                return true;
             }
+            
         }
         return false;
     }
