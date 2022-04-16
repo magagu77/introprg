@@ -49,7 +49,7 @@ public class Botiga {
                 continue;
             } else if(vins[i].getNom().toLowerCase().equals(nomVi.toLowerCase()) || vins[i].getEstoc() <=0 ) {
                 vins[i] = null;
-                return vins[i];
+                return null;
             }
         }
         return null;
