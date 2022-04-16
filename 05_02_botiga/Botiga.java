@@ -59,6 +59,7 @@ public class Botiga {
     }
 
     public Vi cerca(String nomVi) {
+        nomVi = Vi.normalitzaNom(nomVi);
         if(viEnLlista(vins, nomVi)) {
             for(int i=0;i<vins.length;i++) {
                 if(vins[i] == null) {
