@@ -25,7 +25,7 @@ public class Botiga {
     // Modul que afegeix vins
     public Vi afegeix(Vi nouVi) {
         if (!viEnLlista(vins, nouVi.getNom())) {
-            for(int i=0;i<vins.length-1;i++) {
+            for(int i=0;i<vins.length;i++) {
                 if(vins[i]==null) {
                     vins[i] = new Vi (nouVi.getNom(), nouVi.getPreu(), nouVi.getEstoc());
                     return vins[i];
