@@ -28,10 +28,12 @@ public class Botiga {
             for(int i=0;i<vins.length-1;i++) {
                 if(vins[i]==null) {
                     vins[i] = new Vi (nouVi.getNom(), nouVi.getPreu(), nouVi.getEstoc());
-                    break;
+                    return vins[i];
+                } else {
+                    continue;
                 }
             }
-            return nouVi;
+            return null;
         } else {
             return null;
         }
