@@ -27,7 +27,7 @@ public class Botiga {
         if (!viEnLlista(vins, nouVi.getNom())) {
             for(int i=0;i<vins.length-1;i++) {
                 if(vins[i]==null) {
-                    vins[i] = nouVi;
+                    vins[i] = new Vi (nouVi.getNom(), nouVi.getPreu(), nouVi.getEstoc());
                     break;
                 }
             }
@@ -36,6 +36,8 @@ public class Botiga {
             return null;
         }
     }
+
+    // Elimina vi
     public Vi elimina(String nomVi) {
         nomVi = Vi.normalitzaNom(nomVi);
         if(viEnLlista(vins, nomVi)) {
