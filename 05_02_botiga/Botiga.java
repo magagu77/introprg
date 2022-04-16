@@ -43,7 +43,7 @@ public class Botiga {
 
     // Elimina vi
     public Vi elimina(String nomVi) {
-        nomVi = Vi.normalitzaNom(nomVi);
+        nomVi = normalitzaNom(nomVi);
         if(viEnLlista(vins, nomVi)) {
             return null;
         }
@@ -59,7 +59,7 @@ public class Botiga {
     }
 
     public Vi cerca(String nomVi) {
-        nomVi = Vi.normalitzaNom(nomVi);
+        nomVi = normalitzaNom(nomVi);
         if(viEnLlista(vins, nomVi)) {
             for(int i=0;i<vins.length;i++) {
                 if(vins[i] == null) {
@@ -84,5 +84,14 @@ public class Botiga {
             }
         }
         return false;
+    }
+    // Normaliza nombres
+    public static String normalitzaNom(String nom) {
+        if (nom.isBlank()) {
+            return "NOM NO VÀLID!";
+        }
+        nom = nom.trim();
+        nom = String.format(nom.replaceAll(" +"," "));
+        return nom;
     }
 }
