@@ -51,6 +51,7 @@ public class Botiga {
             if (vins[i]==null){
                 continue;
             } else if(vins[i].getNom().equals(nomVi) || vins[i].getEstoc()<=0) {
+                vins[i] = null;
                 return vins[i];
             }
         }
@@ -62,7 +63,7 @@ public class Botiga {
             for(int i=0;i<vins.length;i++) {
                 if(vins[i] == null) {
                     continue;
-                } else if (vins[i].getNom().equals(nomVi)) {
+                } else if (vins[i].getNom().toUpperCase().equals(nomVi.toUpperCase())) {
                     return vins[i];
                 }
             }
@@ -80,7 +81,6 @@ public class Botiga {
             } else if (vins[i].getNom().equals(nomVi)) {
                 return true;
             }
-            
         }
         return false;
     }
