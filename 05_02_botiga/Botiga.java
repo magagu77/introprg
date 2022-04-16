@@ -48,8 +48,9 @@ public class Botiga {
             if (vins[i]==null){
                 continue;
             } else if((vins[i].getNom().toLowerCase()).equals(nomVi.toLowerCase()) && vins[i].getEstoc() <= 0 ) {
+                Vi nouVi = new Vi(vins[i].getNom(), vins[i].getPreu(), vins[i].getEstoc());
                 vins[i] = null;
-                return vins[i];
+                return nouVi;
             }
         }
         return null;
