@@ -60,18 +60,14 @@ public class Botiga {
 
     public Vi cerca(String nomVi) {
         nomVi = normalitzaNom(nomVi);
-        if(viEnLlista(vins, nomVi)) {
-            for(int i=0;i<vins.length;i++) {
-                if(vins[i] == null) {
-                    continue;
-                } else if (vins[i].getNom().toUpperCase().equals(nomVi.toUpperCase())) {
-                    return vins[i];
-                }
+        for(int i=0;i<vins.length;i++) {
+            if(vins[i] == null) {
+                continue;
+            } else if (vins[i].getNom().toUpperCase().equals(nomVi.toUpperCase())) {
+                return vins[i];
             }
-            return null;
-        } else{
-            return null;
         }
+        return null;
     }   
 
     // Comprova si el vi esta en la llista
