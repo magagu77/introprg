@@ -28,7 +28,7 @@ public class Botiga {
             for(int i=0;i<vins.length;i++) {
                 if(vins[i]==null) {
                     if(nouVi.esValid()) {
-                        vins[i] = new Vi (nouVi.getNom(), nouVi.getPreu(), nouVi.getEstoc());
+                        vins[i] = nouVi;
                         return vins[i];
                     }
                 } else {
