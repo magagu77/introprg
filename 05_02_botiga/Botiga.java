@@ -50,7 +50,7 @@ public class Botiga {
         for(int i=0;i<vins.length;i++) {
             if (vins[i]==null){
                 continue;
-            } else if(vins[i].getNom().equals(nomVi) && vins[i].getEstoc()<0) {
+            } else if(vins[i].getNom().equals(nomVi) || vins[i].getEstoc()<=0) {
                 vins[i] = null;
                 return vins[i];
             }
