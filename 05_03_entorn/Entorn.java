@@ -86,7 +86,7 @@ public class Entorn {
         } 
         Vi nouVi = new Vi(entrada,Integer.parseInt(preu),Integer.parseInt(stock));
         if (botiga.afegeix(nouVi)==null) {
-            System.out.println("ERROR: no s'ha pogut afegi");
+            System.out.println("ERROR: no s'ha pogut afegir");
         } else {
             botiga.afegeix(nouVi);
             System.out.println("Introduït:\n"+nouVi);
