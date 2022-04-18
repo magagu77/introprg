@@ -64,11 +64,11 @@ public class Entorn {
         if(entrada.isBlank()) {return;}
         System.out.print("preu (en cèntims)> ");
         String preu = Entrada.readLine();
-        if (!UtilString.esEnter(preu)){
+        if (preu.isBlank()) {
+            preu = "0";
+        } else if (!UtilString.esEnter(preu)){
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
-        } else if (preu.isBlank()) {
-            preu = "0";
         } else if (Integer.parseInt(preu)<0) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
