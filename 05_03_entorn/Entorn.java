@@ -64,7 +64,6 @@ public class Entorn {
         if(entrada.isBlank()) {return;}
         System.out.print("preu (en cèntims)> ");
         String preu = Entrada.readLine();
-        System.out.println();
         if (!UtilString.esEnter(preu)){
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
@@ -76,7 +75,6 @@ public class Entorn {
         }
         System.out.print("estoc (enter sense estoc)> ");
         String stock = Entrada.readLine();
-        System.out.println();
         if (!UtilString.esEnter(stock)) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
@@ -97,7 +95,7 @@ public class Entorn {
     // Funcio cerca vi
     public void procesaCerca() {
         String entrada = "";
-        System.out.println("nom (enter cancel·la)> ");
+        System.out.print("nom (enter cancel·la)> ");
         entrada = Entrada.readLine();
         if(!entrada.isBlank()) {
             Vi cercat = botiga.cerca(entrada);
@@ -119,7 +117,6 @@ public class Entorn {
             System.out.println("No trobat");
             return;
         }
-        System.out.println();
         System.out.printf("preu (enter %s)> ",cercat.getPreu());
         String preu = Entrada.readLine();
         System.out.println();
