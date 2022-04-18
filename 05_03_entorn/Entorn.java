@@ -127,7 +127,7 @@ public class Entorn {
         } else if (Integer.parseInt(preu)<0) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
-        } else 
+        } 
         System.out.printf("estoc (enter %s)> ",cercat.getEstoc());
         String stock = Entrada.readLine();
         if (stock.isBlank()) {
