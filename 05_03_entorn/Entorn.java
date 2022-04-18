@@ -153,6 +153,7 @@ public class Entorn {
         Vi cercat = botiga.cerca(entrada);
         if (cercat == null) {
             System.out.println("No trobat");
+            return;
         }
         System.out.println("A eliminar:\n"+botiga.cerca(entrada));
         System.out.print("Segur?>");
