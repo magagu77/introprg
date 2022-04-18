@@ -89,7 +89,7 @@ public class Entorn {
             System.out.println("ERROR: no s'ha pogut afegi");
         } else {
             botiga.afegeix(nouVi);
-            System.out.println("Intoduït:\n"+nouVi);
+            System.out.println("Introduït:\n"+nouVi);
         }
     }
     // Funcio cerca vi
