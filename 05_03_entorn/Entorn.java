@@ -75,11 +75,11 @@ public class Entorn {
         } 
         System.out.print("estoc (enter sense estoc)> ");
         String stock = Entrada.readLine();
-        if (!UtilString.esEnter(stock)) {
+        if (stock.isBlank()) {
+            stock = "0";
+        }else if (!UtilString.esEnter(stock)) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
-        } else if (stock.isBlank()) {
-            stock = "0";
         } else if (Integer.parseInt(stock)<0) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
