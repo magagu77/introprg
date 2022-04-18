@@ -67,7 +67,6 @@ public class Botiga {
         }
         return null;
     } 
-    // Modifica Vi
     public Vi modificaVi(String nom, int preu, int estoc) {
         nom = normalitzaNom(nom);
         for(int i=0;i<vins.length;i++) {
