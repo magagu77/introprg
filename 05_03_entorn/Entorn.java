@@ -54,7 +54,7 @@ public class Entorn {
 
     // Mostra ajuda
     public static void mostraAjuda() {
-        System.out.println("Comandes disponibles: \najuda\nafegeix\ncerca\nmodifica\nelimina\nsurt");
+        System.out.println("Comandes disponibles:\najuda\nafegeix\ncerca\nmodifica\nelimina\nsurt");
     }
     // Afegeix vi
     public void procesaAfegeix() {
