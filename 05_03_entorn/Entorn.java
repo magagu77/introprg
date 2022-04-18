@@ -61,7 +61,6 @@ public class Entorn {
         String entrada = "";
         System.out.print("nom (enter cancel·la)> ");
         entrada = Entrada.readLine();
-        System.out.println();
         if(entrada.isBlank()) {return;}
         System.out.print("preu (en cèntims)> ");
         String preu = Entrada.readLine();
