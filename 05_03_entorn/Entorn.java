@@ -102,7 +102,7 @@ public class Entorn {
             if (cercat == null) {
                 System.out.println("No trobat");
             } else {
-                System.out.println(cercat);
+                System.out.println("Trobat:\n"+cercat);
             }
         }
     }
