@@ -67,23 +67,23 @@ public class Entorn {
         if (!UtilString.esEnter(preu)){
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
+        } else if (preu.isBlank()) {
+            preu = "0";
         } else if (Integer.parseInt(preu)<0) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
-        } else if (preu.isBlank()) {
-            preu = "0";
-        }
+        } 
         System.out.print("estoc (enter sense estoc)> ");
         String stock = Entrada.readLine();
         if (!UtilString.esEnter(stock)) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
+        } else if (stock.isBlank()) {
+            stock = "0";
         } else if (Integer.parseInt(stock)<0) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
-        } else if (stock.isBlank()) {
-            stock = "0";
-        }
+        } 
         Vi nouVi = new Vi(entrada,Integer.parseInt(preu),Integer.parseInt(stock));
         if (botiga.afegeix(nouVi)==null) {
             System.out.println("ERROR: no s'ha pogut afegi");
