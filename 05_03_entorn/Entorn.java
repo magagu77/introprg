@@ -119,7 +119,6 @@ public class Entorn {
         }
         System.out.printf("preu (enter %s)> ",cercat.getPreu());
         String preu = Entrada.readLine();
-        System.out.println();
         if (!UtilString.esEnter(preu)){
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
@@ -131,7 +130,6 @@ public class Entorn {
         }
         System.out.print("estoc (enter sense estoc)> ");
         String stock = Entrada.readLine();
-        System.out.println();
         if (!UtilString.esEnter(stock)) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
@@ -151,7 +149,6 @@ public class Entorn {
         String entrada ="";
         System.out.print("nom (enter cancel·la)> ");
         entrada = Entrada.readLine();
-        System.out.println();
         if(entrada.isBlank()){return;}
         Vi cercat = botiga.cerca(entrada);
         if (cercat == null) {
