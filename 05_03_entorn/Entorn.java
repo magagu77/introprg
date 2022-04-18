@@ -33,7 +33,6 @@ public class Entorn {
         while(true) {
             System.out.print("botiga> ");
             String entrada = Entrada.readLine();
-            if(entrada.isBlank()){continue;}
             if(entrada.equals("surt")){break;}
             switch(entrada) {
                 case "ajuda" : mostraAjuda();
