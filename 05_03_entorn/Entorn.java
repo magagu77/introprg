@@ -119,15 +119,15 @@ public class Entorn {
         }
         System.out.printf("preu (enter %s)> ",cercat.getPreu());
         String preu = Entrada.readLine();
-        if (!UtilString.esEnter(preu)){
+        if (preu.isBlank()) {
+            preu = Integer.toString(cercat.getPreu());
+        } else if (!UtilString.esEnter(preu)){
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
         } else if (Integer.parseInt(preu)<0) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
             return;
-        } else if (preu.isBlank()) {
-            preu = Integer.toString(cercat.getPreu());
-        }
+        } else 
         System.out.printf("estoc (enter %s)> ",cercat.getEstoc());
         String stock = Entrada.readLine();
         if (stock.isBlank()) {
