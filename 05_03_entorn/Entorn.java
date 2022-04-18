@@ -32,7 +32,8 @@ public class Entorn {
         System.out.println("Celler La Bona Estrella. Escriviu ajuda per veure opcions.");
         while(true) {
             System.out.print("botiga> ");
-            String entrada = Entrada.readLine();
+            String entrada = Entrada.readLine().strip();
+            if(entrada.isEmpty()){continue;}
             if(entrada.equals("surt")){break;}
             switch(entrada) {
                 case "ajuda" : mostraAjuda();
