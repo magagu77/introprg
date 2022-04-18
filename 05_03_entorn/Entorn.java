@@ -128,7 +128,7 @@ public class Entorn {
         } else if (preu.isBlank()) {
             preu = Integer.toString(cercat.getPreu());
         }
-        System.out.print("estoc (enter sense estoc)> ");
+        System.out.printf("estoc (enter %s)> ",cercat.getEstoc());
         String stock = Entrada.readLine();
         if (!UtilString.esEnter(stock)) {
             System.out.println("ERROR: el valor ha de ser un enter positiu");
