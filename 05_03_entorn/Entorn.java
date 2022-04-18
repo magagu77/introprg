@@ -160,9 +160,9 @@ public class Entorn {
         if (UtilitatsConfirmacio.respostaABoolean(Entrada.readLine())) {
             cercat = botiga.elimina(entrada);
             if (cercat == null) {
-                System.out.println("Eliminat");
+                System.out.println("ERROR: no s'ha pogut eliminar");
             } else {
-                System.out.println("ERROR: no s'ha pogut eliminar");    
+                System.out.println("Eliminat");
             }
         } else {
             System.out.println("No eliminat");
