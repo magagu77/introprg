@@ -156,7 +156,7 @@ public class Entorn {
             return;
         }
         System.out.println("A eliminar:\n"+botiga.cerca(entrada));
-        System.out.print("Segur?>");
+        System.out.print("Segur?> ");
         if (UtilitatsConfirmacio.respostaABoolean(Entrada.readLine())) {
             cercat = botiga.elimina(entrada);
             if (cercat == null) {
