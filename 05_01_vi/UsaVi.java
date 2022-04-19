@@ -1,3 +1,4 @@
+/** Programa UsaVi que s' utilitza per provar la clase Vi en l'exercici 05_01  */
 public class UsaVi {
     public static void main(String[] args) {
         System.out.println("Vi sense estoc" + new Vi("Roura blanc", 1234));
