@@ -1,0 +1,55 @@
+'01':
+  stdin:
+  - a
+  - be
+  - ce
+  - a
+  stdout:
+  - Obtenim les entrades
+  - ====================
+  - Cerquem elements de la llista
+  - =============================
+  - 'El text a és troba a la llista: true'
+  - 'Posició de a a la llista: 2'
+  - Mostrem les entrades introduïdes
+  - ================================
+  - be
+  - ce
+  - a
+'02':
+  stdin:
+  - i
+  - jota
+  - ka
+  - jota
+  stdout:
+  - Obtenim les entrades
+  - ====================
+  - Cerquem elements de la llista
+  - =============================
+  - 'El text jota és troba a la llista: true'
+  - 'Posició de jota a la llista: 0'
+  - Mostrem les entrades introduïdes
+  - ================================
+  - jota
+  - ka
+  - i
+'03':
+  stdin:
+  - un
+  - dos
+  - tres
+  - quatre
+  stdout:
+  - Obtenim les entrades
+  - ====================
+  - Cerquem elements de la llista
+  - =============================
+  - 'El text quatre és troba a la llista: false'
+  - 'Posició de quatre a la llista: -1'
+  - Mostrem les entrades introduïdes
+  - ================================
+  - dos
+  - tres
+  - un
+_mainclass: UsaList
