@@ -1,0 +1,110 @@
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestExercise {
+
+    @Test
+    @DisplayName("test GatRenat()")
+    public void neixEstirat() {
+        assertEquals(GatPosicio.ESTIRAT, new GatRenat().getPosicio(), "Per defecte, un Gat Renat ha de néixer estirat");
+    }
+
+    @Test
+    @DisplayName("test GatRenat(GatPosicio)")
+    public void constructorAmbGatPosicio() {
+        String msg = "Revisa GatRenat(GatPosicio)";
+        assertAll("test GatRenat(GatPosicio)",
+                () -> assertEquals(GatPosicio.DRET, new GatRenat(GatPosicio.DRET).getPosicio(), msg),
+                () -> assertEquals(GatPosicio.ASSEGUT, new GatRenat(GatPosicio.ASSEGUT).getPosicio(), msg),
+                () -> assertEquals(GatPosicio.ESTIRAT, new GatRenat(GatPosicio.ESTIRAT).getPosicio(), msg)
+                );
+    }
+
+    @Test
+    @DisplayName("test Renat setPosicio(GatPosicio) correcte")
+    public void setAmbGatPosicio() {
+        String msg = "Revisa GatRenat.setPosicio(GatPosicio)";
+        GatRenat renat = new GatRenat();
+        renat.setPosicio(GatPosicio.ASSEGUT);
+        GatPosicio assegut = renat.getPosicio();
+        renat.setPosicio(GatPosicio.DRET);
+        GatPosicio dret = renat.getPosicio();
+        renat.setPosicio(GatPosicio.ESTIRAT);
+        GatPosicio estirat = renat.getPosicio();
+        assertAll("test setPosicio(GatPosicio)",
+                () -> assertEquals(GatPosicio.DRET, dret, msg),
+                () -> assertEquals(GatPosicio.ASSEGUT, assegut, msg),
+                () -> assertEquals(GatPosicio.ESTIRAT, estirat, msg)
+                );
+    }
+
+    @Test
+    @DisplayName("test GatRenat(String)")
+    public void constructorAmbString() {
+        String msg = "Revisa GatRenat(String)";
+        assertAll("test GatRenat(String)",
+                () -> assertEquals(GatPosicio.DRET, new GatRenat("dret").getPosicio(), msg),
+                () -> assertEquals(GatPosicio.ASSEGUT, new GatRenat("assegut").getPosicio(), msg),
+                () -> assertEquals(GatPosicio.ESTIRAT, new GatRenat("estirat").getPosicio(), msg)
+                );
+    }
+
+    @Test
+    @DisplayName("test Renat setPosicio(String) correcte")
+    public void setAmbString() {
+        String msg = "Revisa GatRenat.setPosicio(String)";
+        GatRenat renat = new GatRenat();
+        renat.setPosicio("assegut");
+        GatPosicio assegut = renat.getPosicio();
+        renat.setPosicio("dret");
+        GatPosicio dret = renat.getPosicio();
+        renat.setPosicio("estirat");
+        GatPosicio estirat = renat.getPosicio();
+        assertAll("test setPosicio(GatPosicio)",
+                () -> assertEquals(GatPosicio.DRET, dret, msg),
+                () -> assertEquals(GatPosicio.ASSEGUT, assegut, msg),
+                () -> assertEquals(GatPosicio.ESTIRAT, estirat, msg)
+                );
+    }
+
+    @Test
+    @DisplayName("test GatRenat(String) llença excepció")
+    public void constructorAmbStringGeneraExcepcio() {
+        String posicio = "fes el pi";
+        String msg = String.format("GatRenat(\"%s\") ha de generar una excepció", posicio);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new GatRenat(posicio);
+        }, msg);
+    }
+
+    @Test
+    @DisplayName("test GatRenat.setPosicio(String) llença excepció")
+    public void setAmbStringGeneraExcepcio() {
+        String posicio = "fes el pi";
+        GatRenat renat = new GatRenat();
+        String msg = String.format("GatRenat.setPosicio(\"%s\") ha de generar una excepció", posicio);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            renat.setPosicio(posicio);
+        }, msg);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value={
+    "dret,DRET",
+    "DRET,DRET",
+    "assegut,ASSEGUT",
+    "Assegut,ASSEGUT",
+    "estirat,ESTIRAT",
+    "eSTirat,ESTIRAT"
+    })
+    @DisplayName("test GatPosicio.fromString(String) correcte")
+    public void fromStringCorrecte(String entrada, String esperat) {
+        GatPosicio trobat = GatPosicio.fromString(entrada);
+        String msg = String.format("GatPosicio.fromString(\"%s\") s'esperava %s", entrada, esperat, trobat);
+        assertEquals(esperat, trobat.toString(), msg);
+    }
+
+}

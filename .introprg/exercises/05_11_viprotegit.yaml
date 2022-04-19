@@ -1,0 +1,138 @@
+_mainclass: Entorn
+'01':
+  stdin:
+  - cerca
+  - '!'
+  - surt
+  stdout:
+  - "Celler La Bona Estrella. Escriviu ajuda per veure opcions."
+  - 'Referències llegides: 0'
+  - "botiga> ref> botiga> adéu"
+'02':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - "LLUMALBA20200001;Llum d'Alba Blanc;1750;12;P02E03N55D;Priorat;blanc;2020"
+    - "CARPATHI20180021;Carpathia Negre;3450;6;P23E01N43D;Montsant;negre;2018"
+  stdin:
+  - "cerca"
+  - ''
+  - '!'
+  - "surt"
+  stdout:
+  - "Celler La Bona Estrella. Escriviu ajuda per veure opcions."
+  - 'Referències llegides: 2'
+  - "botiga> ref> nom> Trobat:"
+  - "    Ref: LLUMALBA20200001"
+  - "    Nom: Llum d'Alba Blanc"
+  - "    Preu: 1750"
+  - "    Estoc: 12"
+  - "    Lloc: P02E03N55D"
+  - "    D.O.: Priorat"
+  - "    Tipus: blanc"
+  - "    Collita: 2020"
+  - "botiga> adéu"
+'03':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - "LLUMALBA20200001;Llum d'Alba Blanc;1750;12;P02E03N55D;Priorat;blanc;2020"
+    - "CARPATHI20180021;Carpathia Negre;3450;6;P23E01N43D;Montsant;negre;2018"
+    - "MATISNEG20190011;Matís Negre;1325;12;P20E01N12E;Pla de Bages;negre;2019"
+    - "SAOROSAT20180001;Saó Rosat;1040;24;P02E45N55D;Costers del Segre;negre;2018"
+    - "ROURABLA20200232;Roura blanc;1012;42;P21E45N55E;Alella;blanc;2020"
+    - "ROURABLA20200201;Roura blanc;906;3;P21E45N55E;Alella;blanc;2018"
+    - "CERCIUMX20170002;Cercium;565;30;P23E01N55D;Empordà;negre;2017"
+    - "MASIASER20200001;Masia Serra;1350;12;P02E02N55E;Empordà;negre;2020"
+  stdin:
+  - cerca
+  - ''
+  - 'mat'
+  - '!'
+  - surt
+  stdout:
+  - "Celler La Bona Estrella. Escriviu ajuda per veure opcions."
+  - 'Referències llegides: 8'
+  - "botiga> ref> nom> preu max.> Trobat:"
+  - "    Ref: MATISNEG20190011"
+  - "    Nom: Matís Negre"
+  - "    Preu: 1325"
+  - "    Estoc: 12"
+  - "    Lloc: P20E01N12E"
+  - "    D.O.: Pla de Bages"
+  - "    Tipus: negre"
+  - "    Collita: 2019"
+  - "botiga> adéu"
+'04':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - "LLUMALBA20200001;Llum d'Alba Blanc;1750;12;P02E03N55D;Priorat;blanc;2020"
+    - "CARPATHI20180021;Carpathia Negre;3450;6;P23E01N43D;Montsant;negre;2018"
+    - "MATISNEG20190011;Matís Negre;1325;12;P20E01N12E;Pla de Bages;negre;2019"
+    - "SAOROSAT20180001;Saó Rosat;1040;24;P02E45N55D;Costers del Segre;negre;2018"
+    - "ROURABLA20200232;Roura blanc;1012;42;P21E45N55E;Alella;blanc;2020"
+    - "ROURABLA20200201;Roura blanc;906;3;P21E45N55E;Alella;blanc;2018"
+    - "CERCIUMX20170002;Cercium;565;30;P23E01N55D;Empordà;negre;2017"
+    - "MASIASER20200001;Masia Serra;1350;12;P02E02N55E;Empordà;negre;2020"
+  stdin:
+  - cerca
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - 'pla'
+  - '!'
+  - surt
+  stdout:
+  - "Celler La Bona Estrella. Escriviu ajuda per veure opcions."
+  - 'Referències llegides: 8'
+  - "botiga> ref> nom> preu max.> estoc min.> lloc> D.O.> tipus> Trobat:"
+  - "    Ref: MATISNEG20190011"
+  - "    Nom: Matís Negre"
+  - "    Preu: 1325"
+  - "    Estoc: 12"
+  - "    Lloc: P20E01N12E"
+  - "    D.O.: Pla de Bages"
+  - "    Tipus: negre"
+  - "    Collita: 2019"
+  - ''
+  - "botiga> adéu"
+'05':
+  filein:
+  - filename: botiga.csv
+    lines:
+    - "LLUMALBA20200001;Llum d'Alba Blanc;1750;12;P02E03N55D;Priorat;blanc;2020"
+    - "CARPATHI20180021;Carpathia Negre;3450;6;P23E01N43D;Montsant;negre;2018"
+    - "MATISNEG20190011;Matís Negre;1325;12;P20E01N12E;Pla de Bages;negre;2019"
+    - "SAOROSAT20180001;Saó Rosat;1040;24;P02E45N55D;Costers del Segre;negre;2018"
+    - "ROURABLA20200232;Roura blanc;1012;42;P21E45N55E;Alella;blanc;2020"
+    - "ROURABLA20200201;Roura blanc;906;3;P21E45N55E;Alella;blanc;2018"
+    - "CERCIUMX20170002;Cercium;565;30;P23E01N55D;Empordà;negre;2017"
+    - "MASIASER20200001;Masia Serra;1350;12;P02E02N55E;Empordà;negre;2020"
+  stdin:
+  - cerca
+  - ''
+  - ''
+  - '1000'
+  - ''
+  - ''
+  - 'e'
+  - 'n'
+  - '!'
+  - surt
+  stdout:
+  - "Celler La Bona Estrella. Escriviu ajuda per veure opcions."
+  - 'Referències llegides: 8'
+  - "botiga> ref> nom> preu max.> estoc min.> lloc> D.O.> tipus> collita> Trobat:"
+  - "    Ref: CERCIUMX20170002"
+  - "    Nom: Cercium"
+  - "    Preu: 565"
+  - "    Estoc: 30"
+  - "    Lloc: P23E01N55D"
+  - "    D.O.: Empordà"
+  - "    Tipus: negre"
+  - "    Collita: 2017"
+  - ''
+  - "botiga> adéu"

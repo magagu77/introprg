@@ -1,0 +1,13 @@
+'01':
+  argsin: dret
+  stdout: 'El gat Renat està: DRET'
+'02':
+  argsin: assegut
+  stdout: 'El gat Renat està: ASSEGUT'
+'03':
+  argsin: estirat
+  stdout: 'El gat Renat està: ESTIRAT'
+'04':
+  argsin: 'content'
+  stdout: 'java.lang.IllegalArgumentException: Valor "content" no suportat per GatPosicio'
+_mainclass: UsaGatRenat
