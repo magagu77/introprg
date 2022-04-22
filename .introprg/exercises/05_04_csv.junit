@@ -1,4 +1,5 @@
-import java.lang.reflect.Type;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -478,6 +479,27 @@ public class TestExercise {
             Vi eliminat = botiga.elimina(nom);
             assertNull(eliminat, "elimina() no ha d'eliminar vins amb estoc");
         }
+        //
+        // members
+        @Test
+        @DisplayName("test Botiga té propietat privada vins de tipus Vi[]")
+        public void vinsEsList() {
+            assertTrue(Arrays.stream(Botiga.class.getDeclaredFields())
+                    .anyMatch(p -> p.getName().equals("vins") &&
+                        Modifier.isPrivate(p.getModifiers()) &&
+                        p.getType().getTypeName().toString().equals("Vi[]")),
+                    "Botiga ha de tenir una propietat privada de tipus Vi[]");
+        }
+
+        @Test
+        @DisplayName("test Botiga no ofereix la propietat que conté els vins")
+        public void noGetVins() {
+            assertFalse(Arrays.stream(Botiga.class.getDeclaredMethods())
+                    .anyMatch(m -> m.getReturnType().getTypeName().toString().equals("Vi[]") && !
+                        Modifier.isPrivate(m.getModifiers())),
+                    "Botiga no ha d'oferir cap mètode que retorni l'array de vins.");
+        }
+
     }
 
     /* ************************************************************************* *

@@ -1,0 +1,35 @@
+_mainclass: UsaEnvoltaString
+'01':
+  stdout:
+  - '"Renat" == "nom per defecte" -> false'
+  - '"Renat".equals("nom per defecte") -> false'
+  - 'ENVOLTAT("Renat") == ENVOLTAT("nom per defecte") -> false'
+  - 'ENVOLTAT("Renat").equals(ENVOLTAT("nom per defecte")) -> false'
+'02':
+  argsin: Garfield
+  stdout:
+  - '"Renat" == "Garfield" -> false'
+  - '"Renat".equals("Garfield") -> false'
+  - 'ENVOLTAT("Renat") == ENVOLTAT("Garfield") -> false'
+  - 'ENVOLTAT("Renat").equals(ENVOLTAT("Garfield")) -> false'
+'03':
+  argsin: Renat
+  stdout:
+  - '"Renat" == "Renat" -> false'
+  - '"Renat".equals("Renat") -> true'
+  - 'ENVOLTAT("Renat") == ENVOLTAT("Renat") -> false'
+  - 'ENVOLTAT("Renat").equals(ENVOLTAT("Renat")) -> true'
+'04':
+  argsin: RENat
+  stdout:
+  - '"Renat" == "RENat" -> false'
+  - '"Renat".equals("RENat") -> false'
+  - 'ENVOLTAT("Renat") == ENVOLTAT("RENat") -> false'
+  - 'ENVOLTAT("Renat").equals(ENVOLTAT("RENat")) -> true'
+'05':
+  argsin: RENAT
+  stdout:
+  - '"Renat" == "RENAT" -> false'
+  - '"Renat".equals("RENAT") -> false'
+  - 'ENVOLTAT("Renat") == ENVOLTAT("RENAT") -> false'
+  - 'ENVOLTAT("Renat").equals(ENVOLTAT("RENAT")) -> true'
