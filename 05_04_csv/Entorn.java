@@ -40,17 +40,19 @@ public class Entorn {
         FileWriter fitxer = new FileWriter(file,true);
         fitxer.close();
         BufferedReader input = new BufferedReader(new FileReader(file));
-        vinsContats = contaVins();
         while (true) {
             String vi = input.readLine();
             if(vi==null){break;} 
             String[] viArray = vi.split(";");
             Vi nouVi = Vi.deArrayString(viArray);
-            entorn.botiga.afegeix(nouVi);
+            if(nouVi == null){continue;}
+            else {
+                entorn.botiga.afegeix(nouVi);
+            }
         }
         input.close();
         System.out.println("Celler La Bona Estrella. Escriviu ajuda per veure opcions.");
-        System.out.printf("Referències llegides: %s\n",vinsContats);
+        System.out.printf("Referències llegides: %s\n",contaVins());
         while(true) {
             System.out.print("botiga> ");
             String entrada = Entrada.readLine().strip();
@@ -206,7 +208,9 @@ public class Entorn {
             linia = input.readLine();
             if (linia == null) {break;}
             else {
-                contador++;
+                String[] viArray = linia.split(";");
+                if(Vi.deArrayString(viArray)==null){continue;}
+                else {contador++;}
             }
         }
         input.close();
