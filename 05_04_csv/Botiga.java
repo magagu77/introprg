@@ -108,10 +108,9 @@ public class Botiga {
     public Vi getSeguent() {
         while (true) {
             posicioArray = posicioArray + 1;
-            if(posicioArray == vins.length) {return null;}
-            if (vins[posicioArray]==null) {
-                posicioArray = posicioArray + 1;
-            } else {
+            if(posicioArray >= vins.length) {return null;}
+            if (vins[posicioArray]==null) {continue;} 
+            else {
             return vins[posicioArray];
             }
         }
