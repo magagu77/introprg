@@ -82,7 +82,7 @@ public class Vi {
         if(vins[0].isBlank()|| vins[0]==null){return null;}
         if(!UtilString.esEnter(vins[1])|| vins[1]==null){return null;}
         if(!UtilString.esEnter(vins[2])||vins[2]==null){return null;}
-        Vi nouVi = new Vi(normalitzaNom(vins[0]),Integer.parseInt(vins[1],Integer.parseInt(vins[2])));
+        Vi nouVi = new Vi(normalitzaNom(vins[0]),Integer.parseInt(vins[1]),Integer.parseInt(vins[2]));
         if (nouVi.esValid()) {return nouVi;}
         else {return null;}
     }
