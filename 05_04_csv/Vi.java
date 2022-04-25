@@ -79,6 +79,7 @@ public class Vi {
 
     /** PENDIENTE ARREGLAR */
     public static Vi deArrayString(String[] vins) {
+        if(vins.length != 3){return null;}
         if(vins[0].isBlank()|| vins[0]==null){return null;}
         if(!UtilString.esEnter(vins[1])|| vins[1]==null){return null;}
         if(!UtilString.esEnter(vins[2])||vins[2]==null){return null;}

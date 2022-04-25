@@ -46,7 +46,10 @@ public class Entorn {
             if(vi==null){break;} 
             String[] viArray = vi.split(";");
             Vi nouVi = Vi.deArrayString(viArray);
-            entorn.botiga.afegeix(nouVi);
+            if(nouVi == null){continue;}
+            else {
+                entorn.botiga.afegeix(nouVi);
+            }
         }
         input.close();
         System.out.println("Celler La Bona Estrella. Escriviu ajuda per veure opcions.");
