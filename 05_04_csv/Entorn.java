@@ -40,7 +40,6 @@ public class Entorn {
         FileWriter fitxer = new FileWriter(file,true);
         fitxer.close();
         BufferedReader input = new BufferedReader(new FileReader(file));
-        vinsContats = contaVins();
         while (true) {
             String vi = input.readLine();
             if(vi==null){break;} 
@@ -53,7 +52,7 @@ public class Entorn {
         }
         input.close();
         System.out.println("Celler La Bona Estrella. Escriviu ajuda per veure opcions.");
-        System.out.printf("Referències llegides: %s\n",vinsContats);
+        System.out.printf("Referències llegides: %s\n",entorn.contaVins());
         while(true) {
             System.out.print("botiga> ");
             String entrada = Entrada.readLine().strip();
@@ -75,8 +74,7 @@ public class Entorn {
         }
         entorn.botiga.iniciaRecorregut();
         entorn.guardaVins();
-        vinsContats = contaVins();
-        System.out.printf("Referències guardades: %s\n",vinsContats);
+        System.out.printf("Referències guardades: %s\n",entorn.contaVins());
         System.out.println("adéu");
     }
 
@@ -200,19 +198,13 @@ public class Entorn {
         System.out.println("ERROR: comanda no reconeguda. Escriviu help per ajuda");
     }
     // Funcion que devuelve un int con le numero de lineas que tiene un archivo
-    public static int contaVins() throws IOException {
-        String file = "botiga.csv";
-        BufferedReader input = new BufferedReader(new FileReader(file));
-        int contador = 0;
-        String linia ="";
-        while (true) {
-            linia = input.readLine();
-            if (linia == null) {break;}
-            else {
-                contador++;
-            }
+    public int contaVins() throws IOException {
+        int contador =0;
+        while(true) {
+            Vi vi = botiga.getSeguent();
+            if(vi==null){break;}
+            else{contador++;}
         }
-        input.close();
         return contador;
     }
 
