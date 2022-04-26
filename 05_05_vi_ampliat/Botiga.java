@@ -44,11 +44,11 @@ public class Botiga {
 
     // Elimina vi
     public Vi elimina(String ref) {
-        ref = normalitzaNom(ref);
+        ref = Vi.normalitzaString(ref);
         for(int i=0;i<vins.length;i++) {
             if (vins[i]==null){
                 continue;
-            } else if((vins[i].getNom().toLowerCase()).equals(nomVi.toLowerCase()) && vins[i].getEstoc() <= 0 ) {
+            } else if((vins[i].getRef().toLowerCase()).equals(ref.toLowerCase()) && vins[i].getEstoc() <= 0 ) {
                 Vi viEliminat = vins[i];
                 vins[i] = null;
                 return viEliminat;
@@ -62,7 +62,7 @@ public class Botiga {
         for(int i=0;i<vins.length;i++) {
             if(vins[i] == null) {
                 continue;
-            } else if (vins[i].getRef.toLowerCase().equals(ref.toLowerCase())) {
+            } else if (vins[i].getRef().toLowerCase().equals(ref.toLowerCase())) {
                 return vins[i];
             }
         }
@@ -84,11 +84,11 @@ public class Botiga {
     }  
 
     // Comprova si el vi esta en la llista
-    private boolean viEnLlista (Vi[] vins, String nomVi) {
+    private boolean viEnLlista (Vi[] vins, String ref) {
         for(int i=0;i<vins.length;i++) {
             if(vins[i] == null) {
                 continue;
-            } else if (vins[i].getNom().equals(nomVi)) {
+            } else if (vins[i].getRef().equals(ref)) {
                 return true;
             }
         }
