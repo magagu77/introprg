@@ -140,7 +140,6 @@ public class Entorn {
         } else {
             System.out.println("nom> ");
             String nom = Entrada.readLine();
-            if(nom.isBlank()){return;}
             System.out.println("preu max.> ");
             String preu = Entrada.readLine();
             if(UtilString.esEnter(preu)) {
