@@ -34,6 +34,7 @@ import java.io.BufferedWriter;
 public class Entorn {
     private final Botiga botiga = new Botiga();
     public static void main(String[] args) throws IOException {
+        boolean continua = true;
         int vinsContats = 0;
         String file = "botiga.csv";
         Entorn entorn = new Entorn();
@@ -53,7 +54,7 @@ public class Entorn {
         input.close();
         System.out.println("Celler La Bona Estrella. Escriviu ajuda per veure opcions.");
         System.out.printf("Referències llegides: %s\n",contaVins());
-        while(true) {
+        while(continua) {
             System.out.print("botiga> ");
             String entrada = Entrada.readLine().strip();
             if(entrada.isEmpty()){continue;}
@@ -131,7 +132,8 @@ public class Entorn {
         if(!entrada.isBlank()) {
             Vi cercat = botiga.cerca(entrada);
             if (cercat == null) {
-                System.out.println("No trobat");
+                return;
+                //System.out.println("No trobat");
             } else {
                 System.out.println("Trobat:\n"+cercat);
             }
@@ -163,7 +165,8 @@ public class Entorn {
             Vi viABuscar = new Vi(entrada,nom,precio,estoc,lloc,deo,tipus,collita);
             Vi cercat = botiga.cerca(viABuscar);
             if (cercat == null) {
-                System.out.println("No trobat");
+                //System.out.println("No trobat");
+                return;
             } else {
                 System.out.println("Trobat:\n"+cercat);
             }
