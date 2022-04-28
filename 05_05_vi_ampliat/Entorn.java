@@ -75,7 +75,7 @@ public class Entorn {
         entorn.botiga.iniciaRecorregut();
         entorn.guardaVins();
         vinsContats = contaVins();
-        System.out.printf("Referències guardades: %s\n",vinsContats);
+        //System.out.printf("Referències guardades: %s\n",vinsContats);
         System.out.println("adéu");
     }
 
