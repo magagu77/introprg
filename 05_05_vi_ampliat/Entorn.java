@@ -129,6 +129,7 @@ public class Entorn {
         int estoc;
         System.out.print("ref> ");
         entrada = Entrada.readLine();
+        if(entrada.equals("!")){return;}
         if(!entrada.isBlank()) {
             Vi cercat = botiga.cerca(entrada);
             if (cercat == null) {
@@ -140,8 +141,10 @@ public class Entorn {
         } else {
             System.out.println("nom> ");
             String nom = Entrada.readLine();
+            if(nom.equals("!")){return;}
             System.out.println("preu max.> ");
             String preu = Entrada.readLine();
+            if(preu.equals("!")){return;}
             if(UtilString.esEnter(preu)) {
                 precio = Integer.parseInt(preu);
             } else {
@@ -149,6 +152,7 @@ public class Entorn {
             }
             System.out.println("estoc min.> ");
             String stock = Entrada.readLine();
+            if(stock.equals("!")){return;}
             if(UtilString.esEnter(stock)) {
                 estoc = Integer.parseInt(stock);
             } else {
@@ -156,12 +160,16 @@ public class Entorn {
             }
             System.out.println("lloc> ");
             String lloc = Entrada.readLine();
+            if(lloc.equals("!")){return;}
             System.out.println("D.O.> ");
             String deo = Entrada.readLine();
+            if(deo.equals("!")){return;}
             System.out.println("tipus> ");
             String tipus =Entrada.readLine();
+            if(tipus.equals("!")){return;}
             System.out.println("collita> ");
             String collita = Entrada.readLine();
+            if(collita.equals("!")){return;}
             Vi viABuscar = new Vi(entrada,nom,precio,estoc,lloc,deo,tipus,collita);
             Vi cercat = botiga.cerca(viABuscar);
             if (cercat == null) {
