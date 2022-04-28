@@ -132,7 +132,7 @@ public class Entorn {
         if(!entrada.isBlank()) {
             Vi cercat = botiga.cerca(entrada);
             if (cercat == null) {
-                return;
+                return; 
                 //System.out.println("No trobat");
             } else {
                 System.out.println("Trobat:\n"+cercat);
@@ -140,6 +140,7 @@ public class Entorn {
         } else {
             System.out.println("nom> ");
             String nom = Entrada.readLine();
+            if(nom.isBlank()){return;}
             System.out.println("preu max.> ");
             String preu = Entrada.readLine();
             if(UtilString.esEnter(preu)) {

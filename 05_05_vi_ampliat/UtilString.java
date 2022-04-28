@@ -68,7 +68,7 @@ public class UtilString {
 
 	//Determina si un determinado String es un numero entero 
 	public static boolean esEnter(String valor) {
-		if (valor.isBlank()) {
+		if (valor.isBlank() || valor == null) {
 			return false;
 		}
 		for (int i=0; i<valor.length();i++) {
