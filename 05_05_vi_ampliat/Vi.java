@@ -51,9 +51,7 @@ public class Vi {
 
     // Setters
     public void setNom(String nom) {
-        if(!nom.isBlank()){
-            this.nom = nom;
-        }
+        this.nom = normalitzaString(nom);
     }
     public void setPreu(int preu) {
         if (preu >= 0) {

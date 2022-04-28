@@ -68,6 +68,22 @@ public class Botiga {
         }
         return null;
     }
+    // Busca un vino comparando con una instancia de vino
+    public Vi cerca (Vi viBuscat) {
+        for(int i=0;i<vins.length;i++) {
+            if(vins[i] == null) {continue;}
+            if(!(viBuscat.getNom()==null) && !(viBuscat.getNom().equalsIgnoreCase(vins[i].getNom()))){continue;}
+            if(!(viBuscat.getRef()==null) && !(viBuscat.getRef().equalsIgnoreCase(vins[i].getRef()))){continue;}
+            if(!(viBuscat.getPreu()==-1) && !(viBuscat.getPreu() <= vins[i].getPreu())){continue;}
+            if(!(viBuscat.getEstoc()==-1) && !(viBuscat.getEstoc() <= vins[i].getEstoc())){continue;}
+            if(!(viBuscat.getLloc() ==null) && !(viBuscat.getLloc().equalsIgnoreCase(vins[i].getLloc()))){continue;}
+            if(!(viBuscat.getOrigen()==null) && !(viBuscat.getOrigen().equalsIgnoreCase(vins[i].getOrigen()))){continue;}
+            if(!(viBuscat.getTipus()==null) && !(viBuscat.getTipus().equalsIgnoreCase(vins[i].getTipus()))){continue;}
+            if(!(viBuscat.getCollita()==null) && !(viBuscat.getCollita().equalsIgnoreCase(vins[i].getCollita()))){continue;}
+            return vins[i];
+        }
+        return null;
+    }
     // Cerca vi comparant amb una instancia de Vip 
     public Vi modificaVi(String nom, int preu, int estoc) {
         nom = Vi.normalitzaString(nom);

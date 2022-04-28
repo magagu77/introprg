@@ -61,13 +61,13 @@ public class Entorn {
             switch(entrada) {
                 case "ajuda" : mostraAjuda();
                             break;
-                case "afegeix" : entorn.procesaAfegeix();
+                case "afegeix" : System.out.println("Comanda temporalment no disponible");//entorn.procesaAfegeix();
                             break;
                 case "cerca" : entorn.procesaCerca();
                             break;
-                case "modifica" : entorn.procesaModifica();
+                case "modifica" : System.out.println("Comanda temporalment no disponible");//entorn.procesaModifica();
                             break;
-                case "elimina" : entorn.procesaElimina();
+                case "elimina" : System.out.println("Comanda temporalment no disponible");//entorn.procesaElimina();
                             break;
                 default: mostraErrorComandaDesconeguda();
             }
@@ -84,6 +84,7 @@ public class Entorn {
         System.out.println("Comandes disponibles:\najuda\ncerca\nafegeix\nmodifica\nelimina\nsurt");
     }
     // Afegeix vi
+    /*
     public void procesaAfegeix() {
         String entrada = "";
         System.out.print("nom (enter cancel·la)> ");
@@ -119,13 +120,48 @@ public class Entorn {
             System.out.println("Introduït:\n"+nouVi);
         }
     }
+    */
     // Funcio cerca vi
     public void procesaCerca() {
         String entrada = "";
-        System.out.print("nom (enter cancel·la)> ");
+        int precio;
+        int estoc;
+        System.out.print("ref> ");
         entrada = Entrada.readLine();
         if(!entrada.isBlank()) {
             Vi cercat = botiga.cerca(entrada);
+            if (cercat == null) {
+                System.out.println("No trobat");
+            } else {
+                System.out.println("Trobat:\n"+cercat);
+            }
+        } else {
+            System.out.println("nom> ");
+            String nom = Entrada.readLine();
+            System.out.println("preu max.> ");
+            String preu = Entrada.readLine();
+            if(UtilString.esEnter(preu)) {
+                precio = Integer.parseInt(preu);
+            } else {
+                precio = -1;
+            }
+            System.out.println("estoc min.> ");
+            String stock = Entrada.readLine();
+            if(UtilString.esEnter(stock)) {
+                estoc = Integer.parseInt(stock);
+            } else {
+                estoc = -1;
+            }
+            System.out.println("lloc> ");
+            String lloc = Entrada.readLine();
+            System.out.println("D.O.> ");
+            String deo = Entrada.readLine();
+            System.out.println("tipus> ");
+            String tipus =Entrada.readLine();
+            System.out.println("collita> ");
+            String collita = Entrada.readLine();
+            Vi viABuscar = new Vi(entrada,nom,precio,estoc,lloc,deo,tipus,collita);
+            Vi cercat = botiga.cerca(viABuscar);
             if (cercat == null) {
                 System.out.println("No trobat");
             } else {
