@@ -108,7 +108,7 @@ public class Vi {
     }
     // Convierte las instancias de un vino en un array de Strings 
     public String[] aArrayString() {
-        String[] viString ={ getNom(),Integer.toString(getPreu()),Integer.toString(getEstoc()),getLloc(),getOrigen(),getTipus(),getCollita()};
+        String[] viString ={getRef(),getNom(),Integer.toString(getPreu()),Integer.toString(getEstoc()),getLloc(),getOrigen(),getTipus(),getCollita()};
         return viString;
         
     }
