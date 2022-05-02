@@ -10,14 +10,14 @@
  */
 public class Vi {
 
-    private String ref = "";
-    private String nom = "";
+    private String ref;
+    private String nom;
     private int preu = -1;
     private int estoc = -1; // Duele Moises, duele
-    private String lloc ="";
-    private String origen = "";
-    private String tipus = "";
-    private String collita ="";
+    private String lloc;
+    private String origen;
+    private String tipus;
+    private String collita;
 
 
     // Constructor que tiene en cuenta todo
