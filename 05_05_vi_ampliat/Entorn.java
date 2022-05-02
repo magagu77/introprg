@@ -156,7 +156,7 @@ public class Entorn {
                 if(UtilString.esEnter(preu)) {
                     precio = Integer.parseInt(preu);
                 } else {
-                    precio = -1;
+                    return;
                 }
                 System.out.print("estoc min.> ");
                 stock = Entrada.readLine();
@@ -164,7 +164,7 @@ public class Entorn {
                 if(UtilString.esEnter(stock)) {
                     estoc = Integer.parseInt(stock);
                 } else {
-                    estoc = -1;
+                    return;
                 }
                 System.out.print("lloc> ");
                 lloc = Entrada.readLine();
