@@ -156,6 +156,7 @@ public class Entorn {
                 if(UtilString.esEnter(preu)) {
                     precio = Integer.parseInt(preu);
                 } else {
+                    System.out.println("ERROR: el valor ha de ser un enter positiu");
                     return;
                 }
                 System.out.print("estoc min.> ");
@@ -164,6 +165,7 @@ public class Entorn {
                 if(UtilString.esEnter(stock)) {
                     estoc = Integer.parseInt(stock);
                 } else {
+                    System.out.println("ERROR: el valor ha de ser un enter positiu");
                     return;
                 }
                 System.out.print("lloc> ");
