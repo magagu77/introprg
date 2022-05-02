@@ -95,12 +95,12 @@ public class Vi {
     public static Vi deArrayString(String[] vins) {
         if(vins.length != 8){return null;}
         if (vins[0].isBlank()|| vins[0]==null ||
-            vins[3].isBlank()|| vins[3]==null ||
+            vins[1].isBlank()|| vins[1]==null ||
             vins[4].isBlank()|| vins[4]==null ||
             vins[5].isBlank()|| vins[5]==null ||
             vins[6].isBlank()|| vins[6]==null ||
             vins[7].isBlank()|| vins[7]==null ){return null;}
-        if(!UtilString.esEnter(vins[1])|| vins[1]==null){return null;}
+        if(!UtilString.esEnter(vins[3])|| vins[3]==null){return null;}
         if(!UtilString.esEnter(vins[2])||vins[2]==null){return null;}
         Vi nouVi = new Vi(normalitzaString(vins[0]),normalitzaString(vins[1]),Integer.parseInt(vins[2]),Integer.parseInt(vins[3]),normalitzaString(vins[4]),normalitzaString(vins[5]),normalitzaString(vins[6]),normalitzaString(vins[7]));
         if (nouVi.esValid()) {return nouVi;}
