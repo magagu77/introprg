@@ -125,8 +125,15 @@ public class Entorn {
     // Funcio cerca vi
     public void procesaCerca() {
         String entrada = "";
-        int precio;
-        int estoc;
+        int precio = -1;
+        int estoc = -1;
+        String nom="";
+        String preu="";
+        String stock="";
+        String lloc="";
+        String deo="";
+        String tipus="";
+        String collita="";
         System.out.print("ref> ");
         entrada = Entrada.readLine();
         if(entrada.equals("!")){return;}
@@ -139,37 +146,40 @@ public class Entorn {
                 System.out.println("Trobat:\n"+cercat);
             }
         } else {
-            System.out.println("nom> ");
-            String nom = Entrada.readLine();
-            if(nom.equals("!")){return;}
-            System.out.println("preu max.> ");
-            String preu = Entrada.readLine();
-            if(preu.equals("!")){return;}
-            if(UtilString.esEnter(preu)) {
-                precio = Integer.parseInt(preu);
-            } else {
-                precio = -1;
+            while(true) {
+                System.out.println("nom> ");
+                nom = Entrada.readLine();
+                if(nom.equals("!")){break;}
+                System.out.println("preu max.> ");
+                preu = Entrada.readLine();
+                if(preu.equals("!")){break;}
+                if(UtilString.esEnter(preu)) {
+                    precio = Integer.parseInt(preu);
+                } else {
+                    precio = -1;
+                }
+                System.out.println("estoc min.> ");
+                stock = Entrada.readLine();
+                if(stock.equals("!")){break;}
+                if(UtilString.esEnter(stock)) {
+                    estoc = Integer.parseInt(stock);
+                } else {
+                    estoc = -1;
+                }
+                System.out.println("lloc> ");
+                lloc = Entrada.readLine();
+                if(lloc.equals("!")){break;}
+                System.out.println("D.O.> ");
+                deo = Entrada.readLine();
+                if(deo.equals("!")){break;}
+                System.out.println("tipus> ");
+                tipus =Entrada.readLine();
+                if(tipus.equals("!")){break;}
+                System.out.println("collita> ");
+                collita = Entrada.readLine();
+                if(collita.equals("!")){break;}
+                break;
             }
-            System.out.println("estoc min.> ");
-            String stock = Entrada.readLine();
-            if(stock.equals("!")){return;}
-            if(UtilString.esEnter(stock)) {
-                estoc = Integer.parseInt(stock);
-            } else {
-                estoc = -1;
-            }
-            System.out.println("lloc> ");
-            String lloc = Entrada.readLine();
-            if(lloc.equals("!")){return;}
-            System.out.println("D.O.> ");
-            String deo = Entrada.readLine();
-            if(deo.equals("!")){return;}
-            System.out.println("tipus> ");
-            String tipus =Entrada.readLine();
-            if(tipus.equals("!")){return;}
-            System.out.println("collita> ");
-            String collita = Entrada.readLine();
-            if(collita.equals("!")){return;}
             Vi viABuscar = new Vi(entrada,nom,precio,estoc,lloc,deo,tipus,collita);
             Vi cercat = botiga.cerca(viABuscar);
             if (cercat == null) {
