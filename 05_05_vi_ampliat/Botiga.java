@@ -69,7 +69,9 @@ public class Botiga {
         return null;
     }
     public Vi cerca() {
-        return vins[0];
+        if(vins[0]!=null){return vins[0];}
+        return null;
+        
     }
     // Busca un vino comparando con una instancia de vino
     public Vi cerca (Vi viBuscat) {
