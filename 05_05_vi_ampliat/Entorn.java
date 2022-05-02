@@ -147,10 +147,10 @@ public class Entorn {
             }
         } else {
             while(true) {
-                System.out.println("nom> ");
+                System.out.print("nom> ");
                 nom = Entrada.readLine();
                 if(nom.equals("!")){break;}
-                System.out.println("preu max.> ");
+                System.out.print("preu max.> ");
                 preu = Entrada.readLine();
                 if(preu.equals("!")){break;}
                 if(UtilString.esEnter(preu)) {
@@ -158,7 +158,7 @@ public class Entorn {
                 } else {
                     precio = -1;
                 }
-                System.out.println("estoc min.> ");
+                System.out.print("estoc min.> ");
                 stock = Entrada.readLine();
                 if(stock.equals("!")){break;}
                 if(UtilString.esEnter(stock)) {
@@ -166,16 +166,16 @@ public class Entorn {
                 } else {
                     estoc = -1;
                 }
-                System.out.println("lloc> ");
+                System.out.print("lloc> ");
                 lloc = Entrada.readLine();
                 if(lloc.equals("!")){break;}
-                System.out.println("D.O.> ");
+                System.out.print("D.O.> ");
                 deo = Entrada.readLine();
                 if(deo.equals("!")){break;}
-                System.out.println("tipus> ");
+                System.out.print("tipus> ");
                 tipus =Entrada.readLine();
                 if(tipus.equals("!")){break;}
-                System.out.println("collita> ");
+                System.out.print("collita> ");
                 collita = Entrada.readLine();
                 if(collita.equals("!")){break;}
                 break;
