@@ -182,7 +182,11 @@ public class Entorn {
             }
             Vi viABuscar = new Vi(entrada,nom,precio,estoc,lloc,deo,tipus,collita);
             Vi cercat = botiga.cerca(viABuscar);
-            if (cercat == null) {
+            if(nom.equals("!")){
+                cercat = botiga.cerca();
+                System.out.println("Trobat:\n"+cercat);
+            }
+            else if (cercat == null) {
                 //System.out.println("No trobat");
                 return;
             } else {
