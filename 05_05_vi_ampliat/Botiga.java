@@ -76,8 +76,8 @@ public class Botiga {
     public Vi cerca (Vi viBuscat) {
         for(int i=0;i<vins.length;i++) {
             if(vins[i] == null) {continue;}
-            if(!(viBuscat.getNom()==null) && !(viBuscat.getNom().equalsIgnoreCase(vins[i].getNom()))){continue;}
             if(!(viBuscat.getRef()==null) && !(viBuscat.getRef().equalsIgnoreCase(vins[i].getRef()))){continue;}
+            if(!(viBuscat.getNom()==null) && !(viBuscat.getNom().equalsIgnoreCase(vins[i].getNom()))){continue;}
             if((viBuscat.getPreu()==-1) && !(viBuscat.getPreu() <= vins[i].getPreu())){continue;}
             if((viBuscat.getEstoc()==-1) && !(viBuscat.getEstoc() >= vins[i].getEstoc())){continue;}
             if(!(viBuscat.getLloc() ==null) && !(viBuscat.getLloc().equalsIgnoreCase(vins[i].getLloc()))){continue;}
