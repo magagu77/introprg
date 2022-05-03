@@ -68,6 +68,7 @@ public class Vi {
     }
     // Normaliza String del nombre
     public static String normalitzaString(String nom) {
+        if (nom == null) {return null;}
         if (nom.isBlank()) {
             return null;
         }
