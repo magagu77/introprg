@@ -13,7 +13,7 @@
 public class Botiga {
     private int DEFAULT_MAX_VINS = 10;
     private Vi[] vins;
-    private int posicioArray = -1;
+    private int posicioArray = 0;
 
     public Botiga() {
         vins = new Vi[DEFAULT_MAX_VINS];
@@ -120,15 +120,15 @@ public class Botiga {
         return false;
     }
     public void iniciaRecorregut() {
-        posicioArray = -1;
+        posicioArray = 0;
     }
     public Vi getSeguent() {
         while (true) {
             posicioArray = posicioArray + 1;
-            if(posicioArray >= vins.length) {return null;}
-            if (vins[posicioArray]==null) {continue;} 
+            if(posicioArray == vins.length) {return null;}
+            if (vins[posicioArray-1]==null) {continue;} 
             else {
-            return vins[posicioArray];
+            return vins[posicioArray-1];
             }
         }
     }
