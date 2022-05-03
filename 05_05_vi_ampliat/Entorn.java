@@ -82,7 +82,7 @@ public class Entorn {
 
     // Mostra ajuda
     public static void mostraAjuda() {
-        System.out.println("Comandes disponibles:\najuda\ncerca\nafegeix\nmodifica\nelimina\nsurt");
+        System.out.println("Comandes disponibles:\najuda\ncerca\nsurt");
     }
     // Afegeix vi
     /*
