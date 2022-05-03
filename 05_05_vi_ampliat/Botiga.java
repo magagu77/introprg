@@ -59,6 +59,7 @@ public class Botiga {
     // Cerca vi segons la referencia
     public Vi cerca(String ref) {
         ref = Vi.normalitzaString(ref);
+        if(vins.length == 0) {return null;}
         for(int i=0;i<vins.length;i++) {
             if(vins[i] == null) {
                 continue;
