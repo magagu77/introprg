@@ -79,13 +79,14 @@ public class Vi {
     public boolean esValid() {
         if (preu < 0 || estoc < 0) {
             return false;
-        } else if (getNom().isBlank()||getCollita().isBlank()||getLloc().isBlank()||getLloc().isBlank()||getTipus().isBlank()||getOrigen().isBlank()){
+        } 
+        if (getNom().isBlank()||getCollita().isBlank()||getLloc().isBlank()||getLloc().isBlank()||getTipus().isBlank()||getOrigen().isBlank()){
             return false;
-        } else if (nom == null || collita == null || lloc == null || ref == null || tipus == null || origen == null) {
-            return false;
-        } else {
-            return true;
         }
+        if (getNom() == null || getCollita() == null || getLloc() == null || getRef() == null || getTipus() == null || getOrigen() == null) {
+            return false;
+        } 
+        return true;
     }
     // Funcion que recibe un array de Strings y los convierte en un vino
 
