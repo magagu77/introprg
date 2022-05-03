@@ -79,7 +79,7 @@ public class Vi {
     public boolean esValid() {
         if (preu < 0 || estoc < 0) {
             return false;
-        } else if (nom.isBlank()||collita.isBlank()||lloc.isBlank()||ref.isBlank()||tipus.isBlank()||origen.isBlank()){
+        } else if (getNom().isBlank()||getCollita().isBlank()||getLloc().isBlank()||getLloc().isBlank()||getTipus().isBlank()||getOrigen().isBlank()){
             return false;
         } else if (nom == null || collita == null || lloc == null || ref == null || tipus == null || origen == null) {
             return false;
