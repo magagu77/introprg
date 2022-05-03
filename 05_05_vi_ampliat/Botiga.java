@@ -25,7 +25,7 @@ public class Botiga {
 
     // Modul que afegeix vins
     public Vi afegeix(Vi nouVi) {
-        if (!viEnLlista(vins, nouVi.getNom())) {
+        if (!viEnLlista(vins, nouVi.getRef(),nouVi.getNom())) {
             for(int i=0;i<vins.length;i++) {
                 if(vins[i]==null) {
                     if(nouVi.esValid()) {
@@ -107,11 +107,13 @@ public class Botiga {
     }  
 
     // Comprova si el vi esta en la llista
-    private boolean viEnLlista (Vi[] vins, String ref) {
+    private boolean viEnLlista (Vi[] vins, String ref, String nom) {
         for(int i=0;i<vins.length;i++) {
             if(vins[i] == null) {
                 continue;
-            } else if (vins[i].getNom().equals(ref)) {
+            } else if (vins[i].getRef().equals(ref)) {
+                return true;
+            } else if (vins[i].getNom().equals(nom)){
                 return true;
             }
         }
