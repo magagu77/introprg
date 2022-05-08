@@ -268,7 +268,7 @@ public class TestExercise {
         "  terra   alta  ",
         "terra",
         "TERRA",
-        "t"
+        "  ter  "
         })
         @DisplayName("test Origen.TERRA_ALTA")
         public void origenTerraAlta(String cadena) {
@@ -298,7 +298,8 @@ public class TestExercise {
         "Tarragona",
         "tarragona",
         "  Tarragona",
-        "   Tarrago  "
+        "   Tarrago  ",
+        "      t    "
         })
         @DisplayName("test Origen.TARRAGONA")
         public void origenTarragona(String cadena) {
