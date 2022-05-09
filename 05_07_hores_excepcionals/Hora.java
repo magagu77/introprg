@@ -20,7 +20,7 @@ public class Hora {
             setSegons(segons);
         }
     }
-    public Hora() throws Exception{
+    public Hora() {
         hores = 0;
         minuts = 0;
         segons = 0;
