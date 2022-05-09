@@ -51,7 +51,7 @@ public class Botiga {
             } else if(vins[i].getRef().equalsIgnoreCase(ref) && vins[i].getEstoc() <= 0) {
                 Vi viEliminat = vins[i];
                 vins[i] = null;
-                return viEliminat;
+                return null;
             }
         }
         return null;
