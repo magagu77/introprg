@@ -38,21 +38,21 @@ public class Hora {
         if (hores < 24 && hores >= 0) {
             this.hores = hores;
         } else {
-            throw new Exception("Hores fora de rang: "+hores);
+            throw new Exception("hores fora de rang: "+hores);
         }
     }
     public void setMinuts(int minuts) throws Exception{
         if (minuts < 60 && minuts >= 0) {
             this.minuts = minuts;
         } else {
-            throw new Exception("Minuts fora de rang: "+minuts);
+            throw new Exception("minuts fora de rang: "+minuts);
         }
     }
     public void setSegons (int segons) throws Exception {
         if (segons < 60 && segons >= 0) {
             this.segons = segons;
         } else {
-            throw new Exception("Segons fora de rang: "+segons);
+            throw new Exception("segons fora de rang: "+segons);
         }
     }
 
