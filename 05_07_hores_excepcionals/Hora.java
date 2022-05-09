@@ -21,9 +21,9 @@ public class Hora {
         }
     }
     public Hora() throws Exception{
-        setHores(0);
-        setMinuts(0);
-        setSegons(0);
+        hores = 0;
+        minuts = 0;
+        segons = 0;
     }
 
     // Getters
