@@ -43,12 +43,12 @@ public class Botiga {
     }
 
     // Elimina vi
-    public Vi elimina(String nom) {
-        nom = Vi.normalitzaString(nom);
+    public Vi elimina(String ref) {
+        ref = Vi.normalitzaString(ref);
         for(int i=0;i<vins.length;i++) {
             if (vins[i]==null){
                 continue;
-            } else if(vins[i].getNom().equalsIgnoreCase(nom) && vins[i].getEstoc() <= 0) {
+            } else if(vins[i].getRef().equalsIgnoreCase(ref) && vins[i].getEstoc() <= 0) {
                 Vi viEliminat = vins[i];
                 vins[i] = null;
                 return viEliminat;
@@ -128,7 +128,7 @@ public class Botiga {
             if(posicioArray == vins.length) {return null;}
             if (vins[posicioArray]==null) {continue;} 
             else {
-            return vins[posicioArray];
+            return vins[posicioArray-1];
             }
         }
     }
