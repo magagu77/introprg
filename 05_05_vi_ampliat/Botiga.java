@@ -128,7 +128,7 @@ public class Botiga {
             if(posicioArray == vins.length) {return null;}
             if (vins[posicioArray]==null) {continue;} 
             else {
-            return vins[posicioArray-1];
+            return vins[posicioArray];
             }
         }
     }
