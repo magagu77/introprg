@@ -43,15 +43,15 @@ public class Botiga {
     }
 
     // Elimina vi
-    public Vi elimina(String ref) {
-        ref = Vi.normalitzaString(ref);
+    public Vi elimina(String nom) {
+        nom = Vi.normalitzaString(nom);
         for(int i=0;i<vins.length;i++) {
             if (vins[i]==null){
                 continue;
-            } else if(vins[i].getRef().equalsIgnoreCase(ref) && vins[i].getEstoc() <= 0) {
+            } else if(vins[i].getNom().equalsIgnoreCase(nom) && vins[i].getEstoc() <= 0) {
                 Vi viEliminat = vins[i];
                 vins[i] = null;
-                return null;
+                return viEliminat;
             }
         }
         return null;
@@ -81,8 +81,8 @@ public class Botiga {
             if(vi == null) {continue;}
             if(!(viBuscat.getRef()==null) && !(viBuscat.getRef().equalsIgnoreCase(vi.getRef()))){continue;}
             if(!(viBuscat.getNom()==null) && !(viBuscat.getNom().equalsIgnoreCase(vi.getNom()))){continue;}
-            if((viBuscat.getPreu()!=-1) && (viBuscat.getPreu() < vi.getPreu())){continue;}
-            if((viBuscat.getEstoc()!=-1) && (viBuscat.getEstoc() > vi.getEstoc())){continue;}
+            if((viBuscat.getPreu()!=-1) && (viBuscat.getPreu() <= vi.getPreu())){continue;}
+            if((viBuscat.getEstoc()!=-1) && (viBuscat.getEstoc() >= vi.getEstoc())){continue;}
             if(!(viBuscat.getLloc() ==null) && !(viBuscat.getLloc().equalsIgnoreCase(vi.getLloc()))){continue;}
             if(!(viBuscat.getOrigen()==null) && !(viBuscat.getOrigen().equalsIgnoreCase(vi.getOrigen()))){continue;}
             if(!(viBuscat.getTipus()==null) && !(viBuscat.getTipus().equalsIgnoreCase(vi.getTipus()))){continue;}
