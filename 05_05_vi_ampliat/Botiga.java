@@ -82,7 +82,7 @@ public class Botiga {
             if(!(viBuscat.getRef()==null) && !(viBuscat.getRef().equalsIgnoreCase(vi.getRef()))){continue;}
             if(!(viBuscat.getNom()==null) && !(viBuscat.getNom().equalsIgnoreCase(vi.getNom()))){continue;}
             if((viBuscat.getPreu()!=-1) && (viBuscat.getPreu() <= vi.getPreu())){continue;}
-            if((viBuscat.getEstoc()!=-1) && (viBuscat.getEstoc() >= vi.getEstoc())){continue;}
+            if((viBuscat.getEstoc()!=-1) && (viBuscat.getEstoc() <= vi.getEstoc())){continue;}
             if(!(viBuscat.getLloc() ==null) && !(viBuscat.getLloc().equalsIgnoreCase(vi.getLloc()))){continue;}
             if(!(viBuscat.getOrigen()==null) && !(viBuscat.getOrigen().equalsIgnoreCase(vi.getOrigen()))){continue;}
             if(!(viBuscat.getTipus()==null) && !(viBuscat.getTipus().equalsIgnoreCase(vi.getTipus()))){continue;}
