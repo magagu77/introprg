@@ -65,7 +65,7 @@ public class Vi {
     }
     public void setLloc(String nouLloc) {
         nouLloc = normalitzaString(nouLloc);
-        if(!nouLloc.isBlank()){
+        if(nouLloc!=null){
             this.lloc = nouLloc;
         }
     }
