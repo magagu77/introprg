@@ -54,12 +54,12 @@ public class Vi {
         this.nom = normalitzaString(nom);
     }
     public void setPreu(int preu) {
-        if (preu >= 0) {
+        if (preu > 0) {
             this.preu = preu;
         }
     }
     public void setEstoc(int stock) {
-        if(stock >= 0) {
+        if(stock > 0) {
             this.estoc = stock;
         }
     }
