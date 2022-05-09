@@ -64,7 +64,9 @@ public class Vi {
         }
     }
     public void setLloc(String nouLloc) {
-        this.lloc = nouLloc;
+        if(!nouLloc.isBlank()){
+            this.lloc = normalitzaString(nouLloc);
+        }
     }
     // Normaliza String del nombre
     public static String normalitzaString(String nom) {
