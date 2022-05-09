@@ -81,9 +81,9 @@ public class Vi {
         if (preu < 0 || estoc < 0) {
             return false;
         } 
-        if (getNom().isBlank()||getCollita().isBlank()||getLloc().isBlank()||getLloc().isBlank()||getTipus().isBlank()||getOrigen().isBlank()){
+        /*if (getNom().isBlank()||getCollita().isBlank()||getLloc().isBlank()||getLloc().isBlank()||getTipus().isBlank()||getOrigen().isBlank()){
             return false;
-        }
+        }*/
         if (getNom() == null || getCollita() == null || getLloc() == null || getRef() == null || getTipus() == null || getOrigen() == null) {
             return false;
         } 
