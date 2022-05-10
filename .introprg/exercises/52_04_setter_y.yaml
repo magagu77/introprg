@@ -1,0 +1,32 @@
+_mainclass: UsaPunt
+'01':
+  stdout:
+  - "punt.getX() -> 0"
+  - "punt.getY() -> 0"
+'02':
+  argsin:
+    - '12'
+  stdout:
+  - "punt.getX() -> 12"
+  - "punt.getY() -> 0"
+'03':
+  argsin:
+    - '21'
+    - '54'
+  stdout:
+  - "punt.getX() -> 21"
+  - "punt.getY() -> 54"
+'04':
+  argsin:
+    - 'vint-i-u'
+    - '37'
+  stdout:
+  - "punt.getX() -> 0"
+  - "punt.getY() -> 37"
+'05':
+  argsin:
+    - '101'
+    - 'trenta-set'
+  stdout:
+  - "punt.getX() -> 101"
+  - "punt.getY() -> 0"
