@@ -1,0 +1,5 @@
+_mainclass: UsaPunt
+'01':
+  stdout:
+  - "punt.getX() -> 0"
+  - "punt.getY() -> 0"
