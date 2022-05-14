@@ -1,1 +1,3 @@
 tmp/
+junit-platform-console-standalone.jar
+sqlite-jdbc*.jar
