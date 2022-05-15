@@ -37,7 +37,7 @@ public class Segment {
     } 
     @Override
     public String toString() {
-        String segment = String.format("Segment(%s, %S)",p1,p2);
+        String segment = String.format("Segment(%s, %s)",p1,p2);
         return segment;
     }
 }
