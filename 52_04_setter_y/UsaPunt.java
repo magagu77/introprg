@@ -8,8 +8,10 @@ public class UsaPunt {
             if (args[0]!=null&& UtilString.esEnter(args[0])){
                 x = Integer.parseInt(args[0]);
             }
-            if (args[1]!=null&&UtilString.esEnter(args[1])){
-                y = Integer.parseInt(args[1]);
+            if(args.length>=2){
+                if (args[1]!=null&&UtilString.esEnter(args[1])){
+                    y = Integer.parseInt(args[1]);
+                }
             }
         }
         punt.setX(x);
