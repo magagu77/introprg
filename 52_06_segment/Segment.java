@@ -35,4 +35,8 @@ public class Segment {
         double longitud = Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
         return longitud;
     } 
+    @Override
+    public String toString() {
+        String segment = String.format("Segment(%s, %S)",p1,p2);
+    }
 }
