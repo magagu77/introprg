@@ -1,5 +1,6 @@
 import java.beans.Transient;
 
+/** Tests de la clase punt en la versio de l'exercici 52_03 */
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 public class TestPunt {
