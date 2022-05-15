@@ -4,11 +4,13 @@ public class UsaPunt {
         Punt punt = new Punt();
         int x =0;
         int y=0;
-        if (args[0]!=null&& UtilString.esEnter(args[0])){
-            x = Integer.parseInt(args[0]);
-        }
-        if (args[1]!=null&&UtilString.esEnter(args[1])){
-            y = Integer.parseInt(args[1]);
+        if(args.length>=1){
+            if (args[0]!=null&& UtilString.esEnter(args[0])){
+                x = Integer.parseInt(args[0]);
+            }
+            if (args[1]!=null&&UtilString.esEnter(args[1])){
+                y = Integer.parseInt(args[1]);
+            }
         }
         punt.setX(x);
         punt.setY(y);
