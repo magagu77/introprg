@@ -2,10 +2,10 @@
 
  public class UsaPunt {
     public static void main(String[] args){
-        int x1 = 1; 
-        int y1 = 1;
-        int x2 = 1;
-        int y2 = 1;
+        int x1 = 0; 
+        int y1 = 0;
+        int x2 = 0;
+        int y2 = 0;
         if(args!=null){    
             for(int i=0;i<args.length;i++){
                 if(i==0&&UtilString.esEnter(args[i])){
