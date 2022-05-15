@@ -1,18 +1,21 @@
 _mainclass: UsaSegment
+_tr:
+  - '.'
+  - ','
 '01':
   stdout:
   - "p1: Punt(0, 0)"
   - "p2: Punt(0, 0)"
-  - "s1: Segment(Punt(0, 0), Punt(0, 0)) s1.longitud: 0,00"
-  - "s2: Segment(Punt(0, 0), Punt(0, 0)) s2.longitud: 0,00"
+  - "s1: Segment(Punt(0, 0), Punt(0, 0)) s1,longitud: 0,00"
+  - "s2: Segment(Punt(0, 0), Punt(0, 0)) s2,longitud: 0,00"
 '02':
   argsin:
     - '12'
   stdout:
   - "p1: Punt(12, 0)"
   - "p2: Punt(0, 0)"
-  - "s1: Segment(Punt(12, 0), Punt(0, 0)) s1.longitud: 12,00"
-  - "s2: Segment(Punt(0, 0), Punt(12, 0)) s2.longitud: 12,00"
+  - "s1: Segment(Punt(12, 0), Punt(0, 0)) s1,longitud: 12,00"
+  - "s2: Segment(Punt(0, 0), Punt(12, 0)) s2,longitud: 12,00"
 '03':
   argsin:
     - '21'
@@ -20,8 +23,8 @@ _mainclass: UsaSegment
   stdout:
   - "p1: Punt(21, 54)"
   - "p2: Punt(0, 0)"
-  - "s1: Segment(Punt(21, 54), Punt(0, 0)) s1.longitud: 57,94"
-  - "s2: Segment(Punt(0, 0), Punt(21, 54)) s2.longitud: 57,94"
+  - "s1: Segment(Punt(21, 54), Punt(0, 0)) s1,longitud: 57,94"
+  - "s2: Segment(Punt(0, 0), Punt(21, 54)) s2,longitud: 57,94"
 '04':
   argsin:
     - '20'
@@ -30,8 +33,8 @@ _mainclass: UsaSegment
   stdout:
   - "p1: Punt(20, 30)"
   - "p2: Punt(40, 0)"
-  - "s1: Segment(Punt(20, 30), Punt(40, 0)) s1.longitud: 36,06"
-  - "s2: Segment(Punt(40, 0), Punt(20, 30)) s2.longitud: 36,06"
+  - "s1: Segment(Punt(20, 30), Punt(40, 0)) s1,longitud: 36,06"
+  - "s2: Segment(Punt(40, 0), Punt(20, 30)) s2,longitud: 36,06"
 '05':
   argsin:
     - '2'
@@ -41,5 +44,5 @@ _mainclass: UsaSegment
   stdout:
   - "p1: Punt(2, 3)"
   - "p2: Punt(4, 5)"
-  - "s1: Segment(Punt(2, 3), Punt(4, 5)) s1.longitud: 2,83"
-  - "s2: Segment(Punt(4, 5), Punt(2, 3)) s2.longitud: 2,83"
+  - "s1: Segment(Punt(2, 3), Punt(4, 5)) s1,longitud: 2,83"
+  - "s2: Segment(Punt(4, 5), Punt(2, 3)) s2,longitud: 2,83"
