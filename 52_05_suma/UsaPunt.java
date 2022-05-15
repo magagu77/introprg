@@ -6,7 +6,7 @@
         int y1 = 1;
         int x2 = 1;
         int y2 = 1;
-        if(args[0]!=null){    
+        if(args!=null){    
             for(int i=0;i<args.length;i++){
                 if(i==0&&UtilString.esEnter(args[i])){
                     x1+=Integer.parseInt(args[i]);
