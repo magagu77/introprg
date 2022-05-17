@@ -1,0 +1,17 @@
+1.  És un sistema que ens permet accedir des d’una base de dades relacional, a un programa fet en Java.
+        Es cert, JDBC està principalment orientat per a comandes SQL, que s'utilitza en bases de dades relacionals
+
+2.  Per a poder accedir a un SGBD concret, ens caldrà una implementació adequada del JDBC, doncs JDBC 
+    per si sol només defineix interfaces i poc més.
+        Cert, sense un driver adequat no es pot fer gaire cosa 
+
+3.  Si els nostres programes fan servir les interfícies definides per JDBC en comptes de les classes 
+    concretes dels drivers, hauria de ser raonablement fàcil canviar de SGBD sense haver de modificar els nostres programes.
+        Cert, sempre que el driver del SGDB estigui correctament implementat
+
+4.  Donada una implementació concreta de JDBC, coneguda com a driver, podríem accedir a diverses fonts de dades, 
+    no només bases de dades.
+        Cert, es pot accedir desde un fitxer csv a un full de calcul
+        
+5.  Amb el driver adequat, el nostre programa hauria de poder accedir a un full de càlcul fent servir JDBC.
+        Cert
