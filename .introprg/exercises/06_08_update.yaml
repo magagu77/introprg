@@ -1,0 +1,76 @@
+_mainclass: UsaZoo
+'01':
+  stdout:
+  - 'Primer connectem amb la base de dades: connectat'
+  - ''
+  - Creem les taules
+  - 'Taules resultants: ANIMALS, CATEGORIES'
+  - ''
+  - Introduïm una categoria
+  - 'Nombre de categories: 1'
+  - "\tCategoria(id:1, mamífer)"
+  - ''
+  - Afegim uns quants animals
+  - 'A la base de dades, els animals són:'
+  - 'Nombre d''animals: 5'
+  - "\tAnimal(id:4, balena, Categoria(id:3, peix))"
+  - "\tAnimal(id:2, gat, Categoria(id:1, mamífer))"
+  - "\tAnimal(id:3, guppy, Categoria(id:3, peix))"
+  - "\tAnimal(id:1, pardal, Categoria(id:2, ocell))"
+  - "\tAnimal(id:5, taràntula, Categoria(id:4, insecte))"
+  - 'A la base de dades, les categories són:'
+  - 'Nombre de categories: 4'
+  - "\tCategoria(id:4, insecte)"
+  - "\tCategoria(id:1, mamífer)"
+  - "\tCategoria(id:2, ocell)"
+  - "\tCategoria(id:3, peix)"
+  - ''
+  - Corregim la categoria de la balena a una ja existent
+  - 'A la base de dades, els animals són:'
+  - 'Nombre d''animals: 5'
+  - "\tAnimal(id:4, balena, Categoria(id:1, mamífer))"
+  - "\tAnimal(id:2, gat, Categoria(id:1, mamífer))"
+  - "\tAnimal(id:3, guppy, Categoria(id:3, peix))"
+  - "\tAnimal(id:1, pardal, Categoria(id:2, ocell))"
+  - "\tAnimal(id:5, taràntula, Categoria(id:4, insecte))"
+  - 'A la base de dades, les categories són:'
+  - 'Nombre de categories: 4'
+  - "\tCategoria(id:4, insecte)"
+  - "\tCategoria(id:1, mamífer)"
+  - "\tCategoria(id:2, ocell)"
+  - "\tCategoria(id:3, peix)"
+  - ''
+  - Modifiquem la categoria de la taràntula a una que no existeix
+  - 'A la base de dades, els animals són:'
+  - 'Nombre d''animals: 5'
+  - "\tAnimal(id:4, balena, Categoria(id:1, mamífer))"
+  - "\tAnimal(id:2, gat, Categoria(id:1, mamífer))"
+  - "\tAnimal(id:3, guppy, Categoria(id:3, peix))"
+  - "\tAnimal(id:1, pardal, Categoria(id:2, ocell))"
+  - "\tAnimal(id:5, taràntula, Categoria(id:5, aràcnid))"
+  - 'A la base de dades, les categories són:'
+  - 'Nombre de categories: 5'
+  - "\tCategoria(id:5, aràcnid)"
+  - "\tCategoria(id:4, insecte)"
+  - "\tCategoria(id:1, mamífer)"
+  - "\tCategoria(id:2, ocell)"
+  - "\tCategoria(id:3, peix)"
+  - ''
+  - Intentem modificar la categoria d'un animal que no existeix
+  - 'A la base de dades, els animals són:'
+  - 'Nombre d''animals: 6'
+  - "\tAnimal(id:4, balena, Categoria(id:1, mamífer))"
+  - "\tAnimal(id:6, cavall de mar, Categoria(id:3, peix))"
+  - "\tAnimal(id:2, gat, Categoria(id:1, mamífer))"
+  - "\tAnimal(id:3, guppy, Categoria(id:3, peix))"
+  - "\tAnimal(id:1, pardal, Categoria(id:2, ocell))"
+  - "\tAnimal(id:5, taràntula, Categoria(id:5, aràcnid))"
+  - 'A la base de dades, les categories són:'
+  - 'Nombre de categories: 5'
+  - "\tCategoria(id:5, aràcnid)"
+  - "\tCategoria(id:4, insecte)"
+  - "\tCategoria(id:1, mamífer)"
+  - "\tCategoria(id:2, ocell)"
+  - "\tCategoria(id:3, peix)"
+  - ''
+  - 'Finalment tanquem la connexió amb la base de dades: desconnectat'

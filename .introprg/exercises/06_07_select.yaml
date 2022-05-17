@@ -1,0 +1,48 @@
+_mainclass: UsaZoo
+'01':
+  stdout:
+  - 'Primer connectem amb la base de dades: connectat'
+  - ''
+  - Creem les taules
+  - 'Taules resultants: ANIMALS, CATEGORIES'
+  - ''
+  - Introduïm categories amb una de repetida
+  - 'Nombre de categories: 3'
+  - "\tCategoria(id:1, ocell)"
+  - "\tCategoria(id:3, ocell)"
+  - "\tCategoria(id:2, peix)"
+  - ''
+  - Considerem els següents animals
+  - 'Nombre d''animals: 4'
+  - "\tAnimal(id:indefinit, pardal, Categoria(id:indefinit, ocell))"
+  - "\tAnimal(id:indefinit, gat, Categoria(id:indefinit, mamífer))"
+  - "\tAnimal(id:indefinit, guppy, Categoria(id:indefinit, peix))"
+  - "\tAnimal(id:indefinit, gat, Categoria(id:indefinit, mamífer))"
+  - ''
+  - 'Un cop afegits, els animals queden:'
+  - 'Nombre d''animals: 4'
+  - "\tAnimal(id:1, pardal, Categoria(id:1, ocell))"
+  - "\tAnimal(id:2, gat, Categoria(id:4, mamífer))"
+  - "\tAnimal(id:3, guppy, Categoria(id:2, peix))"
+  - "\tAnimal(id:4, gat, Categoria(id:4, mamífer))"
+  - ''
+  - 'A la base de dades, els animals són:'
+  - 'Nombre d''animals: 4'
+  - "\tAnimal(id:2, gat, Categoria(id:4, mamífer))"
+  - "\tAnimal(id:4, gat, Categoria(id:4, mamífer))"
+  - "\tAnimal(id:3, guppy, Categoria(id:2, peix))"
+  - "\tAnimal(id:1, pardal, Categoria(id:1, ocell))"
+  - ''
+  - 'A la base de dades, les categories són:'
+  - 'Nombre de categories: 4'
+  - "\tCategoria(id:4, mamífer)"
+  - "\tCategoria(id:1, ocell)"
+  - "\tCategoria(id:3, ocell)"
+  - "\tCategoria(id:2, peix)"
+  - ''
+  - Recuperem ara alguns animals per nom
+  - 'El guppy: Animal(id:3, guppy, Categoria(id:2, peix))'
+  - 'El gat: Animal(id:2, gat, Categoria(id:4, mamífer))'
+  - 'El gat Renat: null'
+  - ''
+  - 'Finalment tanquem la connexió amb la base de dades: desconnectat'

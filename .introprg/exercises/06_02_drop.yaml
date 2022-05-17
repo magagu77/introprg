@@ -1,0 +1,10 @@
+_mainclass: UsaZoo
+'01':
+  stdout:
+  - 'Primer connectem amb la base de dades: connectat'
+  - Eliminem la taula CATEGORIES per si existia
+  - Creem la taula CATEGORIES (primer cop)
+  - Eliminem la taula CATEGORIES
+  - Creem la taula CATEGORIES (segon cop)
+  - Creem la taula CATEGORIES (tercer cop)
+  - 'Finalment tanquem la connexió amb la base de dades: desconnectat'

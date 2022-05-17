@@ -1,0 +1,23 @@
+_mainclass: UsaZoo
+'01':
+  stdout:
+  - 'Primer connectem amb la base de dades: connectat'
+  - Creem la taula CATEGORIES
+  - ''
+  - Mostrem les categories disponibles inicialment
+  - Cap categoria
+  - ''
+  - 'Inserim les categories: '
+  - "\tCategoria(id:indefinit, ocell)"
+  - "\tCategoria(id:indefinit, mamífer)"
+  - ''
+  - Mostrem les categories disponibles ara
+  - 'Nombre de categories: 2'
+  - "\tCategoria(id:2, mamífer)"
+  - "\tCategoria(id:1, ocell)"
+  - ''
+  - Consultem algunes categories
+  - En consultar per la categoria ocell obtenim Categoria(id:1, ocell)
+  - En consultar per la categoria mamífer obtenim Categoria(id:2, mamífer)
+  - En consultar per la categoria peix obtenim null
+  - 'Finalment tanquem la connexió amb la base de dades: desconnectat'

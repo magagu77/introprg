@@ -1,0 +1,28 @@
+_mainclass: UsaZoo
+'01':
+  stdout:
+  - 'Primer connectem amb la base de dades: connectat'
+  - ''
+  - Creació en l'ordre correcte
+  - ===========================
+  - L'ordre correcte és primer eliminar ANIMALS, després CATEGORIES, a continuació
+    crear CATEGORIES i finalment ANIMALS
+  - 'Taules resultants: ANIMALS, CATEGORIES'
+  - ''
+  - Eliminació de ANIMALS
+  - =====================
+  - Eliminar la taula ANIMALS no ha d'afectar a CATEGORIES
+  - 'Taules resultants: CATEGORIES'
+  - ''
+  - Creació de ANIMALS
+  - ==================
+  - Quan no hi ha la taula CATEGORIES, es crearà per poder crear ANIMALS
+  - 'Taules resultants: ANIMALS, CATEGORIES'
+  - ''
+  - Eliminació de CATEGORIES
+  - ========================
+  - Quan hi són les taules CATEGORIES i ANIMALS, en eliminar CATEGORIES s'eliminarà
+    ANIMALS
+  - 'Taules resultants: cap'
+  - ''
+  - 'Finalment tanquem la connexió amb la base de dades: desconnectat'
