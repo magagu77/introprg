@@ -3,10 +3,10 @@ public class Punt {
     private int[] coord;
 
     // Constructor específic
-    public Punt(int[] coord) {
+    public Punt(int n1, int n2) {
         this.coord = new int[2];
-        this.coord[0]=coord[0];
-        this.coord[1]=coord[1];
+        this.coord[0]=n1;
+        this.coord[1]=n2;
     }
     // Constructor per defecte
     public Punt(){
