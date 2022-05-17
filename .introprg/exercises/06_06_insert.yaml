@@ -1,0 +1,34 @@
+_mainclass: UsaZoo
+'01':
+  stdout:
+  - 'Primer connectem amb la base de dades: connectat'
+  - ''
+  - Creem les taules
+  - 'Taules resultants: ANIMALS, CATEGORIES'
+  - ''
+  - Introduïm categories amb una de repetida
+  - 'Nombre de categories: 3'
+  - "\tCategoria(id:1, ocell)"
+  - "\tCategoria(id:3, ocell)"
+  - "\tCategoria(id:2, peix)"
+  - ''
+  - Afegim guppy amb Categoria(id:2, peix)
+  - 'Nombre de categories: 3'
+  - "\tCategoria(id:1, ocell)"
+  - "\tCategoria(id:3, ocell)"
+  - "\tCategoria(id:2, peix)"
+  - ''
+  - Afegim guppy dins d'una categoria coneguda
+  - 'Nombre de categories: 3'
+  - "\tCategoria(id:1, ocell)"
+  - "\tCategoria(id:3, ocell)"
+  - "\tCategoria(id:2, peix)"
+  - ''
+  - Afegim un animal d'una nova categoria
+  - 'Nombre de categories: 4'
+  - "\tCategoria(id:4, mamífer)"
+  - "\tCategoria(id:1, ocell)"
+  - "\tCategoria(id:3, ocell)"
+  - "\tCategoria(id:2, peix)"
+  - ''
+  - 'Finalment tanquem la connexió amb la base de dades: desconnectat'

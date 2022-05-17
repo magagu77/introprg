@@ -1,0 +1,49 @@
+_mainclass: UsaZoo
+'01':
+  stdout:
+  - 'Primer connectem amb la base de dades: connectat'
+  - ''
+  - Creem les taules
+  - 'Taules resultants: ANIMALS, CATEGORIES'
+  - Intentem eliminar una categoria i un animal inexistents
+  - Cap animal
+  - Cap categoria
+  - ''
+  - Introduïm Animal(id:indefinit, pardal, Categoria(id:indefinit, ocell))
+  - 'Nombre d''animals: 1'
+  - "\tAnimal(id:1, pardal, Categoria(id:1, ocell))"
+  - 'Nombre de categories: 1'
+  - "\tCategoria(id:1, ocell)"
+  - ''
+  - Eliminem l'animal
+  - Cap animal
+  - 'Nombre de categories: 1'
+  - "\tCategoria(id:1, ocell)"
+  - ''
+  - Afegim uns quants animals
+  - 'Nombre d''animals: 5'
+  - "\tAnimal(id:4, gallina, Categoria(id:1, ocell))"
+  - "\tAnimal(id:5, gat, Categoria(id:2, mamífer))"
+  - "\tAnimal(id:2, pardal, Categoria(id:1, ocell))"
+  - "\tAnimal(id:6, trencalós, Categoria(id:1, ocell))"
+  - "\tAnimal(id:3, àliga, Categoria(id:1, ocell))"
+  - 'Nombre de categories: 2'
+  - "\tCategoria(id:2, mamífer)"
+  - "\tCategoria(id:1, ocell)"
+  - ''
+  - Eliminem Categoria(id:1, ocell)
+  - 'Nombre d''animals: 1'
+  - "\tAnimal(id:5, gat, Categoria(id:2, mamífer))"
+  - 'Nombre de categories: 1'
+  - "\tCategoria(id:2, mamífer)"
+  - ''
+  - No deixem ni el gat!
+  - Cap animal
+  - 'Nombre de categories: 1'
+  - "\tCategoria(id:2, mamífer)"
+  - ''
+  - Eliminem Categoria(id:2, mamífer)
+  - Cap animal
+  - Cap categoria
+  - ''
+  - 'Finalment tanquem la connexió amb la base de dades: desconnectat'
