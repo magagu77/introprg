@@ -1,36 +1,36 @@
-/** Clase Punt per a probar que pasa tots els test de l'exercici 52_05 de tests */
+/** Clase Punt per a probar que pasa tots els test de l'exercici 52_07 de tests */
 public class Punt {
-    private int y;
-    private int x;
+    private int[] coord;
 
     // Constructor específic
-    public Punt(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Punt(int n1, int n2) {
+        this.coord = new int[2];
+        this.coord[0]=n1;
+        this.coord[1]=n2;
     }
     // Constructor per defecte
     public Punt(){
-        int y = 0;
-        int x = 0;
+        this.coord = new int[] {0,0};
+        
     }
     // Getter Y
     public int getY(){
-        return y;
+        return coord[1];
     }
     // Getter X
     public int getX(){
-        return x;
+        return coord[0];
     }
     // Setter X
     public void setX(int x) {
-        this.x=x;
+        this.coord[0]=x;
     }
     // Setter Y
     public void setY(int y) {
-        this.y=y;
+        this.coord[1]=y;
     }
     // Suma dos puntos
-    public void suma(Punt p) { x+=p.x; y+=p.y; }
+    public void suma(Punt p) { coord[0]+=p.getX(); coord[1]+=p.getY(); }
 
     // ToString
     @Override
