@@ -1,3 +1,4 @@
+/** Programa UsaPunt per a provar la clase Punt de l'exercici 52_05 (codigo dado por Moises) */
 public class UsaSegment {
     public static void main(String[] args){
         int x1 = 0; 
