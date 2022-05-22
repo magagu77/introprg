@@ -3,6 +3,7 @@
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 public class Zoo {
     private static final String NOM_BASE_DE_DADES = "animals.bd";
     private static final String CADENA_DE_CONNEXIO = "jdbc:sqlite:" +
@@ -20,7 +21,7 @@ public class Zoo {
         conn = null;
     }
     public void creaTaulaCategories() throws SQLException {
-        zoo.eliminaTaulaCategories();
+        eliminaTaulaCategories();
         String sql = "CREATE TABLE  CATEGORIES (" +
                      "       id        INTEGER PRIMARY KEY AUTOINCREMENT," +
                      "       nom       VARCHAR(40))";
