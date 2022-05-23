@@ -1,8 +1,4 @@
 /** Clase categoria que s'utilitza per a asignara una categoria a un animal del zoo */
-import java.sql.Statement;
-import java.sql.SQLException;
-import java.sql.DriverManager;
-import java.sql.Connection;
 public class Categoria {
     private int id = -1;  // -1 indica no assignat/indefinit
     private String nom;
