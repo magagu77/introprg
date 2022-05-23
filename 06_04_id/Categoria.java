@@ -21,7 +21,7 @@ public class Categoria {
     public boolean idIndefinit() { return id < 0; }
     public int getId() {
         if (idIndefinit()) {
-            throw new UnsupportedOperationException("L'identificador ha de ser positiu");
+            throw new UnsupportedOperationException("L'identificador no està disponible");
         }
         return id;
     }
@@ -35,7 +35,7 @@ public class Categoria {
     }
     public void setId(int id) {
         if(id < 0) {
-            throw new IllegalArgumentException("L'identificador no està disponible");
+            throw new IllegalArgumentException("L'identificador ha de ser positiu");
         }
         this.id = id; 
     }   
