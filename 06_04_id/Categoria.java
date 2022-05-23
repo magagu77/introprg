@@ -36,6 +36,7 @@ public class Categoria {
     public void setId(int id) {
         if(id < 0) {
             throw new java.lang.IllegalArgumentException("L'identificador no està disponible");
-        } 
+        }
+        this.id = id; 
     }   
 }
