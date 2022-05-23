@@ -10,6 +10,7 @@ public class ZooUtils {
             System.out.println("Cap categoria");
             return;
         }
+        System.out.println("Nombre de categories: "+categories.size());
         for(Categoria categoria: categories){
             System.out.println(categoria);
         }
