@@ -89,7 +89,7 @@ public class Zoo {
             categoria.setId(id);
             String sql = String.format(
                     "INSERT INTO CATEGORIES (nom) VALUES ('%s')",
-                    categoria.getId(),categoria.getNom());
+                    categoria.getNom());
             Statement st = null;
             try {
                 st = conn.createStatement();
