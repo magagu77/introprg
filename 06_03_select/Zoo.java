@@ -74,34 +74,13 @@ public class Zoo {
     }
     // Busca una categoria per nom
     public Categoria obteCategoriaPerNom(String nom) throws SQLException {
-        String sql = "SELECT * FROM CATEGORIA ORDER BY ID WHERE LOWER(TRIM(nom))="+nom;
-        sql = "SELECT * FROM CATEGORIA ORDER BY ID WHERE LOWER(TRIM(nom))="+nom;
-        Statement st = null;
-        int contador = 0;
-        try {
-            st =conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            if(rs.next()){
-                contador = rs.getInt(1);
-            } else {
-                return null;
-            }
-            if(contador == 0){return null;}
-            sql = "SELECT * FROM CATEGORIA ORDER BY ID WHERE LOWER(TRIM(nom))="+nom;
-            rs = st.executeQuery(sql);
-            List<Categoria> categories = new LinkedList<>();
-            while (rs.next()) {
-                int bdId = rs.getInt("id");
-                Categoria categoria = new Categoria(bdId, nom);
+        List<Categoria> categories = recuperaCategories();
+        for(Categoria categoria: categories){
+            if(categoria.getNom().equals(nom)){
                 return categoria;
             }
-            rs.close();
-            return null;
-        } finally {
-            if (st != null) {
-                st.close();
-            }
         }
+        return null;
     }
         // Clase per a crear una categoria a la BDD
         public void afegeixCategoria(Categoria categoria) throws SQLException {
