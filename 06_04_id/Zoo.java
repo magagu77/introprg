@@ -84,11 +84,6 @@ public class Zoo {
     }
         // Clase per a crear una categoria a la BDD
         public void afegeixCategoria(Categoria categoria) throws SQLException {
-            List<Categoria> categories = recuperaCategories();
-            if(categoria.idIndefinit()){
-                int id = categories.size()+1;
-                categoria.setId(id);
-            }
             String sql = String.format(
                     "INSERT INTO CATEGORIES (nom) VALUES ('%s')",
                     categoria.getNom());
@@ -96,6 +91,10 @@ public class Zoo {
             try {
                 st = conn.createStatement();
                 st.executeUpdate(sql);
+                ResultSet rs = st.getGeneratedKeys();
+                rs.next();
+                int id = rs.getInt(1);
+                categoria.setId(id);
             } finally {
                 if (st != null) {
                     st.close();
