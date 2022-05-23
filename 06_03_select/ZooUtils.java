@@ -1,5 +1,3 @@
-import java.util.List;
-
 /** Utilidades para Zoo y UsaZoo que estaran fuera de las otras clases */
 import java.util.List;
 import java.util.LinkedList;
