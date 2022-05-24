@@ -61,6 +61,7 @@ public class Zoo {
     }
     // Elimina la taula categoria
     public void eliminaTaulaCategories() throws SQLException {
+        eliminaTaulaAnimals();
         String sql = "DROP TABLE IF EXISTS CATEGORIES";
         Statement st = null;
         try {
