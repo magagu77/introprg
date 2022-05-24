@@ -42,6 +42,8 @@ public class Zoo {
     // Crea la taula animals
     public void creaTaulaAnimals() throws SQLException {
         eliminaTaulaAnimals();
+        eliminaTaulaCategories();
+        creaTaulaCategories();
         String sql = "CREATE TABLE ANIMALS ("+
             "id        INTEGER PRIMARY KEY AUTOINCREMENT,"+
             "nom       TEXT,"+
