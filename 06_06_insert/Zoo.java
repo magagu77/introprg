@@ -140,7 +140,7 @@ public class Zoo {
     // Clase per a crear una animal a la BDD
     public void afegeixAnimal(Animal animal) throws SQLException {
         String sql = String.format(
-                "INSERT INTO CATEGORIES (nom) VALUES ('%s')",
+                "INSERT INTO ANIMALS (nom) VALUES ('%s')",
                 animal.getNom(), animal.getCategoria().getNom());
         Statement st = null;
         try {
