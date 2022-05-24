@@ -139,6 +139,9 @@ public class Zoo {
     }
     // Clase per a crear una animal a la BDD
     public void afegeixAnimal(Animal animal) throws SQLException {
+        if(animal.getCategoria().idIndefinit()){
+            afegeixCategoria(animal.getCategoria());
+        }
         String sql = String.format(
         "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', '%d')",
         animal.getNom(),
@@ -147,13 +150,10 @@ public class Zoo {
         try {
             st = conn.createStatement();
             st.executeUpdate(sql);
-            if(animal.getCategoria().idIndefinit()){
-                ResultSet rs = st.getGeneratedKeys();
-                rs.next();
-                int id = rs.getInt(1);
-                animal.getCategoria().setId(id);
-                afegeixCategoria(animal.getCategoria());
-            }
+            ResultSet rs = st.getGeneratedKeys();
+            rs.next();
+            int id = rs.getInt(1);
+            animal.setId(id);
         } finally {
             if (st != null) {
                 st.close();
