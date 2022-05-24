@@ -150,6 +150,12 @@ public class Zoo {
             rs.next();
             int id = rs.getInt(1);
             animal.setId(id);
+            sql = "SELECT COUNT(*) FROM CATEGORIES WHERE nom = "+animal.getCategoria().getNom();
+            rs = st.executeQuery(sql);
+            id = rs.getInt(1);
+            if(id == 0) {
+                afegeixCategoria(animal.getCategoria());
+            }
         } finally {
             if (st != null) {
                 st.close();
