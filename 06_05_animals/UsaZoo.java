@@ -1,3 +1,4 @@
+/** Clase usa zoo per provar el zoo de l'exercici 06_05 i la clase categoria */
 import java.sql.SQLException;
 public class UsaZoo {
     public static void main( String args[]) throws SQLException {
