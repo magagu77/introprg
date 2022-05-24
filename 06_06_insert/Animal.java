@@ -28,6 +28,7 @@ public class Animal {
         }
         this.nom = nom;
         this.categoria = categoria;
+        this.id = id;
     }
     // Getters
     public int getId() {return id;}
@@ -35,4 +36,12 @@ public class Animal {
     public Categoria getCategoria() {return categoria;}
 
     public String getNom() {return nom;}
+
+    // Setters
+    public void setId(int id) {
+        if (id < 0) {
+            throw new IllegalArgumentException("L'identificador ha de ser positiu");
+        }
+        this.id = id;
+    }
 }
