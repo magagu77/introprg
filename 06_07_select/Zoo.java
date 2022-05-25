@@ -108,12 +108,53 @@ public class Zoo {
             }
         }
     }
+    // Crea una lista amb els animals guardats
+    public List<Animal> recuperaAnimals() throws SQLException {
+        String sql = "SELECT ANIMALS.id as id_animal,"+
+                    "ANIMALS.nom as nom_animal,"+
+                    "CATEGORIES.id as id_categoria,"+
+                    "CATEGORIES.nom as nom_categoria"+
+                    "FROM ANIMALS, CATEGORIES"+
+                    "WHERE ANIMALS.categoria = CATEGORIES.id"+
+                    "ORDER BY ANIMALS.nom";
+        Statement st = null;
+        try {
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            List<Animal> animals = new LinkedList<>();
+            while (rs.next()) {
+                int categoriaId = rs.getInt("id_categoria");
+                String categoriaNom = rs.getString("nom_categoria");
+                String animalNom = rs.getString("nom_animal");
+                int animalId = rs.getInt("id_animal");
+                Categoria categoria = new Categoria(categoriaId,categoriaNom);
+                Animal animal = new Animal(animalId, animalNom,categoria);
+                animals.add(animal);
+            }
+            rs.close();
+            return animals;
+        } finally {
+            if (st != null) {
+                st.close();
+            }
+        }
+    }
     // Busca una categoria per nom
     public Categoria obteCategoriaPerNom(String nom) throws SQLException {
         List<Categoria> categories = recuperaCategories();
         for(Categoria categoria: categories){
             if(categoria.getNom().equals(nom)){
                 return categoria;
+            }
+        }
+        return null;
+    }
+    // Busca un animal per nom
+    public Animal obteAnimalPerNom(String nom) throws SQLException {
+        List<Animal> animals = recuperaAnimals();
+        for(Animal animal: animals) {
+            if(animal.getNom().equals(nom)) {
+                return nom;
             }
         }
         return null;
@@ -140,7 +181,7 @@ public class Zoo {
     // Clase per a crear una animal a la BDD
     public void afegeixAnimal(Animal animal) throws SQLException {
         Categoria categoria = obteCategoriaPerNom(animal.getCategoria().getNom());
-        if (categoria==null) {
+        if (categoria=null) {
             afegeixCategoria(animal.getCategoria());
         }
         String sql = String.format(

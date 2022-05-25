@@ -1,4 +1,4 @@
-/** Clase usa zoo per provar el zoo de l'exercici 06_06 i la clase categoria */
+/** Clase usa zoo per provar el zoo de l'exercici 06_07 i la clase categoria */
 import java.sql.SQLException;
 public class UsaZoo {
     public static void main( String args[]) throws SQLException {
@@ -16,7 +16,8 @@ public class UsaZoo {
         System.out.println();
         System.out.println("Introduïm categories amb una de repetida");
         Categoria peix = new Categoria("peix");
-        zoo.afegeixCategoria(new Categoria("ocell"));
+        Categoria ocell = new Categoria("ocell");
+        zoo.afegeixCategoria(ocell);
         zoo.afegeixCategoria(peix);
         zoo.afegeixCategoria(new Categoria("ocell"));
         ZooUtils.mostraCategories(zoo.recuperaCategories());
@@ -28,7 +29,7 @@ public class UsaZoo {
 
         System.out.println();
         System.out.println("Afegim guppy dins d'una categoria coneguda");
-        zoo.afegeixAnimal(new Animal("pardal", new Categoria("ocell")));
+        zoo.afegeixAnimal(new Animal("pardal", ocell));
         ZooUtils.mostraCategories(zoo.recuperaCategories());
 
         System.out.println();
