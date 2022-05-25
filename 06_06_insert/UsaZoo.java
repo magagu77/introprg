@@ -29,7 +29,7 @@ public class UsaZoo {
 
         System.out.println();
         System.out.println("Afegim guppy dins d'una categoria coneguda");
-        zoo.afegeixAnimal(new Animal("pardal", new Categoria("ocell")));
+        zoo.afegeixAnimal(new Animal("pardal", ocell));
         ZooUtils.mostraCategories(zoo.recuperaCategories());
 
         System.out.println();
