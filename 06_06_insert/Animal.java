@@ -44,4 +44,7 @@ public class Animal {
         }
         this.id = id;
     }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }
