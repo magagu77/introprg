@@ -110,13 +110,13 @@ public class Zoo {
     }
     // Crea una lista amb els animals guardats
     public List<Animal> recuperaAnimals() throws SQLException {
-        String sql = "SELECT ANIMALS.id as id_animal,"+
-                    "ANIMALS.nom as nom_animal,"+
-                    "CATEGORIES.id as id_categoria,"+
-                    "CATEGORIES.nom as nom_categoria"+
-                    "FROM ANIMALS, CATEGORIES"+
-                    "WHERE ANIMALS.categoria = CATEGORIES.id"+
-                    "ORDER BY ANIMALS.nom";
+        String sql = "SELECT ANIMALS.id as id_animal, "+
+        "ANIMALS.nom as nom_animal, "+
+        "CATEGORIES.id as id_categoria, "+
+        "CATEGORIES.nom as nom_categoria "+
+        "FROM ANIMALS, CATEGORIES "+
+        "WHERE ANIMALS.categoria = CATEGORIES.id "+
+        "ORDER BY ANIMALS.nom";
         Statement st = null;
         try {
             st = conn.createStatement();
