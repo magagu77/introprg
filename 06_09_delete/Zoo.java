@@ -110,12 +110,12 @@ public class Zoo {
     // Crea una lista amb els animals guardats
     public List<Animal> recuperaAnimals() throws SQLException {
         String sql = "SELECT ANIMALS.id as id_animal, "+
-                    "ANIMALS.nom as nom_animal, "+
-                    "CATEGORIES.id as id_categoria, "+
-                    "CATEGORIES.nom as nom_categoria "+
-                    "FROM ANIMALS, CATEGORIES "+
-                    "WHERE ANIMALS.categoria = CATEGORIES.id "+
-                    "ORDER BY ANIMALS.nom";
+        "ANIMALS.nom as nom_animal, "+
+        "CATEGORIES.id as id_categoria, "+
+        "CATEGORIES.nom as nom_categoria "+
+        "FROM ANIMALS, CATEGORIES "+
+        "WHERE ANIMALS.categoria = CATEGORIES.id "+
+        "ORDER BY ANIMALS.nom";
         Statement st = null;
         try {
             st = conn.createStatement();
@@ -218,9 +218,16 @@ public class Zoo {
     }
     // Permet modificar la categoria d'un animal
     public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
-        categoria = obteCategoriaPerNom(categoria.getNom());
-        if (categoria==null) {
+        Animal nouAnimal = obteAnimalPerNom(animal.getNom());
+        if (nouAnimal == null){
+            afegeixAnimal(animal);
+        }
+        Categoria novaCategoria = obteCategoriaPerNom(categoria.getNom());
+        if (novaCategoria==null) {
             afegeixCategoria(categoria);
+        }
+        if (categoria.idIndefinit()){
+            categoria = obteCategoriaPerNom(categoria.getNom());
         }
         animal.setCategoria(categoria);
         int idAnimal = animal.getId();
