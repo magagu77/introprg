@@ -121,7 +121,7 @@ public class Zoo {
         try {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            List<Animal> animals = new LinkedList<>();
+            List<Animal> animals = new ArrayList<>();
             while (rs.next()) {
                 int categoriaId = rs.getInt("id_categoria");
                 String categoriaNom = rs.getString("nom_categoria");
@@ -187,7 +187,7 @@ public class Zoo {
         }
         animal.setCategoria(categoria);
         String sql = String.format(
-        "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', '%d');", animal.getNom(), categoria.getId(),
+        "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', '%d')", animal.getNom(), categoria.getId(),
         animal.getNom(),
         animal.getCategoria().getId());
         Statement st = null;
@@ -218,7 +218,7 @@ public class Zoo {
         return taules.size() > 0 ? String.join(", ", taules) : "cap";
     }
     // Permet modificar la categoria d'un animal
-    public void canviaCategoria(Categoria categoria, Animal animal) throws SQLException {
+    public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
         categoria = obteCategoriaPerNom(categoria.getNom());
         if (categoria==null) {
             afegeixCategoria(categoria);
