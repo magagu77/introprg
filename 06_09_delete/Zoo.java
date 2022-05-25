@@ -109,12 +109,12 @@ public class Zoo {
     }
     // Crea una lista amb els animals guardats
     public List<Animal> recuperaAnimals() throws SQLException {
-        String sql = "SELECT ANIMALS.id as id_animal,"+
-                    "ANIMALS.nom as nom_animal,"+
-                    "CATEGORIES.id as id_categoria,"+
-                    "CATEGORIES.nom as nom_categoria"+
-                    "FROM ANIMALS, CATEGORIES"+
-                    "WHERE ANIMALS.categoria = CATEGORIES.id"+
+        String sql = "SELECT ANIMALS.id as id_animal, "+
+                    "ANIMALS.nom as nom_animal, "+
+                    "CATEGORIES.id as id_categoria, "+
+                    "CATEGORIES.nom as nom_categoria "+
+                    "FROM ANIMALS, CATEGORIES "+
+                    "WHERE ANIMALS.categoria = CATEGORIES.id "+
                     "ORDER BY ANIMALS.nom";
         Statement st = null;
         try {
@@ -243,6 +243,9 @@ public class Zoo {
     }
     // Elimina dades de les taules
     public void eliminaAnimal(Animal animal)throws SQLException {
+        if(animal.getId()==-1) {
+            return;
+        }
         String sql = String.format("DELETE FROM ANIMALS WHERE id = %d;", animal.getId());
         Statement st = null;
         try {
@@ -255,8 +258,11 @@ public class Zoo {
         }
     }
     public void eliminaCategoria(Categoria categoria) throws SQLException{
+        if (categoria.idIndefinit()) {
+            return;
+        }
         String sql = String.format("DELETE FROM ANIMALS WHERE id = %d;", categoria.getId());
-        String sql2 = String.format("DELETE FROM CATEGORIA WHERE id = %d;", categoria.getId());
+        String sql2 = String.format("DELETE FROM CATEGORIES WHERE id = %d;", categoria.getId());
         Statement st = null;
         try {
             st = conn.createStatement();
