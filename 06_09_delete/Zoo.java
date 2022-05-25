@@ -1,5 +1,4 @@
-/** Clase zoo en l'exercici 06_02 que prova a conectarse a una base de dades SQLite per a guardar 
- *  la taula categories, o eliminarla*/
+/** Clase zoo en l'exercici 06_09 que prova a eliminar dades de les taules*/
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -241,5 +240,32 @@ public class Zoo {
                 st.close();
                 }
             }
+    }
+    // Elimina dades de les taules
+    public void eliminaAnimal(Animal animal)throws SQLException {
+        String sql = String.format("DELETE FROM ANIMALS WHERE id = %d;", animal.getId());
+        Statement st = null;
+        try {
+            st = conn.createStatement();
+            st.executeUpdate(sql);
+            } finally {
+            if (st != null) {
+                st.close();
+            }
+        }
+    }
+    public void eliminaCategoria(Categoria categoria) throws SQLException{
+        String sql = String.format("DELETE FROM ANIMALS WHERE id = %d;", categoria.getId());
+        String sql2 = String.format("DELETE FROM CATEGORIA WHERE id = %d;", categoria.getId());
+        Statement st = null;
+        try {
+            st = conn.createStatement();
+            st.executeUpdate(sql);
+            st.executeUpdate(sql2);
+            } finally {
+            if (st != null) {
+                st.close();
+            }
+        }
     }
 }
