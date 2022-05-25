@@ -116,7 +116,7 @@ public class Zoo {
                     "CATEGORIES.nom as nom_categoria"+
                     "FROM ANIMALS, CATEGORIES"+
                     "WHERE ANIMALS.categoria = CATEGORIES.id"+
-                    "ORDER BY ANIMALS.nom";
+                    "ORDER BY nom_animal";
         Statement st = null;
         try {
             st = conn.createStatement();
@@ -128,7 +128,7 @@ public class Zoo {
                 String animalNom = rs.getString("nom_animal");
                 int animalId = rs.getInt("id_animal");
                 Categoria categoria = new Categoria(categoriaId,categoriaNom);
-                Animal animal = new Animal(animalId, animalNom,categoria);
+                Animal animal = new Animal(animalId, animalNom, categoria);
                 animals.add(animal);
             }
             rs.close();
