@@ -224,8 +224,11 @@ public class Zoo {
             afegeixAnimal(animal);
         }
         Categoria novaCategoria = obteCategoriaPerNom(categoria.getNom());
-        if (novaCategoria==null || categoria.idIndefinit()) {
+        if (novaCategoria==null) {
             afegeixCategoria(categoria);
+        }
+        if (categoria.idIndefinit()){
+            categoria = obteCategoriaPerNom(categoria.getNom());
         }
         animal.setCategoria(categoria);
         int idAnimal = animal.getId();
