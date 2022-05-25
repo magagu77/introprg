@@ -18,7 +18,7 @@ public class ZooUtils {
             System.out.println("Cap animal");
             return;
         }
-        System.out.println("Nombre d' animals: "+animals.size());
+        System.out.println("Nombre d'animals: "+animals.size());
         for(Animal animal: animals) {
             System.out.println("\t"+animal);
         }
