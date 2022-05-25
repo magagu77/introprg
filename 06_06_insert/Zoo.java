@@ -142,6 +142,7 @@ public class Zoo {
         Categoria categoria = obteCategoriaPerNom(animal.getCategoria().getNom());
         if (categoria==null) {
             afegeixCategoria(animal.getCategoria());
+            categoria =animal.getCategoria();
         }
         animal.setCategoria(categoria);
         String sql = String.format(
