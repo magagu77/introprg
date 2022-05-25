@@ -13,4 +13,14 @@ public class ZooUtils {
             System.out.println("\t"+categoria);
         }
     }
+    public void mostraAnimals(List<Animal> animals) {
+        if (animals.isEmpty()) {
+            System.out.println("Cap animal");
+            return;
+        }
+        System.out.println("Nombre de animals: "+animals.size());
+        for(Animal animal: animals) {
+            System.out.println("\t"+animal);
+        }
+    }
 }
