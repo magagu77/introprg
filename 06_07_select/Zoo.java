@@ -154,7 +154,7 @@ public class Zoo {
         List<Animal> animals = recuperaAnimals();
         for(Animal animal: animals) {
             if(animal.getNom().equals(nom)) {
-                return nom;
+                return animal;
             }
         }
         return null;
@@ -181,9 +181,11 @@ public class Zoo {
     // Clase per a crear una animal a la BDD
     public void afegeixAnimal(Animal animal) throws SQLException {
         Categoria categoria = obteCategoriaPerNom(animal.getCategoria().getNom());
-        if (categoria=null) {
+        if (categoria==null) {
             afegeixCategoria(animal.getCategoria());
+            categoria =animal.getCategoria();
         }
+        animal.setCategoria(categoria);
         String sql = String.format(
         "INSERT INTO ANIMALS (nom, categoria) VALUES ('%s', '%d')",
         animal.getNom(),

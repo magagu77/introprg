@@ -44,4 +44,13 @@ public class Animal {
         }
         this.id = id;
     }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    @Override
+    public String toString() {
+        return "Animal(id:" +
+            (id < 0 ? "indefinit" : id) +
+            ", " + nom + ", "+categoria+")";
+    }
 }
