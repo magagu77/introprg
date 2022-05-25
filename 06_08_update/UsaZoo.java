@@ -1,4 +1,4 @@
-/** Clase usa zoo per provar el zoo de l'exercici 06_07 i la clase categoria */
+/** Clase usa zoo per provar el zoo de l'exercici 06_08 i la clase categoria */
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Arrays;
@@ -16,47 +16,55 @@ public class UsaZoo {
         System.out.println("Taules resultants: " + zoo.getNomTaules());
 
         System.out.println();
-        System.out.println("Introduïm categories amb una de repetida");
-        Categoria peix = new Categoria("peix");
-        zoo.afegeixCategoria(new Categoria("ocell"));
-        zoo.afegeixCategoria(peix);
-        zoo.afegeixCategoria(new Categoria("ocell"));
+        System.out.println("Introduïm una categoria");
+        Categoria mamifer = new Categoria("mamífer");
+        zoo.afegeixCategoria(mamifer);
         ZooUtils.mostraCategories(zoo.recuperaCategories());
-
-        // creem una llista d'animals amb un de repetit
+        //
+        // creem una llista d'animals amb algun malament classificat
+        Animal balena = new Animal("balena", new Categoria("peix"));
+        Animal tarantula = new Animal("taràntula", new Categoria("insecte"));
         List<Animal> animals = Arrays.asList(
             new Animal("pardal", new Categoria("ocell")),
-            new Animal("gat", new Categoria("mamífer")),
+            new Animal("gat", mamifer),
             new Animal("guppy", new Categoria("peix")),
-            new Animal("gat", new Categoria("mamífer"))
+            balena,
+            tarantula
             );
 
         System.out.println();
-        System.out.println("Considerem els següents animals");
-        ZooUtils.mostraAnimals(animals);
-
-        // Afegim els animals
+        System.out.println("Afegim uns quants animals");
         for (Animal animal: animals) {
             zoo.afegeixAnimal(animal);
         }
-
-        System.out.println();
-        System.out.println("Un cop afegits, els animals queden:");
-        ZooUtils.mostraAnimals(animals);
-
-        System.out.println();
         System.out.println("A la base de dades, els animals són:");
         ZooUtils.mostraAnimals(zoo.recuperaAnimals());
-
-        System.out.println();
         System.out.println("A la base de dades, les categories són:");
         ZooUtils.mostraCategories(zoo.recuperaCategories());
 
         System.out.println();
-        System.out.println("Recuperem ara alguns animals per nom");
-        System.out.println("El guppy: " + zoo.obteAnimalPerNom("guppy"));
-        System.out.println("El gat: " + zoo.obteAnimalPerNom("gat"));
-        System.out.println("El gat Renat: " + zoo.obteAnimalPerNom("Renat"));
+        System.out.println("Corregim la categoria de la balena a una ja existent");
+        zoo.canviaCategoria(balena, mamifer);
+        System.out.println("A la base de dades, els animals són:");
+        ZooUtils.mostraAnimals(zoo.recuperaAnimals());
+        System.out.println("A la base de dades, les categories són:");
+        ZooUtils.mostraCategories(zoo.recuperaCategories());
+
+        System.out.println();
+        System.out.println("Modifiquem la categoria de la taràntula a una que no existeix");
+        zoo.canviaCategoria(tarantula, new Categoria("aràcnid"));
+        System.out.println("A la base de dades, els animals són:");
+        ZooUtils.mostraAnimals(zoo.recuperaAnimals());
+        System.out.println("A la base de dades, les categories són:");
+        ZooUtils.mostraCategories(zoo.recuperaCategories());
+
+        System.out.println();
+        System.out.println("Intentem modificar la categoria d'un animal que no existeix");
+        zoo.canviaCategoria(new Animal("cavall de mar", mamifer), new Categoria("peix"));
+        System.out.println("A la base de dades, els animals són:");
+        ZooUtils.mostraAnimals(zoo.recuperaAnimals());
+        System.out.println("A la base de dades, les categories són:");
+        ZooUtils.mostraCategories(zoo.recuperaCategories());
 
         System.out.println();
         System.out.print("Finalment tanquem la connexió amb la base de dades: ");
