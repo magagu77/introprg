@@ -219,8 +219,8 @@ public class Zoo {
     }
     // Permet modificar la categoria d'un animal
     public void canviaCategoria(Animal animal, Categoria categoria) throws SQLException {
-        categoria = obteCategoriaPerNom(categoria.getNom());
-        if (categoria==null) {
+        Categoria novaCategoria = obteCategoriaPerNom(categoria.getNom());
+        if (novaCategoria==null) {
             afegeixCategoria(categoria);
         }
         animal.setCategoria(categoria);
