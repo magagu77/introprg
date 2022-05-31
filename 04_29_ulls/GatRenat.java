@@ -20,6 +20,13 @@
             ulls[0] = new UllDeGat(false);
             ulls[1] = new UllDeGat(false);
         }
+        public GatRenat(String posicio, boolean ull1, boolean ull2){
+            setPosicio("estirat");
+            setVides(7);
+            ulls = new UllDeGat[2];
+            ulls[0] = new UllDeGat(ull1);
+            ulls[1] = new UllDeGat(ull2);
+        }
         public GatRenat (String posicio) {
             setPosicio(posicio);
         }
