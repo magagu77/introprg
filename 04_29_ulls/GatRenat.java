@@ -68,7 +68,8 @@
         }
         
         public UllDeGat getUllEsquerre() {
-            return ulls[1];
+            UllDeGat ull = ulls[1]; 
+            return ull;
         }
         public void aixecat(){
             setPosicio("dret");
