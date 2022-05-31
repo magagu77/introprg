@@ -64,7 +64,8 @@
             else return false;
         }
         public UllDeGat getUllDret() {
-            return ulls[0];
+            UllDeGat ull = ulls[0]; 
+            return ull;
         }
         
         public UllDeGat getUllEsquerre() {
